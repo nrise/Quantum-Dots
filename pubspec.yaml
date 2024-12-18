@@ -1,0 +1,8 @@
+name: quantum_dots_monorepo
+version: 0.0.1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+dev_dependencies:
+  melos: ^6.1.0
+  build_runner: ^2.4.13

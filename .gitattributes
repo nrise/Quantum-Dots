@@ -1,0 +1,5 @@
+*.g.dart linguist-generated=true
+*.freezed.dart linguist-generated=true
+*.config.dart linguist-generated=true
+*.mocks.dart linguist-generated=true
+pubspec_overrides.yaml linguist-generated=true

@@ -1,0 +1,21 @@
+REVIEW NEEDED:
+  - changed-files:
+      - any-glob-to-any-file: '*'
+
+docs:
+  - head-branch: [ '^docs', 'docs' ]
+
+feature:
+  - head-branch: [ '^feature', 'feature' ]
+
+enhancement:
+  - head-branch: [ '^enhancement', 'enhancement' ]
+
+bug:
+  - head-branch: [ '^bug', 'bug' ]
+
+chore:
+  - head-branch: [ '^chore', 'chore' ]
+
+release:
+  - base-branch: 'main'
