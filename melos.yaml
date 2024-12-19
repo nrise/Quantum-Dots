@@ -1,0 +1,52 @@
+name: quantum_dots_monorepo
+repository: https://github.com/nrise/Quantum-Dots
+
+packages:
+  - 'quantum_dots'
+  - 'quantum_dots/example'
+  - 'packages/**'
+ide:
+  intellij:
+    enabled: true
+    moduleNamePrefix: ''
+  vscode: true
+
+command:
+  clean:
+    hooks:
+      post:
+        run: |
+          melos exec -c 6 -- flutter clean
+        description: flutter clean
+  bootstrap:
+    hooks:
+      post: melos generate
+
+scripts:
+  generate:
+    description: "Build all generated files for dart"
+    run: melos exec -c 1 --depends-on build_runner -- dart run build_runner build -d
+
+  generate:parallel:
+    description: "Build all generated files for dart in parallel"
+    run: melos exec -c 4 --depends-on build_runner -- dart run build_runner build -d
+
+  get:
+    description: "flutter pub get"
+    run: melos exec -c 6 -- flutter pub get
+
+  upgrade:
+    description: "flutter pub upgrade"
+    run: melos exec -c 6 -- flutter pub upgrade
+
+  analyze:
+    run: melos exec -c 6 -- flutter analyze
+    description: "flutter analyze"
+
+  format:
+    run: dart format --set-exit-if-changed .
+    description: "dart format --set-exit-if-changed ."
+
+  unit_test:
+    description: "Run all Flutter tests in this project."
+    run: melos exec --dir-exists="test" --fail-fast -- flutter test --no-pub --coverage
