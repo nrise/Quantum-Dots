@@ -1,0 +1,19 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  cd:
+    runs-on: ubuntu-latest-2x
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Publish to pub.dev
+        run: |
+          cd quantum_dots
+          dart pub publish

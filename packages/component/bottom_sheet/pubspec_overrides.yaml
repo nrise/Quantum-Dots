@@ -1,0 +1,14 @@
+# melos_managed_dependency_overrides: button,chips,common_widget,foundation,input,spinner
+dependency_overrides:
+  button:
+    path: ../button
+  chips:
+    path: ../chips
+  common_widget:
+    path: ../common_widget
+  foundation:
+    path: ../../foundation
+  input:
+    path: ../input
+  spinner:
+    path: ../spinner

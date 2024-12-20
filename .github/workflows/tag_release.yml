@@ -1,0 +1,30 @@
+name: Tag Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  tag-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Extract version from pubspec.yaml
+      id: get-version
+      run: |
+        CURRENT_VERSION=$(grep '^version: ' pubspec.yaml | awk '{print $2}' | cut -d+ -f1)
+        echo "Extracted version: $CURRENT_VERSION"
+        echo "version=$CURRENT_VERSION" >> $GITHUB_ENV
+
+    - name: Create GitHub tag
+      run: |
+        TAG="v${{ env.version }}"
+        echo "Creating tag $TAG"
+        git tag "$TAG"
+        git push origin "$TAG"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

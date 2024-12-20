@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: foundation,spinner
+dependency_overrides:
+  foundation:
+    path: ../../foundation
+  spinner:
+    path: ../spinner

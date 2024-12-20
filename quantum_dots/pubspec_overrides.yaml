@@ -1,0 +1,30 @@
+# melos_managed_dependency_overrides: badge,bottom_sheet,button,chips,common_widget,foundation,header,input,markdown_text,progress,spinner,toast,popup,empty_states
+dependency_overrides:
+  badge:
+    path: ../packages/component/badge
+  bottom_sheet:
+    path: ../packages/component/bottom_sheet
+  button:
+    path: ../packages/component/button
+  chips:
+    path: ../packages/component/chips
+  common_widget:
+    path: ../packages/component/common_widget
+  empty_states:
+    path: ../packages/component/empty_states
+  foundation:
+    path: ../packages/foundation
+  header:
+    path: ../packages/component/header
+  input:
+    path: ../packages/component/input
+  markdown_text:
+    path: ../packages/component/markdown_text
+  popup:
+    path: ../packages/component/popup
+  progress:
+    path: ../packages/component/progress
+  spinner:
+    path: ../packages/component/spinner
+  toast:
+    path: ../packages/component/toast

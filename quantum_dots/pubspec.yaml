@@ -1,0 +1,42 @@
+name: quantum_dots
+description: the design system for wippy global product
+version: 0.0.1
+homepage: https://github.com/nrise/Quantum-Dots
+topics:
+  - animations
+  - ui
+  - design-system
+  - design
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  foundation: ^0.0.1
+  button: ^0.0.1
+  input: ^0.0.1
+  toast: ^0.0.1
+  markdown_text: ^0.0.1
+  progress: ^0.0.1
+  spinner: ^0.0.1
+  header: ^0.0.1
+  common_widget: ^0.0.1
+  bottom_sheet: ^0.0.1
+  badge: ^0.0.1
+  chips: ^0.0.1
+  popup: ^0.0.1
+  empty_states: ^0.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  injectable_generator: ^2.6.2
+  build_runner: ^2.4.13
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
