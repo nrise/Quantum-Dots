@@ -1,30 +1,30 @@
-# melos_managed_dependency_overrides: badge,bottom_sheet,button,chips,common_widget,foundation,header,input,markdown_text,progress,spinner,toast,popup,empty_states
+# melos_managed_dependency_overrides: qds_badge,qds_bottom_sheet,qds_button,qds_chips,qds_common_widget,qds_empty_states,qds_foundation,qds_header,qds_input,qds_markdown_text,qds_popup,qds_progress,qds_spinner,qds_toast
 dependency_overrides:
-  badge:
+  qds_badge:
     path: ../packages/component/badge
-  bottom_sheet:
+  qds_bottom_sheet:
     path: ../packages/component/bottom_sheet
-  button:
+  qds_button:
     path: ../packages/component/button
-  chips:
+  qds_chips:
     path: ../packages/component/chips
-  common_widget:
+  qds_common_widget:
     path: ../packages/component/common_widget
-  empty_states:
+  qds_empty_states:
     path: ../packages/component/empty_states
-  foundation:
+  qds_foundation:
     path: ../packages/foundation
-  header:
+  qds_header:
     path: ../packages/component/header
-  input:
+  qds_input:
     path: ../packages/component/input
-  markdown_text:
+  qds_markdown_text:
     path: ../packages/component/markdown_text
-  popup:
+  qds_popup:
     path: ../packages/component/popup
-  progress:
+  qds_progress:
     path: ../packages/component/progress
-  spinner:
+  qds_spinner:
     path: ../packages/component/spinner
-  toast:
+  qds_toast:
     path: ../packages/component/toast

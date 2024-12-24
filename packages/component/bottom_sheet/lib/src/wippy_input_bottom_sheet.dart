@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foundation/foundation.dart';
-import 'package:input/input.dart';
+import 'package:qds_foundation/foundation.dart';
+import 'package:qds_input/input.dart';
 
 import 'selectable_button_component.dart';
 

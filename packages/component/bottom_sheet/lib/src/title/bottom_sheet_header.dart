@@ -1,7 +1,7 @@
-import 'package:bottom_sheet/bottom_sheet.dart';
-import 'package:common_widget/common_widget.dart';
+import 'package:qds_bottom_sheet/bottom_sheet.dart';
+import 'package:qds_common_widget/common_widget.dart';
 import 'package:flutter/widgets.dart';
-import 'package:foundation/foundation.dart';
+import 'package:qds_foundation/foundation.dart';
 
 class BottomSheetHeader extends StatelessWidget {
   static const double _leadingAndActionsAreaSize = 80;

@@ -1,6 +1,6 @@
-import 'package:chips/chips.dart';
+import 'package:qds_chips/chips.dart';
 import 'package:flutter/widgets.dart';
-import 'package:foundation/foundation.dart';
+import 'package:qds_foundation/foundation.dart';
 
 class SingleSelectiveLargeChip extends StatelessWidget {
   static const double _selectedBorderWidth = 1;

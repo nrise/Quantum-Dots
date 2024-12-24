@@ -58,14 +58,14 @@ class _$SingleSelectiveChipsUiStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? chips = null,
-    Object? sizeType = null,
+    Object? sizeType = freezed,
   }) {
     return _then(_value.copyWith(
       chips: null == chips
           ? _value.chips
           : chips // ignore: cast_nullable_to_non_nullable
               as Iterable<SingleSelectiveChipUiState>,
-      sizeType: null == sizeType
+      sizeType: freezed == sizeType
           ? _value.sizeType
           : sizeType // ignore: cast_nullable_to_non_nullable
               as SingleSelectiveChipSizeType,
@@ -103,14 +103,14 @@ class __$$SingleSelectiveChipsUiStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? chips = null,
-    Object? sizeType = null,
+    Object? sizeType = freezed,
   }) {
     return _then(_$SingleSelectiveChipsUiStateImpl(
       chips: null == chips
           ? _value.chips
           : chips // ignore: cast_nullable_to_non_nullable
               as Iterable<SingleSelectiveChipUiState>,
-      sizeType: null == sizeType
+      sizeType: freezed == sizeType
           ? _value.sizeType
           : sizeType // ignore: cast_nullable_to_non_nullable
               as SingleSelectiveChipSizeType,
@@ -143,13 +143,14 @@ class _$SingleSelectiveChipsUiStateImpl
         (other.runtimeType == runtimeType &&
             other is _$SingleSelectiveChipsUiStateImpl &&
             const DeepCollectionEquality().equals(other.chips, chips) &&
-            (identical(other.sizeType, sizeType) ||
-                other.sizeType == sizeType));
+            const DeepCollectionEquality().equals(other.sizeType, sizeType));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(chips), sizeType);
+      runtimeType,
+      const DeepCollectionEquality().hash(chips),
+      const DeepCollectionEquality().hash(sizeType));
 
   /// Create a copy of SingleSelectiveChipsUiState
   /// with the given fields replaced by the non-null parameter values.

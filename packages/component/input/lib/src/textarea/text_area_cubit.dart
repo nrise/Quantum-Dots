@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:input/src/textarea/text_area_initial_data.dart';
-import 'package:input/src/textarea/text_area_ui_state.dart';
-import 'package:input/src/type/text_input_state.dart';
+import 'package:qds_input/src/textarea/text_area_initial_data.dart';
+import 'package:qds_input/src/textarea/text_area_ui_state.dart';
+import 'package:qds_input/src/type/text_input_state.dart';
 
 import '../type/text_input_focus_state.dart';
 

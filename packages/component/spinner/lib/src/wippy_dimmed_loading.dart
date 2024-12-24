@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:foundation/foundation.dart';
-import 'package:spinner/spinner.dart';
+import 'package:qds_foundation/foundation.dart';
+import 'package:qds_spinner/spinner.dart';
 
 class WippyDimmedLoading extends StatelessWidget {
   static OverlayEntry createLoadingOverlayEntry() {

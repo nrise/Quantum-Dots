@@ -1,10 +1,10 @@
-# melos_managed_dependency_overrides: button,common_widget,foundation,spinner
+# melos_managed_dependency_overrides: qds_button,qds_common_widget,qds_foundation,qds_spinner
 dependency_overrides:
-  button:
+  qds_button:
     path: ../button
-  common_widget:
+  qds_common_widget:
     path: ../common_widget
-  foundation:
+  qds_foundation:
     path: ../../foundation
-  spinner:
+  qds_spinner:
     path: ../spinner

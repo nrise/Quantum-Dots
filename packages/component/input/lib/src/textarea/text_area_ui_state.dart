@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:foundation/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:input/src/type/text_input_error_state.dart';
-import 'package:input/src/type/text_input_focus_state.dart';
-import 'package:input/src/type/text_input_state.dart';
+import 'package:qds_foundation/foundation.dart';
+import 'package:qds_input/src/type/text_input_error_state.dart';
+import 'package:qds_input/src/type/text_input_focus_state.dart';
+import 'package:qds_input/src/type/text_input_state.dart';
 
 part 'text_area_ui_state.freezed.dart';
 

@@ -1,6 +1,12 @@
-name: spinner
+name: qds_spinner
 description: "wippy designsystem component spinner"
 version: 0.0.1
+homepage: https://github.com/nrise/Quantum-Dots/component/spinner
+topics:
+  - animations
+  - ui
+  - design-system
+  - design
 
 environment:
   sdk: '>=3.5.0 <4.0.0'
@@ -10,7 +16,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.6
   freezed_annotation: ^2.4.4
-  foundation:
+  qds_foundation: ^0.0.1
 
 dev_dependencies:
   flutter_test:

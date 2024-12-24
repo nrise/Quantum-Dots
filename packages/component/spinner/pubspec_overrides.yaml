@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: foundation
+# melos_managed_dependency_overrides: qds_foundation
 dependency_overrides:
-  foundation:
+  qds_foundation:
     path: ../../foundation

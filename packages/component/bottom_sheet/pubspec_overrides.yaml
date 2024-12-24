@@ -1,14 +1,14 @@
-# melos_managed_dependency_overrides: button,chips,common_widget,foundation,input,spinner
+# melos_managed_dependency_overrides: qds_button,qds_chips,qds_common_widget,qds_foundation,qds_input,qds_spinner
 dependency_overrides:
-  button:
+  qds_button:
     path: ../button
-  chips:
+  qds_chips:
     path: ../chips
-  common_widget:
+  qds_common_widget:
     path: ../common_widget
-  foundation:
+  qds_foundation:
     path: ../../foundation
-  input:
+  qds_input:
     path: ../input
-  spinner:
+  qds_spinner:
     path: ../spinner

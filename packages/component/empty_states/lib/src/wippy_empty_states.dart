@@ -1,8 +1,10 @@
-import 'package:button/button.dart';
-import 'package:empty_states/src/empty_states_ui_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foundation/foundation.dart';
+import 'package:qds_button/button.dart';
+import 'package:qds_common_widget/common_widget.dart';
+import 'package:qds_foundation/foundation.dart';
+
+import 'empty_states_ui_state.dart';
 
 class WippyEmptyStates extends StatelessWidget {
   static const double _iconSize = 48;

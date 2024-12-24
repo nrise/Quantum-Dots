@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foundation/foundation.dart';
+import 'package:qds_foundation/foundation.dart';
 
 class WippyToast extends StatelessWidget {
   static const double _toastHorizontalPaddingSize = 16;

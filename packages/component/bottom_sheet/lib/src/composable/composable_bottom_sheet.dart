@@ -1,4 +1,4 @@
-import 'package:bottom_sheet/bottom_sheet.dart';
+import 'package:qds_bottom_sheet/bottom_sheet.dart';
 import 'package:flutter/widgets.dart';
 
 class ComposableBottomSheet extends StatelessWidget {

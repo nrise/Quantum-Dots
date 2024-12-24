@@ -1,6 +1,6 @@
-import 'package:button/button.dart';
+import 'package:qds_button/button.dart';
 import 'package:flutter/widgets.dart';
-import 'package:foundation/foundation.dart';
+import 'package:qds_foundation/foundation.dart';
 
 class BottomCtaButton extends StatelessWidget {
   final ButtonLabelType _labelType;

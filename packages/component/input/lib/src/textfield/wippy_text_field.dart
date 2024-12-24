@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foundation/foundation.dart';
-import 'package:input/src/textfield/text_field_cubit.dart';
+import 'package:qds_foundation/foundation.dart';
+import 'package:qds_input/src/textfield/text_field_cubit.dart';
 
-import '../../input.dart';
+import '../../qds_input.dart';
 
 class WippyTextField extends StatelessWidget {
   static const double _underlineWidth = 2;

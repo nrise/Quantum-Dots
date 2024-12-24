@@ -1,7 +1,7 @@
-import 'package:badge/src/badge_type.dart';
-import 'package:badge/src/dot_badge_component.dart';
-import 'package:badge/src/n_badge_component.dart';
-import 'package:badge/src/number_badge_component.dart';
+import 'package:qds_badge/src/badge_type.dart';
+import 'package:qds_badge/src/dot_badge_component.dart';
+import 'package:qds_badge/src/n_badge_component.dart';
+import 'package:qds_badge/src/number_badge_component.dart';
 import 'package:flutter/material.dart';
 
 class WippyBadge extends StatelessWidget {

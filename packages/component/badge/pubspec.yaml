@@ -1,4 +1,4 @@
-name: badge
+name: qds_badge
 description: "Badge"
 version: 0.0.1
 
@@ -10,8 +10,8 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.6
   freezed_annotation: ^2.4.4
-  foundation:
-  common_widget:
+  qds_foundation: ^0.0.1
+  qds_common_widget: ^0.0.1
 
 dev_dependencies:
   flutter_test:

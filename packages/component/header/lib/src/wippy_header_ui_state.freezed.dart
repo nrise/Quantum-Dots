@@ -41,10 +41,6 @@ abstract class $WippyHeaderUiStateCopyWith<$Res> {
       WippyHeaderActions? actions,
       Color backgroundColor,
       bool needToShowUnderline});
-
-  $WippyHeaderLeadingCopyWith<$Res>? get leading;
-  $WippyHeaderTitleCopyWith<$Res>? get title;
-  $WippyHeaderActionsCopyWith<$Res>? get actions;
 }
 
 /// @nodoc
@@ -91,48 +87,6 @@ class _$WippyHeaderUiStateCopyWithImpl<$Res, $Val extends WippyHeaderUiState>
               as bool,
     ) as $Val);
   }
-
-  /// Create a copy of WippyHeaderUiState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $WippyHeaderLeadingCopyWith<$Res>? get leading {
-    if (_value.leading == null) {
-      return null;
-    }
-
-    return $WippyHeaderLeadingCopyWith<$Res>(_value.leading!, (value) {
-      return _then(_value.copyWith(leading: value) as $Val);
-    });
-  }
-
-  /// Create a copy of WippyHeaderUiState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $WippyHeaderTitleCopyWith<$Res>? get title {
-    if (_value.title == null) {
-      return null;
-    }
-
-    return $WippyHeaderTitleCopyWith<$Res>(_value.title!, (value) {
-      return _then(_value.copyWith(title: value) as $Val);
-    });
-  }
-
-  /// Create a copy of WippyHeaderUiState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $WippyHeaderActionsCopyWith<$Res>? get actions {
-    if (_value.actions == null) {
-      return null;
-    }
-
-    return $WippyHeaderActionsCopyWith<$Res>(_value.actions!, (value) {
-      return _then(_value.copyWith(actions: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -149,13 +103,6 @@ abstract class _$$WippyHeaderUiStateImplCopyWith<$Res>
       WippyHeaderActions? actions,
       Color backgroundColor,
       bool needToShowUnderline});
-
-  @override
-  $WippyHeaderLeadingCopyWith<$Res>? get leading;
-  @override
-  $WippyHeaderTitleCopyWith<$Res>? get title;
-  @override
-  $WippyHeaderActionsCopyWith<$Res>? get actions;
 }
 
 /// @nodoc
@@ -238,9 +185,9 @@ class _$WippyHeaderUiStateImpl implements _WippyHeaderUiState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WippyHeaderUiStateImpl &&
-            (identical(other.leading, leading) || other.leading == leading) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.actions, actions) || other.actions == actions) &&
+            const DeepCollectionEquality().equals(other.leading, leading) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.actions, actions) &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
             (identical(other.needToShowUnderline, needToShowUnderline) ||
@@ -248,8 +195,13 @@ class _$WippyHeaderUiStateImpl implements _WippyHeaderUiState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, leading, title, actions,
-      backgroundColor, needToShowUnderline);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(leading),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(actions),
+      backgroundColor,
+      needToShowUnderline);
 
   /// Create a copy of WippyHeaderUiState
   /// with the given fields replaced by the non-null parameter values.

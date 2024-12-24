@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:popup/src/type/popup_button_type.dart';
-import 'package:popup/src/type/popup_image_type.dart';
+import 'package:qds_popup/src/type/popup_button_type.dart';
+import 'package:qds_popup/src/type/popup_image_type.dart';
 
 part 'wippy_popup_ui_state.freezed.dart';
 

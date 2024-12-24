@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:input/input.dart';
+import 'package:qds_input/src/type/text_input_error_state.dart';
 part 'text_field_initial_data.freezed.dart';
 
 @freezed

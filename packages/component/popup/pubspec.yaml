@@ -1,6 +1,12 @@
-name: popup
+name: qds_popup
 description: "wippy designsystem component popup"
 version: 0.0.1
+homepage: https://github.com/nrise/Quantum-Dots/component/popup
+topics:
+  - animations
+  - ui
+  - design-system
+  - design
 
 environment:
   sdk: '>=3.5.0 <4.0.0'
@@ -11,8 +17,8 @@ dependencies:
   flutter_bloc: ^8.1.6
   freezed_annotation: ^2.4.4
   flutter_svg: ^2.0.10+1
-  foundation:
-  button:
+  qds_foundation: ^0.0.1
+  qds_button: ^0.0.1
 
 dev_dependencies:
   flutter_test:

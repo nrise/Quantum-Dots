@@ -1,8 +1,8 @@
-import 'package:button/src/button_cubit.dart';
-import 'package:button/src/button_label_type.dart';
-import 'package:button/src/button_size_type.dart';
-import 'package:button/src/button_ui_state.dart';
-import 'package:common_widget/common_widget.dart';
+import 'package:qds_button/src/button_cubit.dart';
+import 'package:qds_button/src/button_label_type.dart';
+import 'package:qds_button/src/button_size_type.dart';
+import 'package:qds_button/src/button_ui_state.dart';
+import 'package:qds_common_widget/common_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

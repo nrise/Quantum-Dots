@@ -1,4 +1,4 @@
-import 'package:button/button.dart';
+import 'package:qds_button/button.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'empty_states_ui_state.freezed.dart';

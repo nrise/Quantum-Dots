@@ -46,12 +46,7 @@ analysis_benchmark.json
 
 # packages file containing multi-root paths
 .packages.generated
-packages/**/README.md
-packages/**/LICENSE
-packages/**/CHANGELOG.md
-packages/**/.gitignore
 packages/**/pubspec.lock
-packages/design_system/app/assets/**
 
 # Flutter/Dart/Pub related
 **/doc/api/

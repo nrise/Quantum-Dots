@@ -1,7 +1,7 @@
-import 'package:button/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:toast/toast.dart';
+import 'package:qds_button/button.dart';
+import 'package:qds_toast/toast.dart';
 
 class ToastTestScreen extends StatelessWidget {
   const ToastTestScreen({super.key});

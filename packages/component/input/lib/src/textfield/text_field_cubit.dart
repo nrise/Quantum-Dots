@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:input/input.dart';
+import 'package:qds_input/input.dart';
 
 class TextFieldCubit extends Cubit<TextFieldUiState> {
   final TextEditingController textController;

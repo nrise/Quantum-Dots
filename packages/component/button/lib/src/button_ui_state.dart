@@ -1,6 +1,6 @@
-import 'package:button/src/button_label_type.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:qds_button/button.dart';
 
 import 'button_color_type.dart';
 import 'button_size_type.dart';

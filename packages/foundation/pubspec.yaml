@@ -1,6 +1,12 @@
-name: foundation
+name: qds_foundation
 description: "wippy design system foundation"
 version: 0.0.1
+homepage: https://github.com/nrise/Quantum-Dots/foundation
+topics:
+  - animations
+  - ui
+  - design-system
+  - design
 
 environment:
   sdk: '>=3.5.0 <4.0.0'

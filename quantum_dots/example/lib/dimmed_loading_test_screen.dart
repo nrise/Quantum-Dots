@@ -1,7 +1,7 @@
-import 'package:button/button.dart';
+import 'package:qds_button/button.dart';
 import 'package:flutter/material.dart';
-import 'package:foundation/foundation.dart';
-import 'package:spinner/spinner.dart';
+import 'package:qds_foundation/foundation.dart';
+import 'package:qds_spinner/spinner.dart';
 
 class DimmedLoadingTestScreen extends StatefulWidget {
   const DimmedLoadingTestScreen({super.key});

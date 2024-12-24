@@ -1,8 +1,8 @@
 import 'dart:collection';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:toast/src/bloc/wippy_toast_ui_event.dart';
-import 'package:toast/src/bloc/wippy_toast_ui_state.dart';
+import 'package:qds_toast/src/bloc/wippy_toast_ui_event.dart';
+import 'package:qds_toast/src/bloc/wippy_toast_ui_state.dart';
 
 class WippyToastBloc extends Bloc<WippyToastUiEvent, WippyToastUiState> {
   final Queue<ShowWippyToastUiEvent> _toastShowUiEventQueue = Queue<ShowWippyToastUiEvent>();

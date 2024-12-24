@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foundation/foundation.dart';
-import 'package:input/input.dart';
-import 'package:input/src/textarea/text_area_cubit.dart';
+import 'package:qds_foundation/foundation.dart';
+import 'package:qds_input/input.dart';
+import 'package:qds_input/src/textarea/text_area_cubit.dart';
 
 class WippyTextArea extends StatelessWidget {
   static const double _textAreaHeight = 132;

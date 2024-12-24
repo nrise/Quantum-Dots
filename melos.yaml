@@ -3,7 +3,6 @@ repository: https://github.com/nrise/Quantum-Dots
 
 packages:
   - 'quantum_dots'
-  - 'quantum_dots/example'
   - 'packages/**'
 ide:
   intellij:

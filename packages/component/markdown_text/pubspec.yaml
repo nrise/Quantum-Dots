@@ -1,6 +1,12 @@
-name: markdown_text
+name: qds_markdown_text
 description: "wippy designsystem component markdown_text"
 version: 0.0.1
+homepage: https://github.com/nrise/Quantum-Dots/component/markdown_text
+topics:
+  - animations
+  - ui
+  - design-system
+  - design
 
 environment:
   sdk: '>=3.5.0 <4.0.0'
@@ -8,7 +14,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  foundation:
+  qds_foundation: ^0.0.1
 
 dev_dependencies:
   flutter_test:

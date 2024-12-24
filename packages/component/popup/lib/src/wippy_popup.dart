@@ -1,10 +1,10 @@
-import 'package:button/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foundation/foundation.dart';
-import 'package:popup/src/type/popup_button_type.dart';
-import 'package:popup/src/type/popup_image_type.dart';
-import 'package:popup/src/wippy_popup_ui_state.dart';
+import 'package:qds_button/button.dart';
+import 'package:qds_foundation/foundation.dart';
+import 'package:qds_popup/src/type/popup_button_type.dart';
+import 'package:qds_popup/src/type/popup_image_type.dart';
+import 'package:qds_popup/src/wippy_popup_ui_state.dart';
 
 class WippyPopup extends StatelessWidget {
   static const double _insetPaddingSize = 40;

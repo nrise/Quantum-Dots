@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MultiSelectiveChipUiState {
   bool get isSelected => throw _privateConstructorUsedError;
-  ChipUiProperties get chipUiProperties => throw _privateConstructorUsedError;
+  InvalidType get chipUiProperties => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -104,9 +104,7 @@ abstract class $MultiSelectiveChipUiStateCopyWith<$Res> {
           $Res Function(MultiSelectiveChipUiState) then) =
       _$MultiSelectiveChipUiStateCopyWithImpl<$Res, MultiSelectiveChipUiState>;
   @useResult
-  $Res call({bool isSelected, ChipUiProperties chipUiProperties});
-
-  $ChipUiPropertiesCopyWith<$Res> get chipUiProperties;
+  $Res call({bool isSelected, InvalidType chipUiProperties});
 }
 
 /// @nodoc
@@ -126,28 +124,18 @@ class _$MultiSelectiveChipUiStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? isSelected = null,
-    Object? chipUiProperties = null,
+    Object? chipUiProperties = freezed,
   }) {
     return _then(_value.copyWith(
       isSelected: null == isSelected
           ? _value.isSelected
           : isSelected // ignore: cast_nullable_to_non_nullable
               as bool,
-      chipUiProperties: null == chipUiProperties
+      chipUiProperties: freezed == chipUiProperties
           ? _value.chipUiProperties
           : chipUiProperties // ignore: cast_nullable_to_non_nullable
-              as ChipUiProperties,
+              as InvalidType,
     ) as $Val);
-  }
-
-  /// Create a copy of MultiSelectiveChipUiState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ChipUiPropertiesCopyWith<$Res> get chipUiProperties {
-    return $ChipUiPropertiesCopyWith<$Res>(_value.chipUiProperties, (value) {
-      return _then(_value.copyWith(chipUiProperties: value) as $Val);
-    });
   }
 }
 
@@ -161,9 +149,6 @@ abstract class _$$MultiSelectiveNormalChipUiStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call({bool isSelected, ChipUiProperties chipUiProperties});
-
-  @override
-  $ChipUiPropertiesCopyWith<$Res> get chipUiProperties;
 }
 
 /// @nodoc
@@ -182,14 +167,14 @@ class __$$MultiSelectiveNormalChipUiStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isSelected = null,
-    Object? chipUiProperties = null,
+    Object? chipUiProperties = freezed,
   }) {
     return _then(_$MultiSelectiveNormalChipUiStateImpl(
       isSelected: null == isSelected
           ? _value.isSelected
           : isSelected // ignore: cast_nullable_to_non_nullable
               as bool,
-      chipUiProperties: null == chipUiProperties
+      chipUiProperties: freezed == chipUiProperties
           ? _value.chipUiProperties
           : chipUiProperties // ignore: cast_nullable_to_non_nullable
               as ChipUiProperties,
@@ -221,12 +206,13 @@ class _$MultiSelectiveNormalChipUiStateImpl
             other is _$MultiSelectiveNormalChipUiStateImpl &&
             (identical(other.isSelected, isSelected) ||
                 other.isSelected == isSelected) &&
-            (identical(other.chipUiProperties, chipUiProperties) ||
-                other.chipUiProperties == chipUiProperties));
+            const DeepCollectionEquality()
+                .equals(other.chipUiProperties, chipUiProperties));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isSelected, chipUiProperties);
+  int get hashCode => Object.hash(runtimeType, isSelected,
+      const DeepCollectionEquality().hash(chipUiProperties));
 
   /// Create a copy of MultiSelectiveChipUiState
   /// with the given fields replaced by the non-null parameter values.
@@ -375,9 +361,6 @@ abstract class _$$MultiSelectiveCustomChipUiStateImplCopyWith<$Res>
       Color? selectedTextColor,
       Color? selectedBorderColor,
       Color? selectedBackgroundColor});
-
-  @override
-  $ChipUiPropertiesCopyWith<$Res> get chipUiProperties;
 }
 
 /// @nodoc
@@ -397,10 +380,10 @@ class __$$MultiSelectiveCustomChipUiStateImplCopyWithImpl<$Res>
   $Res call({
     Object? isSelected = null,
     Object? iconAsset = null,
-    Object? borderColor = freezed,
-    Object? backgroundColor = freezed,
-    Object? textColor = freezed,
-    Object? chipUiProperties = null,
+    Object? borderColor = null,
+    Object? backgroundColor = null,
+    Object? textColor = null,
+    Object? chipUiProperties = freezed,
     Object? selectedTextColor = freezed,
     Object? selectedBorderColor = freezed,
     Object? selectedBackgroundColor = freezed,
@@ -414,19 +397,19 @@ class __$$MultiSelectiveCustomChipUiStateImplCopyWithImpl<$Res>
           ? _value.iconAsset
           : iconAsset // ignore: cast_nullable_to_non_nullable
               as String,
-      borderColor: freezed == borderColor
+      borderColor: null == borderColor
           ? _value.borderColor
           : borderColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      backgroundColor: freezed == backgroundColor
+      backgroundColor: null == backgroundColor
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      textColor: freezed == textColor
+      textColor: null == textColor
           ? _value.textColor
           : textColor // ignore: cast_nullable_to_non_nullable
               as Color,
-      chipUiProperties: null == chipUiProperties
+      chipUiProperties: freezed == chipUiProperties
           ? _value.chipUiProperties
           : chipUiProperties // ignore: cast_nullable_to_non_nullable
               as ChipUiProperties,
@@ -494,19 +477,21 @@ class _$MultiSelectiveCustomChipUiStateImpl
                 other.isSelected == isSelected) &&
             (identical(other.iconAsset, iconAsset) ||
                 other.iconAsset == iconAsset) &&
+            (identical(other.borderColor, borderColor) ||
+                other.borderColor == borderColor) &&
+            (identical(other.backgroundColor, backgroundColor) ||
+                other.backgroundColor == backgroundColor) &&
+            (identical(other.textColor, textColor) ||
+                other.textColor == textColor) &&
             const DeepCollectionEquality()
-                .equals(other.borderColor, borderColor) &&
-            const DeepCollectionEquality()
-                .equals(other.backgroundColor, backgroundColor) &&
-            const DeepCollectionEquality().equals(other.textColor, textColor) &&
-            (identical(other.chipUiProperties, chipUiProperties) ||
-                other.chipUiProperties == chipUiProperties) &&
-            const DeepCollectionEquality()
-                .equals(other.selectedTextColor, selectedTextColor) &&
-            const DeepCollectionEquality()
-                .equals(other.selectedBorderColor, selectedBorderColor) &&
-            const DeepCollectionEquality().equals(
-                other.selectedBackgroundColor, selectedBackgroundColor));
+                .equals(other.chipUiProperties, chipUiProperties) &&
+            (identical(other.selectedTextColor, selectedTextColor) ||
+                other.selectedTextColor == selectedTextColor) &&
+            (identical(other.selectedBorderColor, selectedBorderColor) ||
+                other.selectedBorderColor == selectedBorderColor) &&
+            (identical(
+                    other.selectedBackgroundColor, selectedBackgroundColor) ||
+                other.selectedBackgroundColor == selectedBackgroundColor));
   }
 
   @override
@@ -514,13 +499,13 @@ class _$MultiSelectiveCustomChipUiStateImpl
       runtimeType,
       isSelected,
       iconAsset,
-      const DeepCollectionEquality().hash(borderColor),
-      const DeepCollectionEquality().hash(backgroundColor),
-      const DeepCollectionEquality().hash(textColor),
-      chipUiProperties,
-      const DeepCollectionEquality().hash(selectedTextColor),
-      const DeepCollectionEquality().hash(selectedBorderColor),
-      const DeepCollectionEquality().hash(selectedBackgroundColor));
+      borderColor,
+      backgroundColor,
+      textColor,
+      const DeepCollectionEquality().hash(chipUiProperties),
+      selectedTextColor,
+      selectedBorderColor,
+      selectedBackgroundColor);
 
   /// Create a copy of MultiSelectiveChipUiState
   /// with the given fields replaced by the non-null parameter values.

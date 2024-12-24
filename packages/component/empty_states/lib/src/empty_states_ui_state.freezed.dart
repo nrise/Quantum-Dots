@@ -62,7 +62,7 @@ class _$EmptyStatesUiStateCopyWithImpl<$Res, $Val extends EmptyStatesUiState>
     Object? title = freezed,
     Object? description = freezed,
     Object? buttonLabel = freezed,
-    Object? buttonColorType = null,
+    Object? buttonColorType = freezed,
   }) {
     return _then(_value.copyWith(
       iconAssetName: freezed == iconAssetName
@@ -81,7 +81,7 @@ class _$EmptyStatesUiStateCopyWithImpl<$Res, $Val extends EmptyStatesUiState>
           ? _value.buttonLabel
           : buttonLabel // ignore: cast_nullable_to_non_nullable
               as String?,
-      buttonColorType: null == buttonColorType
+      buttonColorType: freezed == buttonColorType
           ? _value.buttonColorType
           : buttonColorType // ignore: cast_nullable_to_non_nullable
               as ButtonColorType,
@@ -122,7 +122,7 @@ class __$$EmptyStatesUiStateImplCopyWithImpl<$Res>
     Object? title = freezed,
     Object? description = freezed,
     Object? buttonLabel = freezed,
-    Object? buttonColorType = null,
+    Object? buttonColorType = freezed,
   }) {
     return _then(_$EmptyStatesUiStateImpl(
       iconAssetName: freezed == iconAssetName
@@ -141,7 +141,7 @@ class __$$EmptyStatesUiStateImplCopyWithImpl<$Res>
           ? _value.buttonLabel
           : buttonLabel // ignore: cast_nullable_to_non_nullable
               as String?,
-      buttonColorType: null == buttonColorType
+      buttonColorType: freezed == buttonColorType
           ? _value.buttonColorType
           : buttonColorType // ignore: cast_nullable_to_non_nullable
               as ButtonColorType,
@@ -192,13 +192,18 @@ class _$EmptyStatesUiStateImpl implements _EmptyStatesUiState {
                 other.description == description) &&
             (identical(other.buttonLabel, buttonLabel) ||
                 other.buttonLabel == buttonLabel) &&
-            (identical(other.buttonColorType, buttonColorType) ||
-                other.buttonColorType == buttonColorType));
+            const DeepCollectionEquality()
+                .equals(other.buttonColorType, buttonColorType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, iconAssetName, title,
-      description, buttonLabel, buttonColorType);
+  int get hashCode => Object.hash(
+      runtimeType,
+      iconAssetName,
+      title,
+      description,
+      buttonLabel,
+      const DeepCollectionEquality().hash(buttonColorType));
 
   /// Create a copy of EmptyStatesUiState
   /// with the given fields replaced by the non-null parameter values.

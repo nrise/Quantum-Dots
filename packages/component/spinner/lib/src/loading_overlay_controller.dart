@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:spinner/spinner.dart';
+import 'package:qds_spinner/spinner.dart';
 
 class LoadingOverlayController {
   OverlayEntry? _overlayEntry;

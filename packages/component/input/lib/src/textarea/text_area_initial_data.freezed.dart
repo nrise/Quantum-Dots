@@ -49,9 +49,6 @@ abstract class $TextAreaInitialDataCopyWith<$Res> {
       TextInputFocusState focusState,
       TextInputErrorState errorState,
       TextInputState state});
-
-  $TextInputFocusStateCopyWith<$Res> get focusState;
-  $TextInputErrorStateCopyWith<$Res> get errorState;
 }
 
 /// @nodoc
@@ -75,9 +72,9 @@ class _$TextAreaInitialDataCopyWithImpl<$Res, $Val extends TextAreaInitialData>
     Object? maxCount = freezed,
     Object? inputType = freezed,
     Object? text = null,
-    Object? focusState = null,
-    Object? errorState = null,
-    Object? state = null,
+    Object? focusState = freezed,
+    Object? errorState = freezed,
+    Object? state = freezed,
   }) {
     return _then(_value.copyWith(
       label: freezed == label
@@ -104,39 +101,19 @@ class _$TextAreaInitialDataCopyWithImpl<$Res, $Val extends TextAreaInitialData>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      focusState: null == focusState
+      focusState: freezed == focusState
           ? _value.focusState
           : focusState // ignore: cast_nullable_to_non_nullable
               as TextInputFocusState,
-      errorState: null == errorState
+      errorState: freezed == errorState
           ? _value.errorState
           : errorState // ignore: cast_nullable_to_non_nullable
               as TextInputErrorState,
-      state: null == state
+      state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as TextInputState,
     ) as $Val);
-  }
-
-  /// Create a copy of TextAreaInitialData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TextInputFocusStateCopyWith<$Res> get focusState {
-    return $TextInputFocusStateCopyWith<$Res>(_value.focusState, (value) {
-      return _then(_value.copyWith(focusState: value) as $Val);
-    });
-  }
-
-  /// Create a copy of TextAreaInitialData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TextInputErrorStateCopyWith<$Res> get errorState {
-    return $TextInputErrorStateCopyWith<$Res>(_value.errorState, (value) {
-      return _then(_value.copyWith(errorState: value) as $Val);
-    });
   }
 }
 
@@ -158,11 +135,6 @@ abstract class _$$TextAreaInitialDataImplCopyWith<$Res>
       TextInputFocusState focusState,
       TextInputErrorState errorState,
       TextInputState state});
-
-  @override
-  $TextInputFocusStateCopyWith<$Res> get focusState;
-  @override
-  $TextInputErrorStateCopyWith<$Res> get errorState;
 }
 
 /// @nodoc
@@ -184,9 +156,9 @@ class __$$TextAreaInitialDataImplCopyWithImpl<$Res>
     Object? maxCount = freezed,
     Object? inputType = freezed,
     Object? text = null,
-    Object? focusState = null,
-    Object? errorState = null,
-    Object? state = null,
+    Object? focusState = freezed,
+    Object? errorState = freezed,
+    Object? state = freezed,
   }) {
     return _then(_$TextAreaInitialDataImpl(
       label: freezed == label
@@ -213,15 +185,15 @@ class __$$TextAreaInitialDataImplCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      focusState: null == focusState
+      focusState: freezed == focusState
           ? _value.focusState
           : focusState // ignore: cast_nullable_to_non_nullable
               as TextInputFocusState,
-      errorState: null == errorState
+      errorState: freezed == errorState
           ? _value.errorState
           : errorState // ignore: cast_nullable_to_non_nullable
               as TextInputErrorState,
-      state: null == state
+      state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as TextInputState,
@@ -291,16 +263,25 @@ class _$TextAreaInitialDataImpl implements _TextAreaInitialData {
             (identical(other.inputType, inputType) ||
                 other.inputType == inputType) &&
             (identical(other.text, text) || other.text == text) &&
-            (identical(other.focusState, focusState) ||
-                other.focusState == focusState) &&
-            (identical(other.errorState, errorState) ||
-                other.errorState == errorState) &&
-            (identical(other.state, state) || other.state == state));
+            const DeepCollectionEquality()
+                .equals(other.focusState, focusState) &&
+            const DeepCollectionEquality()
+                .equals(other.errorState, errorState) &&
+            const DeepCollectionEquality().equals(other.state, state));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, label, helperMessage,
-      placeholder, maxCount, inputType, text, focusState, errorState, state);
+  int get hashCode => Object.hash(
+      runtimeType,
+      label,
+      helperMessage,
+      placeholder,
+      maxCount,
+      inputType,
+      text,
+      const DeepCollectionEquality().hash(focusState),
+      const DeepCollectionEquality().hash(errorState),
+      const DeepCollectionEquality().hash(state));
 
   /// Create a copy of TextAreaInitialData
   /// with the given fields replaced by the non-null parameter values.
