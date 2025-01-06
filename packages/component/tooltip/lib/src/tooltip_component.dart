@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:foundation/foundation.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 
 import 'tooltip_ui_state.dart';
 

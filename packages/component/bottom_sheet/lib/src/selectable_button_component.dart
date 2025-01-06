@@ -1,4 +1,4 @@
-import 'package:qds_button/button.dart';
+import 'package:qds_button/qds_button.dart';
 import 'package:flutter/material.dart';
 
 class SelectableButtonComponent extends StatelessWidget {

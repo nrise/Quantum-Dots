@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:foundation/foundation.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'wippy_header_actions.freezed.dart';

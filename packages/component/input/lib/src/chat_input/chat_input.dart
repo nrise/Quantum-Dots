@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foundation/foundation.dart';
-import 'package:input/src/chat_input/send_button.dart';
+import 'package:qds_foundation/qds_foundation.dart';
+import 'package:qds_input/src/chat_input/send_button.dart';
 
 class ChatInput extends StatefulWidget {
   final Function(String) onClickSend;

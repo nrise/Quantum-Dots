@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:qds_foundation/foundation.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 
 class ButtonGradient extends StatelessWidget {
   final double height;

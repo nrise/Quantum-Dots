@@ -1,6 +1,6 @@
-import 'package:qds_button/button.dart';
+import 'package:qds_button/qds_button.dart';
 import 'package:flutter/material.dart';
-import 'package:qds_foundation/foundation.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 
 import 'button_ui_state.dart';
 

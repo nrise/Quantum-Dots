@@ -54,6 +54,7 @@ abstract class $TextFieldInitialDataCopyWith<$Res> {
       TextInputState state,
       bool needToBlockOverflowInput});
 
+  $TextInputFocusStateCopyWith<$Res> get focusState;
   $TextInputErrorStateCopyWith<$Res> get errorState;
 }
 
@@ -80,9 +81,9 @@ class _$TextFieldInitialDataCopyWithImpl<$Res,
     Object? maxLine = null,
     Object? inputType = freezed,
     Object? text = null,
-    Object? focusState = freezed,
+    Object? focusState = null,
     Object? errorState = null,
-    Object? state = freezed,
+    Object? state = null,
     Object? needToBlockOverflowInput = null,
   }) {
     return _then(_value.copyWith(
@@ -114,7 +115,7 @@ class _$TextFieldInitialDataCopyWithImpl<$Res,
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      focusState: freezed == focusState
+      focusState: null == focusState
           ? _value.focusState
           : focusState // ignore: cast_nullable_to_non_nullable
               as TextInputFocusState,
@@ -122,7 +123,7 @@ class _$TextFieldInitialDataCopyWithImpl<$Res,
           ? _value.errorState
           : errorState // ignore: cast_nullable_to_non_nullable
               as TextInputErrorState,
-      state: freezed == state
+      state: null == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as TextInputState,
@@ -131,6 +132,16 @@ class _$TextFieldInitialDataCopyWithImpl<$Res,
           : needToBlockOverflowInput // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
+  }
+
+  /// Create a copy of TextFieldInitialData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TextInputFocusStateCopyWith<$Res> get focusState {
+    return $TextInputFocusStateCopyWith<$Res>(_value.focusState, (value) {
+      return _then(_value.copyWith(focusState: value) as $Val);
+    });
   }
 
   /// Create a copy of TextFieldInitialData
@@ -166,6 +177,8 @@ abstract class _$$TextFieldInitialDataImplCopyWith<$Res>
       bool needToBlockOverflowInput});
 
   @override
+  $TextInputFocusStateCopyWith<$Res> get focusState;
+  @override
   $TextInputErrorStateCopyWith<$Res> get errorState;
 }
 
@@ -189,9 +202,9 @@ class __$$TextFieldInitialDataImplCopyWithImpl<$Res>
     Object? maxLine = null,
     Object? inputType = freezed,
     Object? text = null,
-    Object? focusState = freezed,
+    Object? focusState = null,
     Object? errorState = null,
-    Object? state = freezed,
+    Object? state = null,
     Object? needToBlockOverflowInput = null,
   }) {
     return _then(_$TextFieldInitialDataImpl(
@@ -223,7 +236,7 @@ class __$$TextFieldInitialDataImplCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      focusState: freezed == focusState
+      focusState: null == focusState
           ? _value.focusState
           : focusState // ignore: cast_nullable_to_non_nullable
               as TextInputFocusState,
@@ -231,7 +244,7 @@ class __$$TextFieldInitialDataImplCopyWithImpl<$Res>
           ? _value.errorState
           : errorState // ignore: cast_nullable_to_non_nullable
               as TextInputErrorState,
-      state: freezed == state
+      state: null == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as TextInputState,
@@ -314,11 +327,11 @@ class _$TextFieldInitialDataImpl implements _TextFieldInitialData {
             (identical(other.inputType, inputType) ||
                 other.inputType == inputType) &&
             (identical(other.text, text) || other.text == text) &&
-            const DeepCollectionEquality()
-                .equals(other.focusState, focusState) &&
+            (identical(other.focusState, focusState) ||
+                other.focusState == focusState) &&
             (identical(other.errorState, errorState) ||
                 other.errorState == errorState) &&
-            const DeepCollectionEquality().equals(other.state, state) &&
+            (identical(other.state, state) || other.state == state) &&
             (identical(
                     other.needToBlockOverflowInput, needToBlockOverflowInput) ||
                 other.needToBlockOverflowInput == needToBlockOverflowInput));
@@ -334,9 +347,9 @@ class _$TextFieldInitialDataImpl implements _TextFieldInitialData {
       maxLine,
       inputType,
       text,
-      const DeepCollectionEquality().hash(focusState),
+      focusState,
       errorState,
-      const DeepCollectionEquality().hash(state),
+      state,
       needToBlockOverflowInput);
 
   /// Create a copy of TextFieldInitialData

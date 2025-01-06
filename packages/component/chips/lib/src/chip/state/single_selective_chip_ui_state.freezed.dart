@@ -38,6 +38,8 @@ abstract class $SingleSelectiveChipUiStateCopyWith<$Res> {
       {bool isSelected,
       ChipUiProperties chipUiProperties,
       String? iconAssetString});
+
+  $ChipUiPropertiesCopyWith<$Res> get chipUiProperties;
 }
 
 /// @nodoc
@@ -57,7 +59,7 @@ class _$SingleSelectiveChipUiStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? isSelected = null,
-    Object? chipUiProperties = freezed,
+    Object? chipUiProperties = null,
     Object? iconAssetString = freezed,
   }) {
     return _then(_value.copyWith(
@@ -65,7 +67,7 @@ class _$SingleSelectiveChipUiStateCopyWithImpl<$Res,
           ? _value.isSelected
           : isSelected // ignore: cast_nullable_to_non_nullable
               as bool,
-      chipUiProperties: freezed == chipUiProperties
+      chipUiProperties: null == chipUiProperties
           ? _value.chipUiProperties
           : chipUiProperties // ignore: cast_nullable_to_non_nullable
               as ChipUiProperties,
@@ -74,6 +76,16 @@ class _$SingleSelectiveChipUiStateCopyWithImpl<$Res,
           : iconAssetString // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
+  }
+
+  /// Create a copy of SingleSelectiveChipUiState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ChipUiPropertiesCopyWith<$Res> get chipUiProperties {
+    return $ChipUiPropertiesCopyWith<$Res>(_value.chipUiProperties, (value) {
+      return _then(_value.copyWith(chipUiProperties: value) as $Val);
+    });
   }
 }
 
@@ -90,6 +102,9 @@ abstract class _$$SingleSelectiveChipUiStateImplCopyWith<$Res>
       {bool isSelected,
       ChipUiProperties chipUiProperties,
       String? iconAssetString});
+
+  @override
+  $ChipUiPropertiesCopyWith<$Res> get chipUiProperties;
 }
 
 /// @nodoc
@@ -108,7 +123,7 @@ class __$$SingleSelectiveChipUiStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isSelected = null,
-    Object? chipUiProperties = freezed,
+    Object? chipUiProperties = null,
     Object? iconAssetString = freezed,
   }) {
     return _then(_$SingleSelectiveChipUiStateImpl(
@@ -116,7 +131,7 @@ class __$$SingleSelectiveChipUiStateImplCopyWithImpl<$Res>
           ? _value.isSelected
           : isSelected // ignore: cast_nullable_to_non_nullable
               as bool,
-      chipUiProperties: freezed == chipUiProperties
+      chipUiProperties: null == chipUiProperties
           ? _value.chipUiProperties
           : chipUiProperties // ignore: cast_nullable_to_non_nullable
               as ChipUiProperties,
@@ -156,15 +171,15 @@ class _$SingleSelectiveChipUiStateImpl implements _SingleSelectiveChipUiState {
             other is _$SingleSelectiveChipUiStateImpl &&
             (identical(other.isSelected, isSelected) ||
                 other.isSelected == isSelected) &&
-            const DeepCollectionEquality()
-                .equals(other.chipUiProperties, chipUiProperties) &&
+            (identical(other.chipUiProperties, chipUiProperties) ||
+                other.chipUiProperties == chipUiProperties) &&
             (identical(other.iconAssetString, iconAssetString) ||
                 other.iconAssetString == iconAssetString));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isSelected,
-      const DeepCollectionEquality().hash(chipUiProperties), iconAssetString);
+  int get hashCode =>
+      Object.hash(runtimeType, isSelected, chipUiProperties, iconAssetString);
 
   /// Create a copy of SingleSelectiveChipUiState
   /// with the given fields replaced by the non-null parameter values.

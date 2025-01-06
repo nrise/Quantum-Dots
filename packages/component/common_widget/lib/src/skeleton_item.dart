@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:qds_foundation/foundation.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 import 'package:shimmer/shimmer.dart';
 
 class SkeletonItem extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:qds_input/input.dart';
+import 'package:qds_input/qds_input.dart';
 
 part 'text_area_initial_data.freezed.dart';
 

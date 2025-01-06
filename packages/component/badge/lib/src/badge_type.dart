@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:qds_foundation/foundation.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 
 sealed class BadgeType {}
 

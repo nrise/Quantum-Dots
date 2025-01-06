@@ -1,7 +1,7 @@
-import 'package:qds_button/button.dart';
+import 'package:qds_button/qds_button.dart';
 import 'package:flutter/material.dart';
-import 'package:qds_foundation/foundation.dart';
-import 'package:qds_spinner/spinner.dart';
+import 'package:qds_foundation/qds_foundation.dart';
+import 'package:qds_spinner/qds_spinner.dart';
 
 class DimmedLoadingTestScreen extends StatefulWidget {
   const DimmedLoadingTestScreen({super.key});
@@ -43,8 +43,7 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
         },
         initUiState: ButtonUiState(
             buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType:
-                const ButtonLabelType.labelOnly(label: 'Dimmed 상태 on'),
+            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Dimmed 상태 on'),
             buttonSizeType: ButtonSizeType.large()),
       )
     ];
@@ -56,8 +55,7 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
           onPressed: () {},
           initUiState: ButtonUiState(
               buttonColorType: const ButtonColorType.primary(),
-              buttonLabelType:
-                  const ButtonLabelType.labelOnly(label: '아무 동작 안 하는 버튼'),
+              buttonLabelType: const ButtonLabelType.labelOnly(label: '아무 동작 안 하는 버튼'),
               buttonSizeType: ButtonSizeType.large()),
         )
       ];
@@ -74,10 +72,7 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
             height: double.infinity,
             alignment: Alignment.center,
             child: Stack(
-              children: [
-                ListView(children: items),
-                if (_canShowDimmedLoadingScreen) _buildDimmedLoadingScreen()
-              ],
+              children: [ListView(children: items), if (_canShowDimmedLoadingScreen) _buildDimmedLoadingScreen()],
             )));
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qds_foundation/foundation.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 
 Future<T?> showWippyBottomSheet<T>({
   required BuildContext context,

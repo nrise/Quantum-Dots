@@ -39,6 +39,8 @@ abstract class $ButtonUiStateCopyWith<$Res> {
       ButtonState state,
       ButtonColorType buttonColorType,
       ButtonSizeType buttonSizeType});
+
+  $ButtonLabelTypeCopyWith<$Res> get buttonLabelType;
 }
 
 /// @nodoc
@@ -56,13 +58,13 @@ class _$ButtonUiStateCopyWithImpl<$Res, $Val extends ButtonUiState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? buttonLabelType = freezed,
+    Object? buttonLabelType = null,
     Object? state = null,
     Object? buttonColorType = null,
     Object? buttonSizeType = null,
   }) {
     return _then(_value.copyWith(
-      buttonLabelType: freezed == buttonLabelType
+      buttonLabelType: null == buttonLabelType
           ? _value.buttonLabelType
           : buttonLabelType // ignore: cast_nullable_to_non_nullable
               as ButtonLabelType,
@@ -80,6 +82,16 @@ class _$ButtonUiStateCopyWithImpl<$Res, $Val extends ButtonUiState>
               as ButtonSizeType,
     ) as $Val);
   }
+
+  /// Create a copy of ButtonUiState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ButtonLabelTypeCopyWith<$Res> get buttonLabelType {
+    return $ButtonLabelTypeCopyWith<$Res>(_value.buttonLabelType, (value) {
+      return _then(_value.copyWith(buttonLabelType: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -95,6 +107,9 @@ abstract class _$$ButtonUiStateImplCopyWith<$Res>
       ButtonState state,
       ButtonColorType buttonColorType,
       ButtonSizeType buttonSizeType});
+
+  @override
+  $ButtonLabelTypeCopyWith<$Res> get buttonLabelType;
 }
 
 /// @nodoc
@@ -110,13 +125,13 @@ class __$$ButtonUiStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? buttonLabelType = freezed,
+    Object? buttonLabelType = null,
     Object? state = null,
     Object? buttonColorType = null,
     Object? buttonSizeType = null,
   }) {
     return _then(_$ButtonUiStateImpl(
-      buttonLabelType: freezed == buttonLabelType
+      buttonLabelType: null == buttonLabelType
           ? _value.buttonLabelType
           : buttonLabelType // ignore: cast_nullable_to_non_nullable
               as ButtonLabelType,
@@ -165,8 +180,8 @@ class _$ButtonUiStateImpl implements _ButtonUiState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ButtonUiStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other.buttonLabelType, buttonLabelType) &&
+            (identical(other.buttonLabelType, buttonLabelType) ||
+                other.buttonLabelType == buttonLabelType) &&
             (identical(other.state, state) || other.state == state) &&
             (identical(other.buttonColorType, buttonColorType) ||
                 other.buttonColorType == buttonColorType) &&
@@ -176,11 +191,7 @@ class _$ButtonUiStateImpl implements _ButtonUiState {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(buttonLabelType),
-      state,
-      buttonColorType,
-      buttonSizeType);
+      runtimeType, buttonLabelType, state, buttonColorType, buttonSizeType);
 
   /// Create a copy of ButtonUiState
   /// with the given fields replaced by the non-null parameter values.

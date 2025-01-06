@@ -1,4 +1,4 @@
-import 'package:qds_chips/chips.dart';
+import 'package:qds_chips/qds_chips.dart';
 import 'package:qds_chips/src/chip/single_selective_regular_chip.dart';
 import 'package:flutter/widgets.dart';
 import '../chip/single_selective_large_chip.dart';

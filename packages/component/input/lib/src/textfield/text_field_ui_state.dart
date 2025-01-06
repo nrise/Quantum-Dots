@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:qds_foundation/foundation.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 import 'package:qds_input/src/type/text_input_error_state.dart';
 import 'package:qds_input/src/type/text_input_focus_state.dart';
 import 'package:qds_input/src/type/text_input_state.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foundation/foundation.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:header/header.dart';
+import 'package:qds_header/qds_header.dart';
 
 part 'wippy_header_ui_state.freezed.dart';
 

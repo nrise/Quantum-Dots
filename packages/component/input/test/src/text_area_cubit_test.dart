@@ -1,7 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:input/input.dart';
-import 'package:input/src/textarea/text_area_cubit.dart';
+import 'package:qds_input/qds_input.dart';
+import 'package:qds_input/src/textarea/text_area_cubit.dart';
 
 void main() {
   group('onFocused 테스트', () {

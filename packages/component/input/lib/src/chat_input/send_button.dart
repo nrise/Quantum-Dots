@@ -1,7 +1,7 @@
-import 'package:common_widget/common_widget.dart';
+import 'package:qds_common_widget/qds_common_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:foundation/foundation.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 
 class SendButton extends StatelessWidget {
   static const iconSize = 16.0;

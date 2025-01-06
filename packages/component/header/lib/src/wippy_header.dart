@@ -1,9 +1,9 @@
-import 'package:common_widget/common_widget.dart';
+import 'package:qds_common_widget/qds_common_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:foundation/foundation.dart';
-import 'package:header/src/wippy_header_actions.dart';
-import 'package:header/src/wippy_header_ui_state.dart';
+import 'package:qds_foundation/qds_foundation.dart';
+import 'package:qds_header/src/wippy_header_actions.dart';
+import 'package:qds_header/src/wippy_header_ui_state.dart';
 
 class WippyHeader extends StatelessWidget implements PreferredSizeWidget {
   static const double _underlineHeight = 1;

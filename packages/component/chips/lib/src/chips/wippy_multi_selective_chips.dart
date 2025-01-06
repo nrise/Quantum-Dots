@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:qds_chips/chips.dart';
+import 'package:qds_chips/qds_chips.dart';
 
 import '../chip/multi_selective_chip.dart';
 

@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:qds_button/button.dart';
-import 'package:qds_common_widget/common_widget.dart';
-import 'package:qds_foundation/foundation.dart';
+import 'package:qds_button/qds_button.dart';
+import 'package:qds_foundation/qds_foundation.dart';
 
 import 'empty_states_ui_state.dart';
 
