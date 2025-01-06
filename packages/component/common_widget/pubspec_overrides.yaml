@@ -1,6 +1,0 @@
-# melos_managed_dependency_overrides: qds_foundation,qds_spinner
-dependency_overrides:
-  qds_foundation:
-    path: ../../foundation
-  qds_spinner:
-    path: ../spinner
