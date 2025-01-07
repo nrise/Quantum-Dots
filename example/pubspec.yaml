@@ -1,0 +1,45 @@
+name: quantum_dots_app
+description: "Quantum Dots App"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.6
+  cupertino_icons: ^1.0.8
+  quantum_dots: ^0.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.13
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+  fonts:
+    - family: PretendardJP
+      fonts:
+        - asset: assets/fonts/PretendardJP-Black.otf
+          weight: 900
+        - asset: assets/fonts/PretendardJP-Bold.otf
+          weight: 800
+        - asset: assets/fonts/PretendardJP-ExtraBold.otf
+          weight: 700
+        - asset: assets/fonts/PretendardJP-ExtraLight.otf
+          weight: 600
+        - asset: assets/fonts/PretendardJP-ExtraLight.otf
+          weight: 500
+        - asset: assets/fonts/PretendardJP-Medium.otf
+          weight: 400
+        - asset: assets/fonts/PretendardJP-Regular.otf
+          weight: 300
+        - asset: assets/fonts/PretendardJP-SemiBold.otf
+          weight: 200
+        - asset: assets/fonts/PretendardJP-Thin.otf
+          weight: 100
