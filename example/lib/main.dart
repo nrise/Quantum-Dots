@@ -72,33 +72,33 @@ class DesignSystemSamplePage extends StatelessWidget {
             context: context,
             buildBottomSheet: (context) {
               return const WippyPickerBottomSheet(
-                ctaText: "선택",
+                ctaText: "Select",
                 headerUiState: BottomSheetHeaderUiState(
                   title: BottomSheetHeaderTitle(
-                    title: "시구정촌",
+                    title: "City",
                   ),
                 ),
                 items: [
                   PickerItem(
-                    displayName: "지요다 구",
+                    displayName: "Tokyo",
                   ),
                   PickerItem(
-                    displayName: "미나토 구",
+                    displayName: "Minato",
                   ),
                   PickerItem(
-                    displayName: "신주쿠 구",
+                    displayName: "Shinjuku",
                   ),
                   PickerItem(
-                    displayName: "분쿄 구",
+                    displayName: "Koto",
                   ),
                   PickerItem(
-                    displayName: "다이토 구",
+                    displayName: "Taito",
                   ),
                   PickerItem(
-                    displayName: "스미다 구",
+                    displayName: "Sumida",
                   ),
                   PickerItem(
-                    displayName: "고토 구",
+                    displayName: "Koto",
                   )
                 ],
               );
@@ -119,8 +119,8 @@ class DesignSystemSamplePage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: WippyDropDown(
           uiState: DropDownUiState(
-            label: "라벨이요",
-            placeHolder: "플레이스 홀더",
+            label: "Label",
+            placeHolder: "Placeholder",
           ),
         ),
       ),
@@ -131,8 +131,8 @@ class DesignSystemSamplePage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: WippyDropDown(
           uiState: DropDownUiState(
-            label: "라벨이요",
-            selectedText: "텍스트",
+            label: "Label",
+            selectedText: "Text",
           ),
         ),
       ),
@@ -143,8 +143,8 @@ class DesignSystemSamplePage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: WippyDropDown(
           uiState: DropDownUiState(
-            label: "라벨이요",
-            selectedText: "디스에이블",
+            label: "Label",
+            selectedText: "Disabled",
             enabled: false,
           ),
         ),
@@ -159,7 +159,7 @@ class DesignSystemSamplePage extends StatelessWidget {
     return [
       const WippyHeader(
         uiState: WippyHeaderUiState(
-          title: WippyHeaderTitle(text: "페이지 타이틀"),
+          title: WippyHeaderTitle(text: "Page Title"),
           actions: WippyHeaderActions.singleIconAction(iconAsset: IconPath.iconMessage16),
         ),
       )
@@ -178,7 +178,7 @@ class DesignSystemSamplePage extends StatelessWidget {
         },
         initUiState: ButtonUiState(
             buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Toast Test 페이지로 가기'),
+            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Go to Toast Test Page'),
             buttonSizeType: ButtonSizeType.large()),
       )
     ];
@@ -194,10 +194,10 @@ class DesignSystemSamplePage extends StatelessWidget {
               builder: (context) {
                 return WippyPopup(
                   uiState: WippyPopupUiState(
-                      title: '제목이요',
-                      description: '내용입니다~~~~~~ 길게길게길게\n하이하이',
+                      title: 'Title',
+                      description: 'Description',
                       popupButtonType: PopupButtonType.singleButton(
-                          label: '닫기',
+                          label: 'Close',
                           onPressed: () {
                             Navigator.pop(context);
                           })),
@@ -206,7 +206,7 @@ class DesignSystemSamplePage extends StatelessWidget {
         },
         initUiState: ButtonUiState(
             buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'SingleButton Popup 띄우기'),
+            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Show SingleButton Popup'),
             buttonSizeType: ButtonSizeType.large()),
       ),
       WippyBoxButton(
@@ -217,19 +217,19 @@ class DesignSystemSamplePage extends StatelessWidget {
               builder: (context) {
                 return WippyPopup(
                     uiState: WippyPopupUiState(
-                  title: '친구 요청을 할까요?',
+                  title: 'Request Friend?',
                   popupButtonType: PopupButtonType.multiButton(
-                      leftButtonLabel: '아니용',
+                      leftButtonLabel: 'No',
                       onPressedLeftButton: () {
                         Navigator.pop(context);
                       },
-                      rightButtonLabel: '넵'),
+                      rightButtonLabel: 'Yes'),
                 ));
               });
         },
         initUiState: ButtonUiState(
             buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'MultiButton Popup 띄우기'),
+            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Show MultiButton Popup'),
             buttonSizeType: ButtonSizeType.large()),
       )
     ];
@@ -243,7 +243,7 @@ class DesignSystemSamplePage extends StatelessWidget {
         },
         initUiState: ButtonUiState(
             buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Empty States 페이지로 가기'),
+            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Go to Empty States Page'),
             buttonSizeType: ButtonSizeType.large()),
       )
     ];
@@ -258,7 +258,7 @@ class DesignSystemSamplePage extends StatelessWidget {
         },
         initUiState: ButtonUiState(
             buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Dimmed Loading 페이지로 가기'),
+            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Go to Dimmed Loading Page'),
             buttonSizeType: ButtonSizeType.large()),
       )
     ];
@@ -266,22 +266,22 @@ class DesignSystemSamplePage extends StatelessWidget {
 
   List<Widget> _buildWippyTextAreaComponents() {
     return [
-      WippyTextArea(initialData: const TextAreaInitialData(label: "Disable 상태", state: TextInputState.disable, placeholder: "힌트입니다")),
-      WippyTextArea(initialData: const TextAreaInitialData(label: "set maxCount", maxCount: 10, helperMessage: "도움말이에요", placeholder: "힌트입니다")),
+      WippyTextArea(initialData: const TextAreaInitialData(label: "Disable State", state: TextInputState.disable, placeholder: "Hint")),
+      WippyTextArea(initialData: const TextAreaInitialData(label: "set maxCount", maxCount: 10, helperMessage: "Helper Message", placeholder: "Hint")),
       WippyTextArea(
           initialData: const TextAreaInitialData(
-              label: "Error 상태", errorState: TextInputErrorState.error(errorMessage: "에러임다"), maxCount: 10, placeholder: "힌트입니다")),
+              label: "Error State", errorState: TextInputErrorState.error(errorMessage: "Error Message"), maxCount: 10, placeholder: "Hint")),
     ];
   }
 
   List<Widget> _buildWippyTextFieldComponents() {
     return [
-      WippyTextField(initialData: const TextFieldInitialData(label: "라벨", helperMessage: "도움말이에요", placeholder: "힌트입니다")),
-      WippyTextField(initialData: const TextFieldInitialData(label: "set maxCount", maxCount: 10, placeholder: "힌트입니다")),
+      WippyTextField(initialData: const TextFieldInitialData(label: "Label", helperMessage: "Helper Message", placeholder: "Hint")),
+      WippyTextField(initialData: const TextFieldInitialData(label: "set maxCount", maxCount: 10, placeholder: "Hint")),
       WippyTextField(
           initialData: const TextFieldInitialData(
-              label: "Error 상태", errorState: TextInputErrorState.error(errorMessage: "에러임다"), maxCount: 10, placeholder: "힌트입니다")),
-      WippyTextField(initialData: const TextFieldInitialData(label: "Disable 상태", state: TextInputState.disable, placeholder: "힌트입니다")),
+              label: "Error State", errorState: TextInputErrorState.error(errorMessage: "Error Message"), maxCount: 10, placeholder: "Hint")),
+      WippyTextField(initialData: const TextFieldInitialData(label: "Disable State", state: TextInputState.disable, placeholder: "Hint")),
     ];
   }
 
@@ -294,7 +294,7 @@ class DesignSystemSamplePage extends StatelessWidget {
         onClickSend: (message) {
           debugPrint(message);
         },
-        placeHolder: "메시지를 입력해주세요",
+        placeHolder: "Enter Message",
       ),
     ];
   }
@@ -307,7 +307,7 @@ class DesignSystemSamplePage extends StatelessWidget {
           chips: [
             SingleSelectiveChipUiState(
               chipUiProperties: ChipUiProperties(
-                label: "라벨",
+                label: "Label",
               ),
               isSelected: false,
             ),
@@ -320,11 +320,11 @@ class DesignSystemSamplePage extends StatelessWidget {
         chipsUiState: const SingleSelectiveChipsUiState(
           chips: [
             SingleSelectiveChipUiState(
-              chipUiProperties: ChipUiProperties(label: "남자"),
+              chipUiProperties: ChipUiProperties(label: "Male"),
               isSelected: true,
             ),
             SingleSelectiveChipUiState(
-              chipUiProperties: ChipUiProperties(label: "여자"),
+              chipUiProperties: ChipUiProperties(label: "Female"),
               isSelected: false,
             ),
           ],
@@ -336,15 +336,15 @@ class DesignSystemSamplePage extends StatelessWidget {
         chipsUiState: const MultiSelectiveChipsUiState(
           chips: [
             MultiSelectiveChipUiState.normal(
-              chipUiProperties: ChipUiProperties(label: "축구"),
+              chipUiProperties: ChipUiProperties(label: "Soccer"),
               isSelected: true,
             ),
             MultiSelectiveChipUiState.normal(
-              chipUiProperties: ChipUiProperties(label: "야구"),
+              chipUiProperties: ChipUiProperties(label: "Baseball"),
               isSelected: false,
             ),
             MultiSelectiveChipUiState.normal(
-              chipUiProperties: ChipUiProperties(label: "배드민턴"),
+              chipUiProperties: ChipUiProperties(label: "Badminton"),
               isSelected: false,
             ),
           ],
