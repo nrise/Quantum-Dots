@@ -1,8 +1,8 @@
 import 'dart:collection';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'wippy_toast_ui_event.dart';
-import 'wippy_toast_ui_state.dart';
+import 'package:quantum_dots/qds_toast.dart';
+import 'package:quantum_dots/src/toast/bloc/wippy_toast_ui_event.dart';
 
 class WippyToastBloc extends Bloc<WippyToastUiEvent, WippyToastUiState> {
   final Queue<ShowWippyToastUiEvent> _toastShowUiEventQueue = Queue<ShowWippyToastUiEvent>();
@@ -14,7 +14,12 @@ class WippyToastBloc extends Bloc<WippyToastUiEvent, WippyToastUiState> {
         case ShowWippyToastUiEvent():
           if (!_isProcessingQueue) {
             _isProcessingQueue = true;
-            emit(WippyToastUiState.visible(message: event.message));
+            emit(
+              WippyToastUiState.visible(
+                message: event.message,
+                messageKey: event.messageKey,
+              ),
+            );
           } else {
             if (!event.isCancelableMessage) {
               _toastShowUiEventQueue.add(event);

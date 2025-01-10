@@ -18,7 +18,12 @@ class ToastTestScreen extends StatelessWidget {
                   alignment: Alignment.center,
                   child: WippyBoxButton(
                     onPressed: () {
-                      BlocProvider.of<WippyToastBloc>(context).add(const WippyToastUiEvent.show(message: "하이하이하이하이하이하이하이하이하이하이하이하이"));
+                      BlocProvider.of<WippyToastBloc>(context).add(
+                        const WippyToastUiEvent.show(
+                          message: "하이하이하이하이하이하이하이하이하이하이하이하이",
+                          messageKey: null,
+                        ),
+                      );
                     },
                     initUiState: ButtonUiState(
                       buttonColorType: const ButtonColorType.primary(),
@@ -28,7 +33,13 @@ class ToastTestScreen extends StatelessWidget {
                   ),
                 ),
                 IgnorePointer(
-                  child: ToastBlocBuilderCreator().create(),
+                  child: WippyToastAnimation(
+                    toastWidgetBuilder: ({
+                      required String message,
+                      required String? messageKey,
+                    }) =>
+                        WippyToast(message: message),
+                  ),
                 ),
               ],
             )));

@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$WippyToastUiState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message) visible,
+    required TResult Function(String message, String? messageKey) visible,
     required TResult Function() invisible,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? visible,
+    TResult? Function(String message, String? messageKey)? visible,
     TResult? Function()? invisible,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? visible,
+    TResult Function(String message, String? messageKey)? visible,
     TResult Function()? invisible,
     required TResult orElse(),
   }) =>
@@ -84,7 +84,7 @@ abstract class _$$VisibleWippyToastUiStateImplCopyWith<$Res> {
           $Res Function(_$VisibleWippyToastUiStateImpl) then) =
       __$$VisibleWippyToastUiStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({String message, String? messageKey});
 }
 
 /// @nodoc
@@ -103,12 +103,17 @@ class __$$VisibleWippyToastUiStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = null,
+    Object? messageKey = freezed,
   }) {
     return _then(_$VisibleWippyToastUiStateImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      messageKey: freezed == messageKey
+          ? _value.messageKey
+          : messageKey // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -116,14 +121,17 @@ class __$$VisibleWippyToastUiStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$VisibleWippyToastUiStateImpl implements VisibleWippyToastUiState {
-  const _$VisibleWippyToastUiStateImpl({required this.message});
+  const _$VisibleWippyToastUiStateImpl(
+      {required this.message, this.messageKey});
 
   @override
   final String message;
+  @override
+  final String? messageKey;
 
   @override
   String toString() {
-    return 'WippyToastUiState.visible(message: $message)';
+    return 'WippyToastUiState.visible(message: $message, messageKey: $messageKey)';
   }
 
   @override
@@ -131,11 +139,13 @@ class _$VisibleWippyToastUiStateImpl implements VisibleWippyToastUiState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VisibleWippyToastUiStateImpl &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.messageKey, messageKey) ||
+                other.messageKey == messageKey));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, message, messageKey);
 
   /// Create a copy of WippyToastUiState
   /// with the given fields replaced by the non-null parameter values.
@@ -149,30 +159,30 @@ class _$VisibleWippyToastUiStateImpl implements VisibleWippyToastUiState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message) visible,
+    required TResult Function(String message, String? messageKey) visible,
     required TResult Function() invisible,
   }) {
-    return visible(message);
+    return visible(message, messageKey);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? visible,
+    TResult? Function(String message, String? messageKey)? visible,
     TResult? Function()? invisible,
   }) {
-    return visible?.call(message);
+    return visible?.call(message, messageKey);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? visible,
+    TResult Function(String message, String? messageKey)? visible,
     TResult Function()? invisible,
     required TResult orElse(),
   }) {
     if (visible != null) {
-      return visible(message);
+      return visible(message, messageKey);
     }
     return orElse();
   }
@@ -210,10 +220,12 @@ class _$VisibleWippyToastUiStateImpl implements VisibleWippyToastUiState {
 }
 
 abstract class VisibleWippyToastUiState implements WippyToastUiState {
-  const factory VisibleWippyToastUiState({required final String message}) =
-      _$VisibleWippyToastUiStateImpl;
+  const factory VisibleWippyToastUiState(
+      {required final String message,
+      final String? messageKey}) = _$VisibleWippyToastUiStateImpl;
 
   String get message;
+  String? get messageKey;
 
   /// Create a copy of WippyToastUiState
   /// with the given fields replaced by the non-null parameter values.
@@ -267,7 +279,7 @@ class _$InvisibleWippyToastUiStateImpl implements InvisibleWippyToastUiState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message) visible,
+    required TResult Function(String message, String? messageKey) visible,
     required TResult Function() invisible,
   }) {
     return invisible();
@@ -276,7 +288,7 @@ class _$InvisibleWippyToastUiStateImpl implements InvisibleWippyToastUiState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message)? visible,
+    TResult? Function(String message, String? messageKey)? visible,
     TResult? Function()? invisible,
   }) {
     return invisible?.call();
@@ -285,7 +297,7 @@ class _$InvisibleWippyToastUiStateImpl implements InvisibleWippyToastUiState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message)? visible,
+    TResult Function(String message, String? messageKey)? visible,
     TResult Function()? invisible,
     required TResult orElse(),
   }) {

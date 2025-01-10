@@ -6,6 +6,7 @@ part 'wippy_toast_ui_event.freezed.dart';
 sealed class WippyToastUiEvent with _$WippyToastUiEvent {
   const factory WippyToastUiEvent.show({
     required String message,
+    required String? messageKey,
     @Default(true) bool isCancelableMessage,
   }) = ShowWippyToastUiEvent;
 

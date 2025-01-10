@@ -18,21 +18,27 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$WippyToastUiEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, bool isCancelableMessage) show,
+    required TResult Function(
+            String message, String? messageKey, bool isCancelableMessage)
+        show,
     required TResult Function() endedVisibleAnimation,
     required TResult Function() endedInvisibleAnimation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message, bool isCancelableMessage)? show,
+    TResult? Function(
+            String message, String? messageKey, bool isCancelableMessage)?
+        show,
     TResult? Function()? endedVisibleAnimation,
     TResult? Function()? endedInvisibleAnimation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, bool isCancelableMessage)? show,
+    TResult Function(
+            String message, String? messageKey, bool isCancelableMessage)?
+        show,
     TResult Function()? endedVisibleAnimation,
     TResult Function()? endedInvisibleAnimation,
     required TResult orElse(),
@@ -96,7 +102,7 @@ abstract class _$$ShowWippyToastUiEventImplCopyWith<$Res> {
           $Res Function(_$ShowWippyToastUiEventImpl) then) =
       __$$ShowWippyToastUiEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message, bool isCancelableMessage});
+  $Res call({String message, String? messageKey, bool isCancelableMessage});
 }
 
 /// @nodoc
@@ -113,6 +119,7 @@ class __$$ShowWippyToastUiEventImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = null,
+    Object? messageKey = freezed,
     Object? isCancelableMessage = null,
   }) {
     return _then(_$ShowWippyToastUiEventImpl(
@@ -120,6 +127,10 @@ class __$$ShowWippyToastUiEventImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
+      messageKey: freezed == messageKey
+          ? _value.messageKey
+          : messageKey // ignore: cast_nullable_to_non_nullable
+              as String?,
       isCancelableMessage: null == isCancelableMessage
           ? _value.isCancelableMessage
           : isCancelableMessage // ignore: cast_nullable_to_non_nullable
@@ -132,17 +143,21 @@ class __$$ShowWippyToastUiEventImplCopyWithImpl<$Res>
 
 class _$ShowWippyToastUiEventImpl implements ShowWippyToastUiEvent {
   const _$ShowWippyToastUiEventImpl(
-      {required this.message, this.isCancelableMessage = true});
+      {required this.message,
+      required this.messageKey,
+      this.isCancelableMessage = true});
 
   @override
   final String message;
+  @override
+  final String? messageKey;
   @override
   @JsonKey()
   final bool isCancelableMessage;
 
   @override
   String toString() {
-    return 'WippyToastUiEvent.show(message: $message, isCancelableMessage: $isCancelableMessage)';
+    return 'WippyToastUiEvent.show(message: $message, messageKey: $messageKey, isCancelableMessage: $isCancelableMessage)';
   }
 
   @override
@@ -151,12 +166,15 @@ class _$ShowWippyToastUiEventImpl implements ShowWippyToastUiEvent {
         (other.runtimeType == runtimeType &&
             other is _$ShowWippyToastUiEventImpl &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.messageKey, messageKey) ||
+                other.messageKey == messageKey) &&
             (identical(other.isCancelableMessage, isCancelableMessage) ||
                 other.isCancelableMessage == isCancelableMessage));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message, isCancelableMessage);
+  int get hashCode =>
+      Object.hash(runtimeType, message, messageKey, isCancelableMessage);
 
   /// Create a copy of WippyToastUiEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -170,33 +188,39 @@ class _$ShowWippyToastUiEventImpl implements ShowWippyToastUiEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, bool isCancelableMessage) show,
+    required TResult Function(
+            String message, String? messageKey, bool isCancelableMessage)
+        show,
     required TResult Function() endedVisibleAnimation,
     required TResult Function() endedInvisibleAnimation,
   }) {
-    return show(message, isCancelableMessage);
+    return show(message, messageKey, isCancelableMessage);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message, bool isCancelableMessage)? show,
+    TResult? Function(
+            String message, String? messageKey, bool isCancelableMessage)?
+        show,
     TResult? Function()? endedVisibleAnimation,
     TResult? Function()? endedInvisibleAnimation,
   }) {
-    return show?.call(message, isCancelableMessage);
+    return show?.call(message, messageKey, isCancelableMessage);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, bool isCancelableMessage)? show,
+    TResult Function(
+            String message, String? messageKey, bool isCancelableMessage)?
+        show,
     TResult Function()? endedVisibleAnimation,
     TResult Function()? endedInvisibleAnimation,
     required TResult orElse(),
   }) {
     if (show != null) {
-      return show(message, isCancelableMessage);
+      return show(message, messageKey, isCancelableMessage);
     }
     return orElse();
   }
@@ -245,9 +269,11 @@ class _$ShowWippyToastUiEventImpl implements ShowWippyToastUiEvent {
 abstract class ShowWippyToastUiEvent implements WippyToastUiEvent {
   const factory ShowWippyToastUiEvent(
       {required final String message,
+      required final String? messageKey,
       final bool isCancelableMessage}) = _$ShowWippyToastUiEventImpl;
 
   String get message;
+  String? get messageKey;
   bool get isCancelableMessage;
 
   /// Create a copy of WippyToastUiEvent
@@ -303,7 +329,9 @@ class _$EndedVisibleAnimationToastUiEventImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, bool isCancelableMessage) show,
+    required TResult Function(
+            String message, String? messageKey, bool isCancelableMessage)
+        show,
     required TResult Function() endedVisibleAnimation,
     required TResult Function() endedInvisibleAnimation,
   }) {
@@ -313,7 +341,9 @@ class _$EndedVisibleAnimationToastUiEventImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message, bool isCancelableMessage)? show,
+    TResult? Function(
+            String message, String? messageKey, bool isCancelableMessage)?
+        show,
     TResult? Function()? endedVisibleAnimation,
     TResult? Function()? endedInvisibleAnimation,
   }) {
@@ -323,7 +353,9 @@ class _$EndedVisibleAnimationToastUiEventImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, bool isCancelableMessage)? show,
+    TResult Function(
+            String message, String? messageKey, bool isCancelableMessage)?
+        show,
     TResult Function()? endedVisibleAnimation,
     TResult Function()? endedInvisibleAnimation,
     required TResult orElse(),
@@ -426,7 +458,9 @@ class _$EndedInvisibleAnimationToastUiEventImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String message, bool isCancelableMessage) show,
+    required TResult Function(
+            String message, String? messageKey, bool isCancelableMessage)
+        show,
     required TResult Function() endedVisibleAnimation,
     required TResult Function() endedInvisibleAnimation,
   }) {
@@ -436,7 +470,9 @@ class _$EndedInvisibleAnimationToastUiEventImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String message, bool isCancelableMessage)? show,
+    TResult? Function(
+            String message, String? messageKey, bool isCancelableMessage)?
+        show,
     TResult? Function()? endedVisibleAnimation,
     TResult? Function()? endedInvisibleAnimation,
   }) {
@@ -446,7 +482,9 @@ class _$EndedInvisibleAnimationToastUiEventImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String message, bool isCancelableMessage)? show,
+    TResult Function(
+            String message, String? messageKey, bool isCancelableMessage)?
+        show,
     TResult Function()? endedVisibleAnimation,
     TResult Function()? endedInvisibleAnimation,
     required TResult orElse(),
