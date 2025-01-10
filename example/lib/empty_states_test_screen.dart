@@ -12,9 +12,9 @@ class EmptyStatesTestScreen extends StatelessWidget {
       body: WippyEmptyStates(
         uiState: const EmptyStatesUiState(
             iconAssetName: IconPath.iconChatOpen,
-            title: "진행중인 대화가 없어요.",
-            description: "프로필 평가받기를 사용해서\n나에게 관심 있는 친구와 대화를 시작해 보세요.",
-            buttonLabel: "내 프로필 평가받기"),
+            title: "No ongoing conversation",
+            description: "Use Profile Evaluation to start a conversation with\ninterested friends.",
+            buttonLabel: "Evaluate my profile"),
         onPressedButton: () {
           Navigator.pop(context);
         },

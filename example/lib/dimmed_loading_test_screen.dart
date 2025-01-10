@@ -25,7 +25,7 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
           },
           initUiState: ButtonUiState(
               buttonColorType: const ButtonColorType.secondary(),
-              buttonLabelType: const ButtonLabelType.labelOnly(label: '탈출'),
+              buttonLabelType: const ButtonLabelType.labelOnly(label: 'Escape'),
               buttonSizeType: ButtonSizeType.large()),
         )
       ],
@@ -43,7 +43,7 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
         },
         initUiState: ButtonUiState(
             buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Dimmed 상태 on'),
+            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Dimmed State on'),
             buttonSizeType: ButtonSizeType.large()),
       )
     ];
@@ -55,7 +55,7 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
           onPressed: () {},
           initUiState: ButtonUiState(
               buttonColorType: const ButtonColorType.primary(),
-              buttonLabelType: const ButtonLabelType.labelOnly(label: '아무 동작 안 하는 버튼'),
+              buttonLabelType: const ButtonLabelType.labelOnly(label: 'Do nothing button'),
               buttonSizeType: ButtonSizeType.large()),
         )
       ];

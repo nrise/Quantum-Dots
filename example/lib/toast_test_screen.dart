@@ -20,14 +20,14 @@ class ToastTestScreen extends StatelessWidget {
                     onPressed: () {
                       BlocProvider.of<WippyToastBloc>(context).add(
                         const WippyToastUiEvent.show(
-                          message: "하이하이하이하이하이하이하이하이하이하이하이하이",
+                          message: "Hi Hi Hi Hi Hi Hi",
                           messageKey: null,
                         ),
                       );
                     },
                     initUiState: ButtonUiState(
                       buttonColorType: const ButtonColorType.primary(),
-                      buttonLabelType: const ButtonLabelType.labelOnly(label: 'Toast 보여주기'),
+                      buttonLabelType: const ButtonLabelType.labelOnly(label: 'Show Toast'),
                       buttonSizeType: ButtonSizeType.large(),
                     ),
                   ),
