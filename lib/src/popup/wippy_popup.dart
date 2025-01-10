@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:quantum_dots/qds_button.dart';
 import 'package:quantum_dots/qds_foundation.dart';
+import 'package:quantum_dots/qds_popup.dart';
+import 'package:quantum_dots/src/popup/type/popup_image_type.dart';
+
 import 'type/popup_button_type.dart';
-import 'type/popup_image_type.dart';
-import 'wippy_popup_ui_state.dart';
 
 class WippyPopup extends StatelessWidget {
   static const double _insetPaddingSize = 40;
@@ -36,9 +37,14 @@ class WippyPopup extends StatelessWidget {
     if (imageType != null) {
       switch (imageType) {
         case NetworkPopupImage():
-          imageWidget = Image.network(imageType.imageUrl, width: double.infinity);
+          imageWidget = Image.network(imageType.imageUrl, width: imageType.width);
+          if (imageType.isCircle) {
+            imageWidget = ClipOval(child: imageWidget);
+          }
         case AssetPopupImage():
           imageWidget = SvgPicture.asset(imageType.assetName, width: double.infinity);
+        case LocalImagePopupImage():
+          imageWidget = Image.asset(imageType.imagePath, width: imageType.width, height: imageType.height);
       }
     }
 
@@ -132,6 +138,7 @@ class WippyPopup extends StatelessWidget {
         children: [
           if (imageWidget != null)
             Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [imageWidget, SizedBox(height: 16)],
             ),
           Text(

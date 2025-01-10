@@ -18,20 +18,26 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PopupImageType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String imageUrl) network,
+    required TResult Function(String imageUrl, bool isCircle, double width)
+        network,
     required TResult Function(String assetName) asset,
+    required TResult Function(String imagePath, double width, double height)
+        localImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String imageUrl)? network,
+    TResult? Function(String imageUrl, bool isCircle, double width)? network,
     TResult? Function(String assetName)? asset,
+    TResult? Function(String imagePath, double width, double height)?
+        localImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String imageUrl)? network,
+    TResult Function(String imageUrl, bool isCircle, double width)? network,
     TResult Function(String assetName)? asset,
+    TResult Function(String imagePath, double width, double height)? localImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,21 @@ mixin _$PopupImageType {
   TResult map<TResult extends Object?>({
     required TResult Function(NetworkPopupImage value) network,
     required TResult Function(AssetPopupImage value) asset,
+    required TResult Function(LocalImagePopupImage value) localImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NetworkPopupImage value)? network,
     TResult? Function(AssetPopupImage value)? asset,
+    TResult? Function(LocalImagePopupImage value)? localImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NetworkPopupImage value)? network,
     TResult Function(AssetPopupImage value)? asset,
+    TResult Function(LocalImagePopupImage value)? localImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,7 +92,7 @@ abstract class _$$NetworkPopupImageImplCopyWith<$Res> {
           $Res Function(_$NetworkPopupImageImpl) then) =
       __$$NetworkPopupImageImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String imageUrl});
+  $Res call({String imageUrl, bool isCircle, double width});
 }
 
 /// @nodoc
@@ -100,12 +109,22 @@ class __$$NetworkPopupImageImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? imageUrl = null,
+    Object? isCircle = null,
+    Object? width = null,
   }) {
     return _then(_$NetworkPopupImageImpl(
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      isCircle: null == isCircle
+          ? _value.isCircle
+          : isCircle // ignore: cast_nullable_to_non_nullable
+              as bool,
+      width: null == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -113,14 +132,23 @@ class __$$NetworkPopupImageImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$NetworkPopupImageImpl implements NetworkPopupImage {
-  const _$NetworkPopupImageImpl({required this.imageUrl});
+  const _$NetworkPopupImageImpl(
+      {required this.imageUrl,
+      this.isCircle = false,
+      this.width = double.infinity});
 
   @override
   final String imageUrl;
+  @override
+  @JsonKey()
+  final bool isCircle;
+  @override
+  @JsonKey()
+  final double width;
 
   @override
   String toString() {
-    return 'PopupImageType.network(imageUrl: $imageUrl)';
+    return 'PopupImageType.network(imageUrl: $imageUrl, isCircle: $isCircle, width: $width)';
   }
 
   @override
@@ -129,11 +157,14 @@ class _$NetworkPopupImageImpl implements NetworkPopupImage {
         (other.runtimeType == runtimeType &&
             other is _$NetworkPopupImageImpl &&
             (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+                other.imageUrl == imageUrl) &&
+            (identical(other.isCircle, isCircle) ||
+                other.isCircle == isCircle) &&
+            (identical(other.width, width) || other.width == width));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, imageUrl);
+  int get hashCode => Object.hash(runtimeType, imageUrl, isCircle, width);
 
   /// Create a copy of PopupImageType
   /// with the given fields replaced by the non-null parameter values.
@@ -147,30 +178,36 @@ class _$NetworkPopupImageImpl implements NetworkPopupImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String imageUrl) network,
+    required TResult Function(String imageUrl, bool isCircle, double width)
+        network,
     required TResult Function(String assetName) asset,
+    required TResult Function(String imagePath, double width, double height)
+        localImage,
   }) {
-    return network(imageUrl);
+    return network(imageUrl, isCircle, width);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String imageUrl)? network,
+    TResult? Function(String imageUrl, bool isCircle, double width)? network,
     TResult? Function(String assetName)? asset,
+    TResult? Function(String imagePath, double width, double height)?
+        localImage,
   }) {
-    return network?.call(imageUrl);
+    return network?.call(imageUrl, isCircle, width);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String imageUrl)? network,
+    TResult Function(String imageUrl, bool isCircle, double width)? network,
     TResult Function(String assetName)? asset,
+    TResult Function(String imagePath, double width, double height)? localImage,
     required TResult orElse(),
   }) {
     if (network != null) {
-      return network(imageUrl);
+      return network(imageUrl, isCircle, width);
     }
     return orElse();
   }
@@ -180,6 +217,7 @@ class _$NetworkPopupImageImpl implements NetworkPopupImage {
   TResult map<TResult extends Object?>({
     required TResult Function(NetworkPopupImage value) network,
     required TResult Function(AssetPopupImage value) asset,
+    required TResult Function(LocalImagePopupImage value) localImage,
   }) {
     return network(this);
   }
@@ -189,6 +227,7 @@ class _$NetworkPopupImageImpl implements NetworkPopupImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NetworkPopupImage value)? network,
     TResult? Function(AssetPopupImage value)? asset,
+    TResult? Function(LocalImagePopupImage value)? localImage,
   }) {
     return network?.call(this);
   }
@@ -198,6 +237,7 @@ class _$NetworkPopupImageImpl implements NetworkPopupImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NetworkPopupImage value)? network,
     TResult Function(AssetPopupImage value)? asset,
+    TResult Function(LocalImagePopupImage value)? localImage,
     required TResult orElse(),
   }) {
     if (network != null) {
@@ -208,10 +248,14 @@ class _$NetworkPopupImageImpl implements NetworkPopupImage {
 }
 
 abstract class NetworkPopupImage implements PopupImageType {
-  const factory NetworkPopupImage({required final String imageUrl}) =
-      _$NetworkPopupImageImpl;
+  const factory NetworkPopupImage(
+      {required final String imageUrl,
+      final bool isCircle,
+      final double width}) = _$NetworkPopupImageImpl;
 
   String get imageUrl;
+  bool get isCircle;
+  double get width;
 
   /// Create a copy of PopupImageType
   /// with the given fields replaced by the non-null parameter values.
@@ -290,8 +334,11 @@ class _$AssetPopupImageImpl implements AssetPopupImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String imageUrl) network,
+    required TResult Function(String imageUrl, bool isCircle, double width)
+        network,
     required TResult Function(String assetName) asset,
+    required TResult Function(String imagePath, double width, double height)
+        localImage,
   }) {
     return asset(assetName);
   }
@@ -299,8 +346,10 @@ class _$AssetPopupImageImpl implements AssetPopupImage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String imageUrl)? network,
+    TResult? Function(String imageUrl, bool isCircle, double width)? network,
     TResult? Function(String assetName)? asset,
+    TResult? Function(String imagePath, double width, double height)?
+        localImage,
   }) {
     return asset?.call(assetName);
   }
@@ -308,8 +357,9 @@ class _$AssetPopupImageImpl implements AssetPopupImage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String imageUrl)? network,
+    TResult Function(String imageUrl, bool isCircle, double width)? network,
     TResult Function(String assetName)? asset,
+    TResult Function(String imagePath, double width, double height)? localImage,
     required TResult orElse(),
   }) {
     if (asset != null) {
@@ -323,6 +373,7 @@ class _$AssetPopupImageImpl implements AssetPopupImage {
   TResult map<TResult extends Object?>({
     required TResult Function(NetworkPopupImage value) network,
     required TResult Function(AssetPopupImage value) asset,
+    required TResult Function(LocalImagePopupImage value) localImage,
   }) {
     return asset(this);
   }
@@ -332,6 +383,7 @@ class _$AssetPopupImageImpl implements AssetPopupImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(NetworkPopupImage value)? network,
     TResult? Function(AssetPopupImage value)? asset,
+    TResult? Function(LocalImagePopupImage value)? localImage,
   }) {
     return asset?.call(this);
   }
@@ -341,6 +393,7 @@ class _$AssetPopupImageImpl implements AssetPopupImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(NetworkPopupImage value)? network,
     TResult Function(AssetPopupImage value)? asset,
+    TResult Function(LocalImagePopupImage value)? localImage,
     required TResult orElse(),
   }) {
     if (asset != null) {
@@ -361,4 +414,178 @@ abstract class AssetPopupImage implements PopupImageType {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AssetPopupImageImplCopyWith<_$AssetPopupImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LocalImagePopupImageImplCopyWith<$Res> {
+  factory _$$LocalImagePopupImageImplCopyWith(_$LocalImagePopupImageImpl value,
+          $Res Function(_$LocalImagePopupImageImpl) then) =
+      __$$LocalImagePopupImageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String imagePath, double width, double height});
+}
+
+/// @nodoc
+class __$$LocalImagePopupImageImplCopyWithImpl<$Res>
+    extends _$PopupImageTypeCopyWithImpl<$Res, _$LocalImagePopupImageImpl>
+    implements _$$LocalImagePopupImageImplCopyWith<$Res> {
+  __$$LocalImagePopupImageImplCopyWithImpl(_$LocalImagePopupImageImpl _value,
+      $Res Function(_$LocalImagePopupImageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PopupImageType
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imagePath = null,
+    Object? width = null,
+    Object? height = null,
+  }) {
+    return _then(_$LocalImagePopupImageImpl(
+      imagePath: null == imagePath
+          ? _value.imagePath
+          : imagePath // ignore: cast_nullable_to_non_nullable
+              as String,
+      width: null == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      height: null == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LocalImagePopupImageImpl implements LocalImagePopupImage {
+  const _$LocalImagePopupImageImpl(
+      {required this.imagePath, required this.width, required this.height});
+
+  @override
+  final String imagePath;
+  @override
+  final double width;
+  @override
+  final double height;
+
+  @override
+  String toString() {
+    return 'PopupImageType.localImage(imagePath: $imagePath, width: $width, height: $height)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LocalImagePopupImageImpl &&
+            (identical(other.imagePath, imagePath) ||
+                other.imagePath == imagePath) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, imagePath, width, height);
+
+  /// Create a copy of PopupImageType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LocalImagePopupImageImplCopyWith<_$LocalImagePopupImageImpl>
+      get copyWith =>
+          __$$LocalImagePopupImageImplCopyWithImpl<_$LocalImagePopupImageImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String imageUrl, bool isCircle, double width)
+        network,
+    required TResult Function(String assetName) asset,
+    required TResult Function(String imagePath, double width, double height)
+        localImage,
+  }) {
+    return localImage(imagePath, width, height);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String imageUrl, bool isCircle, double width)? network,
+    TResult? Function(String assetName)? asset,
+    TResult? Function(String imagePath, double width, double height)?
+        localImage,
+  }) {
+    return localImage?.call(imagePath, width, height);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String imageUrl, bool isCircle, double width)? network,
+    TResult Function(String assetName)? asset,
+    TResult Function(String imagePath, double width, double height)? localImage,
+    required TResult orElse(),
+  }) {
+    if (localImage != null) {
+      return localImage(imagePath, width, height);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NetworkPopupImage value) network,
+    required TResult Function(AssetPopupImage value) asset,
+    required TResult Function(LocalImagePopupImage value) localImage,
+  }) {
+    return localImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NetworkPopupImage value)? network,
+    TResult? Function(AssetPopupImage value)? asset,
+    TResult? Function(LocalImagePopupImage value)? localImage,
+  }) {
+    return localImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NetworkPopupImage value)? network,
+    TResult Function(AssetPopupImage value)? asset,
+    TResult Function(LocalImagePopupImage value)? localImage,
+    required TResult orElse(),
+  }) {
+    if (localImage != null) {
+      return localImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LocalImagePopupImage implements PopupImageType {
+  const factory LocalImagePopupImage(
+      {required final String imagePath,
+      required final double width,
+      required final double height}) = _$LocalImagePopupImageImpl;
+
+  String get imagePath;
+  double get width;
+  double get height;
+
+  /// Create a copy of PopupImageType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LocalImagePopupImageImplCopyWith<_$LocalImagePopupImageImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
