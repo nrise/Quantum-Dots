@@ -118,6 +118,26 @@ class DesignSystemSamplePage extends StatelessWidget {
     return [
       const Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
+        child: WippySolidDropDown(
+          uiState: SolidDropDownUiState(
+            label: "Label",
+            placeHolder: "Text",
+          ),
+        ),
+      ),
+      const SizedBox(height: 16),
+      const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: WippySolidDropDown(
+          uiState: SolidDropDownUiState(
+            label: "Label",
+            selectedText: "Text",
+          ),
+        ),
+      ),
+      const SizedBox(height: 16),
+      const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
         child: WippyDropDown(
           uiState: DropDownUiState(
             label: "Label",
@@ -125,9 +145,7 @@ class DesignSystemSamplePage extends StatelessWidget {
           ),
         ),
       ),
-      const SizedBox(
-        height: 16,
-      ),
+      const SizedBox(height: 16),
       const Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: WippyDropDown(
@@ -137,9 +155,7 @@ class DesignSystemSamplePage extends StatelessWidget {
           ),
         ),
       ),
-      const SizedBox(
-        height: 16,
-      ),
+      const SizedBox(height: 16),
       const Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: WippyDropDown(
@@ -150,9 +166,7 @@ class DesignSystemSamplePage extends StatelessWidget {
           ),
         ),
       ),
-      const SizedBox(
-        height: 16,
-      ),
+      const SizedBox(height: 16),
     ];
   }
 
