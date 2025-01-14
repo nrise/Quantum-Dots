@@ -54,6 +54,7 @@ class DesignSystemSamplePage extends StatelessWidget {
 
   List<Widget> _buildWippyBadge() {
     return [
+      WippyBadge(TextBadge(text: "Text", bgColor: wippyPink500, textColor: wippyWhite)),
       WippyBadge(NBadge(bgColor: wippyPink500, textColor: wippyWhite)),
       WippyBadge(NumberBadge(number: 33, bgColor: wippyPink500, textColor: wippyWhite)),
       WippyBadge(NumberBadge(number: 100, bgColor: wippyPink500, textColor: wippyWhite)),
@@ -267,7 +268,8 @@ class DesignSystemSamplePage extends StatelessWidget {
   List<Widget> _buildWippyTextAreaComponents() {
     return [
       WippyTextArea(initialData: const TextAreaInitialData(label: "Disable State", state: TextInputState.disable, placeholder: "Hint")),
-      WippyTextArea(initialData: const TextAreaInitialData(label: "set maxCount", maxCount: 10, helperMessage: "Helper Message", placeholder: "Hint")),
+      WippyTextArea(
+          initialData: const TextAreaInitialData(label: "set maxCount", maxCount: 10, helperMessage: "Helper Message", placeholder: "Hint")),
       WippyTextArea(
           initialData: const TextAreaInitialData(
               label: "Error State", errorState: TextInputErrorState.error(errorMessage: "Error Message"), maxCount: 10, placeholder: "Hint")),
