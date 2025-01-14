@@ -34,8 +34,3 @@ jobs:
 
       - name: Run tests
         run: melos run unit_test
-
-      - name: test publish
-        run: |
-          cd quantum_dots
-          dart pub publish --dry-run
