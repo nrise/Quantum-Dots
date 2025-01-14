@@ -1,0 +1,5 @@
+# melos_managed_dependency_overrides: quantum_dots
+dependency_overrides:
+  quantum_dots:
+    path: ../
+    version: 0.0.4
