@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-const String FontNameDefault = 'PretendardJP';
+const String fontFamilyDefault = 'PretendardJP';
 
 const headline30Bold = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w700,
   fontSize: 30.0,
   height: 1.33, // 40pt line height
@@ -11,7 +11,7 @@ const headline30Bold = TextStyle(
 );
 
 const headline24Bold = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w700,
   fontSize: 24.0,
   height: 1.33, // 32pt line height
@@ -19,7 +19,7 @@ const headline24Bold = TextStyle(
 );
 
 const headline20Bold = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w700,
   fontSize: 20.0,
   height: 1.3, // 26pt line height
@@ -27,7 +27,7 @@ const headline20Bold = TextStyle(
 );
 
 const headline18Bold = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w700,
   fontSize: 18.0,
   height: 1.33, // 24pt line height
@@ -35,7 +35,7 @@ const headline18Bold = TextStyle(
 );
 
 const headline16Bold = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w700,
   fontSize: 16.0,
   height: 1.375, // 22pt line height
@@ -43,7 +43,7 @@ const headline16Bold = TextStyle(
 );
 
 const body18Bold = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w700,
   fontSize: 18.0,
   height: 1.33, // 30pt line height
@@ -51,7 +51,7 @@ const body18Bold = TextStyle(
 );
 
 const body16Bold = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w700,
   fontSize: 16.0,
   height: 1.375, // 22pt line height
@@ -59,7 +59,7 @@ const body16Bold = TextStyle(
 );
 
 const body16Medium = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w500,
   fontSize: 16.0,
   height: 1.375, // 22pt line height
@@ -67,7 +67,7 @@ const body16Medium = TextStyle(
 );
 
 const body14Bold = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w700,
   fontSize: 14.0,
   height: 1.4286, // 20pt line height
@@ -75,7 +75,7 @@ const body14Bold = TextStyle(
 );
 
 const body14Medium = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w500,
   fontSize: 14.0,
   height: 1.4286, // 20pt line height
@@ -83,7 +83,7 @@ const body14Medium = TextStyle(
 );
 
 const body12Bold = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w700,
   fontSize: 12.0,
   height: 1.5, // 18pt line height
@@ -91,7 +91,7 @@ const body12Bold = TextStyle(
 );
 
 const body12Medium = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w500,
   fontSize: 12.0,
   height: 1.5, // 18pt line height
@@ -99,7 +99,7 @@ const body12Medium = TextStyle(
 );
 
 const body10Bold = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w700,
   fontSize: 10.0,
   height: 1.6, // 16pt line height
@@ -107,7 +107,7 @@ const body10Bold = TextStyle(
 );
 
 const body10Medium = TextStyle(
-  fontFamily: FontNameDefault,
+  fontFamily: fontFamilyDefault,
   fontWeight: FontWeight.w500,
   fontSize: 10.0,
   height: 1.6, // 16pt line height
