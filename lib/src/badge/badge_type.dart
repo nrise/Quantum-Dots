@@ -5,6 +5,18 @@ import 'package:quantum_dots/qds_foundation.dart';
 
 sealed class BadgeType {}
 
+class TextBadge extends BadgeType {
+  final String text;
+  final Color bgColor;
+  final Color textColor;
+
+  TextBadge({
+    required this.text,
+    this.bgColor = wippyPink500,
+    this.textColor = wippyWhite,
+  });
+}
+
 class NBadge extends BadgeType {
   final Color bgColor;
   final Color textColor;
