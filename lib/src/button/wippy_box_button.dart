@@ -135,7 +135,6 @@ class WippyBoxButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      key: ValueKey(initUiState),
       create: (context) => ButtonCubit(
         onPressed: onPressed,
         uiState: initUiState,
