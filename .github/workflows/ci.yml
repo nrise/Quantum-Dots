@@ -20,17 +20,11 @@ jobs:
 
       - run: flutter --version
 
-      - name: Install Melos
-        run: flutter pub global activate melos
-
       - name: Pub get
-        run: melos exec -- flutter pub get
+        run: flutter pub get
 
       - name: Run analyze
-        run: melos run analyze
-
-      - name: Install Codev
-        run: dart pub global activate coverde
+        run: flutter analyze
 
       - name: Run tests
-        run: melos run unit_test
+        run: flutter test
