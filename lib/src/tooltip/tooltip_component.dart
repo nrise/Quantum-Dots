@@ -4,18 +4,25 @@ import 'package:quantum_dots/qds_foundation.dart';
 
 import 'tooltip_ui_state.dart';
 
-class TooltipComponent extends StatelessWidget {
+class TooltipComponent extends StatefulWidget {
   final TooltipUiState uiState;
+  final Function() onVisibilityChanged;
 
   const TooltipComponent({
     super.key,
     required this.uiState,
+    required this.onVisibilityChanged,
   });
 
   @override
+  State<TooltipComponent> createState() => _TooltipComponentState();
+}
+
+class _TooltipComponentState extends State<TooltipComponent> {
+  @override
   Widget build(BuildContext context) {
     String arrowAssetPath;
-    switch (uiState.arrowPosition) {
+    switch (widget.uiState.arrowPosition) {
       case TooltipArrowPosition.leftTop:
       case TooltipArrowPosition.rightTop:
         arrowAssetPath = IconPath.iconTopPoint24;
@@ -26,31 +33,36 @@ class TooltipComponent extends StatelessWidget {
         break;
     }
 
-    bool isArrowAbove = uiState.arrowPosition == TooltipArrowPosition.leftTop || uiState.arrowPosition == TooltipArrowPosition.rightTop;
+    bool isArrowAbove = widget.uiState.arrowPosition == TooltipArrowPosition.leftTop || widget.uiState.arrowPosition == TooltipArrowPosition.rightTop;
 
-    return Stack(
-      children: [
-        Column(
-          crossAxisAlignment: (uiState.arrowPosition == TooltipArrowPosition.leftTop || uiState.arrowPosition == TooltipArrowPosition.leftBottom)
-              ? CrossAxisAlignment.start
-              : CrossAxisAlignment.end,
-          children: [
-            if (isArrowAbove) _buildArrow(arrowAssetPath),
-            _buildTooltipContainer(),
-            if (!isArrowAbove) _buildArrow(arrowAssetPath),
-          ],
-        ),
-      ],
-    );
+    return widget.uiState.visible
+        ? Stack(
+            children: [
+              Column(
+                crossAxisAlignment:
+                    (widget.uiState.arrowPosition == TooltipArrowPosition.leftTop || widget.uiState.arrowPosition == TooltipArrowPosition.leftBottom)
+                        ? CrossAxisAlignment.start
+                        : CrossAxisAlignment.end,
+                children: [
+                  if (isArrowAbove) _buildArrow(arrowAssetPath),
+                  _buildTooltipContainer(),
+                  if (!isArrowAbove) _buildArrow(arrowAssetPath),
+                ],
+              ),
+            ],
+          )
+        : const SizedBox.shrink();
   }
 
   Widget _buildArrow(String arrowAssetPath) {
     return Padding(
       padding: EdgeInsets.fromLTRB(
-          uiState.arrowPosition == TooltipArrowPosition.leftTop || uiState.arrowPosition == TooltipArrowPosition.leftBottom ? uiState.arrowOffset : 0,
+          widget.uiState.arrowPosition == TooltipArrowPosition.leftTop || widget.uiState.arrowPosition == TooltipArrowPosition.leftBottom
+              ? widget.uiState.arrowOffset
+              : 0,
           0,
-          uiState.arrowPosition == TooltipArrowPosition.rightTop || uiState.arrowPosition == TooltipArrowPosition.rightBottom
-              ? uiState.arrowOffset
+          widget.uiState.arrowPosition == TooltipArrowPosition.rightTop || widget.uiState.arrowPosition == TooltipArrowPosition.rightBottom
+              ? widget.uiState.arrowOffset
               : 0,
           0),
       child: SizedBox(
@@ -65,7 +77,7 @@ class TooltipComponent extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: ShapeDecoration(
-        color: uiState.backgroundColor,
+        color: widget.uiState.backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
@@ -76,9 +88,9 @@ class TooltipComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            uiState.message,
+            widget.uiState.message,
             textAlign: TextAlign.center,
-            style: body14Medium.copyWith(color: uiState.textColor),
+            style: body14Medium.copyWith(color: widget.uiState.textColor),
           ),
         ],
       ),
