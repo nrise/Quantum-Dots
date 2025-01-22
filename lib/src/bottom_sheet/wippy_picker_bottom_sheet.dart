@@ -104,7 +104,8 @@ class WippyPickerBottomSheetState extends WippyBottomSheetState<WippyPickerBotto
                     buttonSizeType: ButtonSizeType.large(),
                   ),
                 ),
-              )
+              ),
+              SizedBox(height: 20),
             ],
           ),
         ),
