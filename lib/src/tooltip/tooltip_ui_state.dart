@@ -6,6 +6,7 @@ class TooltipUiState {
   final Color backgroundColor;
   final TooltipArrowPosition arrowPosition;
   final double arrowOffset;
+  bool visible;
 
   TooltipUiState({
     required this.message,
@@ -13,6 +14,7 @@ class TooltipUiState {
     required this.backgroundColor,
     required this.arrowPosition,
     this.arrowOffset = 0.0,
+    this.visible = true,
   });
 }
 

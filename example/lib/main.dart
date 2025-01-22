@@ -9,6 +9,7 @@ import 'package:quantum_dots/qds_input.dart';
 import 'package:quantum_dots/qds_popup.dart';
 import 'package:quantum_dots/qds_progress.dart';
 import 'package:quantum_dots/qds_spinner.dart';
+import 'package:quantum_dots/qds_tooltip.dart';
 
 import 'dimmed_loading_test_screen.dart';
 import 'empty_states_test_screen.dart';
@@ -35,6 +36,7 @@ class DesignSystemSamplePage extends StatelessWidget {
 
   List<Widget> _buildAllDesignSystemComponents(BuildContext context) {
     return <Widget>[const SizedBox(height: 50)] +
+        _buildWippyTooltipComponents(context) +
         _buildWippyBadge() +
         _buildWippyBottomSheetComponents(context) +
         _buildWippyDropDownComponents() +
@@ -399,6 +401,33 @@ class DesignSystemSamplePage extends StatelessWidget {
       body: ListView(children: _buildAllDesignSystemComponents(context).intersperse(const SizedBox(height: 10))),
     );
   }
+}
+
+List<Widget> _buildWippyTooltipComponents(BuildContext context) {
+  return [
+    TooltipComponent(
+      uiState: TooltipUiState(
+        message: "Tooltip Message",
+        arrowPosition: TooltipArrowPosition.leftTop,
+        textColor: wippyWhite,
+        backgroundColor: wippyGray800,
+        arrowOffset: 30,
+        visible: true,
+      ),
+      onClickTooltip: () {},
+    ),
+    TooltipComponent(
+      uiState: TooltipUiState(
+        message: "Tooltip Message",
+        arrowPosition: TooltipArrowPosition.leftTop,
+        textColor: wippyWhite,
+        backgroundColor: wippyGray800,
+        arrowOffset: 30,
+        visible: false,
+      ),
+      onClickTooltip: () {},
+    ),
+  ];
 }
 
 extension ListExtensions<T> on List<T> {
