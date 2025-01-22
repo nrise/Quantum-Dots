@@ -414,7 +414,7 @@ List<Widget> _buildWippyTooltipComponents(BuildContext context) {
         arrowOffset: 30,
         visible: true,
       ),
-      onVisibilityChanged: () {},
+      onClickTooltip: () {},
     ),
     TooltipComponent(
       uiState: TooltipUiState(
@@ -425,7 +425,7 @@ List<Widget> _buildWippyTooltipComponents(BuildContext context) {
         arrowOffset: 30,
         visible: false,
       ),
-      onVisibilityChanged: () {},
+      onClickTooltip: () {},
     ),
   ];
 }

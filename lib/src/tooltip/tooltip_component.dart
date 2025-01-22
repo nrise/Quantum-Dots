@@ -6,12 +6,12 @@ import 'tooltip_ui_state.dart';
 
 class TooltipComponent extends StatefulWidget {
   final TooltipUiState uiState;
-  final Function() onVisibilityChanged;
+  final Function() onClickTooltip;
 
   const TooltipComponent({
     super.key,
     required this.uiState,
-    required this.onVisibilityChanged,
+    required this.onClickTooltip,
   });
 
   @override
@@ -36,20 +36,23 @@ class _TooltipComponentState extends State<TooltipComponent> {
     bool isArrowAbove = widget.uiState.arrowPosition == TooltipArrowPosition.leftTop || widget.uiState.arrowPosition == TooltipArrowPosition.rightTop;
 
     return widget.uiState.visible
-        ? Stack(
-            children: [
-              Column(
-                crossAxisAlignment:
-                    (widget.uiState.arrowPosition == TooltipArrowPosition.leftTop || widget.uiState.arrowPosition == TooltipArrowPosition.leftBottom)
-                        ? CrossAxisAlignment.start
-                        : CrossAxisAlignment.end,
-                children: [
-                  if (isArrowAbove) _buildArrow(arrowAssetPath),
-                  _buildTooltipContainer(),
-                  if (!isArrowAbove) _buildArrow(arrowAssetPath),
-                ],
-              ),
-            ],
+        ? GestureDetector(
+            onTap: widget.onClickTooltip,
+            child: Stack(
+              children: [
+                Column(
+                  crossAxisAlignment: (widget.uiState.arrowPosition == TooltipArrowPosition.leftTop ||
+                          widget.uiState.arrowPosition == TooltipArrowPosition.leftBottom)
+                      ? CrossAxisAlignment.start
+                      : CrossAxisAlignment.end,
+                  children: [
+                    if (isArrowAbove) _buildArrow(arrowAssetPath),
+                    _buildTooltipContainer(),
+                    if (!isArrowAbove) _buildArrow(arrowAssetPath),
+                  ],
+                ),
+              ],
+            ),
           )
         : const SizedBox.shrink();
   }
