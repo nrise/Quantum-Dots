@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:quantum_dots/qds_bottom_sheet.dart';
 import 'package:quantum_dots/qds_button.dart';
 import 'package:quantum_dots/qds_foundation.dart';
@@ -46,10 +44,6 @@ class WippyPickerBottomSheetState extends WippyBottomSheetState<WippyPickerBotto
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(systemNavigationBarColor: wippyWhite),
-    );
-
     return ComposableBottomSheet(
       headerUiState: widget._headerUiState,
       contents: Container(
@@ -111,13 +105,5 @@ class WippyPickerBottomSheetState extends WippyBottomSheetState<WippyPickerBotto
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(systemNavigationBarColor: Colors.transparent),
-    );
-    super.dispose();
   }
 }
