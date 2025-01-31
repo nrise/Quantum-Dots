@@ -24,7 +24,7 @@ class ImageSlotComponent extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: Colors.white,
+        color: slot.bgColor ?? wippyGray100,
         boxShadow: [
           BoxShadow(
             color: Colors.black.withAlpha(20),

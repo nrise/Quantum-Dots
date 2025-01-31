@@ -3,11 +3,17 @@ import 'package:flutter/material.dart';
 sealed class SlotState {
   final Widget? slotBadge;
   final Widget slotIcon;
-  const SlotState({this.slotBadge, required this.slotIcon});
+  final Color? bgColor;
+
+  const SlotState({
+    this.slotBadge,
+    required this.slotIcon,
+    this.bgColor,
+  });
 }
 
 class EmptySlot extends SlotState {
-  final Icon emptyIcon;
+  final Widget emptyIcon;
 
   const EmptySlot({
     required this.emptyIcon,
@@ -17,7 +23,7 @@ class EmptySlot extends SlotState {
 }
 
 class PlusSlot extends SlotState {
-  final Icon emptyIcon;
+  final Widget emptyIcon;
   final VoidCallback onAdd;
 
   const PlusSlot({
