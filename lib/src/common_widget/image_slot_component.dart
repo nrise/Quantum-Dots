@@ -22,11 +22,16 @@ class ImageSlotComponent extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
         color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(20),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
@@ -36,41 +41,39 @@ class ImageSlotComponent extends StatelessWidget {
   }
 
   Widget _buildSlot() {
+    final badge = slot.slotBadge != null
+        ? Positioned(
+            top: 8,
+            left: 8,
+            child: slot.slotBadge!,
+          )
+        : null;
+
+    final plusIcon = Positioned(
+      bottom: 8,
+      right: 8,
+      child: _buildPlusIcon(
+        slot.slotIcon,
+      ),
+    );
+
     switch (slot) {
       case EmptySlot():
-        return Stack(
+        return _buildStack(
           children: [
-            if (slot.isFirst)
-              Positioned(
-                top: 8,
-                left: 8,
-                child: Icon(Icons.first_page),
-              ),
+            if (badge != null) badge,
             Center(child: (slot as EmptySlot).emptyIcon),
-            Positioned(
-              bottom: 8,
-              right: 8,
-              child: _buildPlusIcon((slot as EmptySlot).plusIcon),
-            ),
+            plusIcon,
           ],
         );
       case PlusSlot():
         return GestureDetector(
           onTap: (slot as PlusSlot).onAdd,
-          child: Stack(
+          child: _buildStack(
             children: [
-              if (slot.isFirst)
-                Positioned(
-                  top: 0,
-                  left: 0,
-                  child: Icon(Icons.add),
-                ),
+              if (badge != null) badge,
               Center(child: (slot as PlusSlot).emptyIcon),
-              Positioned(
-                bottom: 8,
-                right: 8,
-                child: _buildPlusIcon((slot as PlusSlot).plusIcon),
-              ),
+              plusIcon,
             ],
           ),
         );
@@ -78,20 +81,16 @@ class ImageSlotComponent extends StatelessWidget {
         final localSlot = slot as LocalFilledSlot;
         return GestureDetector(
           onTap: localSlot.onClick,
-          child: Stack(
+          child: _buildStack(
             children: [
-              Image.file(File(localSlot.localPath), fit: BoxFit.cover),
-              if (slot.isFirst)
-                Positioned(
-                  top: 8,
-                  left: 8,
-                  child: Icon(Icons.first_page),
-                ),
-              Positioned(
-                bottom: 8,
-                right: 8,
-                child: _buildPlusIcon((slot as LocalFilledSlot).editIcon),
+              Image.file(
+                File(localSlot.localPath),
+                fit: BoxFit.cover,
+                width: width,
+                height: height,
               ),
+              if (badge != null) badge,
+              plusIcon,
             ],
           ),
         );
@@ -99,44 +98,45 @@ class ImageSlotComponent extends StatelessWidget {
         final remoteSlot = slot as RemoteFilledSlot;
         return GestureDetector(
           onTap: remoteSlot.onClick,
-          child: Stack(
+          child: _buildStack(
             children: [
-              Image.network(remoteSlot.url, fit: BoxFit.cover, width: width, height: height),
-              if (slot.isFirst)
-                Positioned(
-                  top: 8,
-                  left: 8,
-                  child: Icon(Icons.first_page),
-                ),
-              Positioned(
-                bottom: 8,
-                right: 8,
-                child: _buildPlusIcon((slot as RemoteFilledSlot).editIcon),
+              Image.network(
+                remoteSlot.url,
+                fit: BoxFit.cover,
+                width: width,
+                height: height,
               ),
+              if (badge != null) badge,
+              plusIcon,
             ],
           ),
         );
     }
   }
-}
 
-Widget _buildPlusIcon(Icon plusIcon) {
-  return Container(
-    width: 32,
-    height: 32,
-    decoration: BoxDecoration(
-      shape: BoxShape.circle,
-      color: wippyWhite,
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withAlpha(51),
-          blurRadius: 4,
-          offset: const Offset(0, 2),
-        ),
-      ],
-    ),
-    child: Center(
-      child: plusIcon,
-    ),
-  );
+  Widget _buildStack({required List<Widget> children}) {
+    return Stack(children: children);
+  }
+
+  Widget _buildPlusIcon(Widget? plusIcon) {
+    if (plusIcon == null) return const SizedBox.shrink();
+    return Container(
+      width: 32,
+      height: 32,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: wippyWhite,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(51),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Center(
+        child: plusIcon,
+      ),
+    );
+  }
 }

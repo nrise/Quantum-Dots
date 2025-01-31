@@ -68,11 +68,11 @@ class DesignSystemSamplePage extends StatelessWidget {
                 Icons.add_a_photo,
                 color: wippyGray400,
               ),
-              plusIcon: const Icon(
+              slotIcon: const Icon(
                 Icons.add,
                 color: wippyGray400,
               ),
-              isFirst: true,
+              slotBadge: const Icon(Icons.first_page),
               onAdd: () {},
             ),
             width: 160,
@@ -85,11 +85,11 @@ class DesignSystemSamplePage extends StatelessWidget {
                 Icons.add_a_photo,
                 color: wippyGray400,
               ),
-              plusIcon: const Icon(
+              slotIcon: const Icon(
                 Icons.add,
                 color: wippyPink500,
               ),
-              isFirst: false,
+              slotBadge: null,
             ),
             width: 160,
             height: 212,
@@ -98,11 +98,11 @@ class DesignSystemSamplePage extends StatelessWidget {
           ImageSlotComponent(
             slot: RemoteFilledSlot(
               url: "https://thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/fn/2023/01/03/202301031328043653_l.jpg",
-              editIcon: const Icon(
+              slotIcon: const Icon(
                 Icons.edit,
                 color: wippyPink500,
               ),
-              isFirst: false,
+              slotBadge: null,
               onClick: () {},
             ),
             width: 160,
