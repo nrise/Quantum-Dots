@@ -3,6 +3,7 @@ import 'package:quantum_dots/qds_badge.dart';
 import 'package:quantum_dots/qds_bottom_sheet.dart';
 import 'package:quantum_dots/qds_button.dart';
 import 'package:quantum_dots/qds_chips.dart';
+import 'package:quantum_dots/qds_common_widget.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 import 'package:quantum_dots/qds_header.dart';
 import 'package:quantum_dots/qds_input.dart';
@@ -36,6 +37,7 @@ class DesignSystemSamplePage extends StatelessWidget {
 
   List<Widget> _buildAllDesignSystemComponents(BuildContext context) {
     return <Widget>[const SizedBox(height: 50)] +
+        [_buildImageSlotComponents()] +
         _buildWippyTooltipComponents(context) +
         _buildWippyBadge() +
         _buildWippyBottomSheetComponents(context) +
@@ -52,6 +54,63 @@ class DesignSystemSamplePage extends StatelessWidget {
         _buildWippyTextAreaComponents() +
         _buildWippyChatInputComponents() +
         <Widget>[const SizedBox(height: 50)];
+  }
+
+  Widget _buildImageSlotComponents() {
+    return SizedBox(
+      height: 212,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          ImageSlotComponent(
+            slot: PlusSlot(
+              emptyIcon: const Icon(
+                Icons.add_a_photo,
+                color: wippyGray400,
+              ),
+              slotIcon: const Icon(
+                Icons.add,
+                color: wippyGray400,
+              ),
+              slotBadge: const Icon(Icons.first_page),
+              onAdd: () {},
+            ),
+            width: 160,
+            height: 212,
+          ),
+          const SizedBox(width: 12),
+          ImageSlotComponent(
+            slot: EmptySlot(
+              emptyIcon: const Icon(
+                Icons.add_a_photo,
+                color: wippyGray400,
+              ),
+              slotIcon: const Icon(
+                Icons.add,
+                color: wippyPink500,
+              ),
+              slotBadge: null,
+            ),
+            width: 160,
+            height: 212,
+          ),
+          const SizedBox(width: 12),
+          ImageSlotComponent(
+            slot: RemoteFilledSlot(
+              url: "https://thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/fn/2023/01/03/202301031328043653_l.jpg",
+              slotIcon: const Icon(
+                Icons.edit,
+                color: wippyPink500,
+              ),
+              slotBadge: null,
+              onClick: () {},
+            ),
+            width: 160,
+            height: 212,
+          ),
+        ],
+      ),
+    );
   }
 
   List<Widget> _buildWippyBadge() {
