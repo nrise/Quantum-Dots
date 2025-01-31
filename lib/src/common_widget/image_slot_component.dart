@@ -49,7 +49,7 @@ class ImageSlotComponent extends StatelessWidget {
           )
         : null;
 
-    final plusIcon = Positioned(
+    final slotIcon = Positioned(
       bottom: 8,
       right: 8,
       child: _buildPlusIcon(
@@ -63,7 +63,7 @@ class ImageSlotComponent extends StatelessWidget {
           children: [
             if (badge != null) badge,
             Center(child: (slot as EmptySlot).emptyIcon),
-            plusIcon,
+            slotIcon,
           ],
         );
       case PlusSlot():
@@ -73,7 +73,7 @@ class ImageSlotComponent extends StatelessWidget {
             children: [
               if (badge != null) badge,
               Center(child: (slot as PlusSlot).emptyIcon),
-              plusIcon,
+              slotIcon,
             ],
           ),
         );
@@ -90,7 +90,7 @@ class ImageSlotComponent extends StatelessWidget {
                 height: height,
               ),
               if (badge != null) badge,
-              plusIcon,
+              slotIcon,
             ],
           ),
         );
@@ -107,7 +107,7 @@ class ImageSlotComponent extends StatelessWidget {
                 height: height,
               ),
               if (badge != null) badge,
-              plusIcon,
+              slotIcon,
             ],
           ),
         );
