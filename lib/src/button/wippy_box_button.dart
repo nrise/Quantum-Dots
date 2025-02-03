@@ -11,12 +11,14 @@ class WippyBoxButton extends StatelessWidget {
   final bool enable;
   final ButtonUiState initUiState;
   final void Function() onPressed;
+  final Key? buttonKey;
 
   WippyBoxButton({
     required this.onPressed,
     required this.initUiState,
+    this.buttonKey,
     this.enable = true,
-  });
+  }): super(key: buttonKey ?? ValueKey(initUiState));
 
   Widget _buildLoadingIndicator(Color color) {
     return Row(
@@ -135,7 +137,6 @@ class WippyBoxButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      key: ValueKey(initUiState),
       create: (context) => ButtonCubit(
         onPressed: onPressed,
         uiState: initUiState,
