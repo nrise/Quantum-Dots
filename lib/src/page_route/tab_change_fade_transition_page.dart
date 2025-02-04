@@ -6,11 +6,12 @@ class TabChangeFadeTransitionPage extends Page {
   final Duration duration;
 
   TabChangeFadeTransitionPage({
+    super.key,
     required this.child,
     String? screenName,
     this.duration = const Duration(milliseconds: 200),
   })  : _name = screenName,
-        super(key: ValueKey(child), name: screenName);
+        super(name: screenName);
 
   @override
   String? get name => _name;

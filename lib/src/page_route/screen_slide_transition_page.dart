@@ -6,9 +6,12 @@ class ScreenSlideTransitionPage extends Page {
   final Widget child;
   final String _name;
 
-  ScreenSlideTransitionPage({required this.child, required String name})
-      : _name = name,
-        super(key: ValueKey(child), name: name);
+  ScreenSlideTransitionPage({
+    super.key,
+    required this.child,
+    required String name,
+  })  : _name = name,
+        super(name: name);
 
   @override
   String get name => _name;
