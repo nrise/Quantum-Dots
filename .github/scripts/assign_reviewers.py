@@ -29,5 +29,13 @@ def assign_reviewers(pr_number, reviewers):
     else:
         print(f"Failed to assign reviewers. Status code: {response.status_code}")
 
-fixed_reviewers = ['jinusong', 'myeonginwoo']
-assign_reviewers(pr_number, fixed_reviewers)
+def get_reviewers(author):
+    if author == 'jinusong':
+        return ['myeonginwoo']
+    elif author == 'myeonginwoo':
+        return ['jinusong']
+    else:
+        return ['jinusong', 'myeonginwoo']
+
+reviewers = get_reviewers(author)
+assign_reviewers(pr_number, reviewers)
