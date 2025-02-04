@@ -7,6 +7,7 @@ import 'button_ui_state.dart';
 import 'package:quantum_dots/qds_common_widget.dart';
 import 'package:flutter/material.dart';
 
+@Deprecated("Use QDSBoxButton instead")
 class WippyBoxButton extends StatelessWidget {
   final bool enable;
   final ButtonUiState initUiState;

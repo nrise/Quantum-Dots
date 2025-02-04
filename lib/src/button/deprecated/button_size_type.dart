@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 
+@Deprecated("Use QDSBoxButton instead")
 sealed class ButtonSizeType {
   double get verticalPaddingSize;
 
@@ -21,6 +22,7 @@ sealed class ButtonSizeType {
   factory ButtonSizeType.xsmall() = XSmall;
 }
 
+@Deprecated("Use QDSBoxButton instead")
 class Large implements ButtonSizeType {
   @override
   double get iconSize => 24.0;
@@ -38,6 +40,7 @@ class Large implements ButtonSizeType {
   double get radiusSize => 8.0;
 }
 
+@Deprecated("Use QDSBoxButton instead")
 class Medium implements ButtonSizeType {
   @override
   double get iconSize => 16.0;
@@ -72,6 +75,7 @@ class Small implements ButtonSizeType {
   double get radiusSize => 4.0;
 }
 
+@Deprecated("Use QDSBoxButton instead")
 class XSmall implements ButtonSizeType {
   @override
   double get iconSize => 12.0;

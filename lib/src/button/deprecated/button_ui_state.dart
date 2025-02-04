@@ -5,6 +5,7 @@ import 'button_label_type.dart';
 
 part 'button_ui_state.freezed.dart';
 
+@Deprecated("Use QDSBoxButton instead")
 @freezed
 class ButtonUiState with _$ButtonUiState {
   const factory ButtonUiState({
@@ -15,6 +16,7 @@ class ButtonUiState with _$ButtonUiState {
   }) = _ButtonUiState;
 }
 
+@Deprecated("Use QDSBoxButton instead")
 extension ButtonUiStateExtension on ButtonUiState {
   Color get buttonColor => buttonColorType.getButtonColor(state);
 
@@ -33,4 +35,5 @@ extension ButtonUiStateExtension on ButtonUiState {
   double get radiusSize => buttonSizeType.radiusSize;
 }
 
+@Deprecated("Use QDSBoxButton instead")
 enum ButtonState { pressed, inactive, loading, active }
