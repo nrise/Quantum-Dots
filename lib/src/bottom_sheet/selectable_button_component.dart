@@ -27,30 +27,30 @@ class SelectableButtonComponent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
-            child: WippyBoxButton(
-              enable: leftEnable,
-              onPressed: (() => onClickLeftButton()),
-              initUiState: ButtonUiState(
-                buttonSizeType: ButtonSizeType.large(),
-                buttonLabelType: ButtonLabelType.labelOnly(
+            child: QdsBoxButton(
+              initUiState: QdsBoxButtonUiState(
+                buttonSizeType: QdsBoxButtonSizeType.large(),
+                buttonLabelType: QdsBoxButtonLabelType.labelOnly(
                   label: leftLabel,
                 ),
-                buttonColorType: const ButtonColorType.tertiary(),
+                buttonColorType: const QdsBoxButtonColorType.tertiary(),
+                enable: leftEnable,
+                onPressed: (() => onClickLeftButton()),
               ),
             ),
           ),
           const SizedBox(width: 8),
           Expanded(
-            child: WippyBoxButton(
-              enable: rightEnable,
-              onPressed: (() => onClickRightButton()),
-              initUiState: ButtonUiState(
-                state: rightEnable ? ButtonState.active : ButtonState.inactive,
-                buttonSizeType: ButtonSizeType.large(),
-                buttonLabelType: ButtonLabelType.labelOnly(
+            child: QdsBoxButton(
+              initUiState: QdsBoxButtonUiState(
+                state: rightEnable ? QdsBoxButtonState.active : QdsBoxButtonState.inactive,
+                buttonSizeType: QdsBoxButtonSizeType.large(),
+                buttonLabelType: QdsBoxButtonLabelType.labelOnly(
                   label: rightLabel,
                 ),
-                buttonColorType: ButtonColorType.primary(),
+                buttonColorType: const QdsBoxButtonColorType.primary(),
+                enable: rightEnable,
+                onPressed: (() => onClickRightButton()),
               ),
             ),
           ),

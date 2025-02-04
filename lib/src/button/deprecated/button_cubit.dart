@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'button_ui_state.dart';
 
-@Deprecated("Use QDSBoxButton instead")
 class ButtonCubit extends Cubit<ButtonUiState> {
   final bool enable;
   final void Function() onPressed;

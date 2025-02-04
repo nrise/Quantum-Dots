@@ -19,14 +19,15 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
     return Stack(
       children: [
         WippyDimmedLoading(),
-        WippyBoxButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          initUiState: ButtonUiState(
-              buttonColorType: const ButtonColorType.secondary(),
-              buttonLabelType: const ButtonLabelType.labelOnly(label: 'Escape'),
-              buttonSizeType: ButtonSizeType.large()),
+        QdsBoxButton(
+          initUiState: QdsBoxButtonUiState(
+            buttonColorType: const QdsBoxButtonColorType.secondary(),
+            buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Escape'),
+            buttonSizeType: QdsBoxButtonSizeType.large(),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         )
       ],
     );
@@ -35,28 +36,29 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
   @override
   Widget build(BuildContext context) {
     List<Widget> items = [
-      WippyBoxButton(
-        onPressed: () {
-          setState(() {
-            _canShowDimmedLoadingScreen = true;
-          });
-        },
-        initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Dimmed State on'),
-            buttonSizeType: ButtonSizeType.large()),
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Dimmed State on'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+          onPressed: () {
+            setState(() {
+              _canShowDimmedLoadingScreen = true;
+            });
+          },
+        ),
       )
     ];
 
     for (var index = 0; index < 30; index++) {
       items += [
         const SizedBox(height: 20),
-        WippyBoxButton(
-          onPressed: () {},
-          initUiState: ButtonUiState(
-              buttonColorType: const ButtonColorType.primary(),
-              buttonLabelType: const ButtonLabelType.labelOnly(label: 'Do nothing button'),
-              buttonSizeType: ButtonSizeType.large()),
+        QdsBoxButton(
+          initUiState: QdsBoxButtonUiState(
+            buttonColorType: const QdsBoxButtonColorType.primary(),
+            buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Do nothing button'),
+            buttonSizeType: QdsBoxButtonSizeType.large(),
+          ),
         )
       ];
     }

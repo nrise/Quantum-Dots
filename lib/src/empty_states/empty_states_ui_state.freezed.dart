@@ -20,7 +20,8 @@ mixin _$EmptyStatesUiState {
   String? get title => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get buttonLabel => throw _privateConstructorUsedError;
-  ButtonColorType get buttonColorType => throw _privateConstructorUsedError;
+  QdsBoxButtonColorType get buttonColorType =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of EmptyStatesUiState
   /// with the given fields replaced by the non-null parameter values.
@@ -40,7 +41,7 @@ abstract class $EmptyStatesUiStateCopyWith<$Res> {
       String? title,
       String? description,
       String? buttonLabel,
-      ButtonColorType buttonColorType});
+      QdsBoxButtonColorType buttonColorType});
 }
 
 /// @nodoc
@@ -84,7 +85,7 @@ class _$EmptyStatesUiStateCopyWithImpl<$Res, $Val extends EmptyStatesUiState>
       buttonColorType: null == buttonColorType
           ? _value.buttonColorType
           : buttonColorType // ignore: cast_nullable_to_non_nullable
-              as ButtonColorType,
+              as QdsBoxButtonColorType,
     ) as $Val);
   }
 }
@@ -102,7 +103,7 @@ abstract class _$$EmptyStatesUiStateImplCopyWith<$Res>
       String? title,
       String? description,
       String? buttonLabel,
-      ButtonColorType buttonColorType});
+      QdsBoxButtonColorType buttonColorType});
 }
 
 /// @nodoc
@@ -144,7 +145,7 @@ class __$$EmptyStatesUiStateImplCopyWithImpl<$Res>
       buttonColorType: null == buttonColorType
           ? _value.buttonColorType
           : buttonColorType // ignore: cast_nullable_to_non_nullable
-              as ButtonColorType,
+              as QdsBoxButtonColorType,
     ));
   }
 }
@@ -157,7 +158,7 @@ class _$EmptyStatesUiStateImpl implements _EmptyStatesUiState {
       this.title = null,
       this.description = null,
       this.buttonLabel = null,
-      this.buttonColorType = const ButtonColorType.tertiary()});
+      this.buttonColorType = const QdsBoxButtonColorType.tertiary()});
 
   @override
   @JsonKey()
@@ -173,7 +174,7 @@ class _$EmptyStatesUiStateImpl implements _EmptyStatesUiState {
   final String? buttonLabel;
   @override
   @JsonKey()
-  final ButtonColorType buttonColorType;
+  final QdsBoxButtonColorType buttonColorType;
 
   @override
   String toString() {
@@ -216,7 +217,7 @@ abstract class _EmptyStatesUiState implements EmptyStatesUiState {
       final String? title,
       final String? description,
       final String? buttonLabel,
-      final ButtonColorType buttonColorType}) = _$EmptyStatesUiStateImpl;
+      final QdsBoxButtonColorType buttonColorType}) = _$EmptyStatesUiStateImpl;
 
   @override
   String? get iconAssetName;
@@ -227,7 +228,7 @@ abstract class _EmptyStatesUiState implements EmptyStatesUiState {
   @override
   String? get buttonLabel;
   @override
-  ButtonColorType get buttonColorType;
+  QdsBoxButtonColorType get buttonColorType;
 
   /// Create a copy of EmptyStatesUiState
   /// with the given fields replaced by the non-null parameter values.

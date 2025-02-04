@@ -3,7 +3,6 @@ import 'package:quantum_dots/qds_foundation.dart';
 
 import 'button_ui_state.dart';
 
-@Deprecated("Use QDSBoxButton instead")
 sealed class ButtonColorType {
   Color getButtonColor(ButtonState state);
 
@@ -28,7 +27,6 @@ sealed class ButtonColorType {
   }) = Custom;
 }
 
-@Deprecated("Use QDSBoxButton instead")
 class Primary implements ButtonColorType {
   const Primary();
 
@@ -63,7 +61,6 @@ class Primary implements ButtonColorType {
   }
 }
 
-@Deprecated("Use QDSBoxButton instead")
 class Secondary implements ButtonColorType {
   const Secondary();
 
@@ -98,7 +95,6 @@ class Secondary implements ButtonColorType {
   }
 }
 
-@Deprecated("Use QDSBoxButton instead")
 class Tertiary implements ButtonColorType {
   const Tertiary();
 
@@ -133,7 +129,6 @@ class Tertiary implements ButtonColorType {
   }
 }
 
-@Deprecated("Use QDSBoxButton instead")
 class Custom implements ButtonColorType {
   final Color activeColor;
   final Color pressedColor;

@@ -2,7 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'button_label_type.freezed.dart';
 
-@Deprecated("Use QDSBoxButton instead")
 @freezed
 sealed class ButtonLabelType with _$ButtonLabelType {
   const factory ButtonLabelType.labelOnly({required String label}) = LabelOnly;

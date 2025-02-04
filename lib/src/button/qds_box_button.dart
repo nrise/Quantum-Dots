@@ -70,7 +70,7 @@ class QdsBoxButton extends StatelessWidget {
   Widget _buildButtonContent(QdsBoxButtonUiState uiState) {
     final buttonLabelType = uiState.buttonLabelType;
 
-    if (uiState.state == ButtonState.loading) {
+    if (uiState.state == QdsBoxButtonState.loading) {
       return _buildLoadingIndicator(uiState.iconColor);
     }
 

@@ -4,11 +4,11 @@ import 'package:quantum_dots/qds_foundation.dart';
 import 'qds_box_button_ui_state.dart';
 
 sealed class QdsBoxButtonColorType {
-  Color getButtonColor(ButtonState state);
+  Color getButtonColor(QdsBoxButtonState state);
 
-  Color getTextColor(ButtonState state);
+  Color getTextColor(QdsBoxButtonState state);
 
-  Color getIconColor(ButtonState state);
+  Color getIconColor(QdsBoxButtonState state);
 
   const factory QdsBoxButtonColorType.primary() = Primary;
 
@@ -31,30 +31,30 @@ class Primary implements QdsBoxButtonColorType {
   const Primary();
 
   @override
-  Color getButtonColor(ButtonState state) {
+  Color getButtonColor(QdsBoxButtonState state) {
     switch (state) {
-      case ButtonState.active:
+      case QdsBoxButtonState.active:
         return wippyPink500;
-      case ButtonState.pressed:
+      case QdsBoxButtonState.pressed:
         return wippyPink700;
-      case ButtonState.inactive:
+      case QdsBoxButtonState.inactive:
         return wippyGray200;
-      case ButtonState.loading:
+      case QdsBoxButtonState.loading:
         return wippyPink500;
     }
   }
 
   @override
-  Color getIconColor(ButtonState state) {
-    if (state == ButtonState.inactive) {
+  Color getIconColor(QdsBoxButtonState state) {
+    if (state == QdsBoxButtonState.inactive) {
       return wippyGray400;
     }
     return wippyWhite;
   }
 
   @override
-  Color getTextColor(ButtonState state) {
-    if (state == ButtonState.inactive) {
+  Color getTextColor(QdsBoxButtonState state) {
+    if (state == QdsBoxButtonState.inactive) {
       return wippyGray400;
     }
     return wippyWhite;
@@ -65,30 +65,30 @@ class Secondary implements QdsBoxButtonColorType {
   const Secondary();
 
   @override
-  Color getButtonColor(ButtonState state) {
+  Color getButtonColor(QdsBoxButtonState state) {
     switch (state) {
-      case ButtonState.active:
+      case QdsBoxButtonState.active:
         return wippyPink300;
-      case ButtonState.pressed:
+      case QdsBoxButtonState.pressed:
         return wippyPink400;
-      case ButtonState.inactive:
+      case QdsBoxButtonState.inactive:
         return wippyGray200;
-      case ButtonState.loading:
+      case QdsBoxButtonState.loading:
         return wippyPink300;
     }
   }
 
   @override
-  Color getIconColor(ButtonState state) {
-    if (state == ButtonState.inactive) {
+  Color getIconColor(QdsBoxButtonState state) {
+    if (state == QdsBoxButtonState.inactive) {
       return wippyGray400;
     }
     return wippyPink500;
   }
 
   @override
-  Color getTextColor(ButtonState state) {
-    if (state == ButtonState.inactive) {
+  Color getTextColor(QdsBoxButtonState state) {
+    if (state == QdsBoxButtonState.inactive) {
       return wippyGray400;
     }
     return wippyPink500;
@@ -99,30 +99,30 @@ class Tertiary implements QdsBoxButtonColorType {
   const Tertiary();
 
   @override
-  Color getButtonColor(ButtonState state) {
+  Color getButtonColor(QdsBoxButtonState state) {
     switch (state) {
-      case ButtonState.active:
+      case QdsBoxButtonState.active:
         return wippyGray200;
-      case ButtonState.pressed:
+      case QdsBoxButtonState.pressed:
         return wippyGray300;
-      case ButtonState.inactive:
+      case QdsBoxButtonState.inactive:
         return wippyGray200;
-      case ButtonState.loading:
+      case QdsBoxButtonState.loading:
         return wippyGray200;
     }
   }
 
   @override
-  Color getIconColor(ButtonState state) {
-    if (state == ButtonState.inactive) {
+  Color getIconColor(QdsBoxButtonState state) {
+    if (state == QdsBoxButtonState.inactive) {
       return wippyGray400;
     }
     return wippyGray500;
   }
 
   @override
-  Color getTextColor(ButtonState state) {
-    if (state == ButtonState.inactive) {
+  Color getTextColor(QdsBoxButtonState state) {
+    if (state == QdsBoxButtonState.inactive) {
       return wippyGray400;
     }
     return wippyGray700;
@@ -149,29 +149,29 @@ class Custom implements QdsBoxButtonColorType {
   });
 
   @override
-  Color getButtonColor(ButtonState state) {
+  Color getButtonColor(QdsBoxButtonState state) {
     switch (state) {
-      case ButtonState.active:
+      case QdsBoxButtonState.active:
         return activeColor;
-      case ButtonState.pressed:
+      case QdsBoxButtonState.pressed:
         return pressedColor;
-      case ButtonState.inactive:
+      case QdsBoxButtonState.inactive:
         return inactiveColor;
-      case ButtonState.loading:
+      case QdsBoxButtonState.loading:
         return loadingColor;
     }
   }
 
   @override
-  Color getTextColor(ButtonState state) {
-    if (state == ButtonState.inactive) {
+  Color getTextColor(QdsBoxButtonState state) {
+    if (state == QdsBoxButtonState.inactive) {
       return inactiveTextColor;
     }
     return textColor;
   }
 
   @override
-  Color getIconColor(ButtonState state) {
+  Color getIconColor(QdsBoxButtonState state) {
     return iconColor;
   }
 }

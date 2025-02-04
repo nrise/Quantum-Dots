@@ -53,14 +53,16 @@ class WippyPopup extends StatelessWidget {
         case SinglePopupButton():
           buttonWidget = Container(
             width: double.infinity,
-            child: WippyBoxButton(
+            child: QdsBoxButton(
+              initUiState: QdsBoxButtonUiState(
+                buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.label),
+                buttonColorType: QdsBoxButtonColorType.primary(),
+                buttonSizeType: QdsBoxButtonSizeType.large(),
                 onPressed: () {
                   buttonType.onPressed?.call();
                 },
-                initUiState: ButtonUiState(
-                    buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.label),
-                    buttonColorType: ButtonColorType.primary(),
-                    buttonSizeType: ButtonSizeType.large())),
+              ),
+            ),
           );
 
         case MultiPopupButton():
@@ -70,28 +72,33 @@ class WippyPopup extends StatelessWidget {
                 flex: 1,
                 child: Container(
                     width: double.infinity,
-                    child: WippyBoxButton(
+                    child: QdsBoxButton(
+                      initUiState: QdsBoxButtonUiState(
+                        buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.leftButtonLabel),
+                        buttonColorType: QdsBoxButtonColorType.tertiary(),
+                        buttonSizeType: QdsBoxButtonSizeType.large(),
                         onPressed: () {
                           buttonType.onPressedLeftButton?.call();
                         },
-                        initUiState: ButtonUiState(
-                            buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.leftButtonLabel),
-                            buttonColorType: ButtonColorType.tertiary(),
-                            buttonSizeType: ButtonSizeType.large()))),
+                      ),
+                    )),
               ),
               SizedBox(width: 8),
               Flexible(
                 flex: 1,
                 child: Container(
-                    width: double.infinity,
-                    child: WippyBoxButton(
-                        onPressed: () {
-                          buttonType.onPressedRightButton?.call();
-                        },
-                        initUiState: ButtonUiState(
-                            buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.rightButtonLabel),
-                            buttonColorType: ButtonColorType.primary(),
-                            buttonSizeType: ButtonSizeType.large()))),
+                  width: double.infinity,
+                  child: QdsBoxButton(
+                    initUiState: QdsBoxButtonUiState(
+                      buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.rightButtonLabel),
+                      buttonColorType: QdsBoxButtonColorType.primary(),
+                      buttonSizeType: QdsBoxButtonSizeType.large(),
+                      onPressed: () {
+                        buttonType.onPressedRightButton?.call();
+                      },
+                    ),
+                  ),
+                ),
               )
             ],
           );
@@ -100,26 +107,30 @@ class WippyPopup extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                child: WippyBoxButton(
+                child: QdsBoxButton(
+                  initUiState: QdsBoxButtonUiState(
+                    buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.topButtonLabel),
+                    buttonColorType: QdsBoxButtonColorType.primary(),
+                    buttonSizeType: QdsBoxButtonSizeType.large(),
                     onPressed: () {
                       buttonType.onPressedTopButton?.call();
                     },
-                    initUiState: ButtonUiState(
-                        buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.topButtonLabel),
-                        buttonColorType: ButtonColorType.primary(),
-                        buttonSizeType: ButtonSizeType.large())),
+                  ),
+                ),
               ),
               const SizedBox(height: 8),
               Container(
                 width: double.infinity,
-                child: WippyBoxButton(
+                child: QdsBoxButton(
+                  initUiState: QdsBoxButtonUiState(
+                    buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.bottomButtonLabel),
+                    buttonColorType: QdsBoxButtonColorType.tertiary(),
+                    buttonSizeType: QdsBoxButtonSizeType.large(),
                     onPressed: () {
                       buttonType.onPressedBottomButton?.call();
                     },
-                    initUiState: ButtonUiState(
-                        buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.bottomButtonLabel),
-                        buttonColorType: ButtonColorType.tertiary(),
-                        buttonSizeType: ButtonSizeType.large())),
+                  ),
+                ),
               ),
             ],
           );

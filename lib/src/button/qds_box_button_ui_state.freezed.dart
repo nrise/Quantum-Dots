@@ -21,7 +21,7 @@ mixin _$QdsBoxButtonUiState {
   QdsBoxButtonColorType get buttonColorType =>
       throw _privateConstructorUsedError;
   QdsBoxButtonSizeType get buttonSizeType => throw _privateConstructorUsedError;
-  ButtonState get state => throw _privateConstructorUsedError;
+  QdsBoxButtonState get state => throw _privateConstructorUsedError;
   bool get enable => throw _privateConstructorUsedError;
   void Function()? get onPressed => throw _privateConstructorUsedError;
 
@@ -42,7 +42,7 @@ abstract class $QdsBoxButtonUiStateCopyWith<$Res> {
       {QdsBoxButtonLabelType buttonLabelType,
       QdsBoxButtonColorType buttonColorType,
       QdsBoxButtonSizeType buttonSizeType,
-      ButtonState state,
+      QdsBoxButtonState state,
       bool enable,
       void Function()? onPressed});
 
@@ -87,7 +87,7 @@ class _$QdsBoxButtonUiStateCopyWithImpl<$Res, $Val extends QdsBoxButtonUiState>
       state: null == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
-              as ButtonState,
+              as QdsBoxButtonState,
       enable: null == enable
           ? _value.enable
           : enable // ignore: cast_nullable_to_non_nullable
@@ -123,7 +123,7 @@ abstract class _$$QdsBoxButtonUiStateImplCopyWith<$Res>
       {QdsBoxButtonLabelType buttonLabelType,
       QdsBoxButtonColorType buttonColorType,
       QdsBoxButtonSizeType buttonSizeType,
-      ButtonState state,
+      QdsBoxButtonState state,
       bool enable,
       void Function()? onPressed});
 
@@ -167,7 +167,7 @@ class __$$QdsBoxButtonUiStateImplCopyWithImpl<$Res>
       state: null == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
-              as ButtonState,
+              as QdsBoxButtonState,
       enable: null == enable
           ? _value.enable
           : enable // ignore: cast_nullable_to_non_nullable
@@ -187,7 +187,7 @@ class _$QdsBoxButtonUiStateImpl implements _QdsBoxButtonUiState {
       {required this.buttonLabelType,
       required this.buttonColorType,
       required this.buttonSizeType,
-      this.state = ButtonState.active,
+      this.state = QdsBoxButtonState.active,
       this.enable = true,
       this.onPressed = null});
 
@@ -199,7 +199,7 @@ class _$QdsBoxButtonUiStateImpl implements _QdsBoxButtonUiState {
   final QdsBoxButtonSizeType buttonSizeType;
   @override
   @JsonKey()
-  final ButtonState state;
+  final QdsBoxButtonState state;
   @override
   @JsonKey()
   final bool enable;
@@ -248,7 +248,7 @@ abstract class _QdsBoxButtonUiState implements QdsBoxButtonUiState {
       {required final QdsBoxButtonLabelType buttonLabelType,
       required final QdsBoxButtonColorType buttonColorType,
       required final QdsBoxButtonSizeType buttonSizeType,
-      final ButtonState state,
+      final QdsBoxButtonState state,
       final bool enable,
       final void Function()? onPressed}) = _$QdsBoxButtonUiStateImpl;
 
@@ -259,7 +259,7 @@ abstract class _QdsBoxButtonUiState implements QdsBoxButtonUiState {
   @override
   QdsBoxButtonSizeType get buttonSizeType;
   @override
-  ButtonState get state;
+  QdsBoxButtonState get state;
   @override
   bool get enable;
   @override

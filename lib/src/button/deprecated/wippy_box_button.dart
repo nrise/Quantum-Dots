@@ -19,7 +19,7 @@ class WippyBoxButton extends StatelessWidget {
     required this.initUiState,
     this.buttonKey,
     this.enable = true,
-  }): super(key: buttonKey ?? ValueKey(initUiState));
+  }) : super(key: buttonKey ?? ValueKey(initUiState));
 
   Widget _buildLoadingIndicator(Color color) {
     return Row(

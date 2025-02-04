@@ -10,5 +10,5 @@ class EmptyStatesUiState with _$EmptyStatesUiState {
       @Default(null) String? title,
       @Default(null) String? description,
       @Default(null) String? buttonLabel,
-      @Default(ButtonColorType.tertiary()) ButtonColorType buttonColorType}) = _EmptyStatesUiState;
+      @Default(QdsBoxButtonColorType.tertiary()) QdsBoxButtonColorType buttonColorType}) = _EmptyStatesUiState;
 }

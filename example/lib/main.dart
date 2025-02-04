@@ -127,51 +127,52 @@ class DesignSystemSamplePage extends StatelessWidget {
 
   List<Widget> _buildWippyBottomSheetComponents(BuildContext context) {
     return [
-      WippyBoxButton(
-        onPressed: () {
-          showWippyBottomSheet(
-            name: "PickerBottomSheet",
-            isDismissible: true,
-            context: context,
-            buildBottomSheet: (context) {
-              return const WippyPickerBottomSheet(
-                ctaText: "Select",
-                headerUiState: BottomSheetHeaderUiState(
-                  title: BottomSheetHeaderTitle(
-                    title: "City",
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'PickerBottomSheet 띄우기'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+          onPressed: () {
+            showWippyBottomSheet(
+              name: "PickerBottomSheet",
+              isDismissible: true,
+              context: context,
+              buildBottomSheet: (context) {
+                return const WippyPickerBottomSheet(
+                  ctaText: "Select",
+                  headerUiState: BottomSheetHeaderUiState(
+                    title: BottomSheetHeaderTitle(
+                      title: "City",
+                    ),
                   ),
-                ),
-                items: [
-                  PickerItem(
-                    displayName: "Tokyo",
-                  ),
-                  PickerItem(
-                    displayName: "Minato",
-                  ),
-                  PickerItem(
-                    displayName: "Shinjuku",
-                  ),
-                  PickerItem(
-                    displayName: "Koto",
-                  ),
-                  PickerItem(
-                    displayName: "Taito",
-                  ),
-                  PickerItem(
-                    displayName: "Sumida",
-                  ),
-                  PickerItem(
-                    displayName: "Koto",
-                  )
-                ],
-              );
-            },
-          );
-        },
-        initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'PickerBottomSheet 띄우기'),
-            buttonSizeType: ButtonSizeType.large()),
+                  items: [
+                    PickerItem(
+                      displayName: "Tokyo",
+                    ),
+                    PickerItem(
+                      displayName: "Minato",
+                    ),
+                    PickerItem(
+                      displayName: "Shinjuku",
+                    ),
+                    PickerItem(
+                      displayName: "Koto",
+                    ),
+                    PickerItem(
+                      displayName: "Taito",
+                    ),
+                    PickerItem(
+                      displayName: "Sumida",
+                    ),
+                    PickerItem(
+                      displayName: "Koto",
+                    )
+                  ],
+                );
+              },
+            );
+          },
+        ),
       ),
     ];
   }
@@ -458,21 +459,19 @@ class DesignSystemSamplePage extends StatelessWidget {
     return [
       Wrap(
         children: [
-          WippyBoxButton(
-            onPressed: () {},
-            initUiState: ButtonUiState(
-                buttonColorType: const ButtonColorType.primary(),
-                buttonLabelType: const ButtonLabelType.labelOnly(label: 'Wrap'),
-                buttonSizeType: ButtonSizeType.large()),
+          QdsBoxButton(
+            initUiState: QdsBoxButtonUiState(
+                buttonColorType: const QdsBoxButtonColorType.primary(),
+                buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Wrap'),
+                buttonSizeType: QdsBoxButtonSizeType.large()),
           )
         ],
       ),
-      WippyBoxButton(
-        onPressed: () {},
-        initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Match'),
-            buttonSizeType: ButtonSizeType.large()),
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+            buttonColorType: const QdsBoxButtonColorType.primary(),
+            buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Match'),
+            buttonSizeType: QdsBoxButtonSizeType.large()),
       )
     ];
   }
