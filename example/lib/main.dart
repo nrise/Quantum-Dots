@@ -7,6 +7,7 @@ import 'package:quantum_dots/qds_common_widget.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 import 'package:quantum_dots/qds_header.dart';
 import 'package:quantum_dots/qds_input.dart';
+import 'package:quantum_dots/qds_page_route.dart';
 import 'package:quantum_dots/qds_popup.dart';
 import 'package:quantum_dots/qds_progress.dart';
 import 'package:quantum_dots/qds_spinner.dart';
@@ -250,7 +251,13 @@ class DesignSystemSamplePage extends StatelessWidget {
     return [
       WippyBoxButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const ToastTestScreen()));
+          Navigator.push(
+            context,
+            ScreenSlideTransitionPage(
+              child: const ToastTestScreen(),
+              name: "ToastTestScreen",
+            ).createRoute(context),
+          );
         },
         initUiState: ButtonUiState(
             buttonColorType: const ButtonColorType.primary(),
@@ -315,7 +322,13 @@ class DesignSystemSamplePage extends StatelessWidget {
     return [
       WippyBoxButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const EmptyStatesTestScreen()));
+          Navigator.push(
+            context,
+            ScreenSlideTransitionPage(
+              child: const EmptyStatesTestScreen(),
+              name: "EmptyStatesTestScreen",
+            ).createRoute(context),
+          );
         },
         initUiState: ButtonUiState(
             buttonColorType: const ButtonColorType.primary(),
@@ -330,7 +343,13 @@ class DesignSystemSamplePage extends StatelessWidget {
       WippySpinner(),
       WippyBoxButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const DimmedLoadingTestScreen()));
+          Navigator.push(
+            context,
+            ScreenSlideTransitionPage(
+              child: const DimmedLoadingTestScreen(),
+              name: "DimmedLoadingTestScreen",
+            ).createRoute(context),
+          );
         },
         initUiState: ButtonUiState(
             buttonColorType: const ButtonColorType.primary(),
