@@ -18,18 +18,18 @@ class ToastTestScreen extends StatelessWidget {
               Container(
                 alignment: Alignment.center,
                 child: WippyBoxButton(
+                  onPressed: () {
+                    BlocProvider.of<WippyToastBloc>(context).add(
+                      const WippyToastUiEvent.show(
+                        message: "Hi Hi Hi Hi Hi Hi",
+                        messageKey: null,
+                      ),
+                    );
+                  },
                   initUiState: ButtonUiState(
                     buttonColorType: const ButtonColorType.primary(),
                     buttonLabelType: const ButtonLabelType.labelOnly(label: 'Show Toast'),
                     buttonSizeType: ButtonSizeType.large(),
-                    onPressed: () {
-                      BlocProvider.of<WippyToastBloc>(context).add(
-                        const WippyToastUiEvent.show(
-                          message: "Hi Hi Hi Hi Hi Hi",
-                          messageKey: null,
-                        ),
-                      );
-                    },
                   ),
                 ),
               ),

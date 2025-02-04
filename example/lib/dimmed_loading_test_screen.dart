@@ -20,14 +20,13 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
       children: [
         WippyDimmedLoading(),
         WippyBoxButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
           initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.secondary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Escape'),
-            buttonSizeType: ButtonSizeType.large(),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+              buttonColorType: const ButtonColorType.secondary(),
+              buttonLabelType: const ButtonLabelType.labelOnly(label: 'Escape'),
+              buttonSizeType: ButtonSizeType.large()),
         )
       ],
     );
@@ -37,16 +36,15 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
   Widget build(BuildContext context) {
     List<Widget> items = [
       WippyBoxButton(
+        onPressed: () {
+          setState(() {
+            _canShowDimmedLoadingScreen = true;
+          });
+        },
         initUiState: ButtonUiState(
-          buttonColorType: const ButtonColorType.primary(),
-          buttonLabelType: const ButtonLabelType.labelOnly(label: 'Dimmed State on'),
-          buttonSizeType: ButtonSizeType.large(),
-          onPressed: () {
-            setState(() {
-              _canShowDimmedLoadingScreen = true;
-            });
-          },
-        ),
+            buttonColorType: const ButtonColorType.primary(),
+            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Dimmed State on'),
+            buttonSizeType: ButtonSizeType.large()),
       )
     ];
 
@@ -54,6 +52,7 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
       items += [
         const SizedBox(height: 20),
         WippyBoxButton(
+          onPressed: () {},
           initUiState: ButtonUiState(
               buttonColorType: const ButtonColorType.primary(),
               buttonLabelType: const ButtonLabelType.labelOnly(label: 'Do nothing button'),

@@ -9,11 +9,9 @@ part 'button_ui_state.freezed.dart';
 class ButtonUiState with _$ButtonUiState {
   const factory ButtonUiState({
     required ButtonLabelType buttonLabelType,
+    @Default(ButtonState.active) ButtonState state,
     required ButtonColorType buttonColorType,
     required ButtonSizeType buttonSizeType,
-    void Function()? onPressed,
-    @Default(ButtonState.active) ButtonState state,
-    @Default(true) bool enable,
   }) = _ButtonUiState;
 }
 

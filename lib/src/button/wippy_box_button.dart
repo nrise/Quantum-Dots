@@ -8,12 +8,16 @@ import 'package:quantum_dots/qds_common_widget.dart';
 import 'package:flutter/material.dart';
 
 class WippyBoxButton extends StatelessWidget {
+  final bool enable;
   final ButtonUiState initUiState;
+  final void Function() onPressed;
   final Key? buttonKey;
 
   WippyBoxButton({
+    required this.onPressed,
     required this.initUiState,
     this.buttonKey,
+    this.enable = true,
   }): super(key: buttonKey ?? ValueKey(initUiState));
 
   Widget _buildLoadingIndicator(Color color) {
@@ -134,7 +138,9 @@ class WippyBoxButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ButtonCubit(
+        onPressed: onPressed,
         uiState: initUiState,
+        enable: enable,
       ),
       child: BlocBuilder<ButtonCubit, ButtonUiState>(
         builder: (context, uiState) {

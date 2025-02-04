@@ -28,20 +28,22 @@ class SelectableButtonComponent extends StatelessWidget {
         children: [
           Expanded(
             child: WippyBoxButton(
+              enable: leftEnable,
+              onPressed: (() => onClickLeftButton()),
               initUiState: ButtonUiState(
                 buttonSizeType: ButtonSizeType.large(),
                 buttonLabelType: ButtonLabelType.labelOnly(
                   label: leftLabel,
                 ),
                 buttonColorType: const ButtonColorType.tertiary(),
-                onPressed: (() => onClickLeftButton()),
-                enable: leftEnable,
               ),
             ),
           ),
           const SizedBox(width: 8),
           Expanded(
             child: WippyBoxButton(
+              enable: rightEnable,
+              onPressed: (() => onClickRightButton()),
               initUiState: ButtonUiState(
                 state: rightEnable ? ButtonState.active : ButtonState.inactive,
                 buttonSizeType: ButtonSizeType.large(),
@@ -49,8 +51,6 @@ class SelectableButtonComponent extends StatelessWidget {
                   label: rightLabel,
                 ),
                 buttonColorType: ButtonColorType.primary(),
-                onPressed: (() => onClickRightButton()),
-                enable: rightEnable,
               ),
             ),
           ),

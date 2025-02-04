@@ -51,20 +51,16 @@ class WippyEmptyStates extends StatelessWidget {
   List<Widget> _buildButtonAreaWidgets({required String buttonLabel}) {
     return [
       SizedBox(height: 24),
-      Wrap(
-        children: [
-          WippyBoxButton(
+      Wrap(children: [
+        WippyBoxButton(
+            onPressed: () {
+              _onPressedButton?.call();
+            },
             initUiState: ButtonUiState(
-              buttonLabelType: ButtonLabelType.labelOnly(label: buttonLabel),
-              buttonColorType: _uiState.buttonColorType,
-              buttonSizeType: ButtonSizeType.medium(),
-              onPressed: () {
-                _onPressedButton?.call();
-              },
-            ),
-          )
-        ],
-      )
+                buttonLabelType: ButtonLabelType.labelOnly(label: buttonLabel),
+                buttonColorType: _uiState.buttonColorType,
+                buttonSizeType: ButtonSizeType.medium()))
+      ])
     ];
   }
 
