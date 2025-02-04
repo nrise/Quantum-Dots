@@ -84,18 +84,18 @@ class WippyPickerBottomSheetState extends WippyBottomSheetState<WippyPickerBotto
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.symmetric(horizontal: 16),
-                child: WippyBoxButton(
-                  onPressed: () {
-                    final currentPickedItem = this.currentPickedItem;
-                    if (currentPickedItem != null) {
-                      widget._onSelected?.call(currentPickedItem);
-                      Navigator.pop(context);
-                    }
-                  },
-                  initUiState: ButtonUiState(
-                    buttonLabelType: ButtonLabelType.labelOnly(label: widget.ctaText),
-                    buttonColorType: ButtonColorType.primary(),
-                    buttonSizeType: ButtonSizeType.large(),
+                child: QdsBoxButton(
+                  initUiState: QdsBoxButtonUiState(
+                    buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: widget.ctaText),
+                    buttonColorType: QdsBoxButtonColorType.primary(),
+                    buttonSizeType: QdsBoxButtonSizeType.large(),
+                    onPressed: () {
+                      final currentPickedItem = this.currentPickedItem;
+                      if (currentPickedItem != null) {
+                        widget._onSelected?.call(currentPickedItem);
+                        Navigator.pop(context);
+                      }
+                    },
                   ),
                 ),
               ),

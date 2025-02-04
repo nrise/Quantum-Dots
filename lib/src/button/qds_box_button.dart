@@ -1,23 +1,19 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'button_cubit.dart';
-import 'button_label_type.dart';
-import 'button_size_type.dart';
-import 'button_ui_state.dart';
+import 'qds_box_button_cubit.dart';
+import 'qds_box_button_label_type.dart';
+import 'qds_box_button_size_type.dart';
+import 'qds_box_button_ui_state.dart';
 import 'package:quantum_dots/qds_common_widget.dart';
 import 'package:flutter/material.dart';
 
-class WippyBoxButton extends StatelessWidget {
-  final bool enable;
-  final ButtonUiState initUiState;
-  final void Function() onPressed;
+class QdsBoxButton extends StatelessWidget {
+  final QdsBoxButtonUiState initUiState;
   final Key? buttonKey;
 
-  WippyBoxButton({
-    required this.onPressed,
+  QdsBoxButton({
     required this.initUiState,
     this.buttonKey,
-    this.enable = true,
   }): super(key: buttonKey ?? ValueKey(initUiState));
 
   Widget _buildLoadingIndicator(Color color) {
@@ -55,26 +51,26 @@ class WippyBoxButton extends StatelessWidget {
     );
   }
 
-  double _getIconAndTextSpaceWidth(ButtonSizeType buttonSizeType) {
-    return buttonSizeType is Large ? 4.0 : 2.0;
+  double _getIconAndTextSpaceWidth(QdsBoxButtonSizeType buttonSizeType) {
+    return buttonSizeType is QdsBoxButtonLarge ? 4.0 : 2.0;
   }
 
-  double _getButtonIconSize(ButtonSizeType buttonSizeType) {
+  double _getButtonIconSize(QdsBoxButtonSizeType buttonSizeType) {
     switch (buttonSizeType) {
-      case Large():
+      case QdsBoxButtonLarge():
         return 24.0;
-      case Medium():
+      case QdsBoxButtonMedium():
         return 16.0;
-      case Small():
-      case XSmall():
+      case QdsBoxButtonSmall():
+      case QdsBoxButtonXSmall():
         return 12.0;
     }
   }
 
-  Widget _buildButtonContent(ButtonUiState uiState) {
+  Widget _buildButtonContent(QdsBoxButtonUiState uiState) {
     final buttonLabelType = uiState.buttonLabelType;
 
-    if (uiState.state == ButtonState.loading) {
+    if (uiState.state == QdsBoxButtonState.loading) {
       return _buildLoadingIndicator(uiState.iconColor);
     }
 
@@ -90,7 +86,7 @@ class WippyBoxButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        if (buttonLabelType is LabelAndIcon && buttonLabelType.buttonDirection == ButtonDirection.left) ...[
+        if (buttonLabelType is QdsBoxButtonLabelAndIcon && buttonLabelType.buttonDirection == QdsBoxButtonDirection.left) ...[
           _buildIcon(
             iconAssetString: buttonLabelType.iconAssetString,
             iconSize: _getButtonIconSize(uiState.buttonSizeType),
@@ -99,7 +95,7 @@ class WippyBoxButton extends StatelessWidget {
           SizedBox(width: _getIconAndTextSpaceWidth(uiState.buttonSizeType)),
           textWidget,
         ],
-        if (buttonLabelType is LabelAndIcon && buttonLabelType.buttonDirection == ButtonDirection.right) ...[
+        if (buttonLabelType is QdsBoxButtonLabelAndIcon && buttonLabelType.buttonDirection == QdsBoxButtonDirection.right) ...[
           textWidget,
           SizedBox(width: _getIconAndTextSpaceWidth(uiState.buttonSizeType)),
           _buildIcon(
@@ -108,18 +104,18 @@ class WippyBoxButton extends StatelessWidget {
             color: uiState.buttonColorType.getIconColor(uiState.state),
           )
         ],
-        if (buttonLabelType is LabelOnly) ...[
+        if (buttonLabelType is QdsBoxButtonLabelOnly) ...[
           textWidget,
         ],
       ],
     );
   }
 
-  Widget _buildButtonContainer(BuildContext context, ButtonUiState uiState) {
+  Widget _buildButtonContainer(BuildContext context, QdsBoxButtonUiState uiState) {
     return GestureDetector(
-      onTapCancel: () => context.read<ButtonCubit>().onTapCancel(),
-      onTapUp: (_) => context.read<ButtonCubit>().onTapUp(),
-      onTapDown: (_) => context.read<ButtonCubit>().onTapDown(),
+      onTapCancel: () => context.read<QdsBoxButtonCubit>().onTapCancel(),
+      onTapUp: (_) => context.read<QdsBoxButtonCubit>().onTapUp(),
+      onTapDown: (_) => context.read<QdsBoxButtonCubit>().onTapDown(),
       child: Container(
         padding: EdgeInsets.symmetric(
           vertical: uiState.verticalPaddingSize,
@@ -137,12 +133,10 @@ class WippyBoxButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ButtonCubit(
-        onPressed: onPressed,
+      create: (context) => QdsBoxButtonCubit(
         uiState: initUiState,
-        enable: enable,
       ),
-      child: BlocBuilder<ButtonCubit, ButtonUiState>(
+      child: BlocBuilder<QdsBoxButtonCubit, QdsBoxButtonUiState>(
         builder: (context, uiState) {
           return _buildButtonContainer(context, uiState);
         },

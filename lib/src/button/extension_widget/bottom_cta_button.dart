@@ -3,17 +3,17 @@ import 'package:quantum_dots/qds_button.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 
 class BottomCtaButton extends StatelessWidget {
-  final ButtonLabelType _labelType;
-  final ButtonState _state;
+  final QdsBoxButtonLabelType _labelType;
+  final QdsBoxButtonState _state;
   final void Function() _onPressed;
 
   BottomCtaButton({
-    required ButtonLabelType labelType,
+    required QdsBoxButtonLabelType labelType,
     required void Function() onPressed,
-    ButtonState? state,
+    QdsBoxButtonState? state,
   })  : _labelType = labelType,
         _onPressed = onPressed,
-        _state = state ?? ButtonState.active;
+        _state = state ?? QdsBoxButtonState.active;
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +25,15 @@ class BottomCtaButton extends StatelessWidget {
         bottom: true,
         child: Padding(
           padding: EdgeInsets.fromLTRB(16, 0, 16, 20),
-          child: WippyBoxButton(
-            onPressed: () {
-              _onPressed();
-            },
-            initUiState: ButtonUiState(
+          child: QdsBoxButton(
+            initUiState: QdsBoxButtonUiState(
               buttonLabelType: _labelType,
               state: _state,
-              buttonColorType: ButtonColorType.primary(),
-              buttonSizeType: ButtonSizeType.large(),
+              buttonColorType: QdsBoxButtonColorType.primary(),
+              buttonSizeType: QdsBoxButtonSizeType.large(),
+              onPressed: () {
+                _onPressed();
+              },
             ),
           ),
         ),

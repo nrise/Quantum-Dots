@@ -3,21 +3,20 @@ import 'package:quantum_dots/qds_foundation.dart';
 
 import 'qds_box_button_ui_state.dart';
 
-// ignore: deprecated_member_use
-sealed class ButtonColorType {
+sealed class QdsBoxButtonColorType {
   Color getButtonColor(QdsBoxButtonState state);
 
   Color getTextColor(QdsBoxButtonState state);
 
   Color getIconColor(QdsBoxButtonState state);
 
-  const factory ButtonColorType.primary() = Primary;
+  const factory QdsBoxButtonColorType.primary() = Primary;
 
-  const factory ButtonColorType.secondary() = Secondary;
+  const factory QdsBoxButtonColorType.secondary() = Secondary;
 
-  const factory ButtonColorType.tertiary() = Tertiary;
+  const factory QdsBoxButtonColorType.tertiary() = Tertiary;
 
-  const factory ButtonColorType.custom({
+  const factory QdsBoxButtonColorType.custom({
     required Color activeColor,
     required Color pressedColor,
     required Color inactiveColor,
@@ -28,8 +27,7 @@ sealed class ButtonColorType {
   }) = Custom;
 }
 
-// ignore: deprecated_member_use
-class Primary implements ButtonColorType {
+class Primary implements QdsBoxButtonColorType {
   const Primary();
 
   @override
@@ -63,8 +61,7 @@ class Primary implements ButtonColorType {
   }
 }
 
-// ignore: deprecated_member_use
-class Secondary implements ButtonColorType {
+class Secondary implements QdsBoxButtonColorType {
   const Secondary();
 
   @override
@@ -98,8 +95,7 @@ class Secondary implements ButtonColorType {
   }
 }
 
-// ignore: deprecated_member_use
-class Tertiary implements ButtonColorType {
+class Tertiary implements QdsBoxButtonColorType {
   const Tertiary();
 
   @override
@@ -133,8 +129,7 @@ class Tertiary implements ButtonColorType {
   }
 }
 
-// ignore: deprecated_member_use
-class Custom implements ButtonColorType {
+class Custom implements QdsBoxButtonColorType {
   final Color activeColor;
   final Color pressedColor;
   final Color inactiveColor;

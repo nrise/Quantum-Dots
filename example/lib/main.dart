@@ -127,51 +127,52 @@ class DesignSystemSamplePage extends StatelessWidget {
 
   List<Widget> _buildWippyBottomSheetComponents(BuildContext context) {
     return [
-      WippyBoxButton(
-        onPressed: () {
-          showWippyBottomSheet(
-            name: "PickerBottomSheet",
-            isDismissible: true,
-            context: context,
-            buildBottomSheet: (context) {
-              return const WippyPickerBottomSheet(
-                ctaText: "Select",
-                headerUiState: BottomSheetHeaderUiState(
-                  title: BottomSheetHeaderTitle(
-                    title: "City",
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'PickerBottomSheet 띄우기'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+          onPressed: () {
+            showWippyBottomSheet(
+              name: "PickerBottomSheet",
+              isDismissible: true,
+              context: context,
+              buildBottomSheet: (context) {
+                return const WippyPickerBottomSheet(
+                  ctaText: "Select",
+                  headerUiState: BottomSheetHeaderUiState(
+                    title: BottomSheetHeaderTitle(
+                      title: "City",
+                    ),
                   ),
-                ),
-                items: [
-                  PickerItem(
-                    displayName: "Tokyo",
-                  ),
-                  PickerItem(
-                    displayName: "Minato",
-                  ),
-                  PickerItem(
-                    displayName: "Shinjuku",
-                  ),
-                  PickerItem(
-                    displayName: "Koto",
-                  ),
-                  PickerItem(
-                    displayName: "Taito",
-                  ),
-                  PickerItem(
-                    displayName: "Sumida",
-                  ),
-                  PickerItem(
-                    displayName: "Koto",
-                  )
-                ],
-              );
-            },
-          );
-        },
-        initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'PickerBottomSheet 띄우기'),
-            buttonSizeType: ButtonSizeType.large()),
+                  items: [
+                    PickerItem(
+                      displayName: "Tokyo",
+                    ),
+                    PickerItem(
+                      displayName: "Minato",
+                    ),
+                    PickerItem(
+                      displayName: "Shinjuku",
+                    ),
+                    PickerItem(
+                      displayName: "Koto",
+                    ),
+                    PickerItem(
+                      displayName: "Taito",
+                    ),
+                    PickerItem(
+                      displayName: "Sumida",
+                    ),
+                    PickerItem(
+                      displayName: "Koto",
+                    )
+                  ],
+                );
+              },
+            );
+          },
+        ),
       ),
     ];
   }
@@ -249,91 +250,95 @@ class DesignSystemSamplePage extends StatelessWidget {
 
   List<Widget> _buildWippyToastComponents(BuildContext context) {
     return [
-      WippyBoxButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            ScreenSlideTransitionPage(
-              child: const ToastTestScreen(),
-              name: "ToastTestScreen",
-            ).createRoute(context),
-          );
-        },
-        initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Go to Toast Test Page'),
-            buttonSizeType: ButtonSizeType.large()),
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Go to Toast Test Page'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+          onPressed: () {
+            Navigator.push(
+              context,
+              ScreenSlideTransitionPage(
+                child: const ToastTestScreen(),
+                name: "ToastTestScreen",
+              ).createRoute(context),
+            );
+          },
+        ),
       )
     ];
   }
 
   List<Widget> _buildWippyPopupComponents(BuildContext context) {
     return [
-      WippyBoxButton(
-        onPressed: () {
-          showDialog(
-              barrierDismissible: false,
-              context: context,
-              builder: (context) {
-                return WippyPopup(
-                  uiState: WippyPopupUiState(
-                      title: 'Title',
-                      description: 'Description',
-                      popupButtonType: PopupButtonType.singleButton(
-                          label: 'Close',
-                          onPressed: () {
-                            Navigator.pop(context);
-                          })),
-                );
-              });
-        },
-        initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Show SingleButton Popup'),
-            buttonSizeType: ButtonSizeType.large()),
-      ),
-      WippyBoxButton(
-        onPressed: () {
-          showDialog(
-              barrierDismissible: false,
-              context: context,
-              builder: (context) {
-                return WippyPopup(
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Show SingleButton Popup'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+          onPressed: () {
+            showDialog(
+                barrierDismissible: false,
+                context: context,
+                builder: (context) {
+                  return WippyPopup(
                     uiState: WippyPopupUiState(
-                  title: 'Request Friend?',
-                  popupButtonType: PopupButtonType.multiButton(
-                      leftButtonLabel: 'No',
-                      onPressedLeftButton: () {
-                        Navigator.pop(context);
-                      },
-                      rightButtonLabel: 'Yes'),
-                ));
-              });
-        },
-        initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Show MultiButton Popup'),
-            buttonSizeType: ButtonSizeType.large()),
+                        title: 'Title',
+                        description: 'Description',
+                        popupButtonType: PopupButtonType.singleButton(
+                            label: 'Close',
+                            onPressed: () {
+                              Navigator.pop(context);
+                            })),
+                  );
+                });
+          },
+        ),
+      ),
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Show MultiButton Popup'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+          onPressed: () {
+            showDialog(
+                barrierDismissible: false,
+                context: context,
+                builder: (context) {
+                  return WippyPopup(
+                      uiState: WippyPopupUiState(
+                    title: 'Request Friend?',
+                    popupButtonType: PopupButtonType.multiButton(
+                        leftButtonLabel: 'No',
+                        onPressedLeftButton: () {
+                          Navigator.pop(context);
+                        },
+                        rightButtonLabel: 'Yes'),
+                  ));
+                });
+          },
+        ),
       )
     ];
   }
 
   List<Widget> _buildWippyEmptyStatesComponents(BuildContext context) {
     return [
-      WippyBoxButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            ScreenSlideTransitionPage(
-              child: const EmptyStatesTestScreen(),
-              name: "EmptyStatesTestScreen",
-            ).createRoute(context),
-          );
-        },
-        initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Go to Empty States Page'),
-            buttonSizeType: ButtonSizeType.large()),
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Go to Empty States Page'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+          onPressed: () {
+            Navigator.push(
+              context,
+              ScreenSlideTransitionPage(
+                child: const EmptyStatesTestScreen(),
+                name: "EmptyStatesTestScreen",
+              ).createRoute(context),
+            );
+          },
+        ),
       )
     ];
   }
@@ -341,20 +346,21 @@ class DesignSystemSamplePage extends StatelessWidget {
   List<Widget> _buildWippySpinnerComponents(BuildContext context) {
     return [
       WippySpinner(),
-      WippyBoxButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            ScreenSlideTransitionPage(
-              child: const DimmedLoadingTestScreen(),
-              name: "DimmedLoadingTestScreen",
-            ).createRoute(context),
-          );
-        },
-        initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Go to Dimmed Loading Page'),
-            buttonSizeType: ButtonSizeType.large()),
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Go to Dimmed Loading Page'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+          onPressed: () {
+            Navigator.push(
+              context,
+              ScreenSlideTransitionPage(
+                child: const DimmedLoadingTestScreen(),
+                name: "DimmedLoadingTestScreen",
+              ).createRoute(context),
+            );
+          },
+        ),
       )
     ];
   }
@@ -453,21 +459,19 @@ class DesignSystemSamplePage extends StatelessWidget {
     return [
       Wrap(
         children: [
-          WippyBoxButton(
-            onPressed: () {},
-            initUiState: ButtonUiState(
-                buttonColorType: const ButtonColorType.primary(),
-                buttonLabelType: const ButtonLabelType.labelOnly(label: 'Wrap'),
-                buttonSizeType: ButtonSizeType.large()),
+          QdsBoxButton(
+            initUiState: QdsBoxButtonUiState(
+                buttonColorType: const QdsBoxButtonColorType.primary(),
+                buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Wrap'),
+                buttonSizeType: QdsBoxButtonSizeType.large()),
           )
         ],
       ),
-      WippyBoxButton(
-        onPressed: () {},
-        initUiState: ButtonUiState(
-            buttonColorType: const ButtonColorType.primary(),
-            buttonLabelType: const ButtonLabelType.labelOnly(label: 'Match'),
-            buttonSizeType: ButtonSizeType.large()),
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+            buttonColorType: const QdsBoxButtonColorType.primary(),
+            buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Match'),
+            buttonSizeType: QdsBoxButtonSizeType.large()),
       )
     ];
   }
