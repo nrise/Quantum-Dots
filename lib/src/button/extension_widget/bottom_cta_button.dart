@@ -26,14 +26,12 @@ class BottomCtaButton extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.fromLTRB(16, 0, 16, 20),
           child: WippyBoxButton(
-            onPressed: () {
-              _onPressed();
-            },
             initUiState: ButtonUiState(
               buttonLabelType: _labelType,
               state: _state,
               buttonColorType: ButtonColorType.primary(),
               buttonSizeType: ButtonSizeType.large(),
+              onPressed: _onPressed,
             ),
           ),
         ),

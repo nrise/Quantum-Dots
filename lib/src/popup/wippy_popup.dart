@@ -54,13 +54,15 @@ class WippyPopup extends StatelessWidget {
           buttonWidget = Container(
             width: double.infinity,
             child: WippyBoxButton(
+              initUiState: ButtonUiState(
+                buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.label),
+                buttonColorType: ButtonColorType.primary(),
+                buttonSizeType: ButtonSizeType.large(),
                 onPressed: () {
                   buttonType.onPressed?.call();
                 },
-                initUiState: ButtonUiState(
-                    buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.label),
-                    buttonColorType: ButtonColorType.primary(),
-                    buttonSizeType: ButtonSizeType.large())),
+              ),
+            ),
           );
 
         case MultiPopupButton():
@@ -69,29 +71,35 @@ class WippyPopup extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: Container(
-                    width: double.infinity,
-                    child: WippyBoxButton(
-                        onPressed: () {
-                          buttonType.onPressedLeftButton?.call();
-                        },
-                        initUiState: ButtonUiState(
-                            buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.leftButtonLabel),
-                            buttonColorType: ButtonColorType.tertiary(),
-                            buttonSizeType: ButtonSizeType.large()))),
+                  width: double.infinity,
+                  child: WippyBoxButton(
+                    initUiState: ButtonUiState(
+                      buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.leftButtonLabel),
+                      buttonColorType: ButtonColorType.tertiary(),
+                      buttonSizeType: ButtonSizeType.large(),
+                      onPressed: () {
+                        buttonType.onPressedLeftButton?.call();
+                      },
+                    ),
+                  ),
+                ),
               ),
               SizedBox(width: 8),
               Flexible(
                 flex: 1,
                 child: Container(
-                    width: double.infinity,
-                    child: WippyBoxButton(
-                        onPressed: () {
-                          buttonType.onPressedRightButton?.call();
-                        },
-                        initUiState: ButtonUiState(
-                            buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.rightButtonLabel),
-                            buttonColorType: ButtonColorType.primary(),
-                            buttonSizeType: ButtonSizeType.large()))),
+                  width: double.infinity,
+                  child: WippyBoxButton(
+                    initUiState: ButtonUiState(
+                      buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.rightButtonLabel),
+                      buttonColorType: ButtonColorType.primary(),
+                      buttonSizeType: ButtonSizeType.large(),
+                      onPressed: () {
+                        buttonType.onPressedRightButton?.call();
+                      },
+                    ),
+                  ),
+                ),
               )
             ],
           );
@@ -101,25 +109,29 @@ class WippyPopup extends StatelessWidget {
               Container(
                 width: double.infinity,
                 child: WippyBoxButton(
+                  initUiState: ButtonUiState(
+                    buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.topButtonLabel),
+                    buttonColorType: ButtonColorType.primary(),
+                    buttonSizeType: ButtonSizeType.large(),
                     onPressed: () {
                       buttonType.onPressedTopButton?.call();
                     },
-                    initUiState: ButtonUiState(
-                        buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.topButtonLabel),
-                        buttonColorType: ButtonColorType.primary(),
-                        buttonSizeType: ButtonSizeType.large())),
+                  ),
+                ),
               ),
               const SizedBox(height: 8),
               Container(
                 width: double.infinity,
                 child: WippyBoxButton(
+                  initUiState: ButtonUiState(
+                    buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.bottomButtonLabel),
+                    buttonColorType: ButtonColorType.tertiary(),
+                    buttonSizeType: ButtonSizeType.large(),
                     onPressed: () {
                       buttonType.onPressedBottomButton?.call();
                     },
-                    initUiState: ButtonUiState(
-                        buttonLabelType: ButtonLabelType.labelOnly(label: buttonType.bottomButtonLabel),
-                        buttonColorType: ButtonColorType.tertiary(),
-                        buttonSizeType: ButtonSizeType.large())),
+                  ),
+                ),
               ),
             ],
           );

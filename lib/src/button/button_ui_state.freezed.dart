@@ -17,9 +17,11 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ButtonUiState {
   ButtonLabelType get buttonLabelType => throw _privateConstructorUsedError;
-  ButtonState get state => throw _privateConstructorUsedError;
   ButtonColorType get buttonColorType => throw _privateConstructorUsedError;
   ButtonSizeType get buttonSizeType => throw _privateConstructorUsedError;
+  void Function()? get onPressed => throw _privateConstructorUsedError;
+  ButtonState get state => throw _privateConstructorUsedError;
+  bool get enable => throw _privateConstructorUsedError;
 
   /// Create a copy of ButtonUiState
   /// with the given fields replaced by the non-null parameter values.
@@ -36,9 +38,11 @@ abstract class $ButtonUiStateCopyWith<$Res> {
   @useResult
   $Res call(
       {ButtonLabelType buttonLabelType,
-      ButtonState state,
       ButtonColorType buttonColorType,
-      ButtonSizeType buttonSizeType});
+      ButtonSizeType buttonSizeType,
+      void Function()? onPressed,
+      ButtonState state,
+      bool enable});
 
   $ButtonLabelTypeCopyWith<$Res> get buttonLabelType;
 }
@@ -59,19 +63,17 @@ class _$ButtonUiStateCopyWithImpl<$Res, $Val extends ButtonUiState>
   @override
   $Res call({
     Object? buttonLabelType = null,
-    Object? state = null,
     Object? buttonColorType = null,
     Object? buttonSizeType = null,
+    Object? onPressed = freezed,
+    Object? state = null,
+    Object? enable = null,
   }) {
     return _then(_value.copyWith(
       buttonLabelType: null == buttonLabelType
           ? _value.buttonLabelType
           : buttonLabelType // ignore: cast_nullable_to_non_nullable
               as ButtonLabelType,
-      state: null == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as ButtonState,
       buttonColorType: null == buttonColorType
           ? _value.buttonColorType
           : buttonColorType // ignore: cast_nullable_to_non_nullable
@@ -80,6 +82,18 @@ class _$ButtonUiStateCopyWithImpl<$Res, $Val extends ButtonUiState>
           ? _value.buttonSizeType
           : buttonSizeType // ignore: cast_nullable_to_non_nullable
               as ButtonSizeType,
+      onPressed: freezed == onPressed
+          ? _value.onPressed
+          : onPressed // ignore: cast_nullable_to_non_nullable
+              as void Function()?,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as ButtonState,
+      enable: null == enable
+          ? _value.enable
+          : enable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -104,9 +118,11 @@ abstract class _$$ButtonUiStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {ButtonLabelType buttonLabelType,
-      ButtonState state,
       ButtonColorType buttonColorType,
-      ButtonSizeType buttonSizeType});
+      ButtonSizeType buttonSizeType,
+      void Function()? onPressed,
+      ButtonState state,
+      bool enable});
 
   @override
   $ButtonLabelTypeCopyWith<$Res> get buttonLabelType;
@@ -126,19 +142,17 @@ class __$$ButtonUiStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? buttonLabelType = null,
-    Object? state = null,
     Object? buttonColorType = null,
     Object? buttonSizeType = null,
+    Object? onPressed = freezed,
+    Object? state = null,
+    Object? enable = null,
   }) {
     return _then(_$ButtonUiStateImpl(
       buttonLabelType: null == buttonLabelType
           ? _value.buttonLabelType
           : buttonLabelType // ignore: cast_nullable_to_non_nullable
               as ButtonLabelType,
-      state: null == state
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as ButtonState,
       buttonColorType: null == buttonColorType
           ? _value.buttonColorType
           : buttonColorType // ignore: cast_nullable_to_non_nullable
@@ -147,6 +161,18 @@ class __$$ButtonUiStateImplCopyWithImpl<$Res>
           ? _value.buttonSizeType
           : buttonSizeType // ignore: cast_nullable_to_non_nullable
               as ButtonSizeType,
+      onPressed: freezed == onPressed
+          ? _value.onPressed
+          : onPressed // ignore: cast_nullable_to_non_nullable
+              as void Function()?,
+      state: null == state
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as ButtonState,
+      enable: null == enable
+          ? _value.enable
+          : enable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -156,23 +182,30 @@ class __$$ButtonUiStateImplCopyWithImpl<$Res>
 class _$ButtonUiStateImpl implements _ButtonUiState {
   const _$ButtonUiStateImpl(
       {required this.buttonLabelType,
-      this.state = ButtonState.active,
       required this.buttonColorType,
-      required this.buttonSizeType});
+      required this.buttonSizeType,
+      this.onPressed,
+      this.state = ButtonState.active,
+      this.enable = true});
 
   @override
   final ButtonLabelType buttonLabelType;
   @override
-  @JsonKey()
-  final ButtonState state;
-  @override
   final ButtonColorType buttonColorType;
   @override
   final ButtonSizeType buttonSizeType;
+  @override
+  final void Function()? onPressed;
+  @override
+  @JsonKey()
+  final ButtonState state;
+  @override
+  @JsonKey()
+  final bool enable;
 
   @override
   String toString() {
-    return 'ButtonUiState(buttonLabelType: $buttonLabelType, state: $state, buttonColorType: $buttonColorType, buttonSizeType: $buttonSizeType)';
+    return 'ButtonUiState(buttonLabelType: $buttonLabelType, buttonColorType: $buttonColorType, buttonSizeType: $buttonSizeType, onPressed: $onPressed, state: $state, enable: $enable)';
   }
 
   @override
@@ -182,16 +215,19 @@ class _$ButtonUiStateImpl implements _ButtonUiState {
             other is _$ButtonUiStateImpl &&
             (identical(other.buttonLabelType, buttonLabelType) ||
                 other.buttonLabelType == buttonLabelType) &&
-            (identical(other.state, state) || other.state == state) &&
             (identical(other.buttonColorType, buttonColorType) ||
                 other.buttonColorType == buttonColorType) &&
             (identical(other.buttonSizeType, buttonSizeType) ||
-                other.buttonSizeType == buttonSizeType));
+                other.buttonSizeType == buttonSizeType) &&
+            (identical(other.onPressed, onPressed) ||
+                other.onPressed == onPressed) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.enable, enable) || other.enable == enable));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, buttonLabelType, state, buttonColorType, buttonSizeType);
+  int get hashCode => Object.hash(runtimeType, buttonLabelType, buttonColorType,
+      buttonSizeType, onPressed, state, enable);
 
   /// Create a copy of ButtonUiState
   /// with the given fields replaced by the non-null parameter values.
@@ -205,18 +241,24 @@ class _$ButtonUiStateImpl implements _ButtonUiState {
 abstract class _ButtonUiState implements ButtonUiState {
   const factory _ButtonUiState(
       {required final ButtonLabelType buttonLabelType,
-      final ButtonState state,
       required final ButtonColorType buttonColorType,
-      required final ButtonSizeType buttonSizeType}) = _$ButtonUiStateImpl;
+      required final ButtonSizeType buttonSizeType,
+      final void Function()? onPressed,
+      final ButtonState state,
+      final bool enable}) = _$ButtonUiStateImpl;
 
   @override
   ButtonLabelType get buttonLabelType;
   @override
-  ButtonState get state;
-  @override
   ButtonColorType get buttonColorType;
   @override
   ButtonSizeType get buttonSizeType;
+  @override
+  void Function()? get onPressed;
+  @override
+  ButtonState get state;
+  @override
+  bool get enable;
 
   /// Create a copy of ButtonUiState
   /// with the given fields replaced by the non-null parameter values.
