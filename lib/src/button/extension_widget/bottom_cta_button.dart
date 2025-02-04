@@ -26,14 +26,14 @@ class BottomCtaButton extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.fromLTRB(16, 0, 16, 20),
           child: QdsBoxButton(
+            onPressed: () {
+              _onPressed();
+            },
             initUiState: QdsBoxButtonUiState(
               buttonLabelType: _labelType,
               state: _state,
               buttonColorType: QdsBoxButtonColorType.primary(),
               buttonSizeType: QdsBoxButtonSizeType.large(),
-              onPressed: () {
-                _onPressed();
-              },
             ),
           ),
         ),

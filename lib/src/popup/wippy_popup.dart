@@ -58,10 +58,10 @@ class WippyPopup extends StatelessWidget {
                 buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.label),
                 buttonColorType: QdsBoxButtonColorType.primary(),
                 buttonSizeType: QdsBoxButtonSizeType.large(),
-                onPressed: () {
-                  buttonType.onPressed?.call();
-                },
               ),
+              onPressed: () {
+                buttonType.onPressed?.call();
+              },
             ),
           );
 
@@ -71,17 +71,18 @@ class WippyPopup extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: Container(
-                    width: double.infinity,
-                    child: QdsBoxButton(
-                      initUiState: QdsBoxButtonUiState(
-                        buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.leftButtonLabel),
-                        buttonColorType: QdsBoxButtonColorType.tertiary(),
-                        buttonSizeType: QdsBoxButtonSizeType.large(),
-                        onPressed: () {
-                          buttonType.onPressedLeftButton?.call();
-                        },
-                      ),
-                    )),
+                  width: double.infinity,
+                  child: QdsBoxButton(
+                    initUiState: QdsBoxButtonUiState(
+                      buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.leftButtonLabel),
+                      buttonColorType: QdsBoxButtonColorType.tertiary(),
+                      buttonSizeType: QdsBoxButtonSizeType.large(),
+                    ),
+                    onPressed: () {
+                      buttonType.onPressedLeftButton?.call();
+                    },
+                  ),
+                ),
               ),
               SizedBox(width: 8),
               Flexible(
@@ -93,10 +94,10 @@ class WippyPopup extends StatelessWidget {
                       buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.rightButtonLabel),
                       buttonColorType: QdsBoxButtonColorType.primary(),
                       buttonSizeType: QdsBoxButtonSizeType.large(),
-                      onPressed: () {
-                        buttonType.onPressedRightButton?.call();
-                      },
                     ),
+                    onPressed: () {
+                      buttonType.onPressedRightButton?.call();
+                    },
                   ),
                 ),
               )
@@ -112,10 +113,10 @@ class WippyPopup extends StatelessWidget {
                     buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.topButtonLabel),
                     buttonColorType: QdsBoxButtonColorType.primary(),
                     buttonSizeType: QdsBoxButtonSizeType.large(),
-                    onPressed: () {
-                      buttonType.onPressedTopButton?.call();
-                    },
                   ),
+                  onPressed: () {
+                    buttonType.onPressedTopButton?.call();
+                  },
                 ),
               ),
               const SizedBox(height: 8),
@@ -126,10 +127,10 @@ class WippyPopup extends StatelessWidget {
                     buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonType.bottomButtonLabel),
                     buttonColorType: QdsBoxButtonColorType.tertiary(),
                     buttonSizeType: QdsBoxButtonSizeType.large(),
-                    onPressed: () {
-                      buttonType.onPressedBottomButton?.call();
-                    },
                   ),
+                  onPressed: () {
+                    buttonType.onPressedBottomButton?.call();
+                  },
                 ),
               ),
             ],

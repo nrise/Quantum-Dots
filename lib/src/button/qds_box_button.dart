@@ -9,12 +9,13 @@ import 'package:flutter/material.dart';
 
 class QdsBoxButton extends StatelessWidget {
   final QdsBoxButtonUiState initUiState;
-  final Key? buttonKey;
+  final void Function()? onPressed;
 
   QdsBoxButton({
     required this.initUiState,
-    this.buttonKey,
-  }): super(key: buttonKey ?? ValueKey(initUiState));
+    this.onPressed,
+    super.key,
+  });
 
   Widget _buildLoadingIndicator(Color color) {
     return Row(
@@ -135,6 +136,7 @@ class QdsBoxButton extends StatelessWidget {
     return BlocProvider(
       create: (context) => QdsBoxButtonCubit(
         uiState: initUiState,
+        onPressed: onPressed,
       ),
       child: BlocBuilder<QdsBoxButtonCubit, QdsBoxButtonUiState>(
         builder: (context, uiState) {

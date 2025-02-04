@@ -24,10 +24,10 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
             buttonColorType: const QdsBoxButtonColorType.secondary(),
             buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Escape'),
             buttonSizeType: QdsBoxButtonSizeType.large(),
-            onPressed: () {
-              Navigator.pop(context);
-            },
           ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         )
       ],
     );
@@ -41,12 +41,12 @@ class _DimmedLoadingTestState extends State<DimmedLoadingTestScreen> {
           buttonColorType: const QdsBoxButtonColorType.primary(),
           buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Dimmed State on'),
           buttonSizeType: QdsBoxButtonSizeType.large(),
-          onPressed: () {
-            setState(() {
-              _canShowDimmedLoadingScreen = true;
-            });
-          },
         ),
+        onPressed: () {
+          setState(() {
+            _canShowDimmedLoadingScreen = true;
+          });
+        },
       )
     ];
 

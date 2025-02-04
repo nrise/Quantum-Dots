@@ -58,10 +58,10 @@ class WippyEmptyStates extends StatelessWidget {
               buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonLabel),
               buttonColorType: _uiState.buttonColorType,
               buttonSizeType: QdsBoxButtonSizeType.medium(),
-              onPressed: () {
-                _onPressedButton?.call();
-              },
             ),
+            onPressed: () {
+              _onPressedButton?.call();
+            },
           )
         ],
       )

@@ -22,15 +22,15 @@ class ToastTestScreen extends StatelessWidget {
                     buttonColorType: const QdsBoxButtonColorType.primary(),
                     buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Show Toast'),
                     buttonSizeType: QdsBoxButtonSizeType.large(),
-                    onPressed: () {
-                      BlocProvider.of<WippyToastBloc>(context).add(
-                        const WippyToastUiEvent.show(
-                          message: "Hi Hi Hi Hi Hi Hi",
-                          messageKey: null,
-                        ),
-                      );
-                    },
                   ),
+                  onPressed: () {
+                    BlocProvider.of<WippyToastBloc>(context).add(
+                      const WippyToastUiEvent.show(
+                        message: "Hi Hi Hi Hi Hi Hi",
+                        messageKey: null,
+                      ),
+                    );
+                  },
                 ),
               ),
               IgnorePointer(

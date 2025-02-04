@@ -11,7 +11,6 @@ class QdsBoxButtonUiState with _$QdsBoxButtonUiState {
     required QdsBoxButtonSizeType buttonSizeType,
     @Default(QdsBoxButtonState.active) QdsBoxButtonState state,
     @Default(true) bool enable,
-    @Default(null) void Function()? onPressed,
   }) = _QdsBoxButtonUiState;
 }
 
