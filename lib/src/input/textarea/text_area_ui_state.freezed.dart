@@ -23,6 +23,7 @@ mixin _$TextAreaUiState {
   int? get maxLines => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   TextInputType? get inputType => throw _privateConstructorUsedError;
+  TextInputAction get textInputAction => throw _privateConstructorUsedError;
   TextInputFocusState get focusState => throw _privateConstructorUsedError;
   TextInputErrorState get errorState => throw _privateConstructorUsedError;
   TextInputState get state => throw _privateConstructorUsedError;
@@ -48,6 +49,7 @@ abstract class $TextAreaUiStateCopyWith<$Res> {
       int? maxLines,
       String text,
       TextInputType? inputType,
+      TextInputAction textInputAction,
       TextInputFocusState focusState,
       TextInputErrorState errorState,
       TextInputState state});
@@ -78,6 +80,7 @@ class _$TextAreaUiStateCopyWithImpl<$Res, $Val extends TextAreaUiState>
     Object? maxLines = freezed,
     Object? text = null,
     Object? inputType = freezed,
+    Object? textInputAction = null,
     Object? focusState = null,
     Object? errorState = null,
     Object? state = null,
@@ -111,6 +114,10 @@ class _$TextAreaUiStateCopyWithImpl<$Res, $Val extends TextAreaUiState>
           ? _value.inputType
           : inputType // ignore: cast_nullable_to_non_nullable
               as TextInputType?,
+      textInputAction: null == textInputAction
+          ? _value.textInputAction
+          : textInputAction // ignore: cast_nullable_to_non_nullable
+              as TextInputAction,
       focusState: null == focusState
           ? _value.focusState
           : focusState // ignore: cast_nullable_to_non_nullable
@@ -163,6 +170,7 @@ abstract class _$$TextAreaUiStateImplCopyWith<$Res>
       int? maxLines,
       String text,
       TextInputType? inputType,
+      TextInputAction textInputAction,
       TextInputFocusState focusState,
       TextInputErrorState errorState,
       TextInputState state});
@@ -193,6 +201,7 @@ class __$$TextAreaUiStateImplCopyWithImpl<$Res>
     Object? maxLines = freezed,
     Object? text = null,
     Object? inputType = freezed,
+    Object? textInputAction = null,
     Object? focusState = null,
     Object? errorState = null,
     Object? state = null,
@@ -226,6 +235,10 @@ class __$$TextAreaUiStateImplCopyWithImpl<$Res>
           ? _value.inputType
           : inputType // ignore: cast_nullable_to_non_nullable
               as TextInputType?,
+      textInputAction: null == textInputAction
+          ? _value.textInputAction
+          : textInputAction // ignore: cast_nullable_to_non_nullable
+              as TextInputAction,
       focusState: null == focusState
           ? _value.focusState
           : focusState // ignore: cast_nullable_to_non_nullable
@@ -253,6 +266,7 @@ class _$TextAreaUiStateImpl implements _TextAreaUiState {
       this.maxLines = null,
       this.text = "",
       this.inputType = null,
+      this.textInputAction = TextInputAction.done,
       this.focusState = const TextInputFocusState.focusout(),
       this.errorState = const TextInputErrorState.none(),
       this.state = TextInputState.inactive});
@@ -280,6 +294,9 @@ class _$TextAreaUiStateImpl implements _TextAreaUiState {
   final TextInputType? inputType;
   @override
   @JsonKey()
+  final TextInputAction textInputAction;
+  @override
+  @JsonKey()
   final TextInputFocusState focusState;
   @override
   @JsonKey()
@@ -290,7 +307,7 @@ class _$TextAreaUiStateImpl implements _TextAreaUiState {
 
   @override
   String toString() {
-    return 'TextAreaUiState(label: $label, helperMessage: $helperMessage, placeholder: $placeholder, maxCount: $maxCount, maxLines: $maxLines, text: $text, inputType: $inputType, focusState: $focusState, errorState: $errorState, state: $state)';
+    return 'TextAreaUiState(label: $label, helperMessage: $helperMessage, placeholder: $placeholder, maxCount: $maxCount, maxLines: $maxLines, text: $text, inputType: $inputType, textInputAction: $textInputAction, focusState: $focusState, errorState: $errorState, state: $state)';
   }
 
   @override
@@ -310,6 +327,8 @@ class _$TextAreaUiStateImpl implements _TextAreaUiState {
             (identical(other.text, text) || other.text == text) &&
             (identical(other.inputType, inputType) ||
                 other.inputType == inputType) &&
+            (identical(other.textInputAction, textInputAction) ||
+                other.textInputAction == textInputAction) &&
             (identical(other.focusState, focusState) ||
                 other.focusState == focusState) &&
             (identical(other.errorState, errorState) ||
@@ -327,6 +346,7 @@ class _$TextAreaUiStateImpl implements _TextAreaUiState {
       maxLines,
       text,
       inputType,
+      textInputAction,
       focusState,
       errorState,
       state);
@@ -350,6 +370,7 @@ abstract class _TextAreaUiState implements TextAreaUiState {
       final int? maxLines,
       final String text,
       final TextInputType? inputType,
+      final TextInputAction textInputAction,
       final TextInputFocusState focusState,
       final TextInputErrorState errorState,
       final TextInputState state}) = _$TextAreaUiStateImpl;
@@ -368,6 +389,8 @@ abstract class _TextAreaUiState implements TextAreaUiState {
   String get text;
   @override
   TextInputType? get inputType;
+  @override
+  TextInputAction get textInputAction;
   @override
   TextInputFocusState get focusState;
   @override

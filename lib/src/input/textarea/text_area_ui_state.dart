@@ -17,6 +17,7 @@ class TextAreaUiState with _$TextAreaUiState {
     @Default(null) int? maxLines,
     @Default("") String text,
     @Default(null) TextInputType? inputType,
+    @Default(TextInputAction.done) TextInputAction textInputAction,
     @Default(TextInputFocusState.focusout()) TextInputFocusState focusState,
     @Default(TextInputErrorState.none()) TextInputErrorState errorState,
     @Default(TextInputState.inactive) TextInputState state,

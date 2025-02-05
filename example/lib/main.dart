@@ -38,7 +38,7 @@ class DesignSystemSamplePage extends StatelessWidget {
 
   List<Widget> _buildAllDesignSystemComponents(BuildContext context) {
     return <Widget>[const SizedBox(height: 50)] +
-        [_buildImageSlotComponents()] +
+        [_buildImageSlotComponents(context)] +
         _buildWippyTooltipComponents(context) +
         _buildWippyBadge() +
         _buildWippyBottomSheetComponents(context) +
@@ -52,12 +52,12 @@ class DesignSystemSamplePage extends StatelessWidget {
         _buildWippyBoxButtonComponents() +
         _buildWippyChipsComponents() +
         _buildWippyTextFieldComponents() +
-        _buildWippyTextAreaComponents() +
+        _buildQdsTextAreaComponents() +
         _buildWippyChatInputComponents() +
         <Widget>[const SizedBox(height: 50)];
   }
 
-  Widget _buildImageSlotComponents() {
+  Widget _buildImageSlotComponents(BuildContext context) {
     return SizedBox(
       height: 212,
       child: ListView(
@@ -74,7 +74,15 @@ class DesignSystemSamplePage extends StatelessWidget {
                 color: wippyGray400,
               ),
               slotBadge: const Icon(Icons.first_page),
-              onAdd: () {},
+              onAdd: () {
+                Navigator.push(
+                  context,
+                  ScreenSlideTransitionPage(
+                    child: const ToastTestScreen(),
+                    name: "ToastTestScreen",
+                  ).createRoute(context),
+                );
+              },
             ),
             width: 160,
             height: 212,
@@ -104,7 +112,15 @@ class DesignSystemSamplePage extends StatelessWidget {
                 color: wippyPink500,
               ),
               slotBadge: null,
-              onClick: () {},
+              onClick: () {
+                Navigator.push(
+                  context,
+                  ScreenSlideTransitionPage(
+                    child: const ToastTestScreen(),
+                    name: "ToastTestScreen",
+                  ).createRoute(context),
+                );
+              },
             ),
             width: 160,
             height: 212,
@@ -365,14 +381,35 @@ class DesignSystemSamplePage extends StatelessWidget {
     ];
   }
 
-  List<Widget> _buildWippyTextAreaComponents() {
+  List<Widget> _buildQdsTextAreaComponents() {
     return [
-      WippyTextArea(initialData: const TextAreaInitialData(label: "Disable State", state: TextInputState.disable, placeholder: "Hint")),
-      WippyTextArea(
-          initialData: const TextAreaInitialData(label: "set maxCount", maxCount: 10, helperMessage: "Helper Message", placeholder: "Hint")),
-      WippyTextArea(
-          initialData: const TextAreaInitialData(
-              label: "Error State", errorState: TextInputErrorState.error(errorMessage: "Error Message"), maxCount: 10, placeholder: "Hint")),
+      QdsTextArea(
+        initialData: const TextAreaInitialData(
+          label: "Disable State",
+          state: TextInputState.disable,
+          placeholder: "Hint",
+          textInputAction: TextInputAction.done,
+        ),
+      ),
+      QdsTextArea(
+        initialData: const TextAreaInitialData(
+          label: "set maxCount",
+          maxCount: 10,
+          helperMessage: "Helper Message",
+          placeholder: "Hint",
+          textInputAction: TextInputAction.done,
+        ),
+      ),
+      QdsTextArea(
+        initialData: const TextAreaInitialData(
+          label: "Error State",
+          errorState: TextInputErrorState.error(errorMessage: "Error Message"),
+          maxCount: 10,
+          placeholder: "Hint",
+          inputType: TextInputType.multiline,
+          textInputAction: TextInputAction.newline,
+        ),
+      ),
     ];
   }
 
