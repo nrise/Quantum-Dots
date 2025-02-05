@@ -21,6 +21,7 @@ mixin _$TextAreaInitialData {
   String? get placeholder => throw _privateConstructorUsedError;
   int? get maxCount => throw _privateConstructorUsedError;
   TextInputType? get inputType => throw _privateConstructorUsedError;
+  TextInputAction get textInputAction => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   TextInputFocusState get focusState => throw _privateConstructorUsedError;
   TextInputErrorState get errorState => throw _privateConstructorUsedError;
@@ -45,6 +46,7 @@ abstract class $TextAreaInitialDataCopyWith<$Res> {
       String? placeholder,
       int? maxCount,
       TextInputType? inputType,
+      TextInputAction textInputAction,
       String text,
       TextInputFocusState focusState,
       TextInputErrorState errorState,
@@ -74,6 +76,7 @@ class _$TextAreaInitialDataCopyWithImpl<$Res, $Val extends TextAreaInitialData>
     Object? placeholder = freezed,
     Object? maxCount = freezed,
     Object? inputType = freezed,
+    Object? textInputAction = null,
     Object? text = null,
     Object? focusState = null,
     Object? errorState = null,
@@ -100,6 +103,10 @@ class _$TextAreaInitialDataCopyWithImpl<$Res, $Val extends TextAreaInitialData>
           ? _value.inputType
           : inputType // ignore: cast_nullable_to_non_nullable
               as TextInputType?,
+      textInputAction: null == textInputAction
+          ? _value.textInputAction
+          : textInputAction // ignore: cast_nullable_to_non_nullable
+              as TextInputAction,
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -154,6 +161,7 @@ abstract class _$$TextAreaInitialDataImplCopyWith<$Res>
       String? placeholder,
       int? maxCount,
       TextInputType? inputType,
+      TextInputAction textInputAction,
       String text,
       TextInputFocusState focusState,
       TextInputErrorState errorState,
@@ -183,6 +191,7 @@ class __$$TextAreaInitialDataImplCopyWithImpl<$Res>
     Object? placeholder = freezed,
     Object? maxCount = freezed,
     Object? inputType = freezed,
+    Object? textInputAction = null,
     Object? text = null,
     Object? focusState = null,
     Object? errorState = null,
@@ -209,6 +218,10 @@ class __$$TextAreaInitialDataImplCopyWithImpl<$Res>
           ? _value.inputType
           : inputType // ignore: cast_nullable_to_non_nullable
               as TextInputType?,
+      textInputAction: null == textInputAction
+          ? _value.textInputAction
+          : textInputAction // ignore: cast_nullable_to_non_nullable
+              as TextInputAction,
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -238,6 +251,7 @@ class _$TextAreaInitialDataImpl implements _TextAreaInitialData {
       this.placeholder = null,
       this.maxCount = null,
       this.inputType = null,
+      this.textInputAction = TextInputAction.done,
       this.text = "",
       this.focusState = const TextInputFocusState.focusout(),
       this.errorState = const TextInputErrorState.none(),
@@ -260,6 +274,9 @@ class _$TextAreaInitialDataImpl implements _TextAreaInitialData {
   final TextInputType? inputType;
   @override
   @JsonKey()
+  final TextInputAction textInputAction;
+  @override
+  @JsonKey()
   final String text;
   @override
   @JsonKey()
@@ -273,7 +290,7 @@ class _$TextAreaInitialDataImpl implements _TextAreaInitialData {
 
   @override
   String toString() {
-    return 'TextAreaInitialData(label: $label, helperMessage: $helperMessage, placeholder: $placeholder, maxCount: $maxCount, inputType: $inputType, text: $text, focusState: $focusState, errorState: $errorState, state: $state)';
+    return 'TextAreaInitialData(label: $label, helperMessage: $helperMessage, placeholder: $placeholder, maxCount: $maxCount, inputType: $inputType, textInputAction: $textInputAction, text: $text, focusState: $focusState, errorState: $errorState, state: $state)';
   }
 
   @override
@@ -290,6 +307,8 @@ class _$TextAreaInitialDataImpl implements _TextAreaInitialData {
                 other.maxCount == maxCount) &&
             (identical(other.inputType, inputType) ||
                 other.inputType == inputType) &&
+            (identical(other.textInputAction, textInputAction) ||
+                other.textInputAction == textInputAction) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.focusState, focusState) ||
                 other.focusState == focusState) &&
@@ -299,8 +318,18 @@ class _$TextAreaInitialDataImpl implements _TextAreaInitialData {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, label, helperMessage,
-      placeholder, maxCount, inputType, text, focusState, errorState, state);
+  int get hashCode => Object.hash(
+      runtimeType,
+      label,
+      helperMessage,
+      placeholder,
+      maxCount,
+      inputType,
+      textInputAction,
+      text,
+      focusState,
+      errorState,
+      state);
 
   /// Create a copy of TextAreaInitialData
   /// with the given fields replaced by the non-null parameter values.
@@ -319,6 +348,7 @@ abstract class _TextAreaInitialData implements TextAreaInitialData {
       final String? placeholder,
       final int? maxCount,
       final TextInputType? inputType,
+      final TextInputAction textInputAction,
       final String text,
       final TextInputFocusState focusState,
       final TextInputErrorState errorState,
@@ -334,6 +364,8 @@ abstract class _TextAreaInitialData implements TextAreaInitialData {
   int? get maxCount;
   @override
   TextInputType? get inputType;
+  @override
+  TextInputAction get textInputAction;
   @override
   String get text;
   @override

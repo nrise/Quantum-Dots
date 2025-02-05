@@ -19,23 +19,34 @@ class ImageSlotComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: slot.bgColor ?? wippyGray100,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withAlpha(20),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: _buildSlot(),
+    return GestureDetector(
+      onTap: () {
+        if (slot is PlusSlot) {
+          (slot as PlusSlot).onAdd();
+        } else if (slot is LocalFilledSlot) {
+          (slot as LocalFilledSlot).onClick();
+        } else if (slot is RemoteFilledSlot) {
+          (slot as RemoteFilledSlot).onClick();
+        }
+      },
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: slot.bgColor ?? wippyGray100,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withAlpha(20),
+              blurRadius: 4,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: _buildSlot(),
+        ),
       ),
     );
   }
@@ -67,49 +78,40 @@ class ImageSlotComponent extends StatelessWidget {
           ],
         );
       case PlusSlot():
-        return GestureDetector(
-          onTap: (slot as PlusSlot).onAdd,
-          child: _buildStack(
-            children: [
-              if (badge != null) badge,
-              Center(child: (slot as PlusSlot).emptyIcon),
-              slotIcon,
-            ],
-          ),
+        return _buildStack(
+          children: [
+            if (badge != null) badge,
+            Center(child: (slot as PlusSlot).emptyIcon),
+            slotIcon,
+          ],
         );
       case LocalFilledSlot():
         final localSlot = slot as LocalFilledSlot;
-        return GestureDetector(
-          onTap: localSlot.onClick,
-          child: _buildStack(
-            children: [
-              Image.file(
-                File(localSlot.localPath),
-                fit: BoxFit.cover,
-                width: width,
-                height: height,
-              ),
-              if (badge != null) badge,
-              slotIcon,
-            ],
-          ),
+        return _buildStack(
+          children: [
+            Image.file(
+              File(localSlot.localPath),
+              fit: BoxFit.cover,
+              width: width,
+              height: height,
+            ),
+            if (badge != null) badge,
+            slotIcon,
+          ],
         );
       case RemoteFilledSlot():
         final remoteSlot = slot as RemoteFilledSlot;
-        return GestureDetector(
-          onTap: remoteSlot.onClick,
-          child: _buildStack(
-            children: [
-              Image.network(
-                remoteSlot.url,
-                fit: BoxFit.cover,
-                width: width,
-                height: height,
-              ),
-              if (badge != null) badge,
-              slotIcon,
-            ],
-          ),
+        return _buildStack(
+          children: [
+            Image.network(
+              remoteSlot.url,
+              fit: BoxFit.cover,
+              width: width,
+              height: height,
+            ),
+            if (badge != null) badge,
+            slotIcon,
+          ],
         );
     }
   }
