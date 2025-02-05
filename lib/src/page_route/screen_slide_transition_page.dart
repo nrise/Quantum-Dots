@@ -1,52 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:quantum_dots/qds_foundation.dart';
-import 'package:quantum_dots/src/page_route/builder/slide_out_page_route_builder.dart';
+import 'package:quantum_dots/src/page_route/builder/wippy_transition_page.dart';
 
-class ScreenSlideTransitionPage extends Page {
-  final Widget child;
-  final String _name;
-
-  ScreenSlideTransitionPage({required this.child, required String name})
-      : _name = name,
-        super(key: ValueKey(child), name: name);
-
-  @override
-  String get name => _name;
-
-  @override
-  Route createRoute(BuildContext context) {
-    final animationDuration = const Duration(milliseconds: 200);
-
-    return SlideOutPageRouteBuilder(
-      settings: this,
-      barrierColor: wippyWhite,
-      pageBuilder: (context, animation, secondaryAnimation) => child,
-      transitionDuration: animationDuration,
-      reverseTransitionDuration: animationDuration,
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        final curvedAnimation = CurvedAnimation(
-          parent: animation,
-          curve: Curves.easeInOut,
+class ScreenSlideTransitionPage<T> extends WippyTransitionPage<T> {
+  const ScreenSlideTransitionPage({
+    required super.child,
+    required super.name,
+    super.key,
+  }) : super(
+          transitionDuration: const Duration(milliseconds: 200),
+          reverseTransitionDuration: const Duration(milliseconds: 200),
+          barrierColor: wippyWhite,
+          transitionsBuilder: _transitionsBuilder,
         );
 
-        return Stack(
-          children: [
-            SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(0.2, 0.0),
-                end: Offset.zero,
-              ).animate(curvedAnimation),
-              child: FadeTransition(
-                opacity: Tween<double>(
-                  begin: 0.0,
-                  end: 1.0,
-                ).animate(curvedAnimation),
-                child: child,
-              ),
-            ),
-          ],
-        );
-      },
+  static Widget _transitionsBuilder(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+    final curvedAnimation = CurvedAnimation(
+      parent: animation,
+      curve: Curves.easeInOut,
+    );
+
+    return SlideTransition(
+      position: Tween<Offset>(
+        begin: const Offset(0.2, 0.0),
+        end: Offset.zero,
+      ).animate(curvedAnimation),
+      child: FadeTransition(
+        opacity: Tween<double>(
+          begin: 0.0,
+          end: 1.0,
+        ).animate(curvedAnimation),
+        child: child,
+      ),
     );
   }
 }

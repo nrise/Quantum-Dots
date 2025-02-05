@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'qds_box_button_ui_state.dart';
 
 class QdsBoxButtonCubit extends Cubit<QdsBoxButtonUiState> {
+  final void Function()? onPressed;
 
   QdsBoxButtonCubit({
     required QdsBoxButtonUiState uiState,
+    this.onPressed,
   }) : super(uiState);
 
   void onTapDown() {
@@ -17,7 +19,7 @@ class QdsBoxButtonCubit extends Cubit<QdsBoxButtonUiState> {
   void onTapUp() {
     if (state.enable && state.state == QdsBoxButtonState.pressed) {
       emit(state.copyWith(state: QdsBoxButtonState.active));
-      state.onPressed?.call();
+      onPressed?.call();
     }
   }
 
