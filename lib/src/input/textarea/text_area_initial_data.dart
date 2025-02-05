@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:quantum_dots/qds_input.dart';
 
@@ -12,6 +12,7 @@ class TextAreaInitialData with _$TextAreaInitialData {
     @Default(null) String? placeholder,
     @Default(null) int? maxCount,
     @Default(null) TextInputType? inputType,
+    @Default(TextInputAction.done) TextInputAction textInputAction,
     @Default("") String text,
     @Default(TextInputFocusState.focusout()) TextInputFocusState focusState,
     @Default(TextInputErrorState.none()) TextInputErrorState errorState,
@@ -25,6 +26,7 @@ class TextAreaInitialData with _$TextAreaInitialData {
       placeholder: uiState.placeholder,
       maxCount: uiState.maxCount,
       inputType: uiState.inputType,
+      textInputAction: uiState.textInputAction,
       text: uiState.text,
       focusState: uiState.focusState,
       errorState: uiState.errorState,
@@ -41,6 +43,7 @@ extension TextAreaInitialDataExtension on TextAreaInitialData {
       placeholder: placeholder,
       maxCount: maxCount,
       inputType: inputType,
+      textInputAction: textInputAction,
       text: text,
       focusState: focusState,
       errorState: errorState,

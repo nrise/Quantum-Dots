@@ -60,7 +60,7 @@ class WippyInputBottomSheetState extends State<WippyInputBottomSheet> {
               const SizedBox(height: 16),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: WippyTextArea(
+                child: QdsTextArea(
                   initialData: TextAreaInitialData(
                     placeholder: widget.placeHolder,
                     focusState: const TextInputFocusState.focusin(),

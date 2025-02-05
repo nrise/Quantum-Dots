@@ -3,7 +3,7 @@ library;
 export 'src/input/dropdown/drop_down_ui_state.dart';
 export 'src/input/dropdown/wippy_drop_down.dart';
 export 'src/input/textarea/text_area_ui_state.dart';
-export 'src/input/textarea/wippy_text_area.dart';
+export 'src/input/textarea/qds_text_area.dart';
 export 'src/input/textfield/text_field_ui_state.dart';
 export 'src/input/textarea/text_area_initial_data.dart';
 export 'src/input/textfield/wippy_text_field.dart';

@@ -4,7 +4,7 @@ import 'package:quantum_dots/qds_foundation.dart';
 import 'package:quantum_dots/qds_input.dart';
 import 'text_area_cubit.dart';
 
-class WippyTextArea extends StatelessWidget {
+class QdsTextArea extends StatelessWidget {
   static const double _textAreaHeight = 132;
   static const double _textAreaPadding = 16;
   static const double _textAreaRadius = 16;
@@ -15,7 +15,7 @@ class WippyTextArea extends StatelessWidget {
   final void Function(TextAreaUiState)? _onPressedTextClear;
   final double? height;
 
-  WippyTextArea({
+  QdsTextArea({
     required TextAreaInitialData initialData,
     void Function(TextAreaUiState)? onFocused,
     void Function(TextAreaUiState)? onTextChanged,
@@ -75,6 +75,7 @@ class WippyTextArea extends StatelessWidget {
       padding: EdgeInsets.all(_textAreaPadding),
       child: TextField(
         enabled: uiState.state != TextInputState.disable,
+        textInputAction: uiState.textInputAction,
         keyboardType: uiState.inputType,
         focusNode: textAreaCubit.focusNode,
         controller: textAreaCubit.textController,
