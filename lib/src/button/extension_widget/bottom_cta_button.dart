@@ -26,6 +26,7 @@ class BottomCtaButton extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.fromLTRB(16, 0, 16, 20),
           child: QdsBoxButton(
+            key: Key("bottom_cta_button $_state"),
             onPressed: () {
               _onPressed();
             },

@@ -31,16 +31,17 @@ class BottomSheetHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                alignment: Alignment.centerLeft,
-                width: _leadingAndActionsAreaSize,
-                child: hasLeading
-                    ? SizedIcon(
-                        size: 24,
-                        asset: _uiState.leading!.assetPath,
-                      )
-                    : const SizedBox(),
-              ),
+              if (hasLeading)
+                Container(
+                  alignment: Alignment.centerLeft,
+                  width: _leadingAndActionsAreaSize,
+                  child: hasLeading
+                      ? SizedIcon(
+                          size: 24,
+                          asset: _uiState.leading!.assetPath,
+                        )
+                      : const SizedBox(),
+                ),
               Expanded(
                 child: Text(
                   _uiState.title.title,
@@ -48,19 +49,20 @@ class BottomSheetHeader extends StatelessWidget {
                   style: headline20Bold.copyWith(color: wippyGray900),
                 ),
               ),
-              Container(
-                alignment: Alignment.centerRight,
-                width: _leadingAndActionsAreaSize,
-                child: hasActions
-                    ? TextButton(
-                        onPressed: () {
-                          _uiState.actions!.onPressed?.call();
-                        },
-                        text: _uiState.actions!.text,
-                        style: headline16Bold.copyWith(color: wippyPink500),
-                      )
-                    : const SizedBox(),
-              ),
+              if (hasActions)
+                Container(
+                  alignment: Alignment.centerRight,
+                  width: _leadingAndActionsAreaSize,
+                  child: hasActions
+                      ? TextButton(
+                          onPressed: () {
+                            _uiState.actions!.onPressed?.call();
+                          },
+                          text: _uiState.actions!.text,
+                          style: headline16Bold.copyWith(color: wippyPink500),
+                        )
+                      : const SizedBox(),
+                ),
             ],
           ),
           if (description != null) ...[
