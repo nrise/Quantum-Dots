@@ -14,6 +14,7 @@ class ScreenRouteFadeTransitionPage<T> extends WippyTransitionPage<T> {
           transitionsBuilder: _transitionsBuilder,
           transitionDuration: duration,
           reverseTransitionDuration: duration,
+          enableCupertinoTransition: false,
         );
 
   static Widget _transitionsBuilder(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {

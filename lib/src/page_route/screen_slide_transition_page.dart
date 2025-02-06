@@ -12,7 +12,6 @@ class ScreenSlideTransitionPage<T> extends WippyTransitionPage<T> {
           reverseTransitionDuration: const Duration(milliseconds: 200),
           barrierColor: wippyWhite,
           transitionsBuilder: _transitionsBuilder,
-          enableCupertinoTransition: false,
         );
 
   static Widget _transitionsBuilder(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
