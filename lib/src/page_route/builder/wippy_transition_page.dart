@@ -13,11 +13,14 @@ class WippyTransitionPage<T> extends Page<T> {
     this.barrierDismissible = false,
     this.barrierColor,
     this.barrierLabel,
+    this.enableCupertinoTransition = true,
     super.key,
     super.name,
     super.arguments,
     super.restorationId,
   });
+
+  final bool enableCupertinoTransition;
 
   final Widget child;
 
@@ -37,8 +40,7 @@ class WippyTransitionPage<T> extends Page<T> {
 
   final String? barrierLabel;
 
-  final Widget Function(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) transitionsBuilder;
+  final Widget Function(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) transitionsBuilder;
 
   @override
   Route<T> createRoute(BuildContext context) => WippyPageRouteBuilder<T>(this);

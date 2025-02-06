@@ -52,7 +52,7 @@ class WippyPageRouteBuilder<T> extends PageRoute<T> {
     Widget child,
   ) {
     try {
-      if (Platform.isIOS) {
+      if (Platform.isIOS && _page.enableCupertinoTransition) {
         return const CupertinoPageTransitionsBuilder().buildTransitions<T>(
           this,
           context,
