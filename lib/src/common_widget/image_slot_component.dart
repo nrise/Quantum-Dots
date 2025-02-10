@@ -32,16 +32,11 @@ class ImageSlotComponent extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+        decoration: ShapeDecoration(
           color: slot.bgColor ?? wippyGray100,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withAlpha(20),
-              blurRadius: 4,
-              offset: const Offset(0, 2),
-            ),
-          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
