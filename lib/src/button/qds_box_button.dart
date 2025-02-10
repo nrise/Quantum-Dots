@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 class QdsBoxButton extends StatelessWidget {
   final QdsBoxButtonUiState initUiState;
   final void Function()? onPressed;
+  static const defaultDebounceTime = Duration(milliseconds: 400);
 
   QdsBoxButton({
     required this.initUiState,

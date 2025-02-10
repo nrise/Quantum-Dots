@@ -23,6 +23,7 @@ mixin _$QdsBoxButtonUiState {
   QdsBoxButtonSizeType get buttonSizeType => throw _privateConstructorUsedError;
   QdsBoxButtonState get state => throw _privateConstructorUsedError;
   bool get enable => throw _privateConstructorUsedError;
+  int get debounceTime => throw _privateConstructorUsedError;
 
   /// Create a copy of QdsBoxButtonUiState
   /// with the given fields replaced by the non-null parameter values.
@@ -42,7 +43,8 @@ abstract class $QdsBoxButtonUiStateCopyWith<$Res> {
       QdsBoxButtonColorType buttonColorType,
       QdsBoxButtonSizeType buttonSizeType,
       QdsBoxButtonState state,
-      bool enable});
+      bool enable,
+      int debounceTime});
 
   $QdsBoxButtonLabelTypeCopyWith<$Res> get buttonLabelType;
 }
@@ -67,6 +69,7 @@ class _$QdsBoxButtonUiStateCopyWithImpl<$Res, $Val extends QdsBoxButtonUiState>
     Object? buttonSizeType = null,
     Object? state = null,
     Object? enable = null,
+    Object? debounceTime = null,
   }) {
     return _then(_value.copyWith(
       buttonLabelType: null == buttonLabelType
@@ -89,6 +92,10 @@ class _$QdsBoxButtonUiStateCopyWithImpl<$Res, $Val extends QdsBoxButtonUiState>
           ? _value.enable
           : enable // ignore: cast_nullable_to_non_nullable
               as bool,
+      debounceTime: null == debounceTime
+          ? _value.debounceTime
+          : debounceTime // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -117,7 +124,8 @@ abstract class _$$QdsBoxButtonUiStateImplCopyWith<$Res>
       QdsBoxButtonColorType buttonColorType,
       QdsBoxButtonSizeType buttonSizeType,
       QdsBoxButtonState state,
-      bool enable});
+      bool enable,
+      int debounceTime});
 
   @override
   $QdsBoxButtonLabelTypeCopyWith<$Res> get buttonLabelType;
@@ -141,6 +149,7 @@ class __$$QdsBoxButtonUiStateImplCopyWithImpl<$Res>
     Object? buttonSizeType = null,
     Object? state = null,
     Object? enable = null,
+    Object? debounceTime = null,
   }) {
     return _then(_$QdsBoxButtonUiStateImpl(
       buttonLabelType: null == buttonLabelType
@@ -163,6 +172,10 @@ class __$$QdsBoxButtonUiStateImplCopyWithImpl<$Res>
           ? _value.enable
           : enable // ignore: cast_nullable_to_non_nullable
               as bool,
+      debounceTime: null == debounceTime
+          ? _value.debounceTime
+          : debounceTime // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -175,7 +188,8 @@ class _$QdsBoxButtonUiStateImpl implements _QdsBoxButtonUiState {
       required this.buttonColorType,
       required this.buttonSizeType,
       this.state = QdsBoxButtonState.active,
-      this.enable = true});
+      this.enable = true,
+      this.debounceTime = 400});
 
   @override
   final QdsBoxButtonLabelType buttonLabelType;
@@ -189,10 +203,13 @@ class _$QdsBoxButtonUiStateImpl implements _QdsBoxButtonUiState {
   @override
   @JsonKey()
   final bool enable;
+  @override
+  @JsonKey()
+  final int debounceTime;
 
   @override
   String toString() {
-    return 'QdsBoxButtonUiState(buttonLabelType: $buttonLabelType, buttonColorType: $buttonColorType, buttonSizeType: $buttonSizeType, state: $state, enable: $enable)';
+    return 'QdsBoxButtonUiState(buttonLabelType: $buttonLabelType, buttonColorType: $buttonColorType, buttonSizeType: $buttonSizeType, state: $state, enable: $enable, debounceTime: $debounceTime)';
   }
 
   @override
@@ -207,12 +224,14 @@ class _$QdsBoxButtonUiStateImpl implements _QdsBoxButtonUiState {
             (identical(other.buttonSizeType, buttonSizeType) ||
                 other.buttonSizeType == buttonSizeType) &&
             (identical(other.state, state) || other.state == state) &&
-            (identical(other.enable, enable) || other.enable == enable));
+            (identical(other.enable, enable) || other.enable == enable) &&
+            (identical(other.debounceTime, debounceTime) ||
+                other.debounceTime == debounceTime));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, buttonLabelType, buttonColorType,
-      buttonSizeType, state, enable);
+      buttonSizeType, state, enable, debounceTime);
 
   /// Create a copy of QdsBoxButtonUiState
   /// with the given fields replaced by the non-null parameter values.
@@ -230,7 +249,8 @@ abstract class _QdsBoxButtonUiState implements QdsBoxButtonUiState {
       required final QdsBoxButtonColorType buttonColorType,
       required final QdsBoxButtonSizeType buttonSizeType,
       final QdsBoxButtonState state,
-      final bool enable}) = _$QdsBoxButtonUiStateImpl;
+      final bool enable,
+      final int debounceTime}) = _$QdsBoxButtonUiStateImpl;
 
   @override
   QdsBoxButtonLabelType get buttonLabelType;
@@ -242,6 +262,8 @@ abstract class _QdsBoxButtonUiState implements QdsBoxButtonUiState {
   QdsBoxButtonState get state;
   @override
   bool get enable;
+  @override
+  int get debounceTime;
 
   /// Create a copy of QdsBoxButtonUiState
   /// with the given fields replaced by the non-null parameter values.

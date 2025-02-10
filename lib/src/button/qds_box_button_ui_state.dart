@@ -11,6 +11,7 @@ class QdsBoxButtonUiState with _$QdsBoxButtonUiState {
     required QdsBoxButtonSizeType buttonSizeType,
     @Default(QdsBoxButtonState.active) QdsBoxButtonState state,
     @Default(true) bool enable,
+    @Default(400) int debounceTime,
   }) = _QdsBoxButtonUiState;
 }
 
