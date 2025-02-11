@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'popup_image_type.freezed.dart';
@@ -8,6 +9,8 @@ sealed class PopupImageType with _$PopupImageType {
     required String imageUrl,
     @Default(false) bool isCircle,
     @Default(double.infinity) double width,
+    @Default(null) double? height,
+    BoxFit? boxFit,
   }) = NetworkPopupImage;
 
   const factory PopupImageType.asset({required String assetName}) = AssetPopupImage;
