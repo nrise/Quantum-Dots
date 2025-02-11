@@ -256,6 +256,12 @@ class DesignSystemSamplePage extends StatelessWidget {
           title: WippyHeaderTitle(text: "Page Title"),
           actions: WippyHeaderActions.singleIconAction(iconAsset: IconPath.iconMessage16),
         ),
+      ),
+      const WippyHeader(
+        uiState: WippyHeaderUiState(
+          title: WippyHeaderTitle(text: "Page Title", iconAsset: IconPath.iconMessage16, iconColor: wippyBlue500),
+          actions: WippyHeaderActions.singleIconAction(iconAsset: IconPath.iconMessage16),
+        ),
       )
     ];
   }

@@ -93,6 +93,14 @@ class WippyHeader extends StatelessWidget implements PreferredSizeWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
+                  if (title.iconAsset != null) ...[
+                    const SizedBox(width: 2),
+                    SizedIcon(
+                      size: 16,
+                      asset: title.iconAsset!,
+                      colorFilter: ColorFilter.mode(title.iconColor ?? wippyGray900, BlendMode.srcIn),
+                    ),
+                  ]
                 ],
               )),
           IgnorePointer(

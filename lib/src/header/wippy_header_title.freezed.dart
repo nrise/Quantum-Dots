@@ -22,6 +22,8 @@ mixin _$WippyHeaderTitle {
   String? get profileImageUrl => throw _privateConstructorUsedError;
   String? get errorPlaceHolder => throw _privateConstructorUsedError;
   String? get placeHolder => throw _privateConstructorUsedError;
+  String? get iconAsset => throw _privateConstructorUsedError;
+  Color? get iconColor => throw _privateConstructorUsedError;
 
   /// Create a copy of WippyHeaderTitle
   /// with the given fields replaced by the non-null parameter values.
@@ -41,7 +43,9 @@ abstract class $WippyHeaderTitleCopyWith<$Res> {
       void Function()? onPressedProfileImage,
       String? profileImageUrl,
       String? errorPlaceHolder,
-      String? placeHolder});
+      String? placeHolder,
+      String? iconAsset,
+      Color? iconColor});
 }
 
 /// @nodoc
@@ -64,6 +68,8 @@ class _$WippyHeaderTitleCopyWithImpl<$Res, $Val extends WippyHeaderTitle>
     Object? profileImageUrl = freezed,
     Object? errorPlaceHolder = freezed,
     Object? placeHolder = freezed,
+    Object? iconAsset = freezed,
+    Object? iconColor = freezed,
   }) {
     return _then(_value.copyWith(
       text: null == text
@@ -86,6 +92,14 @@ class _$WippyHeaderTitleCopyWithImpl<$Res, $Val extends WippyHeaderTitle>
           ? _value.placeHolder
           : placeHolder // ignore: cast_nullable_to_non_nullable
               as String?,
+      iconAsset: freezed == iconAsset
+          ? _value.iconAsset
+          : iconAsset // ignore: cast_nullable_to_non_nullable
+              as String?,
+      iconColor: freezed == iconColor
+          ? _value.iconColor
+          : iconColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
     ) as $Val);
   }
 }
@@ -103,7 +117,9 @@ abstract class _$$WippyHeaderTitleImplCopyWith<$Res>
       void Function()? onPressedProfileImage,
       String? profileImageUrl,
       String? errorPlaceHolder,
-      String? placeHolder});
+      String? placeHolder,
+      String? iconAsset,
+      Color? iconColor});
 }
 
 /// @nodoc
@@ -124,6 +140,8 @@ class __$$WippyHeaderTitleImplCopyWithImpl<$Res>
     Object? profileImageUrl = freezed,
     Object? errorPlaceHolder = freezed,
     Object? placeHolder = freezed,
+    Object? iconAsset = freezed,
+    Object? iconColor = freezed,
   }) {
     return _then(_$WippyHeaderTitleImpl(
       text: null == text
@@ -146,6 +164,14 @@ class __$$WippyHeaderTitleImplCopyWithImpl<$Res>
           ? _value.placeHolder
           : placeHolder // ignore: cast_nullable_to_non_nullable
               as String?,
+      iconAsset: freezed == iconAsset
+          ? _value.iconAsset
+          : iconAsset // ignore: cast_nullable_to_non_nullable
+              as String?,
+      iconColor: freezed == iconColor
+          ? _value.iconColor
+          : iconColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
     ));
   }
 }
@@ -158,7 +184,9 @@ class _$WippyHeaderTitleImpl implements _WippyHeaderTitle {
       this.onPressedProfileImage = null,
       this.profileImageUrl = null,
       this.errorPlaceHolder = null,
-      this.placeHolder = null});
+      this.placeHolder = null,
+      this.iconAsset = null,
+      this.iconColor = null});
 
   @override
   final String text;
@@ -174,10 +202,16 @@ class _$WippyHeaderTitleImpl implements _WippyHeaderTitle {
   @override
   @JsonKey()
   final String? placeHolder;
+  @override
+  @JsonKey()
+  final String? iconAsset;
+  @override
+  @JsonKey()
+  final Color? iconColor;
 
   @override
   String toString() {
-    return 'WippyHeaderTitle(text: $text, onPressedProfileImage: $onPressedProfileImage, profileImageUrl: $profileImageUrl, errorPlaceHolder: $errorPlaceHolder, placeHolder: $placeHolder)';
+    return 'WippyHeaderTitle(text: $text, onPressedProfileImage: $onPressedProfileImage, profileImageUrl: $profileImageUrl, errorPlaceHolder: $errorPlaceHolder, placeHolder: $placeHolder, iconAsset: $iconAsset, iconColor: $iconColor)';
   }
 
   @override
@@ -193,12 +227,16 @@ class _$WippyHeaderTitleImpl implements _WippyHeaderTitle {
             (identical(other.errorPlaceHolder, errorPlaceHolder) ||
                 other.errorPlaceHolder == errorPlaceHolder) &&
             (identical(other.placeHolder, placeHolder) ||
-                other.placeHolder == placeHolder));
+                other.placeHolder == placeHolder) &&
+            (identical(other.iconAsset, iconAsset) ||
+                other.iconAsset == iconAsset) &&
+            (identical(other.iconColor, iconColor) ||
+                other.iconColor == iconColor));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, text, onPressedProfileImage,
-      profileImageUrl, errorPlaceHolder, placeHolder);
+      profileImageUrl, errorPlaceHolder, placeHolder, iconAsset, iconColor);
 
   /// Create a copy of WippyHeaderTitle
   /// with the given fields replaced by the non-null parameter values.
@@ -216,7 +254,9 @@ abstract class _WippyHeaderTitle implements WippyHeaderTitle {
       final void Function()? onPressedProfileImage,
       final String? profileImageUrl,
       final String? errorPlaceHolder,
-      final String? placeHolder}) = _$WippyHeaderTitleImpl;
+      final String? placeHolder,
+      final String? iconAsset,
+      final Color? iconColor}) = _$WippyHeaderTitleImpl;
 
   @override
   String get text;
@@ -228,6 +268,10 @@ abstract class _WippyHeaderTitle implements WippyHeaderTitle {
   String? get errorPlaceHolder;
   @override
   String? get placeHolder;
+  @override
+  String? get iconAsset;
+  @override
+  Color? get iconColor;
 
   /// Create a copy of WippyHeaderTitle
   /// with the given fields replaced by the non-null parameter values.
