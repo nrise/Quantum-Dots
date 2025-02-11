@@ -515,6 +515,37 @@ class DesignSystemSamplePage extends StatelessWidget {
             buttonColorType: const QdsBoxButtonColorType.primary(),
             buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Match'),
             buttonSizeType: QdsBoxButtonSizeType.large()),
+      ),
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+            buttonColorType: const QdsBoxButtonColorType.primary(),
+            buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'debounceTime 200'),
+            buttonSizeType: QdsBoxButtonSizeType.large(),
+            debounceTime: 200),
+        onPressed: () {
+          debugPrint('debounceTime 200');
+        },
+      ),
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'debounceTime Default(400)'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+        ),
+        onPressed: () {
+          debugPrint('debounceTime Default(400)');
+        },
+      ),
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'debounceTime 800'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+          debounceTime: 800,
+        ),
+        onPressed: () {
+          debugPrint('debounceTime 800');
+        },
       )
     ];
   }
