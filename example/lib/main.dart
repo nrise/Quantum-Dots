@@ -17,6 +17,8 @@ import 'dimmed_loading_test_screen.dart';
 import 'empty_states_test_screen.dart';
 import 'toast_test_screen.dart';
 
+const String testProfileImageUrl = "https://thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/fn/2023/01/03/202301031328043653_l.jpg";
+
 void main() {
   runApp(const DesignSystemApp());
 }
@@ -106,7 +108,7 @@ class DesignSystemSamplePage extends StatelessWidget {
           const SizedBox(width: 12),
           ImageSlotComponent(
             slot: RemoteFilledSlot(
-              url: "https://thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/fn/2023/01/03/202301031328043653_l.jpg",
+              url: testProfileImageUrl,
               slotIcon: const Icon(
                 Icons.edit,
                 color: wippyPink500,
@@ -293,6 +295,40 @@ class DesignSystemSamplePage extends StatelessWidget {
 
   List<Widget> _buildWippyPopupComponents(BuildContext context) {
     return [
+      QdsBoxButton(
+        initUiState: QdsBoxButtonUiState(
+          buttonColorType: const QdsBoxButtonColorType.primary(),
+          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Show Image Popup'),
+          buttonSizeType: QdsBoxButtonSizeType.large(),
+        ),
+        onPressed: () {
+          showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (context) {
+              return WippyPopup(
+                uiState: WippyPopupUiState(
+                  popupImageType: PopupImageType.network(
+                    imageUrl: testProfileImageUrl,
+                    isCircle: true,
+                    width: 80,
+                    height: 80,
+                    boxFit: BoxFit.cover,
+                  ),
+                  title: 'Title',
+                  description: 'Description',
+                  popupButtonType: PopupButtonType.singleButton(
+                    label: 'Close',
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              );
+            },
+          );
+        },
+      ),
       QdsBoxButton(
         initUiState: QdsBoxButtonUiState(
           buttonColorType: const QdsBoxButtonColorType.primary(),

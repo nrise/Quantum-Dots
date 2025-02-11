@@ -37,7 +37,12 @@ class WippyPopup extends StatelessWidget {
     if (imageType != null) {
       switch (imageType) {
         case NetworkPopupImage():
-          imageWidget = Image.network(imageType.imageUrl, width: imageType.width);
+          imageWidget = Image.network(
+            imageType.imageUrl,
+            width: imageType.width,
+            height: imageType.height,
+            fit: imageType.boxFit,
+          );
           if (imageType.isCircle) {
             imageWidget = ClipOval(child: imageWidget);
           }
