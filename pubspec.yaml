@@ -1,6 +1,6 @@
 name: quantum_dots
 description: the design system for wippy global product
-version: 0.0.29
+version: 0.0.30
 homepage: https://github.com/nrise/Quantum-Dots
 topics:
   - animations

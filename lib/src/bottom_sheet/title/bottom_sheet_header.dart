@@ -17,6 +17,7 @@ class BottomSheetHeader extends StatelessWidget {
     final hasLeading = _uiState.leading != null;
     final hasActions = _uiState.actions != null;
     final description = _uiState.title.description;
+    final hasLeadingAndActions = hasLeading || hasActions;
 
     return Container(
       width: double.infinity,
@@ -31,7 +32,7 @@ class BottomSheetHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              if (hasLeading)
+              if (hasLeadingAndActions) ...[
                 Container(
                   alignment: Alignment.centerLeft,
                   width: _leadingAndActionsAreaSize,
@@ -42,6 +43,7 @@ class BottomSheetHeader extends StatelessWidget {
                         )
                       : const SizedBox(),
                 ),
+              ],
               Expanded(
                 child: Text(
                   _uiState.title.title,
@@ -49,7 +51,7 @@ class BottomSheetHeader extends StatelessWidget {
                   style: headline20Bold.copyWith(color: wippyGray900),
                 ),
               ),
-              if (hasActions)
+              if (hasLeadingAndActions) ...[
                 Container(
                   alignment: Alignment.centerRight,
                   width: _leadingAndActionsAreaSize,
@@ -63,6 +65,7 @@ class BottomSheetHeader extends StatelessWidget {
                         )
                       : const SizedBox(),
                 ),
+              ],
             ],
           ),
           if (description != null) ...[
