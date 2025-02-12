@@ -22,24 +22,30 @@ class QdsBoxButtonCubit extends Cubit<QdsBoxButtonUiState> {
   void onTapDown() {
     if (_isDebounceTime()) return;
 
-    emit(state.copyWith(
-      state: QdsBoxButtonState.pressed,
-    ));
+    if (state.enable && state.state == QdsBoxButtonState.active) {
+      emit(state.copyWith(
+        state: QdsBoxButtonState.pressed,
+      ));
+    }
   }
 
   void onTapUp() {
     if (_isDebounceTime()) return;
 
-    _lastPressTime = DateTime.now();
-    emit(state.copyWith(state: QdsBoxButtonState.active));
-    onPressed?.call();
+    if (state.enable && state.state == QdsBoxButtonState.pressed) {
+      _lastPressTime = DateTime.now();
+      emit(state.copyWith(state: QdsBoxButtonState.active));
+      onPressed?.call();
+    }
   }
 
   void onTapCancel() {
     if (_isDebounceTime()) return;
 
-    emit(state.copyWith(
-      state: QdsBoxButtonState.active,
-    ));
+    if (state.enable && state.state == QdsBoxButtonState.pressed) {
+      emit(state.copyWith(
+        state: QdsBoxButtonState.active,
+      ));
+    }
   }
 }
