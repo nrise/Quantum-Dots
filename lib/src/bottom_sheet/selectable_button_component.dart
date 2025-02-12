@@ -28,7 +28,9 @@ class SelectableButtonComponent extends StatelessWidget {
         children: [
           Expanded(
             child: QdsBoxButton(
+              key: Key('qds_box_button_state_left ${leftEnable ? 'enable' : 'disable'}'),
               initUiState: QdsBoxButtonUiState(
+                state: leftEnable ? QdsBoxButtonState.active : QdsBoxButtonState.inactive,
                 buttonSizeType: QdsBoxButtonSizeType.large(),
                 buttonLabelType: QdsBoxButtonLabelType.labelOnly(
                   label: leftLabel,
@@ -42,6 +44,7 @@ class SelectableButtonComponent extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: QdsBoxButton(
+              key: Key('qds_box_button_state_right ${rightEnable ? 'enable' : 'disable'}'),
               initUiState: QdsBoxButtonUiState(
                 state: rightEnable ? QdsBoxButtonState.active : QdsBoxButtonState.inactive,
                 buttonSizeType: QdsBoxButtonSizeType.large(),
