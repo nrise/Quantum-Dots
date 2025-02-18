@@ -47,6 +47,7 @@ abstract class $QdsBoxButtonUiStateCopyWith<$Res> {
       int debounceTime});
 
   $QdsBoxButtonLabelTypeCopyWith<$Res> get buttonLabelType;
+  $QdsBoxButtonStateCopyWith<$Res> get state;
 }
 
 /// @nodoc
@@ -109,6 +110,16 @@ class _$QdsBoxButtonUiStateCopyWithImpl<$Res, $Val extends QdsBoxButtonUiState>
       return _then(_value.copyWith(buttonLabelType: value) as $Val);
     });
   }
+
+  /// Create a copy of QdsBoxButtonUiState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $QdsBoxButtonStateCopyWith<$Res> get state {
+    return $QdsBoxButtonStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -129,6 +140,8 @@ abstract class _$$QdsBoxButtonUiStateImplCopyWith<$Res>
 
   @override
   $QdsBoxButtonLabelTypeCopyWith<$Res> get buttonLabelType;
+  @override
+  $QdsBoxButtonStateCopyWith<$Res> get state;
 }
 
 /// @nodoc
@@ -187,7 +200,7 @@ class _$QdsBoxButtonUiStateImpl implements _QdsBoxButtonUiState {
       {required this.buttonLabelType,
       required this.buttonColorType,
       required this.buttonSizeType,
-      this.state = QdsBoxButtonState.active,
+      this.state = const QdsBoxButtonState.active(),
       this.enable = true,
       this.debounceTime = 400});
 

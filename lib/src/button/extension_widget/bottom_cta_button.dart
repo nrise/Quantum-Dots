@@ -13,7 +13,7 @@ class BottomCtaButton extends StatelessWidget {
     QdsBoxButtonState? state,
   })  : _labelType = labelType,
         _onPressed = onPressed,
-        _state = state ?? QdsBoxButtonState.active;
+        _state = state ?? QdsBoxButtonState.active();
 
   @override
   Widget build(BuildContext context) {

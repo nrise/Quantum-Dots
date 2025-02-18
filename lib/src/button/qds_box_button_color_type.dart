@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quantum_dots/qds_button.dart';
 import 'package:quantum_dots/qds_foundation.dart';
-
-import 'qds_box_button_ui_state.dart';
 
 sealed class QdsBoxButtonColorType {
   Color getButtonColor(QdsBoxButtonState state);
@@ -9,6 +8,8 @@ sealed class QdsBoxButtonColorType {
   Color getTextColor(QdsBoxButtonState state);
 
   Color getIconColor(QdsBoxButtonState state);
+
+  Color getProgressColor(QdsBoxButtonState state);
 
   const factory QdsBoxButtonColorType.primary() = Primary;
 
@@ -24,6 +25,7 @@ sealed class QdsBoxButtonColorType {
     required Color textColor,
     required Color inactiveTextColor,
     required Color iconColor,
+    required Color progressColor,
   }) = Custom;
 }
 
@@ -33,20 +35,22 @@ class Primary implements QdsBoxButtonColorType {
   @override
   Color getButtonColor(QdsBoxButtonState state) {
     switch (state) {
-      case QdsBoxButtonState.active:
+      case QdsBoxButtonActive():
         return wippyPink500;
-      case QdsBoxButtonState.pressed:
+      case QdsBoxButtonPressed():
         return wippyPink700;
-      case QdsBoxButtonState.inactive:
+      case QdsBoxButtonInactive():
         return wippyGray200;
-      case QdsBoxButtonState.loading:
+      case QdsBoxButtonLoading():
         return wippyPink500;
+      case QdsBoxButtonProgress():
+        return wippyPink700;
     }
   }
 
   @override
   Color getIconColor(QdsBoxButtonState state) {
-    if (state == QdsBoxButtonState.inactive) {
+    if (state is QdsBoxButtonInactive) {
       return wippyGray400;
     }
     return wippyWhite;
@@ -54,10 +58,18 @@ class Primary implements QdsBoxButtonColorType {
 
   @override
   Color getTextColor(QdsBoxButtonState state) {
-    if (state == QdsBoxButtonState.inactive) {
+    if (state is QdsBoxButtonInactive) {
       return wippyGray400;
     }
     return wippyWhite;
+  }
+
+  @override
+  Color getProgressColor(QdsBoxButtonState state) {
+    if (state is QdsBoxButtonProgress) {
+      return wippyPink500;
+    }
+    throw UnimplementedError();
   }
 }
 
@@ -67,20 +79,22 @@ class Secondary implements QdsBoxButtonColorType {
   @override
   Color getButtonColor(QdsBoxButtonState state) {
     switch (state) {
-      case QdsBoxButtonState.active:
+      case QdsBoxButtonActive():
         return wippyPink300;
-      case QdsBoxButtonState.pressed:
+      case QdsBoxButtonPressed():
         return wippyPink400;
-      case QdsBoxButtonState.inactive:
+      case QdsBoxButtonInactive():
         return wippyGray200;
-      case QdsBoxButtonState.loading:
+      case QdsBoxButtonLoading():
         return wippyPink300;
+      case QdsBoxButtonProgress():
+        throw UnimplementedError();
     }
   }
 
   @override
   Color getIconColor(QdsBoxButtonState state) {
-    if (state == QdsBoxButtonState.inactive) {
+    if (state is QdsBoxButtonInactive) {
       return wippyGray400;
     }
     return wippyPink500;
@@ -88,10 +102,15 @@ class Secondary implements QdsBoxButtonColorType {
 
   @override
   Color getTextColor(QdsBoxButtonState state) {
-    if (state == QdsBoxButtonState.inactive) {
+    if (state is QdsBoxButtonInactive) {
       return wippyGray400;
     }
     return wippyPink500;
+  }
+
+  @override
+  Color getProgressColor(QdsBoxButtonState state) {
+    throw UnimplementedError();
   }
 }
 
@@ -101,20 +120,22 @@ class Tertiary implements QdsBoxButtonColorType {
   @override
   Color getButtonColor(QdsBoxButtonState state) {
     switch (state) {
-      case QdsBoxButtonState.active:
+      case QdsBoxButtonActive():
         return wippyGray200;
-      case QdsBoxButtonState.pressed:
+      case QdsBoxButtonPressed():
         return wippyGray300;
-      case QdsBoxButtonState.inactive:
+      case QdsBoxButtonInactive():
         return wippyGray200;
-      case QdsBoxButtonState.loading:
+      case QdsBoxButtonLoading():
         return wippyGray200;
+      case QdsBoxButtonProgress():
+        throw UnimplementedError();
     }
   }
 
   @override
   Color getIconColor(QdsBoxButtonState state) {
-    if (state == QdsBoxButtonState.inactive) {
+    if (state is QdsBoxButtonInactive) {
       return wippyGray400;
     }
     return wippyGray500;
@@ -122,10 +143,15 @@ class Tertiary implements QdsBoxButtonColorType {
 
   @override
   Color getTextColor(QdsBoxButtonState state) {
-    if (state == QdsBoxButtonState.inactive) {
+    if (state is QdsBoxButtonInactive) {
       return wippyGray400;
     }
     return wippyGray700;
+  }
+
+  @override
+  Color getProgressColor(QdsBoxButtonState state) {
+    throw UnimplementedError();
   }
 }
 
@@ -134,6 +160,7 @@ class Custom implements QdsBoxButtonColorType {
   final Color pressedColor;
   final Color inactiveColor;
   final Color loadingColor;
+  final Color progressColor;
   final Color textColor;
   final Color inactiveTextColor;
   final Color iconColor;
@@ -143,6 +170,7 @@ class Custom implements QdsBoxButtonColorType {
     required this.pressedColor,
     required this.inactiveColor,
     required this.loadingColor,
+    required this.progressColor,
     required this.textColor,
     required this.inactiveTextColor,
     required this.iconColor,
@@ -151,20 +179,22 @@ class Custom implements QdsBoxButtonColorType {
   @override
   Color getButtonColor(QdsBoxButtonState state) {
     switch (state) {
-      case QdsBoxButtonState.active:
+      case QdsBoxButtonActive():
         return activeColor;
-      case QdsBoxButtonState.pressed:
+      case QdsBoxButtonPressed():
         return pressedColor;
-      case QdsBoxButtonState.inactive:
+      case QdsBoxButtonInactive():
         return inactiveColor;
-      case QdsBoxButtonState.loading:
+      case QdsBoxButtonLoading():
         return loadingColor;
+      case QdsBoxButtonProgress():
+        return progressColor;
     }
   }
 
   @override
   Color getTextColor(QdsBoxButtonState state) {
-    if (state == QdsBoxButtonState.inactive) {
+    if (state is QdsBoxButtonInactive) {
       return inactiveTextColor;
     }
     return textColor;
@@ -173,5 +203,10 @@ class Custom implements QdsBoxButtonColorType {
   @override
   Color getIconColor(QdsBoxButtonState state) {
     return iconColor;
+  }
+
+  @override
+  Color getProgressColor(QdsBoxButtonState state) {
+    throw UnimplementedError();
   }
 }

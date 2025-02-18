@@ -12,6 +12,7 @@ import 'package:quantum_dots/qds_popup.dart';
 import 'package:quantum_dots/qds_progress.dart';
 import 'package:quantum_dots/qds_spinner.dart';
 import 'package:quantum_dots/qds_tooltip.dart';
+import 'package:quantum_dots_app/sample_buttons.dart';
 
 import 'dimmed_loading_test_screen.dart';
 import 'empty_states_test_screen.dart';
@@ -51,7 +52,7 @@ class DesignSystemSamplePage extends StatelessWidget {
         _buildWippyPopupComponents(context) +
         _buildWippyEmptyStatesComponents(context) +
         _buildWippySpinnerComponents(context) +
-        _buildWippyBoxButtonComponents() +
+        [SampleButtons()] +
         _buildWippyChipsComponents() +
         _buildWippyTextFieldComponents() +
         _buildQdsTextAreaComponents() +
@@ -531,58 +532,6 @@ class DesignSystemSamplePage extends StatelessWidget {
           ],
         ),
       ),
-    ];
-  }
-
-  List<Widget> _buildWippyBoxButtonComponents() {
-    return [
-      Wrap(
-        children: [
-          QdsBoxButton(
-            initUiState: QdsBoxButtonUiState(
-                buttonColorType: const QdsBoxButtonColorType.primary(),
-                buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Wrap'),
-                buttonSizeType: QdsBoxButtonSizeType.large()),
-          )
-        ],
-      ),
-      QdsBoxButton(
-        initUiState: QdsBoxButtonUiState(
-            buttonColorType: const QdsBoxButtonColorType.primary(),
-            buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Match'),
-            buttonSizeType: QdsBoxButtonSizeType.large()),
-      ),
-      QdsBoxButton(
-        initUiState: QdsBoxButtonUiState(
-            buttonColorType: const QdsBoxButtonColorType.primary(),
-            buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'debounceTime 200'),
-            buttonSizeType: QdsBoxButtonSizeType.large(),
-            debounceTime: 200),
-        onPressed: () {
-          debugPrint('debounceTime 200');
-        },
-      ),
-      QdsBoxButton(
-        initUiState: QdsBoxButtonUiState(
-          buttonColorType: const QdsBoxButtonColorType.primary(),
-          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'debounceTime Default(400)'),
-          buttonSizeType: QdsBoxButtonSizeType.large(),
-        ),
-        onPressed: () {
-          debugPrint('debounceTime Default(400)');
-        },
-      ),
-      QdsBoxButton(
-        initUiState: QdsBoxButtonUiState(
-          buttonColorType: const QdsBoxButtonColorType.primary(),
-          buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'debounceTime 800'),
-          buttonSizeType: QdsBoxButtonSizeType.large(),
-          debounceTime: 800,
-        ),
-        onPressed: () {
-          debugPrint('debounceTime 800');
-        },
-      )
     ];
   }
 
