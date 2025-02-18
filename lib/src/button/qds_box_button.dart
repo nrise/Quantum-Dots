@@ -1,17 +1,15 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quantum_dots/qds_button.dart';
+import 'package:quantum_dots/qds_common_widget.dart';
 
 import 'qds_box_button_cubit.dart';
-import 'qds_box_button_label_type.dart';
-import 'qds_box_button_size_type.dart';
-import 'qds_box_button_ui_state.dart';
-import 'package:quantum_dots/qds_common_widget.dart';
-import 'package:flutter/material.dart';
 
 class QdsBoxButton extends StatelessWidget {
   final QdsBoxButtonUiState initUiState;
   final void Function()? onPressed;
 
-  QdsBoxButton({
+  const QdsBoxButton({
     required this.initUiState,
     this.onPressed,
     super.key,
@@ -71,7 +69,7 @@ class QdsBoxButton extends StatelessWidget {
   Widget _buildButtonContent(QdsBoxButtonUiState uiState) {
     final buttonLabelType = uiState.buttonLabelType;
 
-    if (uiState.state == QdsBoxButtonState.loading) {
+    if (uiState.state is QdsBoxButtonLoading) {
       return _buildLoadingIndicator(uiState.iconColor);
     }
 
@@ -114,27 +112,58 @@ class QdsBoxButton extends StatelessWidget {
 
   Widget _buildButtonContainer(BuildContext context, QdsBoxButtonUiState uiState) {
     return GestureDetector(
-      onTapCancel: () => context.read<QdsBoxButtonCubit>().onTapCancel(),
-      onTapUp: (_) => context.read<QdsBoxButtonCubit>().onTapUp(),
-      onTapDown: (_) => context.read<QdsBoxButtonCubit>().onTapDown(),
+      onTapCancel: () => BlocProvider.of<QdsBoxButtonCubit>(context).onTapCancel(),
+      onTapUp: (_) => BlocProvider.of<QdsBoxButtonCubit>(context).onTapUp(),
+      onTapDown: (_) => BlocProvider.of<QdsBoxButtonCubit>(context).onTapDown(),
       child: Container(
-        padding: EdgeInsets.symmetric(
-          vertical: uiState.verticalPaddingSize,
-          horizontal: uiState.horizontalPaddingSize,
-        ),
         decoration: BoxDecoration(
           color: uiState.buttonColor,
           borderRadius: BorderRadius.circular(uiState.radiusSize),
         ),
-        child: _buildButtonContent(uiState),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            if (uiState.state is QdsBoxButtonProgress) ...[
+              Positioned.fill(
+                child: TweenAnimationBuilder<double>(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  tween: Tween<double>(
+                    begin: 0,
+                    end: (uiState.state as QdsBoxButtonProgress).progress,
+                  ),
+                  builder: (context, animatedProgress, child) {
+                    return ClipRRect(
+                      borderRadius: BorderRadius.circular(uiState.radiusSize),
+                      child: FractionallySizedBox(
+                        widthFactor: animatedProgress,
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          color: uiState.buttonColorType.getProgressColor(uiState.state),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: uiState.verticalPaddingSize,
+                horizontal: uiState.horizontalPaddingSize,
+              ),
+              child: _buildButtonContent(uiState),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => QdsBoxButtonCubit(
+    return BlocProvider.value(
+      value: QdsBoxButtonCubit(
         uiState: initUiState,
         onPressed: onPressed,
       ),

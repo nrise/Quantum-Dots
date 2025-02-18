@@ -9,7 +9,7 @@ class QdsBoxButtonUiState with _$QdsBoxButtonUiState {
     required QdsBoxButtonLabelType buttonLabelType,
     required QdsBoxButtonColorType buttonColorType,
     required QdsBoxButtonSizeType buttonSizeType,
-    @Default(QdsBoxButtonState.active) QdsBoxButtonState state,
+    @Default(QdsBoxButtonState.active()) QdsBoxButtonState state,
     @Default(true) bool enable,
     @Default(400) int debounceTime,
   }) = _QdsBoxButtonUiState;
@@ -32,5 +32,3 @@ extension QdsBoxButtonUiStateExtension on QdsBoxButtonUiState {
 
   double get radiusSize => buttonSizeType.radiusSize;
 }
-
-enum QdsBoxButtonState { pressed, inactive, loading, active }

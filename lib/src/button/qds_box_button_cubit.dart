@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'qds_box_button_ui_state.dart';
+import 'package:quantum_dots/qds_button.dart';
 
 class QdsBoxButtonCubit extends Cubit<QdsBoxButtonUiState> {
   final void Function()? onPressed;
@@ -22,9 +21,9 @@ class QdsBoxButtonCubit extends Cubit<QdsBoxButtonUiState> {
   void onTapDown() {
     if (_isDebounceTime()) return;
 
-    if (state.enable && state.state == QdsBoxButtonState.active) {
+    if (state.enable && state.state is QdsBoxButtonActive) {
       emit(state.copyWith(
-        state: QdsBoxButtonState.pressed,
+        state: QdsBoxButtonState.pressed(),
       ));
     }
   }
@@ -32,9 +31,9 @@ class QdsBoxButtonCubit extends Cubit<QdsBoxButtonUiState> {
   void onTapUp() {
     if (_isDebounceTime()) return;
 
-    if (state.enable && state.state == QdsBoxButtonState.pressed) {
+    if (state.enable && state.state is QdsBoxButtonPressed) {
       _lastPressTime = DateTime.now();
-      emit(state.copyWith(state: QdsBoxButtonState.active));
+      emit(state.copyWith(state: QdsBoxButtonState.active()));
       onPressed?.call();
     }
   }
@@ -42,9 +41,9 @@ class QdsBoxButtonCubit extends Cubit<QdsBoxButtonUiState> {
   void onTapCancel() {
     if (_isDebounceTime()) return;
 
-    if (state.enable && state.state == QdsBoxButtonState.pressed) {
+    if (state.enable && state.state is QdsBoxButtonPressed) {
       emit(state.copyWith(
-        state: QdsBoxButtonState.active,
+        state: QdsBoxButtonState.active(),
       ));
     }
   }

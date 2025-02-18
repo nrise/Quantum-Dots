@@ -11,3 +11,4 @@ export 'src/button/qds_box_button_color_type.dart';
 export 'src/button/qds_box_button_label_type.dart';
 export 'src/button/qds_box_button_size_type.dart';
 export 'src/button/qds_box_button_ui_state.dart';
+export 'src/button/qds_box_button_state.dart';
