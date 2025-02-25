@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:quantum_dots/qds_common_widget.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 
-import 'model/slot_state.dart';
-
 class ImageSlotComponent extends StatelessWidget {
   final SlotState slot;
   final double width;
