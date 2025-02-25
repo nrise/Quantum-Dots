@@ -67,7 +67,7 @@ class WippyHeader extends StatelessWidget implements PreferredSizeWidget {
                           width: thumbnailSize,
                           height: thumbnailSize,
                           shapeDecoration: const ShapeDecoration(shape: CircleBorder()),
-                          networkImageUrl: title.profileImageUrl,
+                          networkImageUrl: title.profileImageUrl ?? "",
                           placeHolderWidget: title.placeHolder != null
                               ? SvgPicture.asset(
                                   title.placeHolder!,
