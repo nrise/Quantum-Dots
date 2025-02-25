@@ -18,7 +18,7 @@ import 'dimmed_loading_test_screen.dart';
 import 'empty_states_test_screen.dart';
 import 'toast_test_screen.dart';
 
-const String testProfileImageUrl = "https://thumbnews.nateimg.co.kr/view610///news.nateimg.co.kr/orgImg/fn/2023/01/03/202301031328043653_l.jpg";
+const String testProfileImageUrl = "https://picsum.photos/200/300";
 
 void main() {
   runApp(const DesignSystemApp());

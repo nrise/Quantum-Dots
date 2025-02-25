@@ -7,7 +7,7 @@ class WippyNetworkImage extends StatelessWidget {
   final double width;
   final double height;
   final String? networkImageUrl;
-  final ShapeDecoration shapeDecoration;
+  final ShapeDecoration? shapeDecoration;
   final BoxFit fit;
   final Widget? placeHolderWidget;
   final Widget? errorWidget;
@@ -17,7 +17,7 @@ class WippyNetworkImage extends StatelessWidget {
   const WippyNetworkImage({
     required this.width,
     required this.height,
-    required this.shapeDecoration,
+    this.shapeDecoration,
     this.fit = BoxFit.cover,
     this.networkImageUrl,
     this.placeHolderWidget,
@@ -34,7 +34,7 @@ class WippyNetworkImage extends StatelessWidget {
       height: height,
       decoration: shapeDecoration,
       child: ClipPath(
-        clipper: ShapeBorderClipper(shape: shapeDecoration.shape),
+        clipper: shapeDecoration != null ? ShapeBorderClipper(shape: shapeDecoration!.shape) : null,
         child: Container(
           color: wippyGray100,
           child: networkImageUrl != null && networkImageUrl!.isNotEmpty
