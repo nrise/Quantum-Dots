@@ -1,9 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:quantum_dots/qds_common_widget.dart';
 import 'package:quantum_dots/qds_foundation.dart';
-
-import 'model/slot_state.dart';
 
 class ImageSlotComponent extends StatelessWidget {
   final SlotState slot;
@@ -98,11 +97,11 @@ class ImageSlotComponent extends StatelessWidget {
         final remoteSlot = slot as RemoteFilledSlot;
         return _buildStack(
           children: [
-            Image.network(
-              remoteSlot.url,
-              fit: BoxFit.cover,
+            WippyNetworkImage(
               width: width,
               height: height,
+              networkImageUrl: remoteSlot.url,
+              fit: BoxFit.cover,
             ),
             if (badge != null) badge,
             slotIcon,

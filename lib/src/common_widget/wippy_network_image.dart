@@ -4,10 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 
 class WippyNetworkImage extends StatelessWidget {
-  final double width;
-  final double height;
-  final String? networkImageUrl;
-  final ShapeDecoration shapeDecoration;
+  final double? width;
+  final double? height;
+  final String networkImageUrl;
+  final ShapeDecoration? shapeDecoration;
   final BoxFit fit;
   final Widget? placeHolderWidget;
   final Widget? errorWidget;
@@ -15,11 +15,11 @@ class WippyNetworkImage extends StatelessWidget {
   final Duration placeholderFadeInDuration;
 
   const WippyNetworkImage({
-    required this.width,
-    required this.height,
-    required this.shapeDecoration,
+    required this.networkImageUrl,
+    this.width,
+    this.height,
+    this.shapeDecoration,
     this.fit = BoxFit.cover,
-    this.networkImageUrl,
     this.placeHolderWidget,
     this.errorWidget,
     this.fadeInDuration = const Duration(milliseconds: 50),
@@ -34,12 +34,12 @@ class WippyNetworkImage extends StatelessWidget {
       height: height,
       decoration: shapeDecoration,
       child: ClipPath(
-        clipper: ShapeBorderClipper(shape: shapeDecoration.shape),
+        clipper: shapeDecoration != null ? ShapeBorderClipper(shape: shapeDecoration!.shape) : null,
         child: Container(
           color: wippyGray100,
-          child: networkImageUrl != null && networkImageUrl!.isNotEmpty
+          child: networkImageUrl.isNotEmpty
               ? CachedNetworkImage(
-                  imageUrl: networkImageUrl!,
+                  imageUrl: networkImageUrl,
                   fit: fit,
                   fadeInDuration: fadeInDuration,
                   fadeInCurve: Curves.easeInOut,
