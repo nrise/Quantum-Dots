@@ -116,11 +116,11 @@ class WippyBoxButton extends StatelessWidget {
     );
   }
 
-  Widget _buildButtonContainer(BuildContext context, ButtonUiState uiState) {
+  Widget _buildButtonContainer(BuildContext context, ButtonUiState uiState, ButtonCubit cubit) {
     return GestureDetector(
-      onTapCancel: () => context.read<ButtonCubit>().onTapCancel(),
-      onTapUp: (_) => context.read<ButtonCubit>().onTapUp(),
-      onTapDown: (_) => context.read<ButtonCubit>().onTapDown(),
+      onTapCancel: () => cubit.onTapCancel(),
+      onTapUp: (_) => cubit.onTapUp(),
+      onTapDown: (_) => cubit.onTapDown(),
       child: Container(
         padding: EdgeInsets.symmetric(
           vertical: uiState.verticalPaddingSize,
@@ -137,15 +137,17 @@ class WippyBoxButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ButtonCubit(
-        onPressed: onPressed,
-        uiState: initUiState,
-        enable: enable,
-      ),
+    final cubit = ButtonCubit(
+      onPressed: onPressed,
+      uiState: initUiState,
+      enable: enable,
+    );
+
+    return BlocProvider.value(
+      value: cubit,
       child: BlocBuilder<ButtonCubit, ButtonUiState>(
         builder: (context, uiState) {
-          return _buildButtonContainer(context, uiState);
+          return _buildButtonContainer(context, uiState, cubit);
         },
       ),
     );

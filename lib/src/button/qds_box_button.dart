@@ -110,11 +110,11 @@ class QdsBoxButton extends StatelessWidget {
     );
   }
 
-  Widget _buildButtonContainer(BuildContext context, QdsBoxButtonUiState uiState) {
+  Widget _buildButtonContainer(BuildContext context, QdsBoxButtonUiState uiState, QdsBoxButtonCubit cubit) {
     return GestureDetector(
-      onTapCancel: () => BlocProvider.of<QdsBoxButtonCubit>(context).onTapCancel(),
-      onTapUp: (_) => BlocProvider.of<QdsBoxButtonCubit>(context).onTapUp(),
-      onTapDown: (_) => BlocProvider.of<QdsBoxButtonCubit>(context).onTapDown(),
+      onTapCancel: () => cubit.onTapCancel(),
+      onTapUp: (_) => cubit.onTapUp(),
+      onTapDown: (_) => cubit.onTapDown(),
       child: Container(
         decoration: BoxDecoration(
           color: uiState.buttonColor,
@@ -162,14 +162,16 @@ class QdsBoxButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = QdsBoxButtonCubit(
+      uiState: initUiState,
+      onPressed: onPressed,
+    );
+
     return BlocProvider.value(
-      value: QdsBoxButtonCubit(
-        uiState: initUiState,
-        onPressed: onPressed,
-      ),
+      value: cubit,
       child: BlocBuilder<QdsBoxButtonCubit, QdsBoxButtonUiState>(
         builder: (context, uiState) {
-          return _buildButtonContainer(context, uiState);
+          return _buildButtonContainer(context, uiState, cubit);
         },
       ),
     );
