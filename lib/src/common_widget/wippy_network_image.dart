@@ -13,6 +13,7 @@ class WippyNetworkImage extends StatelessWidget {
   final Widget? errorWidget;
   final Duration fadeInDuration;
   final Duration placeholderFadeInDuration;
+  final Color backgroundColor;
 
   const WippyNetworkImage({
     required this.networkImageUrl,
@@ -24,6 +25,7 @@ class WippyNetworkImage extends StatelessWidget {
     this.errorWidget,
     this.fadeInDuration = const Duration(milliseconds: 50),
     this.placeholderFadeInDuration = const Duration(milliseconds: 50),
+    this.backgroundColor = wippyGray100,
     super.key,
   });
 
@@ -36,7 +38,7 @@ class WippyNetworkImage extends StatelessWidget {
       child: ClipPath(
         clipper: shapeDecoration != null ? ShapeBorderClipper(shape: shapeDecoration!.shape) : null,
         child: Container(
-          color: wippyGray100,
+          color: backgroundColor,
           child: networkImageUrl.isNotEmpty
               ? CachedNetworkImage(
                   imageUrl: networkImageUrl,
