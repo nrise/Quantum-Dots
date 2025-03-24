@@ -75,8 +75,6 @@ class ChatInputState extends State<ChatInput> {
             onClickSend: () {
               if (widget.enable && _controller.value.text.isNotEmpty) {
                 widget.onClickSend(_controller.value.text);
-                _controller.clear();
-                widget.onUpdatedMessage("");
               }
             },
             active: widget.enable,
