@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:quantum_dots/qds_button.dart';
+import 'package:quantum_dots/qds_foundation.dart';
 
 class SampleButtons extends StatefulWidget {
   const SampleButtons({super.key});
@@ -119,6 +120,49 @@ class _SampleButtonsState extends State<SampleButtons> {
             ],
           ),
         ),
+        const SizedBox(height: 16),
+        Row(children: [
+          const SizedBox(width: 12),
+          QdsRoundButton(
+            initUiState: QdsRoundButtonUiState(
+              buttonColorType: const QdsRoundButtonColorType.roundPrimary(),
+              buttonLabelType: const QdsRoundButtonLabelType.iconOnly(iconAssetString: IconPath.iconMessage16),
+              state: QdsBoxButtonState.active(),
+            ),
+            onPressed: () {
+              debugPrint('onPressed QdsRoundButton 1');
+            },
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: QdsRoundButton(
+              initUiState: QdsRoundButtonUiState(
+                buttonColorType: const QdsRoundButtonColorType.roundPrimary(),
+                buttonLabelType: const QdsRoundButtonLabelType.labelAndIcon(
+                  label: 'labelAndIcon',
+                  iconAssetString: IconPath.iconMessage16,
+                  buttonDirection: QdsRoundButtonDirection.left,
+                ),
+                state: QdsBoxButtonState.active(),
+              ),
+              onPressed: () {
+                debugPrint('onPressed QdsRoundButton 2');
+              },
+            ),
+          ),
+          const SizedBox(width: 12),
+          QdsRoundButton(
+            initUiState: QdsRoundButtonUiState(
+              buttonColorType: const QdsRoundButtonColorType.roundSecondary(),
+              buttonLabelType: const QdsRoundButtonLabelType.iconOnly(iconAssetString: IconPath.iconMessage16),
+              state: QdsBoxButtonState.active(),
+            ),
+            onPressed: () {
+              debugPrint('onPressed QdsRoundButton 3');
+            },
+          ),
+          const SizedBox(width: 12),
+        ]),
       ],
     );
   }
