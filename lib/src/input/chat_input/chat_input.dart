@@ -8,6 +8,7 @@ class ChatInput extends StatefulWidget {
   final bool enable;
   final String? placeHolder;
   final String? buildMessage;
+  final bool textClearWhenSend;
 
   ChatInput({
     required this.onClickSend,
@@ -15,6 +16,7 @@ class ChatInput extends StatefulWidget {
     this.placeHolder,
     this.buildMessage,
     this.enable = true,
+    this.textClearWhenSend = false,
   }) : super(key: ValueKey(buildMessage));
 
   @override
@@ -75,6 +77,11 @@ class ChatInputState extends State<ChatInput> {
             onClickSend: () {
               if (widget.enable && _controller.value.text.isNotEmpty) {
                 widget.onClickSend(_controller.value.text);
+
+                if (widget.textClearWhenSend) {
+                  _controller.clear();
+                  widget.onUpdatedMessage("");
+                }
               }
             },
             active: widget.enable,
