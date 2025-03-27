@@ -13,13 +13,13 @@ class QdsBoxButton extends StatelessWidget {
     super.key,
   });
 
-  Widget _buildLoadingIndicator(Color color) {
+  Widget _buildLoadingIndicator(Color color, QdsBoxButtonSizeType buttonSizeType) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(
-          width: 24,
-          height: 24,
+          width: _getLoadingIndicatorSize(buttonSizeType),
+          height: _getLoadingIndicatorSize(buttonSizeType),
           child: CircularProgressIndicator(
             color: color,
             strokeCap: StrokeCap.round,
@@ -64,11 +64,22 @@ class QdsBoxButton extends StatelessWidget {
     }
   }
 
+  double _getLoadingIndicatorSize(QdsBoxButtonSizeType buttonSizeType) {
+    switch (buttonSizeType) {
+      case QdsBoxButtonLarge():
+      case QdsBoxButtonMedium():
+        return 24.0;
+      case QdsBoxButtonSmall():
+      case QdsBoxButtonXSmall():
+        return 16.0;
+    }
+  }
+
   Widget _buildButtonContent(QdsBoxButtonUiState uiState) {
     final buttonLabelType = uiState.buttonLabelType;
 
     if (uiState.state is QdsBoxButtonLoading) {
-      return _buildLoadingIndicator(uiState.iconColor);
+      return _buildLoadingIndicator(uiState.iconColor, uiState.buttonSizeType);
     }
 
     final textWidget = Flexible(
