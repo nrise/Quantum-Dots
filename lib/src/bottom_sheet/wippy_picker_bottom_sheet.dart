@@ -54,7 +54,7 @@ class WippyPickerBottomSheetState extends WippyBottomSheetState<WippyPickerBotto
             children: [
               Container(
                 height: 212,
-                padding: EdgeInsets.symmetric(vertical: 26),
+                padding: EdgeInsets.symmetric(vertical: 26, horizontal: 7),
                 child: CupertinoPicker(
                   backgroundColor: wippyWhite,
                   itemExtent: 40,
