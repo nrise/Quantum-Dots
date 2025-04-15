@@ -33,6 +33,12 @@ const wippyGray200 = Color(0xFFEBEBEB);
 const wippyGray150 = Color(0xFFF1F1F1);
 const wippyGray100 = Color(0xFFF6F6F6);
 
+const wippyViolet500 = Color(0xFF3047DF);
+const wippyViolet400 = Color(0xFF566BF8);
+const wippyViolet300 = Color(0xFFD6DBFD);
+const wippyViolet200 = Color(0xFFEBEDFE);
+const wippyViolet100 = Color(0xFFF4F6FC);
+
 const wippyLine = Color(0xFF00C95C);
 
 const wippyPinkGradientStart = Color(0xFFFF206B);
