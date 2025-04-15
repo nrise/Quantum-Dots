@@ -1,4 +1,4 @@
 library;
 
-export 'src/empty_states/empty_states_ui_state.dart' show EmptyStatesUiState;
-export 'src/empty_states/wippy_empty_states.dart' show WippyEmptyStates;
+export 'src/empty_states/qds_empty_states_ui_state.dart' show QdsEmptyStatesUiState;
+export 'src/empty_states/qds_empty_states.dart' show QdsEmptyStates;
