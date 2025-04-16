@@ -3,17 +3,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:quantum_dots/qds_button.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 
-import 'empty_states_ui_state.dart';
+import 'qds_empty_states_ui_state.dart';
 
-class WippyEmptyStates extends StatelessWidget {
+class QdsEmptyStates extends StatelessWidget {
   static const double _iconSize = 48;
 
-  late final EmptyStatesUiState _uiState;
-  late final VoidCallback? _onPressedButton;
+  late final QdsEmptyStatesUiState _uiState;
 
-  WippyEmptyStates({required EmptyStatesUiState uiState, VoidCallback? onPressedButton}) {
+  QdsEmptyStates({required QdsEmptyStatesUiState uiState}) {
     _uiState = uiState;
-    _onPressedButton = onPressedButton;
   }
 
   List<Widget> _buildIconAreaWidgets({required String iconAssetName}) {
@@ -48,20 +46,14 @@ class WippyEmptyStates extends StatelessWidget {
     ];
   }
 
-  List<Widget> _buildButtonAreaWidgets({required String buttonLabel}) {
+  List<Widget> _buildButtonAreaWidgets({required QdsBoxButtonUiState buttonUiState, required VoidCallback? onPressedButton}) {
     return [
       SizedBox(height: 24),
       Wrap(
         children: [
           QdsBoxButton(
-            initUiState: QdsBoxButtonUiState(
-              buttonLabelType: QdsBoxButtonLabelType.labelOnly(label: buttonLabel),
-              buttonColorType: _uiState.buttonColorType,
-              buttonSizeType: QdsBoxButtonSizeType.medium(),
-            ),
-            onPressed: () {
-              _onPressedButton?.call();
-            },
+            initUiState: buttonUiState,
+            onPressed: onPressedButton,
           )
         ],
       )
@@ -78,7 +70,8 @@ class WippyEmptyStates extends StatelessWidget {
         children: [
           if (_uiState.iconAssetName != null) ..._buildIconAreaWidgets(iconAssetName: _uiState.iconAssetName!),
           ..._buildContentAreaWidgets(title: _uiState.title, description: _uiState.description),
-          if (_uiState.buttonLabel != null) ..._buildButtonAreaWidgets(buttonLabel: _uiState.buttonLabel!)
+          if (_uiState.buttonUiState != null)
+            ..._buildButtonAreaWidgets(buttonUiState: _uiState.buttonUiState!, onPressedButton: _uiState.onPressedButton)
         ],
       ),
     );
