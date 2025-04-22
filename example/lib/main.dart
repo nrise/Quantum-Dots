@@ -57,7 +57,18 @@ class DesignSystemSamplePage extends StatelessWidget {
         _buildWippyTextFieldComponents() +
         _buildQdsTextAreaComponents() +
         _buildWippyChatInputComponents() +
-        <Widget>[const SizedBox(height: 50)];
+        <Widget>[const SizedBox(height: 50)] +
+        _buildQdsBulletTextComponents();
+  }
+
+  List<Widget> _buildQdsBulletTextComponents() {
+    return [
+      QdsBulletText(
+        content: "bullet text",
+      ),
+      QdsBulletText(content: "bullet text body16Medium", style: body16Medium.copyWith(color: wippyGray700)),
+      QdsBulletText(content: "bullet text headline18Bold", style: headline18Bold.copyWith(color: wippyGray700)),
+    ];
   }
 
   Widget _buildImageSlotComponents(BuildContext context) {
