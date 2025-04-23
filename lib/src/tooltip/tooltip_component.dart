@@ -22,62 +22,123 @@ class _TooltipComponentState extends State<TooltipComponent> {
   @override
   Widget build(BuildContext context) {
     String arrowAssetPath;
-    switch (widget.uiState.arrowPosition) {
-      case TooltipArrowPosition.leftTop:
-      case TooltipArrowPosition.rightTop:
-        arrowAssetPath = IconPath.iconTopPoint24;
-        break;
-      case TooltipArrowPosition.leftBottom:
-      case TooltipArrowPosition.rightBottom:
-        arrowAssetPath = IconPath.iconBottomPoint24;
-        break;
+    switch (widget.uiState.placement) {
+      case TooltipPlacement.downRight:
+      case TooltipPlacement.downCenter:
+      case TooltipPlacement.downLeft:
+        arrowAssetPath = IconPath.iconDownPoint24;
+      case TooltipPlacement.upRight:
+      case TooltipPlacement.upCenter:
+      case TooltipPlacement.upLeft:
+        arrowAssetPath = IconPath.iconUpPoint24;
+      case TooltipPlacement.rightCenter:
+        arrowAssetPath = IconPath.iconRightPoint24;
+      case TooltipPlacement.leftCenter:
+        arrowAssetPath = IconPath.iconLeftPoint24;
     }
-
-    bool isArrowAbove = widget.uiState.arrowPosition == TooltipArrowPosition.leftTop || widget.uiState.arrowPosition == TooltipArrowPosition.rightTop;
 
     return widget.uiState.visible
         ? GestureDetector(
             onTap: widget.onClickTooltip,
             child: Stack(
               children: [
-                Column(
-                  crossAxisAlignment: (widget.uiState.arrowPosition == TooltipArrowPosition.leftTop ||
-                          widget.uiState.arrowPosition == TooltipArrowPosition.leftBottom)
-                      ? CrossAxisAlignment.start
-                      : CrossAxisAlignment.end,
-                  children: [
-                    if (isArrowAbove) _buildArrow(arrowAssetPath),
-                    _buildTooltipContainer(),
-                    if (!isArrowAbove) _buildArrow(arrowAssetPath),
-                  ],
-                ),
+                switch (widget.uiState.placement) {
+                  TooltipPlacement.downRight => Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        _buildTooltipContainer(),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 16),
+                          child: SvgPicture.asset(arrowAssetPath),
+                        ),
+                      ],
+                    ),
+                  TooltipPlacement.downCenter => Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        _buildTooltipContainer(),
+                        SvgPicture.asset(arrowAssetPath),
+                      ],
+                    ),
+                  TooltipPlacement.downLeft => Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildTooltipContainer(),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: SvgPicture.asset(arrowAssetPath),
+                        ),
+                      ],
+                    ),
+                  TooltipPlacement.rightCenter => Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        _buildTooltipContainer(),
+                        SizedBox(
+                          width: 6,
+                          height: 10,
+                          child: SvgPicture.asset(arrowAssetPath),
+                        ),
+                      ],
+                    ),
+                  TooltipPlacement.upRight => Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 16),
+                          child: SvgPicture.asset(arrowAssetPath),
+                        ),
+                        _buildTooltipContainer(),
+                      ],
+                    ),
+                  TooltipPlacement.upCenter => Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 10,
+                          height: 6,
+                          child: SvgPicture.asset(arrowAssetPath),
+                        ),
+                        _buildTooltipContainer(),
+                      ],
+                    ),
+                  TooltipPlacement.upLeft => Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 16),
+                          child: SvgPicture.asset(arrowAssetPath),
+                        ),
+                        _buildTooltipContainer(),
+                      ],
+                    ),
+                  TooltipPlacement.leftCenter => Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 6,
+                          height: 10,
+                          child: SvgPicture.asset(arrowAssetPath),
+                        ),
+                        _buildTooltipContainer(),
+                      ],
+                    ),
+                },
               ],
             ),
           )
         : const SizedBox.shrink();
   }
 
-  Widget _buildArrow(String arrowAssetPath) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(
-          widget.uiState.arrowPosition == TooltipArrowPosition.leftTop || widget.uiState.arrowPosition == TooltipArrowPosition.leftBottom
-              ? widget.uiState.arrowOffset
-              : 0,
-          0,
-          widget.uiState.arrowPosition == TooltipArrowPosition.rightTop || widget.uiState.arrowPosition == TooltipArrowPosition.rightBottom
-              ? widget.uiState.arrowOffset
-              : 0,
-          0),
-      child: SizedBox(
-        width: 10,
-        height: 6,
-        child: SvgPicture.asset(arrowAssetPath),
-      ),
-    );
-  }
-
   Widget _buildTooltipContainer() {
     return Container(
+      constraints: const BoxConstraints(maxWidth: 230),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: ShapeDecoration(
         color: widget.uiState.backgroundColor,
@@ -85,17 +146,18 @@ class _TooltipComponentState extends State<TooltipComponent> {
           borderRadius: BorderRadius.circular(16),
         ),
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            widget.uiState.message,
-            textAlign: TextAlign.center,
-            style: body14Medium.copyWith(color: widget.uiState.textColor),
-          ),
-        ],
+      child: IntrinsicWidth(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.uiState.message,
+              textAlign: TextAlign.start,
+              style: body14Medium.copyWith(color: widget.uiState.textColor),
+            ),
+          ],
+        ),
       ),
     );
   }
