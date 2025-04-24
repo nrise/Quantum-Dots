@@ -1,19 +1,17 @@
 import 'dart:ui';
 
-class TooltipUiState {
-  final String message;
-  final Color textColor;
-  final Color backgroundColor;
-  final TooltipPlacement placement;
-  bool visible;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  TooltipUiState({
-    required this.message,
-    required this.textColor,
-    required this.backgroundColor,
-    required this.placement,
-    this.visible = true,
-  });
+part 'tooltip_ui_state.freezed.dart';
+
+@freezed
+class TooltipUiState with _$TooltipUiState {
+  const factory TooltipUiState({
+    required String message,
+    required Color textColor,
+    required Color backgroundColor,
+    required TooltipPlacement placement,
+  }) = _TooltipUiState;
 }
 
 enum TooltipPlacement {
