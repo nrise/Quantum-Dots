@@ -7,4 +7,8 @@ class IconPath {
   static const String iconTopNavigationLeft24 = 'assets/icons/icon_topnavigation_left_24.svg';
   static const String iconDeleteFilled24 = 'assets/icons/icon_delete_filled_24.svg';
   static const String iconChatOpen = 'assets/icons/icon_chat_open.svg';
+  static const String iconRightPoint24 = 'assets/icons/icon_right_point_24.svg';
+  static const String iconLeftPoint24 = 'assets/icons/icon_left_point_24.svg';
+  static const String iconUpPoint24 = 'assets/icons/icon_up_point_24.svg';
+  static const String iconDownPoint24 = 'assets/icons/icon_down_point_24.svg';
 }

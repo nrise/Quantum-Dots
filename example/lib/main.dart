@@ -559,23 +559,81 @@ List<Widget> _buildWippyTooltipComponents(BuildContext context) {
   return [
     TooltipComponent(
       uiState: TooltipUiState(
-        message: "Tooltip Message",
-        arrowPosition: TooltipArrowPosition.leftTop,
+        message: "Tooltip Message \n downRight",
+        placement: TooltipPlacement.downRight,
         textColor: wippyWhite,
         backgroundColor: wippyGray800,
-        arrowOffset: 30,
         visible: true,
       ),
       onClickTooltip: () {},
     ),
     TooltipComponent(
       uiState: TooltipUiState(
-        message: "Tooltip Message",
-        arrowPosition: TooltipArrowPosition.leftTop,
+        message: "Tooltip Message \n downCenter",
+        placement: TooltipPlacement.downCenter,
         textColor: wippyWhite,
         backgroundColor: wippyGray800,
-        arrowOffset: 30,
-        visible: false,
+        visible: true,
+      ),
+      onClickTooltip: () {},
+    ),
+    TooltipComponent(
+      uiState: TooltipUiState(
+        message: "Tooltip Message \n downLeft",
+        placement: TooltipPlacement.downLeft,
+        textColor: wippyWhite,
+        backgroundColor: wippyGray800,
+        visible: true,
+      ),
+      onClickTooltip: () {},
+    ),
+    TooltipComponent(
+      uiState: TooltipUiState(
+        message: "Tooltip Message \n upRight",
+        placement: TooltipPlacement.upRight,
+        textColor: wippyWhite,
+        backgroundColor: wippyGray800,
+        visible: true,
+      ),
+      onClickTooltip: () {},
+    ),
+    TooltipComponent(
+      uiState: TooltipUiState(
+        message: "Tooltip Message \n upCenter",
+        placement: TooltipPlacement.upCenter,
+        textColor: wippyWhite,
+        backgroundColor: wippyGray800,
+        visible: true,
+      ),
+      onClickTooltip: () {},
+    ),
+    TooltipComponent(
+      uiState: TooltipUiState(
+        message: "Tooltip Message \n upLeft",
+        placement: TooltipPlacement.upLeft,
+        textColor: wippyWhite,
+        backgroundColor: wippyGray800,
+        visible: true,
+      ),
+      onClickTooltip: () {},
+    ),
+    TooltipComponent(
+      uiState: TooltipUiState(
+        message: "Tooltip Message \n rightCenter",
+        placement: TooltipPlacement.rightCenter,
+        textColor: wippyWhite,
+        backgroundColor: wippyGray800,
+        visible: true,
+      ),
+      onClickTooltip: () {},
+    ),
+    TooltipComponent(
+      uiState: TooltipUiState(
+        message: "Tooltip Message \n leftCenter",
+        placement: TooltipPlacement.leftCenter,
+        textColor: wippyWhite,
+        backgroundColor: wippyGray800,
+        visible: true,
       ),
       onClickTooltip: () {},
     ),
