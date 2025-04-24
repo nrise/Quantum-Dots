@@ -6,12 +6,12 @@ import 'tooltip_ui_state.dart';
 
 class TooltipComponent extends StatefulWidget {
   final TooltipUiState uiState;
-  final Function() onClickTooltip;
+  final Function()? onClickTooltip;
 
   const TooltipComponent({
     super.key,
     required this.uiState,
-    required this.onClickTooltip,
+    this.onClickTooltip,
   });
 
   @override
@@ -37,103 +37,99 @@ class _TooltipComponentState extends State<TooltipComponent> {
         arrowAssetPath = IconPath.iconLeftPoint24;
     }
 
-    return widget.uiState.visible
-        ? GestureDetector(
-            onTap: widget.onClickTooltip,
-            child: Stack(
-              children: [
-                switch (widget.uiState.placement) {
-                  TooltipPlacement.downRight => Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        _buildTooltipContainer(),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 16),
-                          child: SvgPicture.asset(arrowAssetPath),
-                        ),
-                      ],
-                    ),
-                  TooltipPlacement.downCenter => Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        _buildTooltipContainer(),
-                        SvgPicture.asset(arrowAssetPath),
-                      ],
-                    ),
-                  TooltipPlacement.downLeft => Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _buildTooltipContainer(),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 16),
-                          child: SvgPicture.asset(arrowAssetPath),
-                        ),
-                      ],
-                    ),
-                  TooltipPlacement.rightCenter => Row(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        _buildTooltipContainer(),
-                        SizedBox(
-                          width: 6,
-                          height: 10,
-                          child: SvgPicture.asset(arrowAssetPath),
-                        ),
-                      ],
-                    ),
-                  TooltipPlacement.upRight => Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 16),
-                          child: SvgPicture.asset(arrowAssetPath),
-                        ),
-                        _buildTooltipContainer(),
-                      ],
-                    ),
-                  TooltipPlacement.upCenter => Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 10,
-                          height: 6,
-                          child: SvgPicture.asset(arrowAssetPath),
-                        ),
-                        _buildTooltipContainer(),
-                      ],
-                    ),
-                  TooltipPlacement.upLeft => Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 16),
-                          child: SvgPicture.asset(arrowAssetPath),
-                        ),
-                        _buildTooltipContainer(),
-                      ],
-                    ),
-                  TooltipPlacement.leftCenter => Row(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 6,
-                          height: 10,
-                          child: SvgPicture.asset(arrowAssetPath),
-                        ),
-                        _buildTooltipContainer(),
-                      ],
-                    ),
-                },
-              ],
-            ),
-          )
-        : const SizedBox.shrink();
+    return GestureDetector(
+      onTap: widget.onClickTooltip,
+      child: switch (widget.uiState.placement) {
+        TooltipPlacement.downRight => Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              _buildTooltipContainer(),
+              Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: SvgPicture.asset(arrowAssetPath),
+              ),
+            ],
+          ),
+        TooltipPlacement.downCenter => Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _buildTooltipContainer(),
+              SvgPicture.asset(arrowAssetPath),
+            ],
+          ),
+        TooltipPlacement.downLeft => Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildTooltipContainer(),
+              Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: SvgPicture.asset(arrowAssetPath),
+              ),
+            ],
+          ),
+        TooltipPlacement.rightCenter => Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _buildTooltipContainer(),
+              SizedBox(
+                width: 6,
+                height: 10,
+                child: SvgPicture.asset(arrowAssetPath),
+              ),
+            ],
+          ),
+        TooltipPlacement.upRight => Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: SvgPicture.asset(arrowAssetPath),
+              ),
+              _buildTooltipContainer(),
+            ],
+          ),
+        TooltipPlacement.upCenter => Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 10,
+                height: 6,
+                child: SvgPicture.asset(arrowAssetPath),
+              ),
+              _buildTooltipContainer(),
+            ],
+          ),
+        TooltipPlacement.upLeft => Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: SvgPicture.asset(arrowAssetPath),
+              ),
+              _buildTooltipContainer(),
+            ],
+          ),
+        TooltipPlacement.leftCenter => Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 6,
+                height: 10,
+                child: SvgPicture.asset(arrowAssetPath),
+              ),
+              _buildTooltipContainer(),
+            ],
+          ),
+      },
+    );
   }
 
   Widget _buildTooltipContainer() {
