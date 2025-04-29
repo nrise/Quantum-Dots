@@ -629,6 +629,15 @@ List<Widget> _buildWippyTooltipComponents(BuildContext context) {
       ),
       onClickTooltip: () {},
     ),
+    TooltipComponent(
+      uiState: TooltipUiState(
+        message: "Tooltip Message over max width 230 test ipsum dolor sit amet dfasdfasdf",
+        placement: TooltipPlacement.leftCenter,
+        textColor: wippyWhite,
+        backgroundColor: wippyGray800,
+      ),
+      onClickTooltip: () {},
+    ),
   ];
 }
 
