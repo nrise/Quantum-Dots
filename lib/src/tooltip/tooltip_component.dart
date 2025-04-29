@@ -134,7 +134,6 @@ class _TooltipComponentState extends State<TooltipComponent> {
 
   Widget _buildTooltipContainer() {
     return Container(
-      constraints: const BoxConstraints(maxWidth: 230),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: ShapeDecoration(
         color: widget.uiState.backgroundColor,
