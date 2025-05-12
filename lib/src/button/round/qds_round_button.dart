@@ -38,17 +38,18 @@ class QdsRoundButton extends StatelessWidget {
     required String iconAssetString,
     required double iconSize,
     required Color color,
+    required bool enableIconColorFilter,
   }) {
     if (iconAssetString.endsWith('.svg')) {
       return SizedIcon(
         size: iconSize,
         asset: iconAssetString,
-        colorFilter: color == Colors.transparent ? null : ColorFilter.mode(color, BlendMode.srcIn),
+        colorFilter: enableIconColorFilter ? ColorFilter.mode(color, BlendMode.srcIn) : null,
       );
     }
     return Image.asset(
       iconAssetString,
-      color: color,
+      color: enableIconColorFilter ? color : null,
     );
   }
 
@@ -64,6 +65,7 @@ class QdsRoundButton extends StatelessWidget {
         buttonLabelType.label,
         style: uiState.textStyle.copyWith(color: uiState.textColor),
         overflow: TextOverflow.ellipsis,
+        textAlign: TextAlign.center,
       ),
     );
 
@@ -83,6 +85,7 @@ class QdsRoundButton extends StatelessWidget {
               iconAssetString: buttonLabelType.iconAssetString,
               iconSize: uiState.iconSize,
               color: uiState.buttonColorType.getButtonIconColor(uiState.state),
+              enableIconColorFilter: buttonLabelType.enableIconColorFilter,
             ),
           ),
         );
@@ -96,6 +99,7 @@ class QdsRoundButton extends StatelessWidget {
                 iconAssetString: buttonLabelType.iconAssetString,
                 iconSize: uiState.iconSize,
                 color: uiState.buttonColorType.getButtonIconColor(uiState.state),
+                enableIconColorFilter: buttonLabelType.enableIconColorFilter,
               ),
               SizedBox(width: 4),
               textWidget,
@@ -107,6 +111,7 @@ class QdsRoundButton extends StatelessWidget {
                 iconAssetString: buttonLabelType.iconAssetString,
                 iconSize: uiState.iconSize,
                 color: uiState.buttonColorType.getButtonIconColor(uiState.state),
+                enableIconColorFilter: buttonLabelType.enableIconColorFilter,
               )
             ],
             if (buttonLabelType is QdsRoundButtonIconOnly) ...[

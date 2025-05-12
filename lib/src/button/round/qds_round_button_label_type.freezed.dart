@@ -19,17 +19,23 @@ mixin _$QdsRoundButtonLabelType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String label) labelOnly,
-    required TResult Function(String iconAssetString) iconOnly,
+    required TResult Function(
+            String iconAssetString, bool enableIconColorFilter)
+        iconOnly,
     required TResult Function(String label, String iconAssetString,
-            QdsRoundButtonDirection buttonDirection)
+            bool enableIconColorFilter, QdsRoundButtonDirection buttonDirection)
         labelAndIcon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String label)? labelOnly,
-    TResult? Function(String iconAssetString)? iconOnly,
-    TResult? Function(String label, String iconAssetString,
+    TResult? Function(String iconAssetString, bool enableIconColorFilter)?
+        iconOnly,
+    TResult? Function(
+            String label,
+            String iconAssetString,
+            bool enableIconColorFilter,
             QdsRoundButtonDirection buttonDirection)?
         labelAndIcon,
   }) =>
@@ -37,8 +43,12 @@ mixin _$QdsRoundButtonLabelType {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String label)? labelOnly,
-    TResult Function(String iconAssetString)? iconOnly,
-    TResult Function(String label, String iconAssetString,
+    TResult Function(String iconAssetString, bool enableIconColorFilter)?
+        iconOnly,
+    TResult Function(
+            String label,
+            String iconAssetString,
+            bool enableIconColorFilter,
             QdsRoundButtonDirection buttonDirection)?
         labelAndIcon,
     required TResult orElse(),
@@ -163,9 +173,11 @@ class _$QdsRoundButtonLabelOnlyImpl implements QdsRoundButtonLabelOnly {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String label) labelOnly,
-    required TResult Function(String iconAssetString) iconOnly,
+    required TResult Function(
+            String iconAssetString, bool enableIconColorFilter)
+        iconOnly,
     required TResult Function(String label, String iconAssetString,
-            QdsRoundButtonDirection buttonDirection)
+            bool enableIconColorFilter, QdsRoundButtonDirection buttonDirection)
         labelAndIcon,
   }) {
     return labelOnly(label);
@@ -175,8 +187,12 @@ class _$QdsRoundButtonLabelOnlyImpl implements QdsRoundButtonLabelOnly {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String label)? labelOnly,
-    TResult? Function(String iconAssetString)? iconOnly,
-    TResult? Function(String label, String iconAssetString,
+    TResult? Function(String iconAssetString, bool enableIconColorFilter)?
+        iconOnly,
+    TResult? Function(
+            String label,
+            String iconAssetString,
+            bool enableIconColorFilter,
             QdsRoundButtonDirection buttonDirection)?
         labelAndIcon,
   }) {
@@ -187,8 +203,12 @@ class _$QdsRoundButtonLabelOnlyImpl implements QdsRoundButtonLabelOnly {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String label)? labelOnly,
-    TResult Function(String iconAssetString)? iconOnly,
-    TResult Function(String label, String iconAssetString,
+    TResult Function(String iconAssetString, bool enableIconColorFilter)?
+        iconOnly,
+    TResult Function(
+            String label,
+            String iconAssetString,
+            bool enableIconColorFilter,
             QdsRoundButtonDirection buttonDirection)?
         labelAndIcon,
     required TResult orElse(),
@@ -254,7 +274,7 @@ abstract class _$$QdsRoundButtonIconOnlyImplCopyWith<$Res> {
           $Res Function(_$QdsRoundButtonIconOnlyImpl) then) =
       __$$QdsRoundButtonIconOnlyImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String iconAssetString});
+  $Res call({String iconAssetString, bool enableIconColorFilter});
 }
 
 /// @nodoc
@@ -273,12 +293,17 @@ class __$$QdsRoundButtonIconOnlyImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? iconAssetString = null,
+    Object? enableIconColorFilter = null,
   }) {
     return _then(_$QdsRoundButtonIconOnlyImpl(
       iconAssetString: null == iconAssetString
           ? _value.iconAssetString
           : iconAssetString // ignore: cast_nullable_to_non_nullable
               as String,
+      enableIconColorFilter: null == enableIconColorFilter
+          ? _value.enableIconColorFilter
+          : enableIconColorFilter // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -286,14 +311,18 @@ class __$$QdsRoundButtonIconOnlyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$QdsRoundButtonIconOnlyImpl implements QdsRoundButtonIconOnly {
-  const _$QdsRoundButtonIconOnlyImpl({required this.iconAssetString});
+  const _$QdsRoundButtonIconOnlyImpl(
+      {required this.iconAssetString, this.enableIconColorFilter = true});
 
   @override
   final String iconAssetString;
+  @override
+  @JsonKey()
+  final bool enableIconColorFilter;
 
   @override
   String toString() {
-    return 'QdsRoundButtonLabelType.iconOnly(iconAssetString: $iconAssetString)';
+    return 'QdsRoundButtonLabelType.iconOnly(iconAssetString: $iconAssetString, enableIconColorFilter: $enableIconColorFilter)';
   }
 
   @override
@@ -302,11 +331,14 @@ class _$QdsRoundButtonIconOnlyImpl implements QdsRoundButtonIconOnly {
         (other.runtimeType == runtimeType &&
             other is _$QdsRoundButtonIconOnlyImpl &&
             (identical(other.iconAssetString, iconAssetString) ||
-                other.iconAssetString == iconAssetString));
+                other.iconAssetString == iconAssetString) &&
+            (identical(other.enableIconColorFilter, enableIconColorFilter) ||
+                other.enableIconColorFilter == enableIconColorFilter));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, iconAssetString);
+  int get hashCode =>
+      Object.hash(runtimeType, iconAssetString, enableIconColorFilter);
 
   /// Create a copy of QdsRoundButtonLabelType
   /// with the given fields replaced by the non-null parameter values.
@@ -321,38 +353,48 @@ class _$QdsRoundButtonIconOnlyImpl implements QdsRoundButtonIconOnly {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String label) labelOnly,
-    required TResult Function(String iconAssetString) iconOnly,
+    required TResult Function(
+            String iconAssetString, bool enableIconColorFilter)
+        iconOnly,
     required TResult Function(String label, String iconAssetString,
-            QdsRoundButtonDirection buttonDirection)
+            bool enableIconColorFilter, QdsRoundButtonDirection buttonDirection)
         labelAndIcon,
   }) {
-    return iconOnly(iconAssetString);
+    return iconOnly(iconAssetString, enableIconColorFilter);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String label)? labelOnly,
-    TResult? Function(String iconAssetString)? iconOnly,
-    TResult? Function(String label, String iconAssetString,
+    TResult? Function(String iconAssetString, bool enableIconColorFilter)?
+        iconOnly,
+    TResult? Function(
+            String label,
+            String iconAssetString,
+            bool enableIconColorFilter,
             QdsRoundButtonDirection buttonDirection)?
         labelAndIcon,
   }) {
-    return iconOnly?.call(iconAssetString);
+    return iconOnly?.call(iconAssetString, enableIconColorFilter);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String label)? labelOnly,
-    TResult Function(String iconAssetString)? iconOnly,
-    TResult Function(String label, String iconAssetString,
+    TResult Function(String iconAssetString, bool enableIconColorFilter)?
+        iconOnly,
+    TResult Function(
+            String label,
+            String iconAssetString,
+            bool enableIconColorFilter,
             QdsRoundButtonDirection buttonDirection)?
         labelAndIcon,
     required TResult orElse(),
   }) {
     if (iconOnly != null) {
-      return iconOnly(iconAssetString);
+      return iconOnly(iconAssetString, enableIconColorFilter);
     }
     return orElse();
   }
@@ -394,9 +436,11 @@ class _$QdsRoundButtonIconOnlyImpl implements QdsRoundButtonIconOnly {
 
 abstract class QdsRoundButtonIconOnly implements QdsRoundButtonLabelType {
   const factory QdsRoundButtonIconOnly(
-      {required final String iconAssetString}) = _$QdsRoundButtonIconOnlyImpl;
+      {required final String iconAssetString,
+      final bool enableIconColorFilter}) = _$QdsRoundButtonIconOnlyImpl;
 
   String get iconAssetString;
+  bool get enableIconColorFilter;
 
   /// Create a copy of QdsRoundButtonLabelType
   /// with the given fields replaced by the non-null parameter values.
@@ -415,6 +459,7 @@ abstract class _$$QdsRoundButtonLabelAndIconImplCopyWith<$Res> {
   $Res call(
       {String label,
       String iconAssetString,
+      bool enableIconColorFilter,
       QdsRoundButtonDirection buttonDirection});
 }
 
@@ -435,6 +480,7 @@ class __$$QdsRoundButtonLabelAndIconImplCopyWithImpl<$Res>
   $Res call({
     Object? label = null,
     Object? iconAssetString = null,
+    Object? enableIconColorFilter = null,
     Object? buttonDirection = null,
   }) {
     return _then(_$QdsRoundButtonLabelAndIconImpl(
@@ -446,6 +492,10 @@ class __$$QdsRoundButtonLabelAndIconImplCopyWithImpl<$Res>
           ? _value.iconAssetString
           : iconAssetString // ignore: cast_nullable_to_non_nullable
               as String,
+      enableIconColorFilter: null == enableIconColorFilter
+          ? _value.enableIconColorFilter
+          : enableIconColorFilter // ignore: cast_nullable_to_non_nullable
+              as bool,
       buttonDirection: null == buttonDirection
           ? _value.buttonDirection
           : buttonDirection // ignore: cast_nullable_to_non_nullable
@@ -460,6 +510,7 @@ class _$QdsRoundButtonLabelAndIconImpl implements QdsRoundButtonLabelAndIcon {
   const _$QdsRoundButtonLabelAndIconImpl(
       {required this.label,
       required this.iconAssetString,
+      this.enableIconColorFilter = true,
       this.buttonDirection = QdsRoundButtonDirection.left});
 
   @override
@@ -468,11 +519,14 @@ class _$QdsRoundButtonLabelAndIconImpl implements QdsRoundButtonLabelAndIcon {
   final String iconAssetString;
   @override
   @JsonKey()
+  final bool enableIconColorFilter;
+  @override
+  @JsonKey()
   final QdsRoundButtonDirection buttonDirection;
 
   @override
   String toString() {
-    return 'QdsRoundButtonLabelType.labelAndIcon(label: $label, iconAssetString: $iconAssetString, buttonDirection: $buttonDirection)';
+    return 'QdsRoundButtonLabelType.labelAndIcon(label: $label, iconAssetString: $iconAssetString, enableIconColorFilter: $enableIconColorFilter, buttonDirection: $buttonDirection)';
   }
 
   @override
@@ -483,13 +537,15 @@ class _$QdsRoundButtonLabelAndIconImpl implements QdsRoundButtonLabelAndIcon {
             (identical(other.label, label) || other.label == label) &&
             (identical(other.iconAssetString, iconAssetString) ||
                 other.iconAssetString == iconAssetString) &&
+            (identical(other.enableIconColorFilter, enableIconColorFilter) ||
+                other.enableIconColorFilter == enableIconColorFilter) &&
             (identical(other.buttonDirection, buttonDirection) ||
                 other.buttonDirection == buttonDirection));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, label, iconAssetString, buttonDirection);
+  int get hashCode => Object.hash(runtimeType, label, iconAssetString,
+      enableIconColorFilter, buttonDirection);
 
   /// Create a copy of QdsRoundButtonLabelType
   /// with the given fields replaced by the non-null parameter values.
@@ -504,38 +560,51 @@ class _$QdsRoundButtonLabelAndIconImpl implements QdsRoundButtonLabelAndIcon {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String label) labelOnly,
-    required TResult Function(String iconAssetString) iconOnly,
+    required TResult Function(
+            String iconAssetString, bool enableIconColorFilter)
+        iconOnly,
     required TResult Function(String label, String iconAssetString,
-            QdsRoundButtonDirection buttonDirection)
+            bool enableIconColorFilter, QdsRoundButtonDirection buttonDirection)
         labelAndIcon,
   }) {
-    return labelAndIcon(label, iconAssetString, buttonDirection);
+    return labelAndIcon(
+        label, iconAssetString, enableIconColorFilter, buttonDirection);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String label)? labelOnly,
-    TResult? Function(String iconAssetString)? iconOnly,
-    TResult? Function(String label, String iconAssetString,
+    TResult? Function(String iconAssetString, bool enableIconColorFilter)?
+        iconOnly,
+    TResult? Function(
+            String label,
+            String iconAssetString,
+            bool enableIconColorFilter,
             QdsRoundButtonDirection buttonDirection)?
         labelAndIcon,
   }) {
-    return labelAndIcon?.call(label, iconAssetString, buttonDirection);
+    return labelAndIcon?.call(
+        label, iconAssetString, enableIconColorFilter, buttonDirection);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String label)? labelOnly,
-    TResult Function(String iconAssetString)? iconOnly,
-    TResult Function(String label, String iconAssetString,
+    TResult Function(String iconAssetString, bool enableIconColorFilter)?
+        iconOnly,
+    TResult Function(
+            String label,
+            String iconAssetString,
+            bool enableIconColorFilter,
             QdsRoundButtonDirection buttonDirection)?
         labelAndIcon,
     required TResult orElse(),
   }) {
     if (labelAndIcon != null) {
-      return labelAndIcon(label, iconAssetString, buttonDirection);
+      return labelAndIcon(
+          label, iconAssetString, enableIconColorFilter, buttonDirection);
     }
     return orElse();
   }
@@ -579,11 +648,13 @@ abstract class QdsRoundButtonLabelAndIcon implements QdsRoundButtonLabelType {
   const factory QdsRoundButtonLabelAndIcon(
           {required final String label,
           required final String iconAssetString,
+          final bool enableIconColorFilter,
           final QdsRoundButtonDirection buttonDirection}) =
       _$QdsRoundButtonLabelAndIconImpl;
 
   String get label;
   String get iconAssetString;
+  bool get enableIconColorFilter;
   QdsRoundButtonDirection get buttonDirection;
 
   /// Create a copy of QdsRoundButtonLabelType
