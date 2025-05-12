@@ -162,6 +162,17 @@ class _SampleButtonsState extends State<SampleButtons> {
             },
           ),
           const SizedBox(width: 12),
+          QdsRoundButton(
+            initUiState: QdsRoundButtonUiState(
+              buttonColorType: const QdsRoundButtonColorType.roundSecondary(),
+              buttonLabelType: const QdsRoundButtonLabelType.labelOnly(label: 'labelOnly'),
+              state: QdsBoxButtonState.active(),
+            ),
+            onPressed: () {
+              debugPrint('onPressed QdsRoundButton 4');
+            },
+          ),
+          const SizedBox(width: 12),
         ]),
       ],
     );

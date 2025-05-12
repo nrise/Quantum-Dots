@@ -68,6 +68,8 @@ class QdsRoundButton extends StatelessWidget {
     );
 
     switch (buttonLabelType) {
+      case QdsRoundButtonLabelOnly():
+        return textWidget;
       case QdsRoundButtonIconOnly():
         return SizedBox(
           width: 24,

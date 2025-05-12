@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$QdsRoundButtonLabelType {
-  String get iconAssetString => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String label) labelOnly,
     required TResult Function(String iconAssetString) iconOnly,
     required TResult Function(String label, String iconAssetString,
             QdsRoundButtonDirection buttonDirection)
@@ -27,6 +27,7 @@ mixin _$QdsRoundButtonLabelType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String label)? labelOnly,
     TResult? Function(String iconAssetString)? iconOnly,
     TResult? Function(String label, String iconAssetString,
             QdsRoundButtonDirection buttonDirection)?
@@ -35,6 +36,7 @@ mixin _$QdsRoundButtonLabelType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String label)? labelOnly,
     TResult Function(String iconAssetString)? iconOnly,
     TResult Function(String label, String iconAssetString,
             QdsRoundButtonDirection buttonDirection)?
@@ -44,28 +46,25 @@ mixin _$QdsRoundButtonLabelType {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(QdsRoundButtonLabelOnly value) labelOnly,
     required TResult Function(QdsRoundButtonIconOnly value) iconOnly,
     required TResult Function(QdsRoundButtonLabelAndIcon value) labelAndIcon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(QdsRoundButtonLabelOnly value)? labelOnly,
     TResult? Function(QdsRoundButtonIconOnly value)? iconOnly,
     TResult? Function(QdsRoundButtonLabelAndIcon value)? labelAndIcon,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(QdsRoundButtonLabelOnly value)? labelOnly,
     TResult Function(QdsRoundButtonIconOnly value)? iconOnly,
     TResult Function(QdsRoundButtonLabelAndIcon value)? labelAndIcon,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  /// Create a copy of QdsRoundButtonLabelType
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $QdsRoundButtonLabelTypeCopyWith<QdsRoundButtonLabelType> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -74,8 +73,6 @@ abstract class $QdsRoundButtonLabelTypeCopyWith<$Res> {
   factory $QdsRoundButtonLabelTypeCopyWith(QdsRoundButtonLabelType value,
           $Res Function(QdsRoundButtonLabelType) then) =
       _$QdsRoundButtonLabelTypeCopyWithImpl<$Res, QdsRoundButtonLabelType>;
-  @useResult
-  $Res call({String iconAssetString});
 }
 
 /// @nodoc
@@ -91,28 +88,171 @@ class _$QdsRoundButtonLabelTypeCopyWithImpl<$Res,
 
   /// Create a copy of QdsRoundButtonLabelType
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$QdsRoundButtonLabelOnlyImplCopyWith<$Res> {
+  factory _$$QdsRoundButtonLabelOnlyImplCopyWith(
+          _$QdsRoundButtonLabelOnlyImpl value,
+          $Res Function(_$QdsRoundButtonLabelOnlyImpl) then) =
+      __$$QdsRoundButtonLabelOnlyImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String label});
+}
+
+/// @nodoc
+class __$$QdsRoundButtonLabelOnlyImplCopyWithImpl<$Res>
+    extends _$QdsRoundButtonLabelTypeCopyWithImpl<$Res,
+        _$QdsRoundButtonLabelOnlyImpl>
+    implements _$$QdsRoundButtonLabelOnlyImplCopyWith<$Res> {
+  __$$QdsRoundButtonLabelOnlyImplCopyWithImpl(
+      _$QdsRoundButtonLabelOnlyImpl _value,
+      $Res Function(_$QdsRoundButtonLabelOnlyImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QdsRoundButtonLabelType
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? iconAssetString = null,
+    Object? label = null,
   }) {
-    return _then(_value.copyWith(
-      iconAssetString: null == iconAssetString
-          ? _value.iconAssetString
-          : iconAssetString // ignore: cast_nullable_to_non_nullable
+    return _then(_$QdsRoundButtonLabelOnlyImpl(
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
               as String,
-    ) as $Val);
+    ));
   }
 }
 
 /// @nodoc
-abstract class _$$QdsRoundButtonIconOnlyImplCopyWith<$Res>
-    implements $QdsRoundButtonLabelTypeCopyWith<$Res> {
+
+class _$QdsRoundButtonLabelOnlyImpl implements QdsRoundButtonLabelOnly {
+  const _$QdsRoundButtonLabelOnlyImpl({required this.label});
+
+  @override
+  final String label;
+
+  @override
+  String toString() {
+    return 'QdsRoundButtonLabelType.labelOnly(label: $label)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$QdsRoundButtonLabelOnlyImpl &&
+            (identical(other.label, label) || other.label == label));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, label);
+
+  /// Create a copy of QdsRoundButtonLabelType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$QdsRoundButtonLabelOnlyImplCopyWith<_$QdsRoundButtonLabelOnlyImpl>
+      get copyWith => __$$QdsRoundButtonLabelOnlyImplCopyWithImpl<
+          _$QdsRoundButtonLabelOnlyImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String label) labelOnly,
+    required TResult Function(String iconAssetString) iconOnly,
+    required TResult Function(String label, String iconAssetString,
+            QdsRoundButtonDirection buttonDirection)
+        labelAndIcon,
+  }) {
+    return labelOnly(label);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String label)? labelOnly,
+    TResult? Function(String iconAssetString)? iconOnly,
+    TResult? Function(String label, String iconAssetString,
+            QdsRoundButtonDirection buttonDirection)?
+        labelAndIcon,
+  }) {
+    return labelOnly?.call(label);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String label)? labelOnly,
+    TResult Function(String iconAssetString)? iconOnly,
+    TResult Function(String label, String iconAssetString,
+            QdsRoundButtonDirection buttonDirection)?
+        labelAndIcon,
+    required TResult orElse(),
+  }) {
+    if (labelOnly != null) {
+      return labelOnly(label);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(QdsRoundButtonLabelOnly value) labelOnly,
+    required TResult Function(QdsRoundButtonIconOnly value) iconOnly,
+    required TResult Function(QdsRoundButtonLabelAndIcon value) labelAndIcon,
+  }) {
+    return labelOnly(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(QdsRoundButtonLabelOnly value)? labelOnly,
+    TResult? Function(QdsRoundButtonIconOnly value)? iconOnly,
+    TResult? Function(QdsRoundButtonLabelAndIcon value)? labelAndIcon,
+  }) {
+    return labelOnly?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(QdsRoundButtonLabelOnly value)? labelOnly,
+    TResult Function(QdsRoundButtonIconOnly value)? iconOnly,
+    TResult Function(QdsRoundButtonLabelAndIcon value)? labelAndIcon,
+    required TResult orElse(),
+  }) {
+    if (labelOnly != null) {
+      return labelOnly(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class QdsRoundButtonLabelOnly implements QdsRoundButtonLabelType {
+  const factory QdsRoundButtonLabelOnly({required final String label}) =
+      _$QdsRoundButtonLabelOnlyImpl;
+
+  String get label;
+
+  /// Create a copy of QdsRoundButtonLabelType
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$QdsRoundButtonLabelOnlyImplCopyWith<_$QdsRoundButtonLabelOnlyImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$QdsRoundButtonIconOnlyImplCopyWith<$Res> {
   factory _$$QdsRoundButtonIconOnlyImplCopyWith(
           _$QdsRoundButtonIconOnlyImpl value,
           $Res Function(_$QdsRoundButtonIconOnlyImpl) then) =
       __$$QdsRoundButtonIconOnlyImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String iconAssetString});
 }
@@ -180,6 +320,7 @@ class _$QdsRoundButtonIconOnlyImpl implements QdsRoundButtonIconOnly {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String label) labelOnly,
     required TResult Function(String iconAssetString) iconOnly,
     required TResult Function(String label, String iconAssetString,
             QdsRoundButtonDirection buttonDirection)
@@ -191,6 +332,7 @@ class _$QdsRoundButtonIconOnlyImpl implements QdsRoundButtonIconOnly {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String label)? labelOnly,
     TResult? Function(String iconAssetString)? iconOnly,
     TResult? Function(String label, String iconAssetString,
             QdsRoundButtonDirection buttonDirection)?
@@ -202,6 +344,7 @@ class _$QdsRoundButtonIconOnlyImpl implements QdsRoundButtonIconOnly {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String label)? labelOnly,
     TResult Function(String iconAssetString)? iconOnly,
     TResult Function(String label, String iconAssetString,
             QdsRoundButtonDirection buttonDirection)?
@@ -217,6 +360,7 @@ class _$QdsRoundButtonIconOnlyImpl implements QdsRoundButtonIconOnly {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(QdsRoundButtonLabelOnly value) labelOnly,
     required TResult Function(QdsRoundButtonIconOnly value) iconOnly,
     required TResult Function(QdsRoundButtonLabelAndIcon value) labelAndIcon,
   }) {
@@ -226,6 +370,7 @@ class _$QdsRoundButtonIconOnlyImpl implements QdsRoundButtonIconOnly {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(QdsRoundButtonLabelOnly value)? labelOnly,
     TResult? Function(QdsRoundButtonIconOnly value)? iconOnly,
     TResult? Function(QdsRoundButtonLabelAndIcon value)? labelAndIcon,
   }) {
@@ -235,6 +380,7 @@ class _$QdsRoundButtonIconOnlyImpl implements QdsRoundButtonIconOnly {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(QdsRoundButtonLabelOnly value)? labelOnly,
     TResult Function(QdsRoundButtonIconOnly value)? iconOnly,
     TResult Function(QdsRoundButtonLabelAndIcon value)? labelAndIcon,
     required TResult orElse(),
@@ -250,25 +396,21 @@ abstract class QdsRoundButtonIconOnly implements QdsRoundButtonLabelType {
   const factory QdsRoundButtonIconOnly(
       {required final String iconAssetString}) = _$QdsRoundButtonIconOnlyImpl;
 
-  @override
   String get iconAssetString;
 
   /// Create a copy of QdsRoundButtonLabelType
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QdsRoundButtonIconOnlyImplCopyWith<_$QdsRoundButtonIconOnlyImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$QdsRoundButtonLabelAndIconImplCopyWith<$Res>
-    implements $QdsRoundButtonLabelTypeCopyWith<$Res> {
+abstract class _$$QdsRoundButtonLabelAndIconImplCopyWith<$Res> {
   factory _$$QdsRoundButtonLabelAndIconImplCopyWith(
           _$QdsRoundButtonLabelAndIconImpl value,
           $Res Function(_$QdsRoundButtonLabelAndIconImpl) then) =
       __$$QdsRoundButtonLabelAndIconImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {String label,
@@ -361,6 +503,7 @@ class _$QdsRoundButtonLabelAndIconImpl implements QdsRoundButtonLabelAndIcon {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String label) labelOnly,
     required TResult Function(String iconAssetString) iconOnly,
     required TResult Function(String label, String iconAssetString,
             QdsRoundButtonDirection buttonDirection)
@@ -372,6 +515,7 @@ class _$QdsRoundButtonLabelAndIconImpl implements QdsRoundButtonLabelAndIcon {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String label)? labelOnly,
     TResult? Function(String iconAssetString)? iconOnly,
     TResult? Function(String label, String iconAssetString,
             QdsRoundButtonDirection buttonDirection)?
@@ -383,6 +527,7 @@ class _$QdsRoundButtonLabelAndIconImpl implements QdsRoundButtonLabelAndIcon {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String label)? labelOnly,
     TResult Function(String iconAssetString)? iconOnly,
     TResult Function(String label, String iconAssetString,
             QdsRoundButtonDirection buttonDirection)?
@@ -398,6 +543,7 @@ class _$QdsRoundButtonLabelAndIconImpl implements QdsRoundButtonLabelAndIcon {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(QdsRoundButtonLabelOnly value) labelOnly,
     required TResult Function(QdsRoundButtonIconOnly value) iconOnly,
     required TResult Function(QdsRoundButtonLabelAndIcon value) labelAndIcon,
   }) {
@@ -407,6 +553,7 @@ class _$QdsRoundButtonLabelAndIconImpl implements QdsRoundButtonLabelAndIcon {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(QdsRoundButtonLabelOnly value)? labelOnly,
     TResult? Function(QdsRoundButtonIconOnly value)? iconOnly,
     TResult? Function(QdsRoundButtonLabelAndIcon value)? labelAndIcon,
   }) {
@@ -416,6 +563,7 @@ class _$QdsRoundButtonLabelAndIconImpl implements QdsRoundButtonLabelAndIcon {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(QdsRoundButtonLabelOnly value)? labelOnly,
     TResult Function(QdsRoundButtonIconOnly value)? iconOnly,
     TResult Function(QdsRoundButtonLabelAndIcon value)? labelAndIcon,
     required TResult orElse(),
@@ -435,13 +583,11 @@ abstract class QdsRoundButtonLabelAndIcon implements QdsRoundButtonLabelType {
       _$QdsRoundButtonLabelAndIconImpl;
 
   String get label;
-  @override
   String get iconAssetString;
   QdsRoundButtonDirection get buttonDirection;
 
   /// Create a copy of QdsRoundButtonLabelType
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$QdsRoundButtonLabelAndIconImplCopyWith<_$QdsRoundButtonLabelAndIconImpl>
       get copyWith => throw _privateConstructorUsedError;
