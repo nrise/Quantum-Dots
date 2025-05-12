@@ -68,6 +68,7 @@ class DesignSystemSamplePage extends StatelessWidget {
       ),
       QdsBulletText(content: "bullet text body16Medium", style: body16Medium.copyWith(color: wippyGray700)),
       QdsBulletText(content: "bullet text headline18Bold", style: headline18Bold.copyWith(color: wippyGray700)),
+      QdsBulletText(content: "bullet text headline18Bold\n multiple line", style: headline18Bold.copyWith(color: wippyGray700)),
     ];
   }
 
