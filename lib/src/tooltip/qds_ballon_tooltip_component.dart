@@ -51,8 +51,10 @@ class QdsBalloonTooltipComponentState extends State<QdsBalloonTooltipComponent> 
   @override
   void didUpdateWidget(QdsBalloonTooltipComponent oldWidget) {
     super.didUpdateWidget(oldWidget);
+
     if (widget.isVisible != oldWidget.isVisible) {
       _isVisible = widget.isVisible;
+
       if (_isVisible) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           _showTooltipIfNeeded();
@@ -98,6 +100,7 @@ class QdsBalloonTooltipComponentState extends State<QdsBalloonTooltipComponent> 
 
       final position = renderBox.localToGlobal(Offset.zero);
       final size = renderBox.size;
+
       final screenSize = MediaQuery.of(context).size;
       final screenHeight = screenSize.height;
       final screenWidth = screenSize.width;
@@ -121,15 +124,11 @@ class QdsBalloonTooltipComponentState extends State<QdsBalloonTooltipComponent> 
 
   void _showTooltipIfNeeded() {
     if (!mounted || !_isInViewport || !_isVisible) return;
-
-    Future.delayed(
-      widget.visibleDuration ?? _defaultVisibleDuration,
-      () {
-        if (mounted && _isVisible && _isInViewport) {
-          showTooltip();
-        }
-      },
-    );
+    Future.delayed(widget.visibleDuration ?? _defaultVisibleDuration, () {
+      if (mounted && _isVisible && _isInViewport) {
+        showTooltip();
+      }
+    });
   }
 
   void showTooltip() {
@@ -139,19 +138,32 @@ class QdsBalloonTooltipComponentState extends State<QdsBalloonTooltipComponent> 
 
     try {
       final offset = _getOffsetForPlacement();
+
       _overlayEntry = OverlayEntry(
         builder: (context) {
-          return CompositedTransformFollower(
-            link: _layerLink,
-            showWhenUnlinked: false,
-            offset: offset,
-            child: Material(
-              color: Colors.transparent,
-              child: TooltipComponent(
-                uiState: widget.uiState,
-                onClickTooltip: widget.onTooltipTap,
+          return Stack(
+            children: [
+              Positioned.fill(
+                child: IgnorePointer(
+                  child: Container(
+                    color: Colors.transparent,
+                  ),
+                ),
               ),
-            ),
+              CompositedTransformFollower(
+                link: _layerLink,
+                showWhenUnlinked: false,
+                offset: offset,
+                child: Material(
+                  color: Colors.transparent,
+                  type: MaterialType.transparency,
+                  child: TooltipComponent(
+                    uiState: widget.uiState,
+                    onClickTooltip: widget.onTooltipTap,
+                  ),
+                ),
+              ),
+            ],
           );
         },
       );
