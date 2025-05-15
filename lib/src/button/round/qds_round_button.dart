@@ -60,13 +60,11 @@ class QdsRoundButton extends StatelessWidget {
       return _buildLoadingIndicator(uiState.iconColor);
     }
 
-    final textWidget = Flexible(
-      child: Text(
-        buttonLabelType.label,
-        style: uiState.textStyle.copyWith(color: uiState.textColor),
-        overflow: TextOverflow.ellipsis,
-        textAlign: TextAlign.center,
-      ),
+    final textWidget = Text(
+      buttonLabelType.label,
+      style: uiState.textStyle.copyWith(color: uiState.textColor),
+      overflow: TextOverflow.ellipsis,
+      textAlign: TextAlign.center,
     );
 
     switch (buttonLabelType) {
@@ -102,10 +100,10 @@ class QdsRoundButton extends StatelessWidget {
                 enableIconColorFilter: buttonLabelType.enableIconColorFilter,
               ),
               SizedBox(width: 4),
-              textWidget,
+              Expanded(child: textWidget),
             ],
             if (buttonLabelType.buttonDirection == QdsRoundButtonDirection.right) ...[
-              textWidget,
+              Expanded(child: textWidget),
               SizedBox(width: 4),
               _buildIcon(
                 iconAssetString: buttonLabelType.iconAssetString,
@@ -115,7 +113,7 @@ class QdsRoundButton extends StatelessWidget {
               )
             ],
             if (buttonLabelType is QdsRoundButtonIconOnly) ...[
-              textWidget,
+              Expanded(child: textWidget),
             ],
           ],
         );
@@ -128,6 +126,7 @@ class QdsRoundButton extends StatelessWidget {
       onTapUp: (_) => cubit.onTapUp(),
       onTapDown: (_) => cubit.onTapDown(),
       child: Container(
+        alignment: Alignment.center,
         decoration: BoxDecoration(
           color: uiState.buttonColor,
           borderRadius: BorderRadius.circular(uiState.radiusSize),
