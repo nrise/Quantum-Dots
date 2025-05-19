@@ -9,6 +9,7 @@ import 'package:quantum_dots/qds_header.dart';
 import 'package:quantum_dots/qds_input.dart';
 import 'package:quantum_dots/qds_page_route.dart';
 import 'package:quantum_dots/qds_popup.dart';
+import 'package:quantum_dots/qds_profile_card_grid.dart';
 import 'package:quantum_dots/qds_progress.dart';
 import 'package:quantum_dots/qds_spinner.dart';
 import 'package:quantum_dots/qds_tooltip.dart';
@@ -58,7 +59,9 @@ class DesignSystemSamplePage extends StatelessWidget {
         _buildQdsTextAreaComponents() +
         _buildWippyChatInputComponents() +
         <Widget>[const SizedBox(height: 50)] +
-        _buildQdsBulletTextComponents();
+        _buildQdsBulletTextComponents() +
+        _buildQdsProfileCardGridComponents() +
+        <Widget>[const SizedBox(height: 50)];
   }
 
   List<Widget> _buildQdsBulletTextComponents() {
@@ -637,6 +640,73 @@ List<Widget> _buildWippyTooltipComponents(BuildContext context) {
         backgroundColor: wippyGray800,
       ),
       onClickTooltip: () {},
+    ),
+  ];
+}
+
+List<Widget> _buildQdsProfileCardGridComponents() {
+  return [
+    SizedBox(
+      height: 212,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          QdsProfileCardGrid(
+            uiState: QdsProfileCardUiState(
+              title: "Full",
+              ekycVerified: true,
+              imageUrl: testProfileImageUrl,
+              onTap: () {},
+              description: "Description",
+              dateTimePast: "2025-05-19",
+              buttonUiState: QdsBoxButtonUiState(
+                buttonColorType: const QdsBoxButtonColorType.primary(),
+                buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Button'),
+                buttonSizeType: QdsBoxButtonSizeType.small(),
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          QdsProfileCardGrid(
+            uiState: QdsProfileCardUiState(
+              title: "without description",
+              dateTimePast: "2025-05-19",
+              ekycVerified: true,
+              imageUrl: testProfileImageUrl,
+              onTap: () {},
+              buttonUiState: QdsBoxButtonUiState(
+                buttonColorType: const QdsBoxButtonColorType.primary(),
+                buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Button'),
+                buttonSizeType: QdsBoxButtonSizeType.small(),
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          QdsProfileCardGrid(
+            uiState: QdsProfileCardUiState(
+              title: "without description and timePast",
+              ekycVerified: true,
+              imageUrl: testProfileImageUrl,
+              onTap: () {},
+              buttonUiState: QdsBoxButtonUiState(
+                buttonColorType: const QdsBoxButtonColorType.primary(),
+                buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Button'),
+                buttonSizeType: QdsBoxButtonSizeType.small(),
+              ),
+            ),
+          ),
+          const SizedBox(width: 12),
+          QdsProfileCardGrid(
+            uiState: QdsProfileCardUiState(
+              title: "without button",
+              ekycVerified: true,
+              imageUrl: testProfileImageUrl,
+              onTap: () {},
+              buttonUiState: null,
+            ),
+          ),
+        ],
+      ),
     ),
   ];
 }
