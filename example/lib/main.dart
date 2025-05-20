@@ -5,6 +5,7 @@ import 'package:quantum_dots/qds_button.dart';
 import 'package:quantum_dots/qds_chips.dart';
 import 'package:quantum_dots/qds_common_widget.dart';
 import 'package:quantum_dots/qds_foundation.dart';
+import 'package:quantum_dots/qds_guide.dart';
 import 'package:quantum_dots/qds_header.dart';
 import 'package:quantum_dots/qds_input.dart';
 import 'package:quantum_dots/qds_page_route.dart';
@@ -61,6 +62,7 @@ class DesignSystemSamplePage extends StatelessWidget {
         <Widget>[const SizedBox(height: 50)] +
         _buildQdsBulletTextComponents() +
         _buildQdsProfileCardGridComponents() +
+        _buildQdsGuideComponents() +
         <Widget>[const SizedBox(height: 50)];
   }
 
@@ -708,6 +710,12 @@ List<Widget> _buildQdsProfileCardGridComponents() {
         ],
       ),
     ),
+  ];
+}
+
+List<Widget> _buildQdsGuideComponents() {
+  return [
+    const QdsGuide(text: "Guide Message"),
   ];
 }
 
