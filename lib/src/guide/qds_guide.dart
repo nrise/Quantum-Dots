@@ -18,13 +18,17 @@ class QdsGuide extends StatelessWidget {
         color: backgroundColor ?? defaultBackgroundColor,
         borderRadius: BorderRadius.circular(16),
       ),
-      padding: const EdgeInsets.all(16),
       alignment: Alignment.center,
-      child: Text(
-        text,
-        style: body14Medium.copyWith(color: wippyGray900),
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
+      padding: const EdgeInsets.all(16),
+      child: Container(
+        width: double.infinity,
+        child: Text(
+          text,
+          textAlign: TextAlign.left,
+          style: body14Medium.copyWith(color: wippyGray900),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
       ),
     );
   }
