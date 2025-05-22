@@ -11,6 +11,7 @@ import 'package:quantum_dots/qds_input.dart';
 import 'package:quantum_dots/qds_page_route.dart';
 import 'package:quantum_dots/qds_popup.dart';
 import 'package:quantum_dots/qds_profile_card_grid.dart';
+import 'package:quantum_dots/qds_profile_card_portrait_medium.dart';
 import 'package:quantum_dots/qds_progress.dart';
 import 'package:quantum_dots/qds_spinner.dart';
 import 'package:quantum_dots/qds_tooltip.dart';
@@ -63,6 +64,7 @@ class DesignSystemSamplePage extends StatelessWidget {
         _buildQdsBulletTextComponents() +
         _buildQdsProfileCardGridComponents() +
         _buildQdsGuideComponents() +
+        _buildQdsProfileCardPortraitMediumComponents() +
         <Widget>[const SizedBox(height: 50)];
   }
 
@@ -716,6 +718,72 @@ List<Widget> _buildQdsProfileCardGridComponents() {
 List<Widget> _buildQdsGuideComponents() {
   return [
     const QdsGuide(text: "Guide Message"),
+  ];
+}
+
+List<Widget> _buildQdsProfileCardPortraitMediumComponents() {
+  return [
+    SizedBox(
+      height: 267,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          QdsProfileCardPortraitMedium(
+            uiState: QdsProfileCardPortraitMediumUiState(
+              imageUrl: testProfileImageUrl,
+              ekycVerified: true,
+              nicknameWithAge: "닉네임, 24",
+              dateTimeLeft: "⏱️ 1일 후 사라짐",
+              topInfoTitle: "💌 DM이 도착했어요!",
+              topInfoMessage: "분위기가 좋으셔서 용기내어 메세지 보냈습니다. 대화할 수 있으면 좋겠...",
+              needBlur: false,
+              leftButtonColorType: const QdsBoxButtonColorType.tertiary(),
+              leftButtonLabelType: const QdsBoxButtonLabelType.labelOnly(label: '삭제'),
+              rightButtonColorType: const QdsBoxButtonColorType.primary(),
+              rightButtonLabelType: const QdsBoxButtonLabelType.labelAndIcon(label: '보기', iconAssetString: IconPath.iconMessage16),
+              onClickLeftButton: () {},
+              onClickRightButton: () {},
+            ),
+          ),
+          const SizedBox(width: 12),
+          QdsProfileCardPortraitMedium(
+            uiState: QdsProfileCardPortraitMediumUiState(
+              imageUrl: testProfileImageUrl,
+              ekycVerified: true,
+              nicknameWithAge: "닉네임, 24",
+              dateTimeLeft: "⏱️ 1일 후 사라짐",
+              topInfoTitle: "💌 DM이 도착했어요!",
+              topInfoMessage: "분위기가 좋으셔서 용기내어 메세지 보냈습니다. 대화할 수 있으면 좋겠...",
+              needBlur: true,
+              leftButtonColorType: const QdsBoxButtonColorType.tertiary(),
+              leftButtonLabelType: const QdsBoxButtonLabelType.labelOnly(label: '삭제'),
+              rightButtonColorType: const QdsBoxButtonColorType.primary(),
+              rightButtonLabelType: const QdsBoxButtonLabelType.labelAndIcon(label: '보기', iconAssetString: IconPath.iconMessage16),
+              onClickLeftButton: () {},
+              onClickRightButton: () {},
+            ),
+          ),
+          const SizedBox(width: 12),
+          QdsProfileCardPortraitMedium(
+            uiState: QdsProfileCardPortraitMediumUiState(
+              imageUrl: testProfileImageUrl,
+              ekycVerified: true,
+              nicknameWithAge: "닉네임, 24",
+              dateTimeLeft: "⏱️ 1일 후 사라짐",
+              topInfoTitle: "💌 DM이 도착했어요!",
+              topInfoMessage: "분위기가 좋으셔서 용기내어 메세지 보냈습니다. 대화할 수 있으면 좋겠...",
+              needBlur: true,
+              leftButtonColorType: const QdsBoxButtonColorType.tertiary(),
+              leftButtonLabelType: const QdsBoxButtonLabelType.labelOnly(label: '삭제'),
+              rightButtonColorType: const QdsBoxButtonColorType.primary(),
+              rightButtonLabelType: const QdsBoxButtonLabelType.labelAndIcon(label: '보기', iconAssetString: IconPath.iconMessage16),
+              onClickLeftButton: () {},
+              onClickRightButton: () {},
+            ),
+          ),
+        ],
+      ),
+    ),
   ];
 }
 
