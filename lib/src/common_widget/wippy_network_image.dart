@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,6 +16,8 @@ class WippyNetworkImage extends StatelessWidget {
   final Duration fadeInDuration;
   final Duration placeholderFadeInDuration;
   final Color backgroundColor;
+  final bool isBlurred;
+  final double blurSigma;
 
   const WippyNetworkImage({
     required this.networkImageUrl,
@@ -26,6 +30,8 @@ class WippyNetworkImage extends StatelessWidget {
     this.fadeInDuration = const Duration(milliseconds: 50),
     this.placeholderFadeInDuration = const Duration(milliseconds: 50),
     this.backgroundColor = wippyGray100,
+    this.isBlurred = false,
+    this.blurSigma = 5.0,
     super.key,
   });
 
@@ -45,6 +51,23 @@ class WippyNetworkImage extends StatelessWidget {
                   fit: fit,
                   fadeInDuration: fadeInDuration,
                   fadeInCurve: Curves.easeInOut,
+                  imageBuilder: (context, imageProvider) {
+                    Widget image = Image(
+                      image: imageProvider,
+                      fit: fit,
+                    );
+
+                    if (isBlurred) {
+                      return ImageFiltered(
+                        imageFilter: ImageFilter.blur(
+                          sigmaX: blurSigma,
+                          sigmaY: blurSigma,
+                        ),
+                        child: image,
+                      );
+                    }
+                    return image;
+                  },
                   progressIndicatorBuilder: (context, url, progress) {
                     return AnimatedSwitcher(
                       duration: placeholderFadeInDuration,
