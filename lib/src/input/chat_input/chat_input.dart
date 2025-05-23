@@ -9,6 +9,7 @@ class ChatInput extends StatefulWidget {
   final String? placeHolder;
   final String? buildMessage;
   final bool textClearWhenSend;
+  final String? sendButtonIconPath;
 
   ChatInput({
     required this.onClickSend,
@@ -17,6 +18,7 @@ class ChatInput extends StatefulWidget {
     this.buildMessage,
     this.enable = true,
     this.textClearWhenSend = false,
+    this.sendButtonIconPath,
   }) : super(key: ValueKey(buildMessage));
 
   @override
@@ -74,6 +76,7 @@ class ChatInputState extends State<ChatInput> {
             ),
           ),
           SendButton(
+            iconPath: widget.sendButtonIconPath,
             onClickSend: () {
               if (widget.enable && _controller.value.text.isNotEmpty) {
                 widget.onClickSend(_controller.value.text);

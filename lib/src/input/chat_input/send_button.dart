@@ -9,11 +9,13 @@ class SendButton extends StatelessWidget {
   final Function onClickSend;
   final bool active;
   final bool empty;
+  final String? iconPath;
 
   const SendButton({
     required this.onClickSend,
     required this.active,
     this.empty = false,
+    this.iconPath,
     super.key,
   });
 
@@ -35,7 +37,7 @@ class SendButton extends StatelessWidget {
         child: Center(
           child: SizedIcon(
             size: iconSize,
-            asset: IconPath.iconMessage16,
+            asset: iconPath ?? IconPath.iconMessage16,
           ),
         ),
       ),
