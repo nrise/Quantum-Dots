@@ -10,7 +10,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.6
   cupertino_icons: ^1.0.8
-  quantum_dots: ^0.0.59
+  quantum_dots: ^0.0.60
 
 dev_dependencies:
   flutter_test:
