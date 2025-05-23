@@ -52,9 +52,9 @@ class QdsProfileCardPortraitMediumBottomInfoComponent extends StatelessWidget {
                 child: QdsBoxButton(
                   initUiState: QdsBoxButtonUiState(
                     buttonLabelType: uiState.leftButtonLabelType,
-                    buttonColorType: uiState.leftButtonColorType,
+                    buttonColorType: uiState.needBlur ? QdsBoxButtonColorType.tertiary() : uiState.leftButtonColorType,
                     buttonSizeType: QdsBoxButtonSizeType.small(),
-                    enable: uiState.leftButtonEnabled,
+                    enable: uiState.needBlur ? false : uiState.leftButtonEnabled,
                   ),
                   onPressed: uiState.onClickLeftButton,
                 ),
@@ -64,9 +64,9 @@ class QdsProfileCardPortraitMediumBottomInfoComponent extends StatelessWidget {
                 child: QdsBoxButton(
                   initUiState: QdsBoxButtonUiState(
                     buttonLabelType: uiState.rightButtonLabelType,
-                    buttonColorType: uiState.rightButtonColorType,
+                    buttonColorType: uiState.needBlur ? QdsBoxButtonColorType.tertiary() : uiState.rightButtonColorType,
                     buttonSizeType: QdsBoxButtonSizeType.small(),
-                    enable: uiState.rightButtonEnabled,
+                    enable: uiState.needBlur ? false : uiState.rightButtonEnabled,
                   ),
                   onPressed: uiState.onClickRightButton,
                 ),

@@ -12,4 +12,5 @@ class IconPath {
   static const String iconUpPoint24 = 'assets/icons/icon_up_point_24.svg';
   static const String iconDownPoint24 = 'assets/icons/icon_down_point_24.svg';
   static const String iconEkycVerified = 'assets/icons/icon_shield_filled_16.svg';
+  static const String iconDm = 'assets/icons/icon_dm_24.svg';
 }

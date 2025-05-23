@@ -497,6 +497,16 @@ class DesignSystemSamplePage extends StatelessWidget {
         },
         placeHolder: "Enter Message",
       ),
+      ChatInput(
+        onUpdatedMessage: (message) {
+          debugPrint(message);
+        },
+        onClickSend: (message) {
+          debugPrint(message);
+        },
+        placeHolder: "Enter Message custom icon",
+        sendButtonIconPath: IconPath.iconDm,
+      ),
     ];
   }
 
@@ -740,7 +750,7 @@ List<Widget> _buildQdsProfileCardPortraitMediumComponents() {
               leftButtonColorType: const QdsBoxButtonColorType.tertiary(),
               leftButtonLabelType: const QdsBoxButtonLabelType.labelOnly(label: '삭제'),
               rightButtonColorType: const QdsBoxButtonColorType.primary(),
-              rightButtonLabelType: const QdsBoxButtonLabelType.labelAndIcon(label: '보기', iconAssetString: IconPath.iconMessage16),
+              rightButtonLabelType: const QdsBoxButtonLabelType.labelAndIcon(label: '보기', iconAssetString: IconPath.iconDm),
               onClickLeftButton: () {},
               onClickRightButton: () {},
             ),
@@ -758,7 +768,7 @@ List<Widget> _buildQdsProfileCardPortraitMediumComponents() {
               leftButtonColorType: const QdsBoxButtonColorType.tertiary(),
               leftButtonLabelType: const QdsBoxButtonLabelType.labelOnly(label: '삭제'),
               rightButtonColorType: const QdsBoxButtonColorType.primary(),
-              rightButtonLabelType: const QdsBoxButtonLabelType.labelAndIcon(label: '보기', iconAssetString: IconPath.iconMessage16),
+              rightButtonLabelType: const QdsBoxButtonLabelType.labelAndIcon(label: '보기', iconAssetString: IconPath.iconDm),
               onClickLeftButton: () {},
               onClickRightButton: () {},
             ),
@@ -776,7 +786,7 @@ List<Widget> _buildQdsProfileCardPortraitMediumComponents() {
               leftButtonColorType: const QdsBoxButtonColorType.tertiary(),
               leftButtonLabelType: const QdsBoxButtonLabelType.labelOnly(label: '삭제'),
               rightButtonColorType: const QdsBoxButtonColorType.primary(),
-              rightButtonLabelType: const QdsBoxButtonLabelType.labelAndIcon(label: '보기', iconAssetString: IconPath.iconMessage16),
+              rightButtonLabelType: const QdsBoxButtonLabelType.labelAndIcon(label: '보기', iconAssetString: IconPath.iconDm),
               onClickLeftButton: () {},
               onClickRightButton: () {},
             ),
