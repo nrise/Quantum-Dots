@@ -728,6 +728,11 @@ List<Widget> _buildQdsProfileCardGridComponents() {
 List<Widget> _buildQdsGuideComponents() {
   return [
     const QdsGuide(text: "Guide Message"),
+    const QdsGuide(
+        text: "Guide Message 2 Guide Message 2 Guide Message 2 Guide Message 2 Guide Message 2 Guide Message 2 Guide Message 2 Guide Message 2 "),
+    const QdsGuide(
+        text: "Guide Message 2 Guide Message 2 Guide Message 2 Guide Message 2 Guide Message 2 Guide Message 2 Guide Message 2 Guide Message 2 ",
+        emojiText: "👀"),
   ];
 }
 
