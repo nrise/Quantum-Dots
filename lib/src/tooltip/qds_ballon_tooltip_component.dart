@@ -204,7 +204,7 @@ class QdsBalloonTooltipComponentState extends State<QdsBalloonTooltipComponent> 
       case TooltipPlacement.downCenter:
       case TooltipPlacement.downLeft:
       case TooltipPlacement.downRight:
-        return Offset(0, -(widget.offset ?? _defaultOffset));
+        return Offset(0, -(size.height + (widget.offset ?? _defaultOffset)));
       case TooltipPlacement.leftCenter:
         return Offset(size.width + (widget.offset ?? _defaultOffset), 0);
       case TooltipPlacement.rightCenter:
