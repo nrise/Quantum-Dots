@@ -32,7 +32,7 @@ mixin _$QdsProfileCardPortraitMediumUiState {
       throw _privateConstructorUsedError;
   QdsBoxButtonLabelType get rightButtonLabelType =>
       throw _privateConstructorUsedError;
-  bool get needBlur => throw _privateConstructorUsedError;
+  double get blurSigma => throw _privateConstructorUsedError;
   bool get leftButtonEnabled => throw _privateConstructorUsedError;
   bool get rightButtonEnabled => throw _privateConstructorUsedError;
 
@@ -65,7 +65,7 @@ abstract class $QdsProfileCardPortraitMediumUiStateCopyWith<$Res> {
       QdsBoxButtonColorType rightButtonColorType,
       QdsBoxButtonLabelType leftButtonLabelType,
       QdsBoxButtonLabelType rightButtonLabelType,
-      bool needBlur,
+      double blurSigma,
       bool leftButtonEnabled,
       bool rightButtonEnabled});
 
@@ -101,7 +101,7 @@ class _$QdsProfileCardPortraitMediumUiStateCopyWithImpl<$Res,
     Object? rightButtonColorType = null,
     Object? leftButtonLabelType = null,
     Object? rightButtonLabelType = null,
-    Object? needBlur = null,
+    Object? blurSigma = null,
     Object? leftButtonEnabled = null,
     Object? rightButtonEnabled = null,
   }) {
@@ -154,10 +154,10 @@ class _$QdsProfileCardPortraitMediumUiStateCopyWithImpl<$Res,
           ? _value.rightButtonLabelType
           : rightButtonLabelType // ignore: cast_nullable_to_non_nullable
               as QdsBoxButtonLabelType,
-      needBlur: null == needBlur
-          ? _value.needBlur
-          : needBlur // ignore: cast_nullable_to_non_nullable
-              as bool,
+      blurSigma: null == blurSigma
+          ? _value.blurSigma
+          : blurSigma // ignore: cast_nullable_to_non_nullable
+              as double,
       leftButtonEnabled: null == leftButtonEnabled
           ? _value.leftButtonEnabled
           : leftButtonEnabled // ignore: cast_nullable_to_non_nullable
@@ -214,7 +214,7 @@ abstract class _$$QdsProfileCardPortraitMediumUiStateImplCopyWith<$Res>
       QdsBoxButtonColorType rightButtonColorType,
       QdsBoxButtonLabelType leftButtonLabelType,
       QdsBoxButtonLabelType rightButtonLabelType,
-      bool needBlur,
+      double blurSigma,
       bool leftButtonEnabled,
       bool rightButtonEnabled});
 
@@ -251,7 +251,7 @@ class __$$QdsProfileCardPortraitMediumUiStateImplCopyWithImpl<$Res>
     Object? rightButtonColorType = null,
     Object? leftButtonLabelType = null,
     Object? rightButtonLabelType = null,
-    Object? needBlur = null,
+    Object? blurSigma = null,
     Object? leftButtonEnabled = null,
     Object? rightButtonEnabled = null,
   }) {
@@ -304,10 +304,10 @@ class __$$QdsProfileCardPortraitMediumUiStateImplCopyWithImpl<$Res>
           ? _value.rightButtonLabelType
           : rightButtonLabelType // ignore: cast_nullable_to_non_nullable
               as QdsBoxButtonLabelType,
-      needBlur: null == needBlur
-          ? _value.needBlur
-          : needBlur // ignore: cast_nullable_to_non_nullable
-              as bool,
+      blurSigma: null == blurSigma
+          ? _value.blurSigma
+          : blurSigma // ignore: cast_nullable_to_non_nullable
+              as double,
       leftButtonEnabled: null == leftButtonEnabled
           ? _value.leftButtonEnabled
           : leftButtonEnabled // ignore: cast_nullable_to_non_nullable
@@ -337,7 +337,7 @@ class _$QdsProfileCardPortraitMediumUiStateImpl
       required this.rightButtonColorType,
       required this.leftButtonLabelType,
       required this.rightButtonLabelType,
-      required this.needBlur,
+      this.blurSigma = 0.0,
       this.leftButtonEnabled = true,
       this.rightButtonEnabled = true});
 
@@ -366,7 +366,8 @@ class _$QdsProfileCardPortraitMediumUiStateImpl
   @override
   final QdsBoxButtonLabelType rightButtonLabelType;
   @override
-  final bool needBlur;
+  @JsonKey()
+  final double blurSigma;
   @override
   @JsonKey()
   final bool leftButtonEnabled;
@@ -376,7 +377,7 @@ class _$QdsProfileCardPortraitMediumUiStateImpl
 
   @override
   String toString() {
-    return 'QdsProfileCardPortraitMediumUiState(imageUrl: $imageUrl, nicknameWithAge: $nicknameWithAge, ekycVerified: $ekycVerified, dateTimeLeft: $dateTimeLeft, topInfoTitle: $topInfoTitle, topInfoMessage: $topInfoMessage, onClickLeftButton: $onClickLeftButton, onClickRightButton: $onClickRightButton, leftButtonColorType: $leftButtonColorType, rightButtonColorType: $rightButtonColorType, leftButtonLabelType: $leftButtonLabelType, rightButtonLabelType: $rightButtonLabelType, needBlur: $needBlur, leftButtonEnabled: $leftButtonEnabled, rightButtonEnabled: $rightButtonEnabled)';
+    return 'QdsProfileCardPortraitMediumUiState(imageUrl: $imageUrl, nicknameWithAge: $nicknameWithAge, ekycVerified: $ekycVerified, dateTimeLeft: $dateTimeLeft, topInfoTitle: $topInfoTitle, topInfoMessage: $topInfoMessage, onClickLeftButton: $onClickLeftButton, onClickRightButton: $onClickRightButton, leftButtonColorType: $leftButtonColorType, rightButtonColorType: $rightButtonColorType, leftButtonLabelType: $leftButtonLabelType, rightButtonLabelType: $rightButtonLabelType, blurSigma: $blurSigma, leftButtonEnabled: $leftButtonEnabled, rightButtonEnabled: $rightButtonEnabled)';
   }
 
   @override
@@ -408,8 +409,8 @@ class _$QdsProfileCardPortraitMediumUiStateImpl
                 other.leftButtonLabelType == leftButtonLabelType) &&
             (identical(other.rightButtonLabelType, rightButtonLabelType) ||
                 other.rightButtonLabelType == rightButtonLabelType) &&
-            (identical(other.needBlur, needBlur) ||
-                other.needBlur == needBlur) &&
+            (identical(other.blurSigma, blurSigma) ||
+                other.blurSigma == blurSigma) &&
             (identical(other.leftButtonEnabled, leftButtonEnabled) ||
                 other.leftButtonEnabled == leftButtonEnabled) &&
             (identical(other.rightButtonEnabled, rightButtonEnabled) ||
@@ -431,7 +432,7 @@ class _$QdsProfileCardPortraitMediumUiStateImpl
       rightButtonColorType,
       leftButtonLabelType,
       rightButtonLabelType,
-      needBlur,
+      blurSigma,
       leftButtonEnabled,
       rightButtonEnabled);
 
@@ -461,7 +462,7 @@ abstract class _QdsProfileCardPortraitMediumUiState
           required final QdsBoxButtonColorType rightButtonColorType,
           required final QdsBoxButtonLabelType leftButtonLabelType,
           required final QdsBoxButtonLabelType rightButtonLabelType,
-          required final bool needBlur,
+          final double blurSigma,
           final bool leftButtonEnabled,
           final bool rightButtonEnabled}) =
       _$QdsProfileCardPortraitMediumUiStateImpl;
@@ -491,7 +492,7 @@ abstract class _QdsProfileCardPortraitMediumUiState
   @override
   QdsBoxButtonLabelType get rightButtonLabelType;
   @override
-  bool get needBlur;
+  double get blurSigma;
   @override
   bool get leftButtonEnabled;
   @override

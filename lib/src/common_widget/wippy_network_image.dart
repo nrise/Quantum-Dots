@@ -16,7 +16,6 @@ class WippyNetworkImage extends StatelessWidget {
   final Duration fadeInDuration;
   final Duration placeholderFadeInDuration;
   final Color backgroundColor;
-  final bool isBlurred;
   final double blurSigma;
 
   const WippyNetworkImage({
@@ -30,8 +29,7 @@ class WippyNetworkImage extends StatelessWidget {
     this.fadeInDuration = const Duration(milliseconds: 50),
     this.placeholderFadeInDuration = const Duration(milliseconds: 50),
     this.backgroundColor = wippyGray100,
-    this.isBlurred = false,
-    this.blurSigma = 5.0,
+    this.blurSigma = 0.0,
     super.key,
   });
 
@@ -57,7 +55,7 @@ class WippyNetworkImage extends StatelessWidget {
                       fit: fit,
                     );
 
-                    if (isBlurred) {
+                    if (blurSigma > 0) {
                       return ImageFiltered(
                         imageFilter: ImageFilter.blur(
                           sigmaX: blurSigma,

@@ -22,7 +22,7 @@ class QdsProfileCardPortraitMedium extends StatelessWidget {
             networkImageUrl: uiState.imageUrl,
             width: double.infinity,
             height: double.infinity,
-            isBlurred: uiState.needBlur,
+            blurSigma: uiState.blurSigma,
             shapeDecoration: ShapeDecoration(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
