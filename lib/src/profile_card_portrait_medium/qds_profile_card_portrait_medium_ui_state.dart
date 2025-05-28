@@ -20,8 +20,12 @@ class QdsProfileCardPortraitMediumUiState with _$QdsProfileCardPortraitMediumUiS
     required QdsBoxButtonColorType rightButtonColorType,
     required QdsBoxButtonLabelType leftButtonLabelType,
     required QdsBoxButtonLabelType rightButtonLabelType,
-    required bool needBlur,
+    @Default(0.0) double blurSigma,
     @Default(true) bool leftButtonEnabled,
     @Default(true) bool rightButtonEnabled,
   }) = _QdsProfileCardPortraitMediumUiState;
+}
+
+extension QdsProfileCardPortraitMediumUiStateExtension on QdsProfileCardPortraitMediumUiState {
+  bool get needBlur => blurSigma > 0;
 }
