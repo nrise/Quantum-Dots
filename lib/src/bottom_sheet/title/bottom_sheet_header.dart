@@ -37,9 +37,14 @@ class BottomSheetHeader extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   width: _leadingAndActionsAreaSize,
                   child: hasLeading
-                      ? SizedIcon(
-                          size: 24,
-                          asset: _uiState.leading!.assetPath,
+                      ? GestureDetector(
+                          onTap: () {
+                            _uiState.leading!.onPressed?.call();
+                          },
+                          child: SizedIcon(
+                            size: 24,
+                            asset: _uiState.leading!.assetPath,
+                          ),
                         )
                       : const SizedBox(),
                 ),
