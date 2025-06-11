@@ -133,6 +133,26 @@ class _TooltipComponentState extends State<TooltipComponent> {
   }
 
   Widget _buildTooltipContainer() {
+    final content = Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.uiState.message,
+          textAlign: TextAlign.start,
+          style: body14Medium.copyWith(color: widget.uiState.textColor),
+          softWrap: widget.uiState.maxWidth != null,
+        ),
+      ],
+    );
+
+    final child = widget.uiState.maxWidth != null
+        ? ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: widget.uiState.maxWidth!),
+            child: content,
+          )
+        : IntrinsicWidth(child: content);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: ShapeDecoration(
@@ -141,19 +161,7 @@ class _TooltipComponentState extends State<TooltipComponent> {
           borderRadius: BorderRadius.circular(16),
         ),
       ),
-      child: IntrinsicWidth(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.uiState.message,
-              textAlign: TextAlign.start,
-              style: body14Medium.copyWith(color: widget.uiState.textColor),
-            ),
-          ],
-        ),
-      ),
+      child: child,
     );
   }
 }

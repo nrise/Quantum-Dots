@@ -20,6 +20,7 @@ mixin _$TooltipUiState {
   Color get textColor => throw _privateConstructorUsedError;
   Color get backgroundColor => throw _privateConstructorUsedError;
   TooltipPlacement get placement => throw _privateConstructorUsedError;
+  double? get maxWidth => throw _privateConstructorUsedError;
 
   /// Create a copy of TooltipUiState
   /// with the given fields replaced by the non-null parameter values.
@@ -38,7 +39,8 @@ abstract class $TooltipUiStateCopyWith<$Res> {
       {String message,
       Color textColor,
       Color backgroundColor,
-      TooltipPlacement placement});
+      TooltipPlacement placement,
+      double? maxWidth});
 }
 
 /// @nodoc
@@ -60,6 +62,7 @@ class _$TooltipUiStateCopyWithImpl<$Res, $Val extends TooltipUiState>
     Object? textColor = null,
     Object? backgroundColor = null,
     Object? placement = null,
+    Object? maxWidth = freezed,
   }) {
     return _then(_value.copyWith(
       message: null == message
@@ -78,6 +81,10 @@ class _$TooltipUiStateCopyWithImpl<$Res, $Val extends TooltipUiState>
           ? _value.placement
           : placement // ignore: cast_nullable_to_non_nullable
               as TooltipPlacement,
+      maxWidth: freezed == maxWidth
+          ? _value.maxWidth
+          : maxWidth // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 }
@@ -94,7 +101,8 @@ abstract class _$$TooltipUiStateImplCopyWith<$Res>
       {String message,
       Color textColor,
       Color backgroundColor,
-      TooltipPlacement placement});
+      TooltipPlacement placement,
+      double? maxWidth});
 }
 
 /// @nodoc
@@ -114,6 +122,7 @@ class __$$TooltipUiStateImplCopyWithImpl<$Res>
     Object? textColor = null,
     Object? backgroundColor = null,
     Object? placement = null,
+    Object? maxWidth = freezed,
   }) {
     return _then(_$TooltipUiStateImpl(
       message: null == message
@@ -132,6 +141,10 @@ class __$$TooltipUiStateImplCopyWithImpl<$Res>
           ? _value.placement
           : placement // ignore: cast_nullable_to_non_nullable
               as TooltipPlacement,
+      maxWidth: freezed == maxWidth
+          ? _value.maxWidth
+          : maxWidth // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -143,7 +156,8 @@ class _$TooltipUiStateImpl implements _TooltipUiState {
       {required this.message,
       required this.textColor,
       required this.backgroundColor,
-      required this.placement});
+      required this.placement,
+      this.maxWidth});
 
   @override
   final String message;
@@ -153,10 +167,12 @@ class _$TooltipUiStateImpl implements _TooltipUiState {
   final Color backgroundColor;
   @override
   final TooltipPlacement placement;
+  @override
+  final double? maxWidth;
 
   @override
   String toString() {
-    return 'TooltipUiState(message: $message, textColor: $textColor, backgroundColor: $backgroundColor, placement: $placement)';
+    return 'TooltipUiState(message: $message, textColor: $textColor, backgroundColor: $backgroundColor, placement: $placement, maxWidth: $maxWidth)';
   }
 
   @override
@@ -170,12 +186,14 @@ class _$TooltipUiStateImpl implements _TooltipUiState {
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
             (identical(other.placement, placement) ||
-                other.placement == placement));
+                other.placement == placement) &&
+            (identical(other.maxWidth, maxWidth) ||
+                other.maxWidth == maxWidth));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, message, textColor, backgroundColor, placement);
+  int get hashCode => Object.hash(
+      runtimeType, message, textColor, backgroundColor, placement, maxWidth);
 
   /// Create a copy of TooltipUiState
   /// with the given fields replaced by the non-null parameter values.
@@ -192,7 +210,8 @@ abstract class _TooltipUiState implements TooltipUiState {
       {required final String message,
       required final Color textColor,
       required final Color backgroundColor,
-      required final TooltipPlacement placement}) = _$TooltipUiStateImpl;
+      required final TooltipPlacement placement,
+      final double? maxWidth}) = _$TooltipUiStateImpl;
 
   @override
   String get message;
@@ -202,6 +221,8 @@ abstract class _TooltipUiState implements TooltipUiState {
   Color get backgroundColor;
   @override
   TooltipPlacement get placement;
+  @override
+  double? get maxWidth;
 
   /// Create a copy of TooltipUiState
   /// with the given fields replaced by the non-null parameter values.
