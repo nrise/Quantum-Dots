@@ -11,6 +11,7 @@ class TooltipUiState with _$TooltipUiState {
     required Color textColor,
     required Color backgroundColor,
     required TooltipPlacement placement,
+    double? maxWidth,
   }) = _TooltipUiState;
 }
 
