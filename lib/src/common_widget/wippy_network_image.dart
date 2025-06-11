@@ -26,8 +26,8 @@ class WippyNetworkImage extends StatelessWidget {
     this.fit = BoxFit.cover,
     this.placeHolderWidget,
     this.errorWidget,
-    this.fadeInDuration = const Duration(milliseconds: 50),
-    this.placeholderFadeInDuration = const Duration(milliseconds: 50),
+    this.fadeInDuration = const Duration(milliseconds: 200),
+    this.placeholderFadeInDuration = const Duration(milliseconds: 200),
     this.backgroundColor = wippyGray100,
     this.blurSigma = 0.0,
     super.key,
@@ -48,6 +48,7 @@ class WippyNetworkImage extends StatelessWidget {
                   imageUrl: networkImageUrl,
                   fit: fit,
                   fadeInDuration: fadeInDuration,
+                  fadeOutDuration: placeholderFadeInDuration,
                   fadeInCurve: Curves.easeInOut,
                   imageBuilder: (context, imageProvider) {
                     Widget image = Image(
