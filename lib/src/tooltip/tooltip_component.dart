@@ -47,7 +47,13 @@ class _TooltipComponentState extends State<TooltipComponent> {
               _buildTooltipContainer(),
               Padding(
                 padding: const EdgeInsets.only(right: 16),
-                child: SvgPicture.asset(arrowAssetPath),
+                child: SvgPicture.asset(
+                  arrowAssetPath,
+                  colorFilter: ColorFilter.mode(
+                    widget.uiState.backgroundColor,
+                    BlendMode.srcIn,
+                  ),
+                ),
               ),
             ],
           ),
@@ -56,7 +62,13 @@ class _TooltipComponentState extends State<TooltipComponent> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _buildTooltipContainer(),
-              SvgPicture.asset(arrowAssetPath),
+              SvgPicture.asset(
+                arrowAssetPath,
+                colorFilter: ColorFilter.mode(
+                  widget.uiState.backgroundColor,
+                  BlendMode.srcIn,
+                ),
+              ),
             ],
           ),
         TooltipPlacement.downLeft => Column(
@@ -66,7 +78,13 @@ class _TooltipComponentState extends State<TooltipComponent> {
               _buildTooltipContainer(),
               Padding(
                 padding: const EdgeInsets.only(left: 16),
-                child: SvgPicture.asset(arrowAssetPath),
+                child: SvgPicture.asset(
+                  arrowAssetPath,
+                  colorFilter: ColorFilter.mode(
+                    widget.uiState.backgroundColor,
+                    BlendMode.srcIn,
+                  ),
+                ),
               ),
             ],
           ),
@@ -78,7 +96,13 @@ class _TooltipComponentState extends State<TooltipComponent> {
               SizedBox(
                 width: 6,
                 height: 10,
-                child: SvgPicture.asset(arrowAssetPath),
+                child: SvgPicture.asset(
+                  arrowAssetPath,
+                  colorFilter: ColorFilter.mode(
+                    widget.uiState.backgroundColor,
+                    BlendMode.srcIn,
+                  ),
+                ),
               ),
             ],
           ),
@@ -88,7 +112,13 @@ class _TooltipComponentState extends State<TooltipComponent> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 16),
-                child: SvgPicture.asset(arrowAssetPath),
+                child: SvgPicture.asset(
+                  arrowAssetPath,
+                  colorFilter: ColorFilter.mode(
+                    widget.uiState.backgroundColor,
+                    BlendMode.srcIn,
+                  ),
+                ),
               ),
               _buildTooltipContainer(),
             ],
@@ -100,7 +130,13 @@ class _TooltipComponentState extends State<TooltipComponent> {
               SizedBox(
                 width: 10,
                 height: 6,
-                child: SvgPicture.asset(arrowAssetPath),
+                child: SvgPicture.asset(
+                  arrowAssetPath,
+                  colorFilter: ColorFilter.mode(
+                    widget.uiState.backgroundColor,
+                    BlendMode.srcIn,
+                  ),
+                ),
               ),
               _buildTooltipContainer(),
             ],
@@ -111,7 +147,13 @@ class _TooltipComponentState extends State<TooltipComponent> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 16),
-                child: SvgPicture.asset(arrowAssetPath),
+                child: SvgPicture.asset(
+                  arrowAssetPath,
+                  colorFilter: ColorFilter.mode(
+                    widget.uiState.backgroundColor,
+                    BlendMode.srcIn,
+                  ),
+                ),
               ),
               _buildTooltipContainer(),
             ],
@@ -123,7 +165,13 @@ class _TooltipComponentState extends State<TooltipComponent> {
               SizedBox(
                 width: 6,
                 height: 10,
-                child: SvgPicture.asset(arrowAssetPath),
+                child: SvgPicture.asset(
+                  arrowAssetPath,
+                  colorFilter: ColorFilter.mode(
+                    widget.uiState.backgroundColor,
+                    BlendMode.srcIn,
+                  ),
+                ),
               ),
               _buildTooltipContainer(),
             ],

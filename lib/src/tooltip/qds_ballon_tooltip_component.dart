@@ -32,6 +32,8 @@ class QdsBalloonTooltipComponentState extends State<QdsBalloonTooltipComponent> 
   final GlobalKey _childKey = GlobalKey();
   bool _isVisible = false;
   bool _isInViewport = true;
+  bool _isModalActive = false;
+  bool _wasVisibleBeforeModal = false;
 
   @override
   void initState() {
@@ -46,6 +48,48 @@ class QdsBalloonTooltipComponentState extends State<QdsBalloonTooltipComponent> 
     }
 
     _startVisibilityCheck();
+    _startModalDetection();
+  }
+
+  void _startModalDetection() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _checkModalState();
+        _startModalDetection();
+      }
+    });
+  }
+
+  void _checkModalState() {
+    if (!mounted) return;
+
+    try {
+      final navigator = Navigator.of(context);
+      bool hasModalNow = navigator.canPop();
+
+      if (hasModalNow != _isModalActive) {
+        _handleModalStateChange(hasModalNow);
+      }
+    } catch (e) {
+      debugPrint('Modal detection error: $e');
+    }
+  }
+
+  void _handleModalStateChange(bool isModalActive) {
+    setState(() {
+      if (isModalActive && !_isModalActive) {
+        _wasVisibleBeforeModal = _isVisible;
+        _isModalActive = true;
+        if (_isVisible) {
+          removeTooltip();
+        }
+      } else if (!isModalActive && _isModalActive) {
+        _isModalActive = false;
+        if (_wasVisibleBeforeModal && _isInViewport) {
+          _showTooltipIfNeeded();
+        }
+      }
+    });
   }
 
   @override
@@ -55,7 +99,7 @@ class QdsBalloonTooltipComponentState extends State<QdsBalloonTooltipComponent> 
     if (widget.isVisible != oldWidget.isVisible) {
       _isVisible = widget.isVisible;
 
-      if (_isVisible) {
+      if (_isVisible && !_isModalActive) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           _showTooltipIfNeeded();
         });
@@ -113,19 +157,19 @@ class QdsBalloonTooltipComponentState extends State<QdsBalloonTooltipComponent> 
 
         if (!_isInViewport) {
           removeTooltip();
-        } else if (_isVisible) {
+        } else if (_isVisible && !_isModalActive) {
           _showTooltipIfNeeded();
         }
       }
     } catch (e) {
-      debugPrint('Visibility check error: $e');
+      debugPrint('Modal detection error: $e');
     }
   }
 
   void _showTooltipIfNeeded() {
-    if (!mounted || !_isInViewport || !_isVisible) return;
+    if (!mounted || !_isInViewport || !_isVisible || _isModalActive) return;
     Future.delayed(widget.visibleDuration ?? _defaultVisibleDuration, () {
-      if (mounted && _isVisible && _isInViewport) {
+      if (mounted && _isVisible && _isInViewport && !_isModalActive) {
         showTooltip();
       }
     });
@@ -173,7 +217,7 @@ class QdsBalloonTooltipComponentState extends State<QdsBalloonTooltipComponent> 
         overlay.insert(_overlayEntry!);
       }
     } catch (e) {
-      debugPrint('Failed to show tooltip: $e');
+      debugPrint('Error removing overlay: $e');
     }
   }
 
