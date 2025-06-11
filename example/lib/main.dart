@@ -46,6 +46,7 @@ class DesignSystemSamplePage extends StatelessWidget {
     return <Widget>[const SizedBox(height: 50)] +
         [_buildImageSlotComponents(context)] +
         _buildWippyTooltipComponents(context) +
+        _buildTooltipModalDetectionTest(context) +
         _buildWippyBadge() +
         _buildWippyBottomSheetComponents(context) +
         _buildWippyDropDownComponents() +
@@ -656,6 +657,160 @@ List<Widget> _buildWippyTooltipComponents(BuildContext context) {
       ),
       onClickTooltip: () {},
     ),
+  ];
+}
+
+List<Widget> _buildTooltipModalDetectionTest(BuildContext context) {
+  return [
+    const Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Text(
+        'Tooltip Modal Detection Test',
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      ),
+    ),
+    const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
+      child: Text(
+        'Tooltips below should hide when popup/bottom sheet is shown and reappear when dismissed:',
+        style: TextStyle(fontSize: 14, color: Colors.grey),
+      ),
+    ),
+    const SizedBox(height: 16),
+    Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        QdsBalloonTooltipComponent(
+          isVisible: true,
+          uiState: TooltipUiState(
+            message: "I should hide when\ndialog opens!",
+            placement: TooltipPlacement.upCenter,
+            textColor: wippyWhite,
+            backgroundColor: wippyBlue500,
+          ),
+          child: QdsBoxButton(
+            initUiState: QdsBoxButtonUiState(
+              buttonColorType: const QdsBoxButtonColorType.secondary(),
+              buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Show Dialog'),
+              buttonSizeType: QdsBoxButtonSizeType.small(),
+            ),
+            onPressed: () {
+              showDialog(
+                barrierDismissible: true,
+                context: context,
+                builder: (context) {
+                  return WippyPopup(
+                    uiState: WippyPopupUiState(
+                      title: 'Dialog Test',
+                      description: 'Tooltip should be hidden now!',
+                      popupButtonType: PopupButtonType.singleButton(
+                        label: 'Close',
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ),
+        // Tooltip + BottomSheet Test
+        QdsBalloonTooltipComponent(
+          isVisible: true,
+          uiState: TooltipUiState(
+            message: "I should hide when\nbottom sheet opens!",
+            placement: TooltipPlacement.upCenter,
+            textColor: wippyWhite,
+            backgroundColor: wippyPink500,
+          ),
+          child: QdsBoxButton(
+            initUiState: QdsBoxButtonUiState(
+              buttonColorType: const QdsBoxButtonColorType.primary(),
+              buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Show BottomSheet'),
+              buttonSizeType: QdsBoxButtonSizeType.small(),
+            ),
+            onPressed: () {
+              showWippyBottomSheet(
+                name: "TooltipTestBottomSheet",
+                isDismissible: true,
+                context: context,
+                buildBottomSheet: (context) {
+                  return Container(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          'BottomSheet Test',
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 16),
+                        const Text('Tooltip should be hidden now!'),
+                        const SizedBox(height: 20),
+                        QdsBoxButton(
+                          initUiState: QdsBoxButtonUiState(
+                            buttonColorType: const QdsBoxButtonColorType.primary(),
+                            buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Close'),
+                            buttonSizeType: QdsBoxButtonSizeType.large(),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ),
+      ],
+    ),
+    const SizedBox(height: 20),
+    // Additional test with different placements
+    Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        QdsBalloonTooltipComponent(
+          isVisible: true,
+          uiState: TooltipUiState(
+            message: "Left tooltip test",
+            placement: TooltipPlacement.rightCenter,
+            textColor: wippyWhite,
+            backgroundColor: wippyBlue500,
+          ),
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: wippyGray100,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: const Text('Hover me (left tooltip)'),
+          ),
+        ),
+        QdsBalloonTooltipComponent(
+          isVisible: true,
+          uiState: TooltipUiState(
+            message: "Right tooltip test",
+            placement: TooltipPlacement.leftCenter,
+            textColor: wippyWhite,
+            backgroundColor: wippyGray800,
+          ),
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: wippyGray100,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: const Text('Hover me (right tooltip)'),
+          ),
+        ),
+      ],
+    ),
+    const SizedBox(height: 16),
   ];
 }
 
