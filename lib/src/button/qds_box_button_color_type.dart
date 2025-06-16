@@ -88,7 +88,7 @@ class Secondary implements QdsBoxButtonColorType {
       case QdsBoxButtonLoading():
         return wippyPink300;
       case QdsBoxButtonProgress():
-        throw UnimplementedError();
+        return wippyPink400;
     }
   }
 
@@ -110,6 +110,9 @@ class Secondary implements QdsBoxButtonColorType {
 
   @override
   Color getProgressColor(QdsBoxButtonState state) {
+    if (state is QdsBoxButtonProgress) {
+      return wippyPink300;
+    }
     throw UnimplementedError();
   }
 }

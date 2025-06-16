@@ -12,5 +12,8 @@ sealed class QdsBoxButtonState with _$QdsBoxButtonState {
 
   const factory QdsBoxButtonState.active() = QdsBoxButtonActive;
 
-  const factory QdsBoxButtonState.progress({required double progress}) = QdsBoxButtonProgress;
+  const factory QdsBoxButtonState.progress({
+    required double progress,
+    @Default(false) bool needLoading,
+  }) = QdsBoxButtonProgress;
 }

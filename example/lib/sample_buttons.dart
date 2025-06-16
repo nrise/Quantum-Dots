@@ -86,6 +86,42 @@ class _SampleButtonsState extends State<SampleButtons> {
         const SizedBox(height: 16),
         SizedBox(
           width: double.infinity,
+          child: QdsBoxButton(
+            initUiState: QdsBoxButtonUiState(
+              buttonColorType: const QdsBoxButtonColorType.primary(),
+              buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'small Progress'),
+              buttonSizeType: QdsBoxButtonSizeType.small(),
+              state: QdsBoxButtonState.progress(progress: _progress),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        SizedBox(
+          width: double.infinity,
+          child: QdsBoxButton(
+            initUiState: QdsBoxButtonUiState(
+              buttonColorType: const QdsBoxButtonColorType.primary(),
+              buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'small primary Progress needLoading'),
+              buttonSizeType: QdsBoxButtonSizeType.small(),
+              state: QdsBoxButtonState.progress(progress: _progress, needLoading: true),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        SizedBox(
+          width: double.infinity,
+          child: QdsBoxButton(
+            initUiState: QdsBoxButtonUiState(
+              buttonColorType: const QdsBoxButtonColorType.secondary(),
+              buttonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'small secondary Progress needLoading'),
+              buttonSizeType: QdsBoxButtonSizeType.small(),
+              state: QdsBoxButtonState.progress(progress: _progress, needLoading: true),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        SizedBox(
+          width: double.infinity,
           child: Row(
             children: [
               Expanded(

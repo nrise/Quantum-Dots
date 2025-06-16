@@ -22,7 +22,7 @@ mixin _$QdsBoxButtonState {
     required TResult Function() inactive,
     required TResult Function() loading,
     required TResult Function() active,
-    required TResult Function(double progress) progress,
+    required TResult Function(double progress, bool needLoading) progress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$QdsBoxButtonState {
     TResult? Function()? inactive,
     TResult? Function()? loading,
     TResult? Function()? active,
-    TResult? Function(double progress)? progress,
+    TResult? Function(double progress, bool needLoading)? progress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$QdsBoxButtonState {
     TResult Function()? inactive,
     TResult Function()? loading,
     TResult Function()? active,
-    TResult Function(double progress)? progress,
+    TResult Function(double progress, bool needLoading)? progress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,7 +141,7 @@ class _$QdsBoxButtonPressedImpl implements QdsBoxButtonPressed {
     required TResult Function() inactive,
     required TResult Function() loading,
     required TResult Function() active,
-    required TResult Function(double progress) progress,
+    required TResult Function(double progress, bool needLoading) progress,
   }) {
     return pressed();
   }
@@ -153,7 +153,7 @@ class _$QdsBoxButtonPressedImpl implements QdsBoxButtonPressed {
     TResult? Function()? inactive,
     TResult? Function()? loading,
     TResult? Function()? active,
-    TResult? Function(double progress)? progress,
+    TResult? Function(double progress, bool needLoading)? progress,
   }) {
     return pressed?.call();
   }
@@ -165,7 +165,7 @@ class _$QdsBoxButtonPressedImpl implements QdsBoxButtonPressed {
     TResult Function()? inactive,
     TResult Function()? loading,
     TResult Function()? active,
-    TResult Function(double progress)? progress,
+    TResult Function(double progress, bool needLoading)? progress,
     required TResult orElse(),
   }) {
     if (pressed != null) {
@@ -265,7 +265,7 @@ class _$QdsBoxButtonInactiveImpl implements QdsBoxButtonInactive {
     required TResult Function() inactive,
     required TResult Function() loading,
     required TResult Function() active,
-    required TResult Function(double progress) progress,
+    required TResult Function(double progress, bool needLoading) progress,
   }) {
     return inactive();
   }
@@ -277,7 +277,7 @@ class _$QdsBoxButtonInactiveImpl implements QdsBoxButtonInactive {
     TResult? Function()? inactive,
     TResult? Function()? loading,
     TResult? Function()? active,
-    TResult? Function(double progress)? progress,
+    TResult? Function(double progress, bool needLoading)? progress,
   }) {
     return inactive?.call();
   }
@@ -289,7 +289,7 @@ class _$QdsBoxButtonInactiveImpl implements QdsBoxButtonInactive {
     TResult Function()? inactive,
     TResult Function()? loading,
     TResult Function()? active,
-    TResult Function(double progress)? progress,
+    TResult Function(double progress, bool needLoading)? progress,
     required TResult orElse(),
   }) {
     if (inactive != null) {
@@ -389,7 +389,7 @@ class _$QdsBoxButtonLoadingImpl implements QdsBoxButtonLoading {
     required TResult Function() inactive,
     required TResult Function() loading,
     required TResult Function() active,
-    required TResult Function(double progress) progress,
+    required TResult Function(double progress, bool needLoading) progress,
   }) {
     return loading();
   }
@@ -401,7 +401,7 @@ class _$QdsBoxButtonLoadingImpl implements QdsBoxButtonLoading {
     TResult? Function()? inactive,
     TResult? Function()? loading,
     TResult? Function()? active,
-    TResult? Function(double progress)? progress,
+    TResult? Function(double progress, bool needLoading)? progress,
   }) {
     return loading?.call();
   }
@@ -413,7 +413,7 @@ class _$QdsBoxButtonLoadingImpl implements QdsBoxButtonLoading {
     TResult Function()? inactive,
     TResult Function()? loading,
     TResult Function()? active,
-    TResult Function(double progress)? progress,
+    TResult Function(double progress, bool needLoading)? progress,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -512,7 +512,7 @@ class _$QdsBoxButtonActiveImpl implements QdsBoxButtonActive {
     required TResult Function() inactive,
     required TResult Function() loading,
     required TResult Function() active,
-    required TResult Function(double progress) progress,
+    required TResult Function(double progress, bool needLoading) progress,
   }) {
     return active();
   }
@@ -524,7 +524,7 @@ class _$QdsBoxButtonActiveImpl implements QdsBoxButtonActive {
     TResult? Function()? inactive,
     TResult? Function()? loading,
     TResult? Function()? active,
-    TResult? Function(double progress)? progress,
+    TResult? Function(double progress, bool needLoading)? progress,
   }) {
     return active?.call();
   }
@@ -536,7 +536,7 @@ class _$QdsBoxButtonActiveImpl implements QdsBoxButtonActive {
     TResult Function()? inactive,
     TResult Function()? loading,
     TResult Function()? active,
-    TResult Function(double progress)? progress,
+    TResult Function(double progress, bool needLoading)? progress,
     required TResult orElse(),
   }) {
     if (active != null) {
@@ -596,7 +596,7 @@ abstract class _$$QdsBoxButtonProgressImplCopyWith<$Res> {
           $Res Function(_$QdsBoxButtonProgressImpl) then) =
       __$$QdsBoxButtonProgressImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({double progress});
+  $Res call({double progress, bool needLoading});
 }
 
 /// @nodoc
@@ -613,12 +613,17 @@ class __$$QdsBoxButtonProgressImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? progress = null,
+    Object? needLoading = null,
   }) {
     return _then(_$QdsBoxButtonProgressImpl(
       progress: null == progress
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
               as double,
+      needLoading: null == needLoading
+          ? _value.needLoading
+          : needLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -626,14 +631,18 @@ class __$$QdsBoxButtonProgressImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$QdsBoxButtonProgressImpl implements QdsBoxButtonProgress {
-  const _$QdsBoxButtonProgressImpl({required this.progress});
+  const _$QdsBoxButtonProgressImpl(
+      {required this.progress, this.needLoading = false});
 
   @override
   final double progress;
+  @override
+  @JsonKey()
+  final bool needLoading;
 
   @override
   String toString() {
-    return 'QdsBoxButtonState.progress(progress: $progress)';
+    return 'QdsBoxButtonState.progress(progress: $progress, needLoading: $needLoading)';
   }
 
   @override
@@ -642,11 +651,13 @@ class _$QdsBoxButtonProgressImpl implements QdsBoxButtonProgress {
         (other.runtimeType == runtimeType &&
             other is _$QdsBoxButtonProgressImpl &&
             (identical(other.progress, progress) ||
-                other.progress == progress));
+                other.progress == progress) &&
+            (identical(other.needLoading, needLoading) ||
+                other.needLoading == needLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, progress);
+  int get hashCode => Object.hash(runtimeType, progress, needLoading);
 
   /// Create a copy of QdsBoxButtonState
   /// with the given fields replaced by the non-null parameter values.
@@ -665,9 +676,9 @@ class _$QdsBoxButtonProgressImpl implements QdsBoxButtonProgress {
     required TResult Function() inactive,
     required TResult Function() loading,
     required TResult Function() active,
-    required TResult Function(double progress) progress,
+    required TResult Function(double progress, bool needLoading) progress,
   }) {
-    return progress(this.progress);
+    return progress(this.progress, needLoading);
   }
 
   @override
@@ -677,9 +688,9 @@ class _$QdsBoxButtonProgressImpl implements QdsBoxButtonProgress {
     TResult? Function()? inactive,
     TResult? Function()? loading,
     TResult? Function()? active,
-    TResult? Function(double progress)? progress,
+    TResult? Function(double progress, bool needLoading)? progress,
   }) {
-    return progress?.call(this.progress);
+    return progress?.call(this.progress, needLoading);
   }
 
   @override
@@ -689,11 +700,11 @@ class _$QdsBoxButtonProgressImpl implements QdsBoxButtonProgress {
     TResult Function()? inactive,
     TResult Function()? loading,
     TResult Function()? active,
-    TResult Function(double progress)? progress,
+    TResult Function(double progress, bool needLoading)? progress,
     required TResult orElse(),
   }) {
     if (progress != null) {
-      return progress(this.progress);
+      return progress(this.progress, needLoading);
     }
     return orElse();
   }
@@ -740,10 +751,12 @@ class _$QdsBoxButtonProgressImpl implements QdsBoxButtonProgress {
 }
 
 abstract class QdsBoxButtonProgress implements QdsBoxButtonState {
-  const factory QdsBoxButtonProgress({required final double progress}) =
-      _$QdsBoxButtonProgressImpl;
+  const factory QdsBoxButtonProgress(
+      {required final double progress,
+      final bool needLoading}) = _$QdsBoxButtonProgressImpl;
 
   double get progress;
+  bool get needLoading;
 
   /// Create a copy of QdsBoxButtonState
   /// with the given fields replaced by the non-null parameter values.
