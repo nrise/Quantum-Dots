@@ -90,6 +90,19 @@ class QdsBoxButton extends StatelessWidget {
       ),
     );
 
+    if (uiState.state is QdsBoxButtonProgress && (uiState.state as QdsBoxButtonProgress).needLoading) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _buildLoadingIndicator(uiState.iconColor, uiState.buttonSizeType),
+          SizedBox(width: 2),
+          SizedBox(width: _getIconAndTextSpaceWidth(uiState.buttonSizeType)),
+          textWidget,
+        ],
+      );
+    }
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
