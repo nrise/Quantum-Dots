@@ -2,16 +2,20 @@ import 'package:flutter/widgets.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 
 class BottomSheetTop extends StatelessWidget {
+  final Color backgroundColor;
+
+  const BottomSheetTop({
+    super.key,
+    this.backgroundColor = wippyWhite,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: wippyWhite,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(16),
-          topRight: Radius.circular(16),
-        ),
+        color: backgroundColor,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
       child: Column(
         children: [
