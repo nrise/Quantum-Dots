@@ -473,6 +473,16 @@ class DesignSystemSamplePage extends StatelessWidget {
           textInputAction: TextInputAction.newline,
         ),
       ),
+      QdsTextArea(
+        initialData: const TextAreaInitialData(
+          label: "Highlighted Text Area (Pink 배경색)",
+          text: "이것은 wippyPink300 배경색이 적용된 텍스트입니다.",
+          placeholder: "형광펜 효과가 적용된 텍스트를 입력해보세요",
+          helperMessage: "wippyPink300 배경색으로 하이라이팅됩니다",
+          backgroundColor: wippyPink300,
+          textInputAction: TextInputAction.done,
+        ),
+      ),
     ];
   }
 

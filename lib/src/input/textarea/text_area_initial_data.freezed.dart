@@ -26,6 +26,7 @@ mixin _$TextAreaInitialData {
   TextInputFocusState get focusState => throw _privateConstructorUsedError;
   TextInputErrorState get errorState => throw _privateConstructorUsedError;
   TextInputState get state => throw _privateConstructorUsedError;
+  Color? get backgroundColor => throw _privateConstructorUsedError;
 
   /// Create a copy of TextAreaInitialData
   /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +51,8 @@ abstract class $TextAreaInitialDataCopyWith<$Res> {
       String text,
       TextInputFocusState focusState,
       TextInputErrorState errorState,
-      TextInputState state});
+      TextInputState state,
+      Color? backgroundColor});
 
   $TextInputFocusStateCopyWith<$Res> get focusState;
   $TextInputErrorStateCopyWith<$Res> get errorState;
@@ -81,6 +83,7 @@ class _$TextAreaInitialDataCopyWithImpl<$Res, $Val extends TextAreaInitialData>
     Object? focusState = null,
     Object? errorState = null,
     Object? state = null,
+    Object? backgroundColor = freezed,
   }) {
     return _then(_value.copyWith(
       label: freezed == label
@@ -123,6 +126,10 @@ class _$TextAreaInitialDataCopyWithImpl<$Res, $Val extends TextAreaInitialData>
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as TextInputState,
+      backgroundColor: freezed == backgroundColor
+          ? _value.backgroundColor
+          : backgroundColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
     ) as $Val);
   }
 
@@ -165,7 +172,8 @@ abstract class _$$TextAreaInitialDataImplCopyWith<$Res>
       String text,
       TextInputFocusState focusState,
       TextInputErrorState errorState,
-      TextInputState state});
+      TextInputState state,
+      Color? backgroundColor});
 
   @override
   $TextInputFocusStateCopyWith<$Res> get focusState;
@@ -196,6 +204,7 @@ class __$$TextAreaInitialDataImplCopyWithImpl<$Res>
     Object? focusState = null,
     Object? errorState = null,
     Object? state = null,
+    Object? backgroundColor = freezed,
   }) {
     return _then(_$TextAreaInitialDataImpl(
       label: freezed == label
@@ -238,6 +247,10 @@ class __$$TextAreaInitialDataImplCopyWithImpl<$Res>
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as TextInputState,
+      backgroundColor: freezed == backgroundColor
+          ? _value.backgroundColor
+          : backgroundColor // ignore: cast_nullable_to_non_nullable
+              as Color?,
     ));
   }
 }
@@ -255,7 +268,8 @@ class _$TextAreaInitialDataImpl implements _TextAreaInitialData {
       this.text = "",
       this.focusState = const TextInputFocusState.focusout(),
       this.errorState = const TextInputErrorState.none(),
-      this.state = TextInputState.inactive});
+      this.state = TextInputState.inactive,
+      this.backgroundColor = null});
 
   @override
   @JsonKey()
@@ -287,10 +301,13 @@ class _$TextAreaInitialDataImpl implements _TextAreaInitialData {
   @override
   @JsonKey()
   final TextInputState state;
+  @override
+  @JsonKey()
+  final Color? backgroundColor;
 
   @override
   String toString() {
-    return 'TextAreaInitialData(label: $label, helperMessage: $helperMessage, placeholder: $placeholder, maxCount: $maxCount, inputType: $inputType, textInputAction: $textInputAction, text: $text, focusState: $focusState, errorState: $errorState, state: $state)';
+    return 'TextAreaInitialData(label: $label, helperMessage: $helperMessage, placeholder: $placeholder, maxCount: $maxCount, inputType: $inputType, textInputAction: $textInputAction, text: $text, focusState: $focusState, errorState: $errorState, state: $state, backgroundColor: $backgroundColor)';
   }
 
   @override
@@ -314,7 +331,9 @@ class _$TextAreaInitialDataImpl implements _TextAreaInitialData {
                 other.focusState == focusState) &&
             (identical(other.errorState, errorState) ||
                 other.errorState == errorState) &&
-            (identical(other.state, state) || other.state == state));
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.backgroundColor, backgroundColor) ||
+                other.backgroundColor == backgroundColor));
   }
 
   @override
@@ -329,7 +348,8 @@ class _$TextAreaInitialDataImpl implements _TextAreaInitialData {
       text,
       focusState,
       errorState,
-      state);
+      state,
+      backgroundColor);
 
   /// Create a copy of TextAreaInitialData
   /// with the given fields replaced by the non-null parameter values.
@@ -352,7 +372,8 @@ abstract class _TextAreaInitialData implements TextAreaInitialData {
       final String text,
       final TextInputFocusState focusState,
       final TextInputErrorState errorState,
-      final TextInputState state}) = _$TextAreaInitialDataImpl;
+      final TextInputState state,
+      final Color? backgroundColor}) = _$TextAreaInitialDataImpl;
 
   @override
   String? get label;
@@ -374,6 +395,8 @@ abstract class _TextAreaInitialData implements TextAreaInitialData {
   TextInputErrorState get errorState;
   @override
   TextInputState get state;
+  @override
+  Color? get backgroundColor;
 
   /// Create a copy of TextAreaInitialData
   /// with the given fields replaced by the non-null parameter values.

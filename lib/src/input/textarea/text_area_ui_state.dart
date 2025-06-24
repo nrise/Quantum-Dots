@@ -21,6 +21,7 @@ class TextAreaUiState with _$TextAreaUiState {
     @Default(TextInputFocusState.focusout()) TextInputFocusState focusState,
     @Default(TextInputErrorState.none()) TextInputErrorState errorState,
     @Default(TextInputState.inactive) TextInputState state,
+    @Default(null) Color? backgroundColor,
   }) = _TextAreaUiState;
 }
 
