@@ -39,9 +39,11 @@ class QdsProfileCardPortraitMedium extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      wippyBlue500.withAlpha(240),
+                      wippyBlue500.withAlpha(255),
+                      wippyBlue500.withAlpha(204),
                       wippyBlue500.withAlpha(0),
                     ],
+                    stops: [0, 0.8, 1],
                   ),
                 ),
               ),
