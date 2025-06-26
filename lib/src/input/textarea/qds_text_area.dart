@@ -56,6 +56,16 @@ class QdsTextArea extends StatelessWidget {
     return null;
   }
 
+  TextStyle _buildTextStyle(TextAreaUiState uiState) {
+    TextStyle baseStyle = body14Medium.copyWith(color: wippyGray900);
+
+    if (uiState.backgroundColor != null) {
+      return baseStyle.copyWith(backgroundColor: uiState.backgroundColor);
+    }
+
+    return baseStyle;
+  }
+
   Widget _buildTextAreaWidget({
     required BuildContext context,
     required TextAreaUiState uiState,
@@ -81,7 +91,7 @@ class QdsTextArea extends StatelessWidget {
         controller: textAreaCubit.textController,
         onChanged: textAreaCubit.onTextChanged,
         maxLines: uiState.maxLines,
-        style: body14Medium.copyWith(color: wippyGray900),
+        style: _buildTextStyle(uiState),
         decoration: InputDecoration(
           isDense: true,
           contentPadding: EdgeInsets.zero,
