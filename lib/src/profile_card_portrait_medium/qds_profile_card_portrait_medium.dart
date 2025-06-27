@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../common_widget/wippy_network_image.dart';
 import '../foundation/color.dart';
+import 'profile_card_portrait_medium_gradient_decoration.dart';
 import 'qds_profile_card_portrait_medium_bottom_info_component.dart';
 import 'qds_profile_card_portrait_medium_top_info_component.dart';
 import 'qds_profile_card_portrait_medium_ui_state.dart';
@@ -33,19 +34,7 @@ class QdsProfileCardPortraitMedium extends StatelessWidget {
             IgnorePointer(
               child: Container(
                 height: 78,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16)),
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      wippyBlue500.withAlpha(255),
-                      wippyBlue500.withAlpha(204),
-                      wippyBlue500.withAlpha(0),
-                    ],
-                    stops: [0, 0.8, 1],
-                  ),
-                ),
+                decoration: profileCardPortraitMediumGradientDecoration,
               ),
             ),
             Positioned(
