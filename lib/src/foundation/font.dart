@@ -16,7 +16,7 @@ const headline24Bold = TextStyle(
   fontWeight: FontWeight.w700,
   fontSize: 24.0,
   letterSpacing: 0,
-  height: 1.33, // 32pt line height
+  height: 1.417, // 34pt line height
   color: Colors.black,
 );
 
@@ -61,7 +61,7 @@ const body16Bold = TextStyle(
   fontWeight: FontWeight.w700,
   fontSize: 16.0,
   letterSpacing: 0,
-  height: 1.375, // 22pt line height
+  height: 1.5, // 24pt line height
   color: Colors.black,
 );
 
@@ -70,7 +70,7 @@ const body16Medium = TextStyle(
   fontWeight: FontWeight.w500,
   fontSize: 16.0,
   letterSpacing: 0,
-  height: 1.375, // 22pt line height
+  height: 1.5, // 24pt line height
   color: Colors.black,
 );
 
@@ -80,7 +80,7 @@ const body14Bold = TextStyle(
   fontSize: 14.0,
 
   letterSpacing: 0,
-  height: 1.4286, // 20pt line height
+  height: 1.5714, // 22pt line height
   color: Colors.black,
 );
 
@@ -89,7 +89,7 @@ const body14Medium = TextStyle(
   fontWeight: FontWeight.w500,
   fontSize: 14.0,
   letterSpacing: 0,
-  height: 1.4286, // 20pt line height
+  height: 1.5714, // 22pt line height
   color: Colors.black,
 );
 
