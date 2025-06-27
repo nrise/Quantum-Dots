@@ -98,6 +98,15 @@ class QdsTextArea extends StatelessWidget {
     if (uiState.focusState is TextInputFocusin) {
       textAreaCubit.focusNode.requestFocus();
     }
+
+    if (uiState.textSelection != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (textAreaCubit.textController.text.isNotEmpty) {
+          textAreaCubit.textController.selection = uiState.textSelection!;
+        }
+      });
+    }
+
     return Container(
       height: _isDynamicHeight ? null : _calculateHeight,
       constraints: _isDynamicHeight ? BoxConstraints(minHeight: _calculateMinHeight ?? 0) : null,
