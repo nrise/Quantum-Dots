@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 import 'package:quantum_dots/qds_input.dart';
+
 import 'text_area_cubit.dart';
 
 class QdsTextArea extends StatelessWidget {
@@ -13,18 +14,40 @@ class QdsTextArea extends StatelessWidget {
   final void Function(TextAreaUiState)? _onFocused;
   final void Function(TextAreaUiState)? _onTextChanged;
   final void Function(TextAreaUiState)? _onPressedTextClear;
-  final double? height;
+  final QdsTextAreaHeightType? heightType;
 
   QdsTextArea({
     required TextAreaInitialData initialData,
     void Function(TextAreaUiState)? onFocused,
     void Function(TextAreaUiState)? onTextChanged,
     void Function(TextAreaUiState)? onPressedTextClear,
-    this.height = _textAreaHeight,
+    this.heightType = const QdsTextAreaHeightTypeFixed(height: _textAreaHeight),
   })  : _initialData = initialData,
         _onFocused = onFocused,
         _onTextChanged = onTextChanged,
         _onPressedTextClear = onPressedTextClear;
+
+  double? get _calculateHeight {
+    final currentHeightType = heightType;
+    if (currentHeightType is QdsTextAreaHeightTypeFixed) {
+      return currentHeightType.height;
+    } else if (currentHeightType is QdsTextAreaHeightTypeDynamic) {
+      return null;
+    }
+    return _textAreaHeight;
+  }
+
+  double? get _calculateMinHeight {
+    final currentHeightType = heightType;
+    if (currentHeightType is QdsTextAreaHeightTypeDynamic) {
+      return currentHeightType.minHeight;
+    }
+    return null;
+  }
+
+  bool get _isDynamicHeight {
+    return heightType is QdsTextAreaHeightTypeDynamic;
+  }
 
   Widget? _buildLabelWidget(String? label) {
     if (label == null) return null;
@@ -77,7 +100,8 @@ class QdsTextArea extends StatelessWidget {
     }
 
     return Container(
-      height: height,
+      height: _isDynamicHeight ? null : _calculateHeight,
+      constraints: _isDynamicHeight ? BoxConstraints(minHeight: _calculateMinHeight ?? 0) : null,
       decoration: BoxDecoration(
         color: uiState.areaColor,
         borderRadius: BorderRadius.all(Radius.circular(_textAreaRadius)),
