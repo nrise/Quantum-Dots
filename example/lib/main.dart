@@ -15,6 +15,7 @@ import 'package:quantum_dots/qds_profile_card_portrait_medium.dart';
 import 'package:quantum_dots/qds_progress.dart';
 import 'package:quantum_dots/qds_spinner.dart';
 import 'package:quantum_dots/qds_tooltip.dart';
+import 'package:quantum_dots/src/input/textarea/type/qds_text_area_height_type.dart';
 import 'package:quantum_dots_app/sample_buttons.dart';
 
 import 'dimmed_loading_test_screen.dart';
@@ -482,6 +483,55 @@ class DesignSystemSamplePage extends StatelessWidget {
           backgroundColor: wippyPink300,
           textInputAction: TextInputAction.done,
         ),
+      ),
+      QdsTextArea(
+        initialData: const TextAreaInitialData(
+          label: "Fixed Height (200px)",
+          placeholder: "이 텍스트 영역은 200px 고정 높이입니다",
+          helperMessage: "QdsTextAreaHeightTypeFixed(height: 200)",
+          textInputAction: TextInputAction.done,
+        ),
+        heightType: const QdsTextAreaHeightTypeFixed(height: 200),
+      ),
+      QdsTextArea(
+        initialData: const TextAreaInitialData(
+          label: "Fixed Height (100px)",
+          placeholder: "이 텍스트 영역은 100px 고정 높이입니다",
+          helperMessage: "QdsTextAreaHeightTypeFixed(height: 100)",
+          textInputAction: TextInputAction.done,
+        ),
+        heightType: const QdsTextAreaHeightTypeFixed(height: 100),
+      ),
+      QdsTextArea(
+        initialData: const TextAreaInitialData(
+          label: "Dynamic Height",
+          placeholder: "이 텍스트 영역은 내용에 따라 높이가 자동으로 조절됩니다. 여러 줄을 입력해보세요!",
+          helperMessage: "QdsTextAreaHeightTypeDynamic() - 내용에 따라 높이 자동 조절",
+          inputType: TextInputType.multiline,
+          textInputAction: TextInputAction.newline,
+        ),
+        heightType: const QdsTextAreaHeightTypeDynamic(minHeight: 132),
+      ),
+      QdsTextArea(
+        initialData: const TextAreaInitialData(
+          label: "Dynamic Height with Min Height (150px)",
+          placeholder: "이 텍스트 영역은 최소 150px 높이를 가지며, 내용에 따라 높이가 늘어납니다.",
+          helperMessage: "QdsTextAreaHeightTypeDynamic(minHeight: 150) - 최소 높이 150px",
+          inputType: TextInputType.multiline,
+          textInputAction: TextInputAction.newline,
+        ),
+        heightType: const QdsTextAreaHeightTypeDynamic(minHeight: 150),
+      ),
+      QdsTextArea(
+        initialData: const TextAreaInitialData(
+          label: "Large Fixed Height (300px)",
+          text: "큰 고정 높이를 가진 텍스트 영역입니다.\n\n여러 줄의 텍스트를 입력할 수 있는 충분한 공간이 제공됩니다.\n\n높이는 300px로 고정되어 있습니다.",
+          placeholder: "300px 높이의 넓은 텍스트 영역",
+          helperMessage: "QdsTextAreaHeightTypeFixed(height: 300)",
+          inputType: TextInputType.multiline,
+          textInputAction: TextInputAction.newline,
+        ),
+        heightType: const QdsTextAreaHeightTypeFixed(height: 300),
       ),
     ];
   }
