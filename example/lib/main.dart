@@ -15,7 +15,6 @@ import 'package:quantum_dots/qds_profile_card_portrait_medium.dart';
 import 'package:quantum_dots/qds_progress.dart';
 import 'package:quantum_dots/qds_spinner.dart';
 import 'package:quantum_dots/qds_tooltip.dart';
-import 'package:quantum_dots/src/input/textarea/type/qds_text_area_height_type.dart';
 import 'package:quantum_dots_app/sample_buttons.dart';
 
 import 'dimmed_loading_test_screen.dart';
