@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'text_area_initial_data.dart';
-import 'text_area_ui_state.dart';
-import '../type/text_input_state.dart';
 
 import '../type/text_input_focus_state.dart';
+import '../type/text_input_state.dart';
+import 'text_area_initial_data.dart';
+import 'text_area_ui_state.dart';
 
 class TextAreaCubit extends Cubit<TextAreaUiState> {
   final TextEditingController textController;
@@ -47,7 +47,13 @@ class TextAreaCubit extends Cubit<TextAreaUiState> {
       }
     }
     if (state.text != text) {
-      emit(state.copyWith(text: text, state: nextState));
+      emit(
+        state.copyWith(
+          text: text,
+          state: nextState,
+          textSelection: textController.selection,
+        ),
+      );
       _onTextChanged?.call(state);
     }
   }
@@ -61,13 +67,59 @@ class TextAreaCubit extends Cubit<TextAreaUiState> {
   void onFocus() {
     if (state.focusState is TextInputFocusout) {
       emit(state.copyWith(focusState: TextInputFocusState.focusin()));
+
+      if (state.textSelection != null) {
+        textController.selection = state.textSelection!;
+      }
+
       _onFocused?.call(state);
     }
   }
 
   void onFocusOut() {
     if (state.focusState is TextInputFocusin) {
-      emit(state.copyWith(focusState: TextInputFocusState.focusout()));
+      emit(
+        state.copyWith(
+          focusState: TextInputFocusState.focusout(),
+          textSelection: textController.selection,
+        ),
+      );
+    }
+  }
+
+  void updateInitialData(TextAreaInitialData newInitialData) {
+    final shouldUpdateText =
+        state.focusState is TextInputFocusout && (state.state == TextInputState.inactive || state.state == TextInputState.completed);
+
+    if (shouldUpdateText && state.text != newInitialData.text) {
+      textController.text = newInitialData.text;
+
+      if (newInitialData.textSelection != null) {
+        textController.selection = newInitialData.textSelection!;
+      }
+
+      emit(
+        newInitialData.toUiState().copyWith(
+              focusState: state.focusState,
+              text: newInitialData.text,
+              state: newInitialData.text.isEmpty ? TextInputState.inactive : TextInputState.completed,
+              textSelection: newInitialData.textSelection,
+            ),
+      );
+    } else {
+      emit(
+        state.copyWith(
+          label: newInitialData.label,
+          placeholder: newInitialData.placeholder,
+          helperMessage: newInitialData.helperMessage,
+          errorState: newInitialData.errorState,
+          textSelection: newInitialData.textSelection,
+        ),
+      );
+
+      if (state.focusState is TextInputFocusin && newInitialData.textSelection != null) {
+        textController.selection = newInitialData.textSelection!;
+      }
     }
   }
 

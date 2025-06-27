@@ -98,15 +98,14 @@ class QdsTextArea extends StatelessWidget {
     if (uiState.focusState is TextInputFocusin) {
       textAreaCubit.focusNode.requestFocus();
     }
-
     return Container(
       height: _isDynamicHeight ? null : _calculateHeight,
       constraints: _isDynamicHeight ? BoxConstraints(minHeight: _calculateMinHeight ?? 0) : null,
       decoration: BoxDecoration(
         color: uiState.areaColor,
-        borderRadius: BorderRadius.all(Radius.circular(_textAreaRadius)),
+        borderRadius: BorderRadius.all(Radius.circular(QdsTextArea._textAreaRadius)),
       ),
-      padding: EdgeInsets.all(_textAreaPadding),
+      padding: EdgeInsets.all(QdsTextArea._textAreaPadding),
       child: TextField(
         enabled: uiState.state != TextInputState.disable,
         textInputAction: uiState.textInputAction,

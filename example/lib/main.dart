@@ -532,6 +532,19 @@ class DesignSystemSamplePage extends StatelessWidget {
         ),
         heightType: const QdsTextAreaHeightTypeFixed(height: 300),
       ),
+      QdsTextArea(
+        initialData: TextAreaInitialData(
+          text: "Hello World",
+          placeholder: "텍스트를 입력하세요",
+          textSelection: TextSelection.collapsed(offset: 6),
+        ),
+        onFocused: (uiState) {
+          print('포커스됨: 커서 위치 ${uiState.textSelection?.baseOffset}');
+        },
+        onTextChanged: (uiState) {
+          print('텍스트 변경: ${uiState.text}, 커서 위치: ${uiState.textSelection?.baseOffset}');
+        },
+      ),
     ];
   }
 
