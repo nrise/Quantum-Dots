@@ -2,4 +2,4 @@
 dependency_overrides:
   quantum_dots:
     path: ../
-    version: 0.0.73
+    version: 0.0.74
