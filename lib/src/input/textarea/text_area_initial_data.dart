@@ -18,6 +18,7 @@ class TextAreaInitialData with _$TextAreaInitialData {
     @Default(TextInputErrorState.none()) TextInputErrorState errorState,
     @Default(TextInputState.inactive) TextInputState state,
     @Default(null) Color? backgroundColor,
+    @Default(null) TextSelection? textSelection,
   }) = _TextAreaInitialData;
 
   factory TextAreaInitialData.fromUiState(TextAreaUiState uiState) {
@@ -33,6 +34,7 @@ class TextAreaInitialData with _$TextAreaInitialData {
       errorState: uiState.errorState,
       state: uiState.state,
       backgroundColor: uiState.backgroundColor,
+      textSelection: uiState.textSelection,
     );
   }
 }
@@ -51,6 +53,7 @@ extension TextAreaInitialDataExtension on TextAreaInitialData {
       errorState: errorState,
       state: state,
       backgroundColor: backgroundColor,
+      textSelection: textSelection,
     );
   }
 }
