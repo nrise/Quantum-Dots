@@ -539,10 +539,10 @@ class DesignSystemSamplePage extends StatelessWidget {
           textSelection: TextSelection.collapsed(offset: 6),
         ),
         onFocused: (uiState) {
-          print('포커스됨: 커서 위치 ${uiState.textSelection?.baseOffset}');
+          debugPrint('포커스됨: 커서 위치 ${uiState.textSelection?.baseOffset}');
         },
         onTextChanged: (uiState) {
-          print('텍스트 변경: ${uiState.text}, 커서 위치: ${uiState.textSelection?.baseOffset}');
+          debugPrint('텍스트 변경: ${uiState.text}, 커서 위치: ${uiState.textSelection?.baseOffset}');
         },
       ),
     ];
