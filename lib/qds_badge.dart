@@ -1,5 +1,4 @@
 library;
 
-export 'src/banner/qds_banner.dart';
-export 'src/banner/qds_banner_ui_state.dart';
-export 'src/banner/qds_banner_type.dart';
+export 'src/badge/wippy_badge.dart';
+export 'src/badge/badge_type.dart';
