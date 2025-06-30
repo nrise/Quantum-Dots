@@ -16,7 +16,7 @@ import 'package:quantum_dots/qds_progress.dart';
 import 'package:quantum_dots/qds_spinner.dart';
 import 'package:quantum_dots/qds_tooltip.dart';
 import 'package:quantum_dots_app/sample_buttons.dart';
-
+import 'package:quantum_dots/qds_banner.dart';
 import 'dimmed_loading_test_screen.dart';
 import 'empty_states_test_screen.dart';
 import 'toast_test_screen.dart';
@@ -66,6 +66,7 @@ class DesignSystemSamplePage extends StatelessWidget {
         _buildQdsProfileCardGridComponents() +
         _buildQdsGuideComponents() +
         _buildQdsProfileCardPortraitMediumComponents() +
+        _buildQdsBannerComponents() +
         <Widget>[const SizedBox(height: 50)];
   }
 
@@ -1027,6 +1028,34 @@ List<Widget> _buildQdsProfileCardPortraitMediumComponents() {
         ],
       ),
     ),
+  ];
+}
+
+List<Widget> _buildQdsBannerComponents() {
+  return [
+    QdsBanner(
+        uiState: QdsBannerUiState(
+      title: "Title",
+      description: "Description",
+      bgColor: wippyPink200,
+      iconPath: IconPath.iconDm,
+    )),
+    QdsBanner(
+        uiState: QdsBannerUiState(
+      title: "Title",
+      description: "Description",
+      bgColor: wippyViolet200,
+      iconPath: IconPath.iconDm,
+      bannerType: QdsBannerType.newType,
+    )),
+    QdsBanner(
+        uiState: QdsBannerUiState(
+      title: "Title",
+      description: "Description \n dfadf",
+      bgColor: Colors.red,
+      iconPath: IconPath.iconDm,
+      bannerType: QdsBannerType.arrowType,
+    )),
   ];
 }
 
