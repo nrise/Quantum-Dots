@@ -22,6 +22,7 @@ class TextAreaUiState with _$TextAreaUiState {
     @Default(TextInputErrorState.none()) TextInputErrorState errorState,
     @Default(TextInputState.inactive) TextInputState state,
     @Default(null) Color? backgroundColor,
+    @Default(null) TextSelection? textSelection,
   }) = _TextAreaUiState;
 }
 

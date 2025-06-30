@@ -99,32 +99,45 @@ class QdsTextArea extends StatelessWidget {
       textAreaCubit.focusNode.requestFocus();
     }
 
+    if (uiState.textSelection != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (textAreaCubit.textController.text.isNotEmpty) {
+          textAreaCubit.textController.selection = uiState.textSelection!;
+        }
+      });
+    }
+
     return Container(
       height: _isDynamicHeight ? null : _calculateHeight,
       constraints: _isDynamicHeight ? BoxConstraints(minHeight: _calculateMinHeight ?? 0) : null,
       decoration: BoxDecoration(
         color: uiState.areaColor,
-        borderRadius: BorderRadius.all(Radius.circular(_textAreaRadius)),
+        borderRadius: BorderRadius.all(Radius.circular(QdsTextArea._textAreaRadius)),
       ),
-      padding: EdgeInsets.all(_textAreaPadding),
-      child: TextField(
-        enabled: uiState.state != TextInputState.disable,
-        textInputAction: uiState.textInputAction,
-        keyboardType: uiState.inputType,
-        focusNode: textAreaCubit.focusNode,
-        controller: textAreaCubit.textController,
-        onChanged: textAreaCubit.onTextChanged,
-        maxLines: uiState.maxLines,
-        style: _buildTextStyle(uiState),
-        decoration: InputDecoration(
-          isDense: true,
-          contentPadding: EdgeInsets.zero,
-          counterText: "",
-          hintStyle: body14Medium.copyWith(color: wippyGray400),
-          hintText: uiState.placeholder,
-          border: InputBorder.none,
+      padding: EdgeInsets.all(QdsTextArea._textAreaPadding),
+      child: Scrollbar(
+        controller: textAreaCubit.scrollController,
+        thumbVisibility: true,
+        child: TextField(
+          enabled: uiState.state != TextInputState.disable,
+          textInputAction: uiState.textInputAction,
+          keyboardType: uiState.inputType,
+          focusNode: textAreaCubit.focusNode,
+          controller: textAreaCubit.textController,
+          scrollController: textAreaCubit.scrollController,
+          onChanged: textAreaCubit.onTextChanged,
+          maxLines: uiState.maxLines,
+          style: _buildTextStyle(uiState),
+          decoration: InputDecoration(
+            isDense: true,
+            contentPadding: EdgeInsets.zero,
+            counterText: "",
+            hintStyle: body14Medium.copyWith(color: wippyGray400),
+            hintText: uiState.placeholder,
+            border: InputBorder.none,
+          ),
+          textAlign: TextAlign.start,
         ),
-        textAlign: TextAlign.start,
       ),
     );
   }
