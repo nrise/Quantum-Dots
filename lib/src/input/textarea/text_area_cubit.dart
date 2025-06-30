@@ -48,11 +48,12 @@ class TextAreaCubit extends Cubit<TextAreaUiState> {
       }
     }
     if (state.text != text) {
+      final selection = textController.selection.isValid ? textController.selection : null;
       emit(
         state.copyWith(
           text: text,
           state: nextState,
-          textSelection: textController.selection,
+          textSelection: selection,
         ),
       );
       _onTextChanged?.call(state);
@@ -79,10 +80,11 @@ class TextAreaCubit extends Cubit<TextAreaUiState> {
 
   void onFocusOut() {
     if (state.focusState is TextInputFocusin) {
+      final selection = textController.selection.isValid ? textController.selection : null;
       emit(
         state.copyWith(
           focusState: TextInputFocusState.focusout(),
-          textSelection: textController.selection,
+          textSelection: selection,
         ),
       );
     }
@@ -99,22 +101,24 @@ class TextAreaCubit extends Cubit<TextAreaUiState> {
         textController.selection = newInitialData.textSelection!;
       }
 
+      final selection = newInitialData.textSelection?.isValid == true ? newInitialData.textSelection : null;
       emit(
         newInitialData.toUiState().copyWith(
               focusState: state.focusState,
               text: newInitialData.text,
               state: newInitialData.text.isEmpty ? TextInputState.inactive : TextInputState.completed,
-              textSelection: newInitialData.textSelection,
+              textSelection: selection,
             ),
       );
     } else {
+      final selection = newInitialData.textSelection?.isValid == true ? newInitialData.textSelection : null;
       emit(
         state.copyWith(
           label: newInitialData.label,
           placeholder: newInitialData.placeholder,
           helperMessage: newInitialData.helperMessage,
           errorState: newInitialData.errorState,
-          textSelection: newInitialData.textSelection,
+          textSelection: selection,
         ),
       );
 
