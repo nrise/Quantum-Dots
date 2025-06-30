@@ -8,6 +8,7 @@ import 'text_area_ui_state.dart';
 
 class TextAreaCubit extends Cubit<TextAreaUiState> {
   final TextEditingController textController;
+  final ScrollController scrollController = ScrollController();
 
   final Function(TextAreaUiState)? _onFocused;
   final void Function(TextAreaUiState)? _onTextChanged;
@@ -127,6 +128,7 @@ class TextAreaCubit extends Cubit<TextAreaUiState> {
   Future<void> close() {
     focusNode.dispose();
     textController.dispose();
+    scrollController.dispose();
     return super.close();
   }
 }
