@@ -36,6 +36,7 @@ class QdsBanner extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(uiState.title, style: body16Bold.copyWith(color: wippyGray800)),
+                  const SizedBox(height: 4),
                   Text(
                     uiState.description,
                     style: body12Medium.copyWith(color: wippyGray700),
