@@ -194,14 +194,7 @@ class _TooltipComponentState extends State<TooltipComponent> {
       ],
     );
 
-    final child = widget.uiState.maxWidth != null
-        ? ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: widget.uiState.maxWidth!),
-            child: content,
-          )
-        : IntrinsicWidth(child: content);
-
-    return Container(
+    final container = Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: ShapeDecoration(
         color: widget.uiState.backgroundColor,
@@ -209,7 +202,14 @@ class _TooltipComponentState extends State<TooltipComponent> {
           borderRadius: BorderRadius.circular(16),
         ),
       ),
-      child: child,
+      child: content,
     );
+
+    return widget.uiState.maxWidth != null
+        ? ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: widget.uiState.maxWidth!),
+            child: container,
+          )
+        : IntrinsicWidth(child: container);
   }
 }
