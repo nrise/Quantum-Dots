@@ -1,6 +1,7 @@
 import 'state/multi_selective_chip_ui_state.dart';
 import 'package:flutter/widgets.dart';
 import 'package:quantum_dots/qds_foundation.dart';
+import 'package:quantum_dots/qds_animation.dart';
 
 class MultiSelectiveNormalChip extends StatelessWidget {
   static const double _verticalPaddingSize = 8.0;
@@ -14,33 +15,31 @@ class MultiSelectiveNormalChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget chipContent;
+
     if (chipUiState.isSelected) {
-      return GestureDetector(
-        onTapUp: (_) {
-          onPressed();
-        },
-        child: Container(
-          decoration: BoxDecoration(color: wippyGray800, borderRadius: BorderRadius.circular(_radiusSize)),
-          padding: EdgeInsets.symmetric(vertical: _verticalPaddingSize, horizontal: _horizontalPaddingSize),
-          child: Text(
-            chipUiState.chipUiProperties.label,
-            style: body14Bold.copyWith(color: wippyWhite),
-          ),
+      chipContent = Container(
+        decoration: BoxDecoration(color: wippyGray800, borderRadius: BorderRadius.circular(_radiusSize)),
+        padding: EdgeInsets.symmetric(vertical: _verticalPaddingSize, horizontal: _horizontalPaddingSize),
+        child: Text(
+          chipUiState.chipUiProperties.label,
+          style: body14Bold.copyWith(color: wippyWhite),
         ),
       );
     } else {
-      return GestureDetector(
-          onTapUp: (_) {
-            onPressed();
-          },
-          child: Container(
-            decoration: BoxDecoration(color: wippyGray150, borderRadius: BorderRadius.circular(_radiusSize)),
-            padding: EdgeInsets.symmetric(vertical: _verticalPaddingSize, horizontal: _horizontalPaddingSize),
-            child: Text(
-              chipUiState.chipUiProperties.label,
-              style: body14Bold.copyWith(color: wippyGray900),
-            ),
-          ));
+      chipContent = Container(
+        decoration: BoxDecoration(color: wippyGray150, borderRadius: BorderRadius.circular(_radiusSize)),
+        padding: EdgeInsets.symmetric(vertical: _verticalPaddingSize, horizontal: _horizontalPaddingSize),
+        child: Text(
+          chipUiState.chipUiProperties.label,
+          style: body14Bold.copyWith(color: wippyGray900),
+        ),
+      );
     }
+
+    return QdsPressableWidget(
+      onPressed: onPressed,
+      child: chipContent,
+    );
   }
 }

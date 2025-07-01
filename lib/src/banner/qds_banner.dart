@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quantum_dots/qds_foundation.dart';
+import 'package:quantum_dots/qds_animation.dart';
 import 'package:quantum_dots/src/banner/qds_banner_ui_state.dart';
 
 import '../badge/badge_type.dart';
@@ -14,8 +15,8 @@ class QdsBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: uiState.onTap,
+    return QdsPressableWidget(
+      onPressed: uiState.onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 21),
         constraints: const BoxConstraints(
