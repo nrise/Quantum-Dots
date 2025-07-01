@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quantum_dots/qds_animation.dart';
 
 import '../../common_widget/sized_icon.dart';
 import '../qds_box_button_state.dart';
@@ -121,10 +122,13 @@ class QdsRoundButton extends StatelessWidget {
   }
 
   Widget _buildButtonContainer(BuildContext context, QdsRoundButtonUiState uiState, QdsRoundButtonCubit cubit) {
-    return GestureDetector(
+    final isPressed = uiState.state is QdsBoxButtonPressed;
+
+    return QdsPressableWidget(
+      externalIsPressed: isPressed,
+      onTapDown: () => cubit.onTapDown(),
+      onTapUp: () => cubit.onTapUp(),
       onTapCancel: () => cubit.onTapCancel(),
-      onTapUp: (_) => cubit.onTapUp(),
-      onTapDown: (_) => cubit.onTapDown(),
       child: Container(
         alignment: Alignment.center,
         decoration: BoxDecoration(

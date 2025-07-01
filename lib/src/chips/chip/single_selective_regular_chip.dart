@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 import 'package:quantum_dots/qds_chips.dart';
+import 'package:quantum_dots/qds_animation.dart';
 
 class SingleSelectiveRegularChip extends StatelessWidget {
   static const double _selectedBorderWidth = 1;
@@ -41,10 +42,8 @@ class SingleSelectiveRegularChip extends StatelessWidget {
       textColor = wippyGray900;
     }
 
-    return GestureDetector(
-      onTapUp: (_) {
-        onPressed();
-      },
+    return QdsPressableWidget(
+      onPressed: onPressed,
       child: SizedBox(
         height: 54,
         child: Container(

@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:quantum_dots/qds_foundation.dart';
 import 'package:quantum_dots/qds_chips.dart';
+import 'package:quantum_dots/qds_animation.dart';
 
 class SingleSelectiveLargeChip extends StatelessWidget {
   static const double _selectedBorderWidth = 1;
@@ -64,10 +65,8 @@ class SingleSelectiveLargeChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapUp: (_) {
-        onPressed();
-      },
+    return QdsPressableWidget(
+      onPressed: onPressed,
       child: chipUiState.isSelected ? _buildSelectedWidget() : _buildDeselectedWidget(),
     );
   }
