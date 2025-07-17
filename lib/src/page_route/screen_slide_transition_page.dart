@@ -7,10 +7,10 @@ class ScreenSlideTransitionPage<T> extends WippyTransitionPage<T> {
     required super.child,
     required super.name,
     super.key,
+    super.barrierColor = wippyWhite,
   }) : super(
           transitionDuration: const Duration(milliseconds: 200),
           reverseTransitionDuration: const Duration(milliseconds: 200),
-          barrierColor: wippyWhite,
           transitionsBuilder: _transitionsBuilder,
         );
 
