@@ -6,11 +6,11 @@ class ScreenSlideUpTransitionPage<T> extends WippyTransitionPage<T> {
   const ScreenSlideUpTransitionPage({
     required super.child,
     required super.name,
+    super.barrierColor = wippyWhite,
     super.key,
   }) : super(
           transitionDuration: const Duration(milliseconds: 200),
           reverseTransitionDuration: const Duration(milliseconds: 200),
-          barrierColor: wippyWhite,
           transitionsBuilder: _transitionsBuilder,
           enableCupertinoTransition: false,
         );
