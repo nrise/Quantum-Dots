@@ -11,6 +11,7 @@ import 'package:quantum_dots/qds_input.dart';
 import 'package:quantum_dots/qds_page_route.dart';
 import 'package:quantum_dots/qds_popup.dart';
 import 'package:quantum_dots/qds_profile_card_grid.dart';
+import 'package:quantum_dots/qds_profile_card_portrait.dart';
 import 'package:quantum_dots/qds_profile_card_portrait_medium.dart';
 import 'package:quantum_dots/qds_progress.dart';
 import 'package:quantum_dots/qds_spinner.dart';
@@ -44,7 +45,10 @@ class DesignSystemSamplePage extends StatelessWidget {
 
   List<Widget> _buildAllDesignSystemComponents(BuildContext context) {
     return <Widget>[const SizedBox(height: 50)] +
-        [_buildImageSlotComponents(context)] +
+        [
+          _buildImageSlotComponents(context),
+        ] +
+        _buildQdsProfileCardPortraitComponents() +
         _buildWippyTooltipComponents(context) +
         _buildTooltipModalDetectionTest(context) +
         _buildWippyBadge() +
@@ -67,7 +71,7 @@ class DesignSystemSamplePage extends StatelessWidget {
         _buildQdsGuideComponents() +
         _buildQdsProfileCardPortraitMediumComponents() +
         _buildQdsBannerComponents() +
-        <Widget>[const SizedBox(height: 50)];
+        <Widget>[SizedBox(height: 50)];
   }
 
   List<Widget> _buildQdsBulletTextComponents() {
@@ -1028,6 +1032,27 @@ List<Widget> _buildQdsProfileCardPortraitMediumComponents() {
         ],
       ),
     ),
+  ];
+}
+
+List<Widget> _buildQdsProfileCardPortraitComponents() {
+  return [
+    Center(
+      child: QdsProfileCardPortrait(
+        uiState: QdsProfileCardPortraitUiState(
+          imageUrlList: [testProfileImageUrl, testProfileImageUrl, testProfileImageUrl],
+          nicknameWithAge: "닉네임, 24",
+          ekycVerified: true,
+          contextMessage: "Context Message",
+          workplaceAddress: "Workplace Address",
+          bottomButtonColorType: const QdsBoxButtonColorType.primary(),
+          bottomButtonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Button'),
+          onClickBottomButton: () {},
+          cardRatio: 3 / 4, // 세로형 프로필 카드 비율
+          cardWidth: 300, // 카드 너비
+        ),
+      ),
+    )
   ];
 }
 
