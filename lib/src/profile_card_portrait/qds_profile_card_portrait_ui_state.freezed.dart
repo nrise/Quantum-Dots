@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$QdsProfileCardPortraitUiState {
+  String get key => throw _privateConstructorUsedError;
   List<String> get imageUrlList => throw _privateConstructorUsedError;
   String get nicknameWithAge => throw _privateConstructorUsedError;
   bool get ekycVerified => throw _privateConstructorUsedError;
@@ -46,7 +47,8 @@ abstract class $QdsProfileCardPortraitUiStateCopyWith<$Res> {
           QdsProfileCardPortraitUiState>;
   @useResult
   $Res call(
-      {List<String> imageUrlList,
+      {String key,
+      List<String> imageUrlList,
       String nicknameWithAge,
       bool ekycVerified,
       String? contextMessage,
@@ -77,6 +79,7 @@ class _$QdsProfileCardPortraitUiStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? key = null,
     Object? imageUrlList = null,
     Object? nicknameWithAge = null,
     Object? ekycVerified = null,
@@ -90,6 +93,10 @@ class _$QdsProfileCardPortraitUiStateCopyWithImpl<$Res,
     Object? enableBottomButton = null,
   }) {
     return _then(_value.copyWith(
+      key: null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
       imageUrlList: null == imageUrlList
           ? _value.imageUrlList
           : imageUrlList // ignore: cast_nullable_to_non_nullable
@@ -159,7 +166,8 @@ abstract class _$$QdsProfileCardPortraitUiStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<String> imageUrlList,
+      {String key,
+      List<String> imageUrlList,
       String nicknameWithAge,
       bool ekycVerified,
       String? contextMessage,
@@ -190,6 +198,7 @@ class __$$QdsProfileCardPortraitUiStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? key = null,
     Object? imageUrlList = null,
     Object? nicknameWithAge = null,
     Object? ekycVerified = null,
@@ -203,6 +212,10 @@ class __$$QdsProfileCardPortraitUiStateImplCopyWithImpl<$Res>
     Object? enableBottomButton = null,
   }) {
     return _then(_$QdsProfileCardPortraitUiStateImpl(
+      key: null == key
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
       imageUrlList: null == imageUrlList
           ? _value._imageUrlList
           : imageUrlList // ignore: cast_nullable_to_non_nullable
@@ -256,7 +269,8 @@ class __$$QdsProfileCardPortraitUiStateImplCopyWithImpl<$Res>
 class _$QdsProfileCardPortraitUiStateImpl
     implements _QdsProfileCardPortraitUiState {
   const _$QdsProfileCardPortraitUiStateImpl(
-      {required final List<String> imageUrlList,
+      {required this.key,
+      required final List<String> imageUrlList,
       required this.nicknameWithAge,
       required this.ekycVerified,
       this.contextMessage,
@@ -269,6 +283,8 @@ class _$QdsProfileCardPortraitUiStateImpl
       this.enableBottomButton = true})
       : _imageUrlList = imageUrlList;
 
+  @override
+  final String key;
   final List<String> _imageUrlList;
   @override
   List<String> get imageUrlList {
@@ -301,7 +317,7 @@ class _$QdsProfileCardPortraitUiStateImpl
 
   @override
   String toString() {
-    return 'QdsProfileCardPortraitUiState(imageUrlList: $imageUrlList, nicknameWithAge: $nicknameWithAge, ekycVerified: $ekycVerified, contextMessage: $contextMessage, workplaceAddress: $workplaceAddress, onClickBottomButton: $onClickBottomButton, bottomButtonColorType: $bottomButtonColorType, bottomButtonLabelType: $bottomButtonLabelType, cardRatio: $cardRatio, cardWidth: $cardWidth, enableBottomButton: $enableBottomButton)';
+    return 'QdsProfileCardPortraitUiState(key: $key, imageUrlList: $imageUrlList, nicknameWithAge: $nicknameWithAge, ekycVerified: $ekycVerified, contextMessage: $contextMessage, workplaceAddress: $workplaceAddress, onClickBottomButton: $onClickBottomButton, bottomButtonColorType: $bottomButtonColorType, bottomButtonLabelType: $bottomButtonLabelType, cardRatio: $cardRatio, cardWidth: $cardWidth, enableBottomButton: $enableBottomButton)';
   }
 
   @override
@@ -309,6 +325,7 @@ class _$QdsProfileCardPortraitUiStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QdsProfileCardPortraitUiStateImpl &&
+            (identical(other.key, key) || other.key == key) &&
             const DeepCollectionEquality()
                 .equals(other._imageUrlList, _imageUrlList) &&
             (identical(other.nicknameWithAge, nicknameWithAge) ||
@@ -336,6 +353,7 @@ class _$QdsProfileCardPortraitUiStateImpl
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      key,
       const DeepCollectionEquality().hash(_imageUrlList),
       nicknameWithAge,
       ekycVerified,
@@ -362,7 +380,8 @@ class _$QdsProfileCardPortraitUiStateImpl
 abstract class _QdsProfileCardPortraitUiState
     implements QdsProfileCardPortraitUiState {
   const factory _QdsProfileCardPortraitUiState(
-      {required final List<String> imageUrlList,
+      {required final String key,
+      required final List<String> imageUrlList,
       required final String nicknameWithAge,
       required final bool ekycVerified,
       final String? contextMessage,
@@ -374,6 +393,8 @@ abstract class _QdsProfileCardPortraitUiState
       required final double cardWidth,
       final bool enableBottomButton}) = _$QdsProfileCardPortraitUiStateImpl;
 
+  @override
+  String get key;
   @override
   List<String> get imageUrlList;
   @override

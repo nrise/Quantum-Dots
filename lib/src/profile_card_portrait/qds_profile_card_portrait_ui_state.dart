@@ -8,6 +8,7 @@ part 'qds_profile_card_portrait_ui_state.freezed.dart';
 @freezed
 class QdsProfileCardPortraitUiState with _$QdsProfileCardPortraitUiState {
   const factory QdsProfileCardPortraitUiState({
+    required String key,
     required List<String> imageUrlList,
     required String nicknameWithAge,
     required bool ekycVerified,

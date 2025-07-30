@@ -1041,6 +1041,7 @@ List<Widget> _buildQdsProfileCardPortraitComponents() {
       children: [
         QdsProfileCardPortrait(
           uiState: QdsProfileCardPortraitUiState(
+            key: "1",
             imageUrlList: [testProfileImageUrl, testProfileImageUrl, testProfileImageUrl],
             nicknameWithAge: "닉네임, 24",
             ekycVerified: true,
@@ -1056,6 +1057,7 @@ List<Widget> _buildQdsProfileCardPortraitComponents() {
         ),
         QdsProfileCardPortrait(
           uiState: QdsProfileCardPortraitUiState(
+            key: "2",
             imageUrlList: [testProfileImageUrl, testProfileImageUrl, testProfileImageUrl],
             nicknameWithAge: "닉네임, 24",
             ekycVerified: true,
