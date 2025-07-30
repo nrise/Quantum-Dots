@@ -18,5 +18,6 @@ class QdsProfileCardPortraitUiState with _$QdsProfileCardPortraitUiState {
     required QdsBoxButtonLabelType bottomButtonLabelType,
     required double cardRatio,
     required double cardWidth,
+    @Default(true) bool enableBottomButton,
   }) = _QdsProfileCardPortraitUiState;
 }
