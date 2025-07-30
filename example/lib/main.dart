@@ -1037,21 +1037,41 @@ List<Widget> _buildQdsProfileCardPortraitMediumComponents() {
 
 List<Widget> _buildQdsProfileCardPortraitComponents() {
   return [
-    Center(
-      child: QdsProfileCardPortrait(
-        uiState: QdsProfileCardPortraitUiState(
-          imageUrlList: [testProfileImageUrl, testProfileImageUrl, testProfileImageUrl],
-          nicknameWithAge: "닉네임, 24",
-          ekycVerified: true,
-          contextMessage: "Context Message",
-          workplaceAddress: "Workplace Address",
-          bottomButtonColorType: const QdsBoxButtonColorType.primary(),
-          bottomButtonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Button'),
-          onClickBottomButton: () {},
-          cardRatio: 3 / 4, // 세로형 프로필 카드 비율
-          cardWidth: 300, // 카드 너비
+    Column(
+      children: [
+        QdsProfileCardPortrait(
+          uiState: QdsProfileCardPortraitUiState(
+            key: "1",
+            imageUrlList: [testProfileImageUrl, testProfileImageUrl, testProfileImageUrl],
+            nicknameWithAge: "닉네임, 24",
+            ekycVerified: true,
+            contextMessage: "Context Message",
+            workplaceAddress: "Workplace Address",
+            bottomButtonColorType: const QdsBoxButtonColorType.primary(),
+            bottomButtonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Button'),
+            onClickBottomButton: () {},
+            cardRatio: 3 / 4,
+            cardWidth: 300,
+            enableBottomButton: true,
+          ),
         ),
-      ),
+        QdsProfileCardPortrait(
+          uiState: QdsProfileCardPortraitUiState(
+            key: "2",
+            imageUrlList: [testProfileImageUrl, testProfileImageUrl, testProfileImageUrl],
+            nicknameWithAge: "닉네임, 24",
+            ekycVerified: true,
+            contextMessage: "Context Message",
+            workplaceAddress: "Workplace Address",
+            bottomButtonColorType: const QdsBoxButtonColorType.primary(),
+            bottomButtonLabelType: const QdsBoxButtonLabelType.labelOnly(label: 'Button'),
+            onClickBottomButton: () {},
+            cardRatio: 3 / 4,
+            cardWidth: 300,
+            enableBottomButton: false,
+          ),
+        ),
+      ],
     )
   ];
 }

@@ -8,6 +8,7 @@ part 'qds_profile_card_portrait_ui_state.freezed.dart';
 @freezed
 class QdsProfileCardPortraitUiState with _$QdsProfileCardPortraitUiState {
   const factory QdsProfileCardPortraitUiState({
+    required String key,
     required List<String> imageUrlList,
     required String nicknameWithAge,
     required bool ekycVerified,
@@ -18,5 +19,6 @@ class QdsProfileCardPortraitUiState with _$QdsProfileCardPortraitUiState {
     required QdsBoxButtonLabelType bottomButtonLabelType,
     required double cardRatio,
     required double cardWidth,
+    @Default(true) bool enableBottomButton,
   }) = _QdsProfileCardPortraitUiState;
 }

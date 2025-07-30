@@ -58,6 +58,8 @@ class QdsProfileCardPortrait extends StatelessWidget {
                   buttonLabelType: uiState.bottomButtonLabelType,
                   buttonColorType: uiState.bottomButtonColorType,
                   buttonSizeType: QdsBoxButtonSizeType.large(),
+                  enable: uiState.enableBottomButton,
+                  state: uiState.enableBottomButton ? QdsBoxButtonState.active() : QdsBoxButtonState.inactive(),
                 ),
                 onPressed: uiState.onClickBottomButton,
               ),
