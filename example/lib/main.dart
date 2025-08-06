@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quantum_dots/qds_badge.dart';
+import 'package:quantum_dots/qds_banner.dart';
 import 'package:quantum_dots/qds_bottom_sheet.dart';
 import 'package:quantum_dots/qds_button.dart';
 import 'package:quantum_dots/qds_chips.dart';
@@ -17,7 +18,7 @@ import 'package:quantum_dots/qds_progress.dart';
 import 'package:quantum_dots/qds_spinner.dart';
 import 'package:quantum_dots/qds_tooltip.dart';
 import 'package:quantum_dots_app/sample_buttons.dart';
-import 'package:quantum_dots/qds_banner.dart';
+
 import 'dimmed_loading_test_screen.dart';
 import 'empty_states_test_screen.dart';
 import 'toast_test_screen.dart';
@@ -1091,7 +1092,7 @@ List<Widget> _buildQdsBannerComponents() {
       description: "Description",
       bgColor: wippyViolet200,
       iconPath: IconPath.iconDm,
-      bannerType: QdsBannerType.newType,
+      bannerType: QdsBannerType.newType(),
     )),
     QdsBanner(
         uiState: QdsBannerUiState(
@@ -1099,7 +1100,7 @@ List<Widget> _buildQdsBannerComponents() {
       description: "Description \n dfadf",
       bgColor: Colors.red,
       iconPath: IconPath.iconDm,
-      bannerType: QdsBannerType.arrowType,
+      bannerType: QdsBannerType.arrow(),
     )),
   ];
 }

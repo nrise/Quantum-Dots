@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quantum_dots/qds_foundation.dart';
 import 'package:quantum_dots/qds_animation.dart';
+import 'package:quantum_dots/qds_foundation.dart';
 import 'package:quantum_dots/src/banner/qds_banner_ui_state.dart';
 
 import '../badge/badge_type.dart';
@@ -47,11 +47,15 @@ class QdsBanner extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 12),
-            switch (uiState.bannerType) {
-              QdsBannerType.arrowType => SizedIcon(size: 24, asset: IconPath.iconRight),
-              QdsBannerType.newType => WippyBadge(NBadge()),
-              QdsBannerType.defaultType => const SizedBox.shrink(),
-            },
+            uiState.bannerType.map(
+              arrow: (QdsBannerTypeArrow arrow) => SizedIcon(
+                size: 24,
+                asset: IconPath.iconRight,
+                colorFilter: ColorFilter.mode(arrow.iconColor, BlendMode.srcIn),
+              ),
+              newType: (QdsBannerTypeNew newType) => WippyBadge(NBadge()),
+              defaultType: (QdsBannerTypeDefault defaultType) => const SizedBox.shrink(),
+            ),
           ],
         ),
       ),
