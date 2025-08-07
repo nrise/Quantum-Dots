@@ -43,6 +43,8 @@ abstract class $QdsBannerUiStateCopyWith<$Res> {
       String iconPath,
       QdsBannerType bannerType,
       VoidCallback? onTap});
+
+  $QdsBannerTypeCopyWith<$Res> get bannerType;
 }
 
 /// @nodoc
@@ -94,6 +96,16 @@ class _$QdsBannerUiStateCopyWithImpl<$Res, $Val extends QdsBannerUiState>
               as VoidCallback?,
     ) as $Val);
   }
+
+  /// Create a copy of QdsBannerUiState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $QdsBannerTypeCopyWith<$Res> get bannerType {
+    return $QdsBannerTypeCopyWith<$Res>(_value.bannerType, (value) {
+      return _then(_value.copyWith(bannerType: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -111,6 +123,9 @@ abstract class _$$QdsBannerUiStateImplCopyWith<$Res>
       String iconPath,
       QdsBannerType bannerType,
       VoidCallback? onTap});
+
+  @override
+  $QdsBannerTypeCopyWith<$Res> get bannerType;
 }
 
 /// @nodoc
@@ -170,7 +185,7 @@ class _$QdsBannerUiStateImpl implements _QdsBannerUiState {
       required this.description,
       required this.bgColor,
       required this.iconPath,
-      this.bannerType = QdsBannerType.defaultType,
+      this.bannerType = const QdsBannerType.defaultType(),
       this.onTap});
 
   @override

@@ -12,7 +12,7 @@ class QdsBannerUiState with _$QdsBannerUiState {
     required String description,
     required Color bgColor,
     required String iconPath,
-    @Default(QdsBannerType.defaultType) QdsBannerType bannerType,
+    @Default(QdsBannerType.defaultType()) QdsBannerType bannerType,
     VoidCallback? onTap,
   }) = _QdsBannerUiState;
 }
