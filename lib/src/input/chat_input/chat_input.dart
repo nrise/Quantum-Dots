@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:quantum_dots/qds_foundation.dart';
+
 import 'send_button.dart';
 
 class ChatInput extends StatefulWidget {
-  final Function(String) onClickSend;
-  final Function(String) onUpdatedMessage;
+  final Function({required String message}) onClickSend;
+  final Function({required String message}) onUpdatedMessage;
   final bool enable;
+  final FocusNode? focusNode;
   final String? placeHolder;
   final String? buildMessage;
   final bool textClearWhenSend;
@@ -14,6 +16,7 @@ class ChatInput extends StatefulWidget {
   ChatInput({
     required this.onClickSend,
     required this.onUpdatedMessage,
+    this.focusNode,
     this.placeHolder,
     this.buildMessage,
     this.enable = true,
@@ -56,11 +59,12 @@ class ChatInputState extends State<ChatInput> {
         children: [
           Expanded(
             child: TextField(
+              focusNode: widget.focusNode,
               controller: _controller,
               maxLines: maxLine,
               minLines: 1,
               onChanged: (text) {
-                widget.onUpdatedMessage(text);
+                widget.onUpdatedMessage(message: text);
               },
               style: body14Medium.copyWith(color: wippyGray900),
               decoration: InputDecoration(
@@ -79,11 +83,11 @@ class ChatInputState extends State<ChatInput> {
             iconPath: widget.sendButtonIconPath,
             onClickSend: () {
               if (widget.enable && _controller.value.text.isNotEmpty) {
-                widget.onClickSend(_controller.value.text);
+                widget.onClickSend(message: _controller.value.text);
 
                 if (widget.textClearWhenSend) {
                   _controller.clear();
-                  widget.onUpdatedMessage("");
+                  widget.onUpdatedMessage(message: "");
                 }
               }
             },
