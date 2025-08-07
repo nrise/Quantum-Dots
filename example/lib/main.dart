@@ -65,7 +65,6 @@ class DesignSystemSamplePage extends StatelessWidget {
         _buildWippyChipsComponents() +
         _buildWippyTextFieldComponents() +
         _buildQdsTextAreaComponents() +
-        _buildWippyChatInputComponents() +
         <Widget>[const SizedBox(height: 50)] +
         _buildQdsBulletTextComponents() +
         _buildQdsProfileCardGridComponents() +
@@ -562,30 +561,6 @@ class DesignSystemSamplePage extends StatelessWidget {
           initialData: const TextFieldInitialData(
               label: "Error State", errorState: TextInputErrorState.error(errorMessage: "Error Message"), maxCount: 10, placeholder: "Hint")),
       WippyTextField(initialData: const TextFieldInitialData(label: "Disable State", state: TextInputState.disable, placeholder: "Hint")),
-    ];
-  }
-
-  List<Widget> _buildWippyChatInputComponents() {
-    return [
-      ChatInput(
-        onUpdatedMessage: ({required String message}) {
-          debugPrint(message);
-        },
-        onClickSend: ({required String message}) {
-          debugPrint(message);
-        },
-        placeHolder: "Enter Message",
-      ),
-      ChatInput(
-        onUpdatedMessage: ({required String message}) {
-          debugPrint(message);
-        },
-        onClickSend: ({required String message}) {
-          debugPrint(message);
-        },
-        placeHolder: "Enter Message custom icon",
-        sendButtonIconPath: IconPath.iconDm,
-      ),
     ];
   }
 
