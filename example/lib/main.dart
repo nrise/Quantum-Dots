@@ -568,19 +568,19 @@ class DesignSystemSamplePage extends StatelessWidget {
   List<Widget> _buildWippyChatInputComponents() {
     return [
       ChatInput(
-        onUpdatedMessage: (message) {
+        onUpdatedMessage: ({required String message}) {
           debugPrint(message);
         },
-        onClickSend: (message) {
+        onClickSend: ({required String message}) {
           debugPrint(message);
         },
         placeHolder: "Enter Message",
       ),
       ChatInput(
-        onUpdatedMessage: (message) {
+        onUpdatedMessage: ({required String message}) {
           debugPrint(message);
         },
-        onClickSend: (message) {
+        onClickSend: ({required String message}) {
           debugPrint(message);
         },
         placeHolder: "Enter Message custom icon",
