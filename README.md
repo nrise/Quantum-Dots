@@ -73,7 +73,6 @@ flowchart TB
     click ButtonGradient "https://github.com/nrise/Quantum-Dots/blob/develop/lib/src/common_widget/button_gradient.dart"
     click TextField "https://github.com/nrise/Quantum-Dots/blob/develop/lib/src/input/textfield/wippy_text_field.dart"
     click TextArea "https://github.com/nrise/Quantum-Dots/blob/develop/lib/src/input/textarea/wippy_text_area.dart"
-    click ChatInput "https://github.com/nrise/Quantum-Dots/blob/develop/lib/src/input/chat_input/chat_input.dart"
     click Dropdown "https://github.com/nrise/Quantum-Dots/blob/develop/lib/src/input/dropdown/wippy_drop_down.dart"
     click Toast "https://github.com/nrise/Quantum-Dots/blob/develop/lib/src/toast/wippy_toast.dart"
     click Spinner "https://github.com/nrise/Quantum-Dots/blob/develop/lib/src/spinner/wippy_spinner.dart"
